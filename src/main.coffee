@@ -20,16 +20,18 @@ character_sets_and_ranges = require './character-sets-and-ranges'
 @_names_and_ranges_by_csg = character_sets_and_ranges[ 'names-and-ranges-by-csg' ]
 @_ranges_by_rsg           = character_sets_and_ranges[ 'ranges-by-rsg' ]
 binary_interval_search    = require './binary-interval-search'
-
+@_input_default           = 'plain'
+# @_input_default           = 'ncr'
+# @_input_default           = 'xncr'
 
 
 #===========================================================================================================
 # SPLIT TEXT INTO CHARACTERS
 #-----------------------------------------------------------------------------------------------------------
-@chrs_from_text = ( text, options ) ->
+@chrs_from_text = ( text, settings ) ->
   return [] if text.length is 0
   #.........................................................................................................
-  switch input_mode = options?[ 'input' ] ? 'plain'
+  switch input_mode = settings?[ 'input' ] ? @_input_default
     when 'plain'  then splitter = @_plain_splitter
     when 'ncr'    then splitter = @_ncr_splitter
     when 'xncr'   then splitter = @_xncr_splitter
@@ -49,8 +51,8 @@ binary_interval_search    = require './binary-interval-search'
   return R
 
 #-----------------------------------------------------------------------------------------------------------
-@chunks_from_text = ( text, options ) ->
-  ### Given a `text` and `options` (of which `csg` is irrelevant here), return a list of `NCR/chunk`
+@chunks_from_text = ( text, settings ) ->
+  ### Given a `text` and `settings` (of which `csg` is irrelevant here), return a list of `NCR/chunk`
   objects (as returned by `NCR._new_chunk`) that describes stretches of characters with codepoints in the
   same 'range' (Unicode block).
   ###
@@ -60,7 +62,7 @@ binary_interval_search    = require './binary-interval-search'
   last_rsg    = null
   chrs        = []
   #.........................................................................................................
-  switch output_mode = options?[ 'output' ] ? 'plain'
+  switch output_mode = settings?[ 'output' ] ? @_input_default
     when 'plain'
       transform_output = ( chr ) ->
         return chr
@@ -74,8 +76,8 @@ binary_interval_search    = require './binary-interval-search'
     else
       throw new Error "unknown output mode: #{rpr output_mode}"
   #.........................................................................................................
-  for chr in @chrs_from_text text, options
-    description = @analyze chr, options
+  for chr in @chrs_from_text text, settings
+    description = @analyze chr, settings
     { csg
       rsg }     = description
     chr         = description[ if csg is 'u' then 'chr' else 'ncr' ]
@@ -91,26 +93,26 @@ binary_interval_search    = require './binary-interval-search'
   return R
 
 #-----------------------------------------------------------------------------------------------------------
-@html_from_text = ( text, options ) ->
+@html_from_text = ( text, settings ) ->
   R = []
   #.........................................................................................................
-  input_mode  = options?[ 'input' ] ? 'plain'
+  input_mode  = settings?[ 'input' ] ? @_input_default
   chunks      = @chunks_from_text text, input: input_mode, output: 'html'
   for chunk in chunks
-    R.push """<span class="#{chunk[ 'rsg' ]}">#{chunk[ 'text' ]}</span>"""
+    R.push """<span class="#{chunk[ 'rsg' ] ? chunk[ 'csg' ]}">#{chunk[ 'text' ]}</span>"""
   #.........................................................................................................
   return R.join ''
 
 #===========================================================================================================
 # CONVERTING TO CID
 #-----------------------------------------------------------------------------------------------------------
-@cid_from_chr = ( chr, options ) ->
-  input_mode = options?[ 'input' ] ? 'plain'
+@cid_from_chr = ( chr, settings ) ->
+  input_mode = settings?[ 'input' ] ? @_input_default
   return ( @_chr_csg_cid_from_chr chr, input_mode )[ 2 ]
 
 #-----------------------------------------------------------------------------------------------------------
-@csg_cid_from_chr = ( chr, options ) ->
-  input_mode = options?[ 'input' ] ? 'plain'
+@csg_cid_from_chr = ( chr, settings ) ->
+  input_mode = settings?[ 'input' ] ? @_input_default
   return ( @_chr_csg_cid_from_chr chr, input_mode )[ 1 .. ]
 
 #-----------------------------------------------------------------------------------------------------------
@@ -248,25 +250,25 @@ binary_interval_search    = require './binary-interval-search'
 #===========================================================================================================
 # ANALYZE ARGUMENTS
 #-----------------------------------------------------------------------------------------------------------
-@_csg_cid_from_hint = ( cid_hint, options ) ->
+@_csg_cid_from_hint = ( cid_hint, settings ) ->
   ### This helper is used to derive the correct CSG and CID from arguments as accepted by the `as_*` family
   of methods, such as `NCR.as_fncr`, `NCR.as_rsg` and so on; its output may be directly applied to the
   respective namesake private method (`NCR._as_fncr`, `NCR._as_rsg` and so on). The method arguments should
   obey the following rules:
 
   * Methods may be called with one or two arguments; the first is known as the 'CID hint', the second as
-    'options'.
+    'settings'.
 
   * The CID hint may be a number or a text; if it is a number, it is understood as a CID; if it
-    is a text, its interpretation is subject to the `options[ 'input' ]` setting.
+    is a text, its interpretation is subject to the `settings[ 'input' ]` setting.
 
   * Options must be a POD with the optional members `input` and `csg`.
 
-  * `options[ 'input' ]` is *only* observed if the CID hint is a text; it governs which kinds of character
+  * `settings[ 'input' ]` is *only* observed if the CID hint is a text; it governs which kinds of character
     references are recognized in the text. `input` may be one of `plain`, `ncr`, or `xncr`; it defaults to
     `plain` (no character references will be recognized).
 
-  * `options[ 'csg' ]` sets the character set sigil. If `csg` is set in the options, then it will override
+  * `settings[ 'csg' ]` sets the character set sigil. If `csg` is set in the settings, then it will override
     whatever the outcome of `NCR.csg_cid_from_chr` w.r.t. CSG is—in other words, if you call
     `NCR.as_sfncr '&jzr#xe100', input: 'xncr', csg: 'u'`, you will get `u-e100`, with the numerically
     equivalent codepoint from the `u` (Unicode) character set.
@@ -275,13 +277,13 @@ binary_interval_search    = require './binary-interval-search'
 
   ###
   #.........................................................................................................
-  switch type = CND.type_of options
+  switch type = CND.type_of settings
     when 'null', 'undefined'
       csg_of_options  = null
       input_mode      = null
     when 'pod'
-      csg_of_options  = options[ 'csg' ]
-      input_mode      = options[ 'input' ]
+      csg_of_options  = settings[ 'csg' ]
+      input_mode      = settings[ 'input' ]
     else
       throw new Error "expected a POD as second argument, got a #{type}"
   #.........................................................................................................
