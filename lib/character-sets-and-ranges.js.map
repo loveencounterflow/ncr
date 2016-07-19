@@ -1,7 +1,7 @@
 {
   "version": 3,
   "file": "character-sets-and-ranges.js",
-  "sourceRoot": "../../ncr",
+  "sourceRoot": "..",
   "sources": [
     "src/character-sets-and-ranges.coffee"
   ],

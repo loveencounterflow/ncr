@@ -18,7 +18,26 @@ test                      = require 'guy-test'
 NCR                       = require './main'
 
 
+#===========================================================================================================
+# HELPERS
+#-----------------------------------------------------------------------------------------------------------
+@_prune = ->
+  for name, value of @
+    continue if name.startsWith '_'
+    delete @[ name ] unless name in include
+  return null
 
+#-----------------------------------------------------------------------------------------------------------
+@_main = ->
+  test @, 'timeout': 3000
+
+#-----------------------------------------------------------------------------------------------------------
+hex = ( n ) -> '0x' + n.toString 16
+
+
+#===========================================================================================================
+# TESTS
+#-----------------------------------------------------------------------------------------------------------
 @[ 'test # 1' ] = ( T ) ->
   T.eq ( ( '&#123;helo'.match     NCR._first_chr_matcher_ncr )[ 1 .. 3 ] ), [ '', undefined, '123' ]
 
@@ -421,7 +440,10 @@ NCR                       = require './main'
   T.eq ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc</span><span class=\"foo\">&#x24563;</span><span class=\"u-latn\">xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
 
 @[ 'test # 201' ] = ( T ) ->
-  XNCR = CND.LODASH.cloneDeep NCR
+  # debug '4432', NCR
+  ### TAINT poor man's deep copy: ###
+  XNCR = Object.assign {}, NCR
+  XNCR._names_and_ranges_by_csg = Object.assign {}, XNCR._names_and_ranges_by_csg
   XNCR._input_default = 'xncr'
   XNCR._names_and_ranges_by_csg[ 'foo' ] = [ [ '(Glyphs)', 'foo', 0x0000, 0xffffffff, ] ]
   T.eq ( XNCR._names_and_ranges_by_csg is NCR._names_and_ranges_by_csg ), false
@@ -461,6 +483,70 @@ NCR                       = require './main'
 ###
 
 
+#-----------------------------------------------------------------------------------------------------------
+@[ "Unicode demo" ] = ( T ) ->
+  XNCR          = require './xncr'
+  ISL           = require 'interskiplist'
+  mkts_options  = require '../../mingkwai-typesetter/options'
+  rsg_registry  = require './character-sets-and-ranges'
+  unicode_areas = ISL.new()
+  last_cid      = 0x10ffff
+  #.........................................................................................................
+  is_cjk_rsg    = (   rsg ) -> rsg in mkts_options[ 'tex' ][ 'cjk-rsgs' ]
+  is_cjk_glyph  = ( glyph ) -> is_cjk_rsg XNCR.as_rsg glyph
+  # #.........................................................................................................
+  # page_idx      = -1
+  # loop
+  #   page_idx += 1
+  #   page_id   = "page-x#{page_idx.toString 16}"
+  #   page_name = "page-#{page_idx}"
+  #   lo        = page_idx  * 0x100
+  #   hi        = lo        + 0xff
+  #   ISL.add_interval unicode_areas, lo, hi, page_id, { name: page_name, page_idx, lo, hi, rsg: null, }
+  #   ISL.add_interval unicode_areas, lo, hi, page_name, { name: page_name, page_idx, lo, hi, rsg: null, }
+  #   break if lo > last_cid
+  # #.........................................................................................................
+  # lo      = 0x0
+  # hi      = 0x10ffff
+  # name    = 'UCS Codepoints'
+  # rsg     = null
+  # ISL.add_interval unicode_areas, lo, hi, name, { name, lo, hi, rsg, }
+  #.........................................................................................................
+  for csg, ranges of rsg_registry[ 'names-and-ranges-by-csg' ]
+    continue unless csg in [ 'u', 'jzr', ]
+    for range in ranges
+      name        = range[ 'range-name' ]
+      rsg         = range[ 'rsg'        ]
+      lo          = range[ 'first-cid'  ]
+      hi          = range[ 'last-cid'   ]
+      is_cjk      = is_cjk_rsg rsg
+      ISL.add_interval unicode_areas, lo, hi, name, { name, lo, hi, rsg, is_cjk, }
+  #.........................................................................................................
+  for glyph, style of mkts_options[ 'tex' ][ 'glyph-styles' ]
+    glyph   = XNCR.normalize_glyph  glyph
+    rsg     = XNCR.as_rsg           glyph
+    cid     = XNCR.as_cid           glyph
+    lo = hi = cid
+    cid_hex = hex cid
+    name    = "glyph-#{cid_hex}"
+    ISL.add_interval unicode_areas, cid, cid, name, { name, lo, hi, rsg, style, }
+  #.........................................................................................................
+  #.........................................................................................................
+  # for cid in [ 0x0 .. 0x300 ]
+  #   debug ( cid.toString 16 ), find_id_text unicode_areas, cid
+  for glyph in Array.from "helo äöü你好𢕒𡕴𡕨𠤇𫠠𧑴𨒡《》【】"
+    cid     = glyph.codePointAt 0
+    cid_hex = hex cid
+    # debug glyph, cid_hex, find_id_text unicode_areas, cid
+    descriptions = ISL.find_all_values unicode_areas, cid
+    urge glyph, cid_hex
+    for description in descriptions
+      help JSON.stringify description
+    # urge glyph, cid_hex, JSON.stringify ISL.find_all_ids    unicode_areas, cid
+    # info glyph, cid_hex, JSON.stringify ISL.find_any_ids    unicode_areas, cid
+  #.........................................................................................................
+  return null
+
 
 
 ############################################################################################################
@@ -470,8 +556,12 @@ unless module.parent?
     'XXX'
     ]
   # @_prune()
-  test @, 'timeout': 2500
+  @_main()
 
+  # XNCR = require './xncr'
+  # text = 'A-&#x3004;-&jzr#xe100;-&morohashi#x56;-Z'
+  # debug rpr ( XNCR.jzr_as_uchr chr for chr in XNCR.chrs_from_text text ).join ''
+  # debug rpr XNCR.normalize_text text
 
 
 

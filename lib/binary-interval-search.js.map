@@ -1,7 +1,7 @@
 {
   "version": 3,
   "file": "binary-interval-search.js",
-  "sourceRoot": "../../ncr",
+  "sourceRoot": "..",
   "sources": [
     "src/binary-interval-search.coffee"
   ],
