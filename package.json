@@ -29,9 +29,9 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "guy-test": "^1.2.1"
+    "guy-test": "^1.2.3"
   },
   "dependencies": {
-    "cnd": "^3.0.4"
+    "cnd": "^4.1.1"
   }
 }
