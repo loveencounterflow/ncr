@@ -600,6 +600,7 @@ hex = ( n ) -> '0x' + n.toString 16
     urge glyph, cid_hex
     for description in descriptions
       type = description[ 'type' ] ? '???'
+      help ( CND.grey type + '/' ) + ( CND.steel 'interval' ) + ': ' + ( CND.yellow "#{hex description[ 'lo' ]}-#{hex description[ 'hi' ]}" )
       for key, value of description
         continue if key in [ 'type', 'lo', 'hi', ]
         help ( CND.grey type + '/' ) + ( CND.steel key ) + ': ' + ( CND.yellow value )
