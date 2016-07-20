@@ -489,7 +489,7 @@ hex = ( n ) -> '0x' + n.toString 16
   ISL           = require 'interskiplist'
   mkts_options  = require '../../mingkwai-typesetter/options'
   rsg_registry  = require './character-sets-and-ranges'
-  unicode_areas = ISL.new()
+  u             = ISL.new()
   last_cid      = 0x10ffff
   #.........................................................................................................
   is_cjk_rsg    = (   rsg ) -> rsg in mkts_options[ 'tex' ][ 'cjk-rsgs' ]
@@ -502,28 +502,27 @@ hex = ( n ) -> '0x' + n.toString 16
   #   page_name = "page-#{page_idx}"
   #   lo        = page_idx  * 0x100
   #   hi        = lo        + 0xff
-  #   ISL.add_interval unicode_areas, lo, hi, page_id, { name: page_name, page_idx, lo, hi, rsg: null, }
-  #   ISL.add_interval unicode_areas, lo, hi, page_name, { name: page_name, page_idx, lo, hi, rsg: null, }
+  #   ISL.add_interval u, lo, hi, page_id, { name: page_name, page_idx, lo, hi, rsg: null, }
+  #   ISL.add_interval u, lo, hi, page_name, { name: page_name, page_idx, lo, hi, rsg: null, }
   #   break if lo > last_cid
   # #.........................................................................................................
   # lo      = 0x0
   # hi      = 0x10ffff
   # name    = 'UCS Codepoints'
   # rsg     = null
-  # ISL.add_interval unicode_areas, lo, hi, name, { name, lo, hi, rsg, }
+  # ISL.add_interval u, lo, hi, name, { name, lo, hi, rsg, }
   #.........................................................................................................
   add_plane = ( isl, name, lo, hi ) ->
-    type        = 'plane'
-    id          = "#{type}/#{name}"
-    ISL.add_interval isl, lo, hi, id, { id, type, name, lo, hi, }
+    name        = "plane/#{name}"
+    ISL.add_interval isl, { name, lo, hi, }
   #.........................................................................................................
-  add_plane unicode_areas, 'Basic Multilingual Plane (BMP)',              0x0000,   0xffff
-  add_plane unicode_areas, 'Supplementary Multilingual Plane (SMP)',     0x10000,  0x1ffff
-  add_plane unicode_areas, 'Supplementary Ideographic Plane (SIP)',      0x20000,  0x2ffff
-  add_plane unicode_areas, 'Tertiary Ideographic Plane (TIP)',           0x30000,  0x3ffff
-  add_plane unicode_areas, 'Supplementary Special-purpose Plane (SSP)',  0xe0000,  0xefffd
-  add_plane unicode_areas, 'Private Use Area (PUA) [2]',                 0xf0000,  0xffffd
-  add_plane unicode_areas, 'Private Use Area (PUA) [3]',                0x100000, 0x10fffd
+  add_plane u, 'Basic Multilingual Plane (BMP)',              0x0000,   0xffff
+  add_plane u, 'Supplementary Multilingual Plane (SMP)',     0x10000,  0x1ffff
+  add_plane u, 'Supplementary Ideographic Plane (SIP)',      0x20000,  0x2ffff
+  add_plane u, 'Tertiary Ideographic Plane (TIP)',           0x30000,  0x3ffff
+  add_plane u, 'Supplementary Special-purpose Plane (SSP)',  0xe0000,  0xefffd
+  add_plane u, 'Private Use Area (PUA)',                     0xf0000,  0xffffd
+  add_plane u, 'Private Use Area (PUA)',                    0x100000, 0x10fffd
   #.........................................................................................................
   tex_command_by_rsgs = mkts_options[ 'tex' ][ 'tex-command-by-rsgs' ]
   for csg, ranges of rsg_registry[ 'names-and-ranges-by-csg' ]
@@ -535,9 +534,8 @@ hex = ( n ) -> '0x' + n.toString 16
       hi          = range[ 'last-cid'   ]
       is_cjk      = is_cjk_rsg rsg
       tex         = tex_command_by_rsgs[ rsg ] ? tex_command_by_rsgs[ 'fallback' ]
-      type        = 'block'
-      id          = "#{type}/#{name}"
-      ISL.add_interval unicode_areas, lo, hi, id, { id, type, name, lo, hi, rsg, is_cjk, tex, }
+      name        = "block/#{name}"
+      ISL.add_interval u, { name, lo, hi, rsg, is_cjk, tex, }
   #.........................................................................................................
   for glyph, style of mkts_options[ 'tex' ][ 'glyph-styles' ]
     glyph       = XNCR.normalize_glyph  glyph
@@ -546,66 +544,65 @@ hex = ( n ) -> '0x' + n.toString 16
     lo = hi     = cid
     cid_hex     = hex cid
     name        = "glyph-#{cid_hex}"
-    type        = 'style'
-    id          = "#{type}/#{name}"
-    ISL.add_interval unicode_areas, cid, cid, id, { id, type, name, lo, hi, rsg, style, }
+    name        = "style/#{name}"
+    ISL.add_interval u, { name, lo, hi, rsg, style, }
   #.........................................................................................................
   source = """
   # The Unicode Standard, V9.0.0, p49
   # Figure 2-14. Allocation on the BMP
   0000-00FF ASCII & Latin-1 Compatibility Area
-  0100-058F General Scripts Area [1]
-  0590-08FF General Scripts Area (RTL) [1]
-  0900-1FFF General Scripts Area [2]
+  0100-058F General Scripts Area
+  0590-08FF General Scripts Area (RTL)
+  0900-1FFF General Scripts Area
   2000-2BFF Punctuation and Symbols Area
-  2C00-2DFF General Scripts Area [3]
+  2C00-2DFF General Scripts Area
   2E00-2E7F Supplemental Punctuation Area
   2E80-33FF CJK Miscellaneous Area
   3400-9FFF CJKV Unified Ideographs Area
   A000-ABFF General Scripts Area (Asia & Africa)
   AC00-D7FF Hangul Syllables Area
   D800-DFFF Surrogate Codes
-  E000-F8FF Private Use Area (PUA) [1]
+  E000-F8FF Private Use Area (PUA)
   F900-FFFF Compatibility and Specials Area
   # The Unicode Standard, V9.0.0, p51
   # Figure 2-15. Allocation on Plane 1
-  10000-107FF General Scripts Area [4]
-  10800-10FFF General Scripts Area (RTL) [2]
-  11000-11FFF General Scripts Area [5]
+  10000-107FF General Scripts Area
+  10800-10FFF General Scripts Area (RTL)
+  11000-11FFF General Scripts Area
   12000-15FFF Cuneiform & Hieroglyphic Area
-  16000-16FFF General Scripts Area [6]
+  16000-16FFF General Scripts Area
   17000-1BBFF Ideographic Scripts Area
-  1BC00-1CFFF General Scripts Area [7]
-  1D000-1E7FF Symbols Area [1]
-  1E800-1EFFF General Scripts Area (RTL) [3]
-  1F000-1FFFF Symbols Area [2]
+  1BC00-1CFFF General Scripts Area
+  1D000-1E7FF Symbols Area
+  1E800-1EFFF General Scripts Area (RTL)
+  1F000-1FFFF Symbols Area
   """
-  type = 'area'
   for line in source.split '\n'
     line = line.trim()
     continue if line.startsWith '#'
     [ _, lo, hi, name, ]  = line.match /^([0-9a-fA-F]{4,5})-([0-9a-fA-F]{4,5}) (.+)$/
     lo                    = parseInt lo, 16
     hi                    = parseInt hi, 16
-    id                    = "#{type}/#{name}"
-    ISL.add_interval unicode_areas, lo, hi, id, { id, type, name, lo, hi, }
+    name                  = "area/#{name}"
+    ISL.add_interval u, { name, lo, hi, }
+    # ISL.add_range u, lo, hi, { type, name, lo, hi, }
   #.........................................................................................................
   # for cid in [ 0x0 .. 0x300 ]
-  #   debug ( cid.toString 16 ), find_id_text unicode_areas, cid
+  #   debug ( cid.toString 16 ), find_id_text u, cid
   for glyph in XNCR.chrs_from_text "helo äöü你好𢕒𡕴𡕨𠤇𫠠𧑴𨒡《》【】&jzr#xe100;🖹"
     cid     = XNCR.as_cid glyph
     cid_hex = hex cid
-    # debug glyph, cid_hex, find_id_text unicode_areas, cid
-    descriptions = ISL.find_all_values unicode_areas, cid
+    # debug glyph, cid_hex, find_id_text u, cid
+    descriptions = ISL.find_all_values u, cid
     urge glyph, cid_hex
     for description in descriptions
-      type = description[ 'type' ] ? '???'
+      [ type, _, ] = ( description[ 'name' ] ? '???/' ).split '/'
       help ( CND.grey type + '/' ) + ( CND.steel 'interval' ) + ': ' + ( CND.yellow "#{hex description[ 'lo' ]}-#{hex description[ 'hi' ]}" )
       for key, value of description
-        continue if key in [ 'type', 'lo', 'hi', ]
+        continue if key in [ 'lo', 'hi', 'id', ]
         help ( CND.grey type + '/' ) + ( CND.steel key ) + ': ' + ( CND.yellow value )
-    # urge glyph, cid_hex, JSON.stringify ISL.find_all_ids    unicode_areas, cid
-    # info glyph, cid_hex, JSON.stringify ISL.find_any_ids    unicode_areas, cid
+    # urge glyph, cid_hex, JSON.stringify ISL.find_all_ids    u, cid
+    # info glyph, cid_hex, JSON.stringify ISL.find_any_ids    u, cid
   #.........................................................................................................
   return null
 
