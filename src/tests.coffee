@@ -512,6 +512,20 @@ hex = ( n ) -> '0x' + n.toString 16
   # rsg     = null
   # ISL.add_interval unicode_areas, lo, hi, name, { name, lo, hi, rsg, }
   #.........................................................................................................
+  add_plane = ( isl, name, lo, hi ) ->
+    type        = 'plane'
+    id          = "#{type}/#{name}"
+    ISL.add_interval isl, lo, hi, id, { id, type, name, lo, hi, }
+  #.........................................................................................................
+  add_plane unicode_areas, 'Basic Multilingual Plane (BMP)',              0x0000,   0xffff
+  add_plane unicode_areas, 'Supplementary Multilingual Plane (SMP)',     0x10000,  0x1ffff
+  add_plane unicode_areas, 'Supplementary Ideographic Plane (SIP)',      0x20000,  0x2ffff
+  add_plane unicode_areas, 'Tertiary Ideographic Plane (TIP)',           0x30000,  0x3ffff
+  add_plane unicode_areas, 'Supplementary Special-purpose Plane (SSP)',  0xe0000,  0xefffd
+  add_plane unicode_areas, 'Private Use Area (PUA) [2]',                 0xf0000,  0xffffd
+  add_plane unicode_areas, 'Private Use Area (PUA) [3]',                0x100000, 0x10fffd
+  #.........................................................................................................
+  tex_command_by_rsgs = mkts_options[ 'tex' ][ 'tex-command-by-rsgs' ]
   for csg, ranges of rsg_registry[ 'names-and-ranges-by-csg' ]
     continue unless csg in [ 'u', 'jzr', ]
     for range in ranges
@@ -520,28 +534,75 @@ hex = ( n ) -> '0x' + n.toString 16
       lo          = range[ 'first-cid'  ]
       hi          = range[ 'last-cid'   ]
       is_cjk      = is_cjk_rsg rsg
-      ISL.add_interval unicode_areas, lo, hi, name, { name, lo, hi, rsg, is_cjk, }
+      tex         = tex_command_by_rsgs[ rsg ] ? tex_command_by_rsgs[ 'fallback' ]
+      type        = 'block'
+      id          = "#{type}/#{name}"
+      ISL.add_interval unicode_areas, lo, hi, id, { id, type, name, lo, hi, rsg, is_cjk, tex, }
   #.........................................................................................................
   for glyph, style of mkts_options[ 'tex' ][ 'glyph-styles' ]
-    glyph   = XNCR.normalize_glyph  glyph
-    rsg     = XNCR.as_rsg           glyph
-    cid     = XNCR.as_cid           glyph
-    lo = hi = cid
-    cid_hex = hex cid
-    name    = "glyph-#{cid_hex}"
-    ISL.add_interval unicode_areas, cid, cid, name, { name, lo, hi, rsg, style, }
+    glyph       = XNCR.normalize_glyph  glyph
+    rsg         = XNCR.as_rsg           glyph
+    cid         = XNCR.as_cid           glyph
+    lo = hi     = cid
+    cid_hex     = hex cid
+    name        = "glyph-#{cid_hex}"
+    type        = 'style'
+    id          = "#{type}/#{name}"
+    ISL.add_interval unicode_areas, cid, cid, id, { id, type, name, lo, hi, rsg, style, }
   #.........................................................................................................
+  source = """
+  # The Unicode Standard, V9.0.0, p49
+  # Figure 2-14. Allocation on the BMP
+  0000-00FF ASCII & Latin-1 Compatibility Area
+  0100-058F General Scripts Area [1]
+  0590-08FF General Scripts Area (RTL) [1]
+  0900-1FFF General Scripts Area [2]
+  2000-2BFF Punctuation and Symbols Area
+  2C00-2DFF General Scripts Area [3]
+  2E00-2E7F Supplemental Punctuation Area
+  2E80-33FF CJK Miscellaneous Area
+  3400-9FFF CJKV Unified Ideographs Area
+  A000-ABFF General Scripts Area (Asia & Africa)
+  AC00-D7FF Hangul Syllables Area
+  D800-DFFF Surrogate Codes
+  E000-F8FF Private Use Area (PUA) [1]
+  F900-FFFF Compatibility and Specials Area
+  # The Unicode Standard, V9.0.0, p51
+  # Figure 2-15. Allocation on Plane 1
+  10000-107FF General Scripts Area [4]
+  10800-10FFF General Scripts Area (RTL) [2]
+  11000-11FFF General Scripts Area [5]
+  12000-15FFF Cuneiform & Hieroglyphic Area
+  16000-16FFF General Scripts Area [6]
+  17000-1BBFF Ideographic Scripts Area
+  1BC00-1CFFF General Scripts Area [7]
+  1D000-1E7FF Symbols Area [1]
+  1E800-1EFFF General Scripts Area (RTL) [3]
+  1F000-1FFFF Symbols Area [2]
+  """
+  type = 'area'
+  for line in source.split '\n'
+    line = line.trim()
+    continue if line.startsWith '#'
+    [ _, lo, hi, name, ]  = line.match /^([0-9a-fA-F]{4,5})-([0-9a-fA-F]{4,5}) (.+)$/
+    lo                    = parseInt lo, 16
+    hi                    = parseInt hi, 16
+    id                    = "#{type}/#{name}"
+    ISL.add_interval unicode_areas, lo, hi, id, { id, type, name, lo, hi, }
   #.........................................................................................................
   # for cid in [ 0x0 .. 0x300 ]
   #   debug ( cid.toString 16 ), find_id_text unicode_areas, cid
-  for glyph in Array.from "helo äöü你好𢕒𡕴𡕨𠤇𫠠𧑴𨒡《》【】"
-    cid     = glyph.codePointAt 0
+  for glyph in XNCR.chrs_from_text "helo äöü你好𢕒𡕴𡕨𠤇𫠠𧑴𨒡《》【】&jzr#xe100;🖹"
+    cid     = XNCR.as_cid glyph
     cid_hex = hex cid
     # debug glyph, cid_hex, find_id_text unicode_areas, cid
     descriptions = ISL.find_all_values unicode_areas, cid
     urge glyph, cid_hex
     for description in descriptions
-      help JSON.stringify description
+      type = description[ 'type' ] ? '???'
+      for key, value of description
+        continue if key in [ 'type', 'lo', 'hi', ]
+        help ( CND.grey type + '/' ) + ( CND.steel key ) + ': ' + ( CND.yellow value )
     # urge glyph, cid_hex, JSON.stringify ISL.find_all_ids    unicode_areas, cid
     # info glyph, cid_hex, JSON.stringify ISL.find_any_ids    unicode_areas, cid
   #.........................................................................................................
