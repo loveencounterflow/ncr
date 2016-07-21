@@ -502,19 +502,19 @@ hex = ( n ) -> '0x' + n.toString 16
   #   page_name = "page-#{page_idx}"
   #   lo        = page_idx  * 0x100
   #   hi        = lo        + 0xff
-  #   ISL.add_interval u, lo, hi, page_id, { name: page_name, page_idx, lo, hi, rsg: null, }
-  #   ISL.add_interval u, lo, hi, page_name, { name: page_name, page_idx, lo, hi, rsg: null, }
+  #   ISL.insert u, lo, hi, page_id, { name: page_name, page_idx, lo, hi, rsg: null, }
+  #   ISL.insert u, lo, hi, page_name, { name: page_name, page_idx, lo, hi, rsg: null, }
   #   break if lo > last_cid
   # #.........................................................................................................
   # lo      = 0x0
   # hi      = 0x10ffff
   # name    = 'UCS Codepoints'
   # rsg     = null
-  # ISL.add_interval u, lo, hi, name, { name, lo, hi, rsg, }
+  # ISL.insert u, lo, hi, name, { name, lo, hi, rsg, }
   #.........................................................................................................
   add_plane = ( isl, name, lo, hi ) ->
-    name        = "plane/#{name}"
-    ISL.add_interval isl, { name, lo, hi, }
+    name        = "plane:#{name}"
+    ISL.insert isl, { name, lo, hi, }
   #.........................................................................................................
   add_plane u, 'Basic Multilingual Plane (BMP)',              0x0000,   0xffff
   add_plane u, 'Supplementary Multilingual Plane (SMP)',     0x10000,  0x1ffff
@@ -525,6 +525,13 @@ hex = ( n ) -> '0x' + n.toString 16
   add_plane u, 'Private Use Area (PUA)',                    0x100000, 0x10fffd
   #.........................................................................................................
   tex_command_by_rsgs = mkts_options[ 'tex' ][ 'tex-command-by-rsgs' ]
+  #.........................................................................................................
+  lo          = 0x000000
+  hi          = 0x10ffff
+  tex         = tex_command_by_rsgs[ 'fallback' ]
+  name        = "style:fallback"
+  ISL.insert u, { name, lo, hi, tex, }
+  #.........................................................................................................
   for csg, ranges of rsg_registry[ 'names-and-ranges-by-csg' ]
     continue unless csg in [ 'u', 'jzr', ]
     for range in ranges
@@ -533,9 +540,12 @@ hex = ( n ) -> '0x' + n.toString 16
       lo          = range[ 'first-cid'  ]
       hi          = range[ 'last-cid'   ]
       is_cjk      = is_cjk_rsg rsg
-      tex         = tex_command_by_rsgs[ rsg ] ? tex_command_by_rsgs[ 'fallback' ]
-      name        = "block/#{name}"
-      ISL.add_interval u, { name, lo, hi, rsg, is_cjk, tex, }
+      tex         = tex_command_by_rsgs[ rsg ] ? null
+      name        = "block:#{name}"
+      if tex?
+        ISL.insert u, { name, lo, hi, rsg, is_cjk, tex, }
+      else
+        ISL.insert u, { name, lo, hi, rsg, is_cjk, }
   #.........................................................................................................
   for glyph, style of mkts_options[ 'tex' ][ 'glyph-styles' ]
     glyph       = XNCR.normalize_glyph  glyph
@@ -544,8 +554,8 @@ hex = ( n ) -> '0x' + n.toString 16
     lo = hi     = cid
     cid_hex     = hex cid
     name        = "glyph-#{cid_hex}"
-    name        = "style/#{name}"
-    ISL.add_interval u, { name, lo, hi, rsg, style, }
+    name        = "style:#{name}"
+    ISL.insert u, { name, lo, hi, rsg, style, }
   #.........................................................................................................
   source = """
   # The Unicode Standard, V9.0.0, p49
@@ -583,8 +593,8 @@ hex = ( n ) -> '0x' + n.toString 16
     [ _, lo, hi, name, ]  = line.match /^([0-9a-fA-F]{4,5})-([0-9a-fA-F]{4,5}) (.+)$/
     lo                    = parseInt lo, 16
     hi                    = parseInt hi, 16
-    name                  = "area/#{name}"
-    ISL.add_interval u, { name, lo, hi, }
+    name                  = "area:#{name}"
+    ISL.insert u, { name, lo, hi, }
     # ISL.add_range u, lo, hi, { type, name, lo, hi, }
   #.........................................................................................................
   # for cid in [ 0x0 .. 0x300 ]
@@ -593,10 +603,10 @@ hex = ( n ) -> '0x' + n.toString 16
     cid     = XNCR.as_cid glyph
     cid_hex = hex cid
     # debug glyph, cid_hex, find_id_text u, cid
-    descriptions = ISL.find_all_values u, cid
+    descriptions = ISL.find_values_with_all_points u, cid
     urge glyph, cid_hex
     for description in descriptions
-      [ type, _, ] = ( description[ 'name' ] ? '???/' ).split '/'
+      [ type, _, ] = ( description[ 'name' ] ? '???/' ).split ':'
       help ( CND.grey type + '/' ) + ( CND.steel 'interval' ) + ': ' + ( CND.yellow "#{hex description[ 'lo' ]}-#{hex description[ 'hi' ]}" )
       for key, value of description
         continue if key in [ 'lo', 'hi', 'id', ]
