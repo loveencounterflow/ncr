@@ -1,7 +1,7 @@
 {
   "name": "ncr",
-  "version": "1.0.0",
-  "description": "A parser and converter for Unicode Characters, including (standard and eXtended) Numerical Character References",
+  "version": "0.2.0",
+  "description": "A parser and converter for Unicode Characters, including (standard and extended) Numerical Character References",
   "main": "lib/main.js",
   "scripts": {
     "build": "coffee --map -o lib -c src",
