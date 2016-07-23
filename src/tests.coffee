@@ -603,7 +603,7 @@ hex = ( n ) -> '0x' + n.toString 16
     cid     = XNCR.as_cid glyph
     cid_hex = hex cid
     # debug glyph, cid_hex, find_id_text u, cid
-    descriptions = ISL.find_values_with_all_points u, cid
+    descriptions = ISL.find_entries_with_all_points u, cid
     urge glyph, cid_hex
     for description in descriptions
       [ type, _, ] = ( description[ 'name' ] ? '???/' ).split ':'
@@ -613,6 +613,8 @@ hex = ( n ) -> '0x' + n.toString 16
         help ( CND.grey type + '/' ) + ( CND.steel key ) + ': ' + ( CND.yellow value )
     # urge glyph, cid_hex, JSON.stringify ISL.find_all_ids    u, cid
     # info glyph, cid_hex, JSON.stringify ISL.find_any_ids    u, cid
+  #.........................................................................................................
+  debug ISL.aggregate u, '《', { tex: 'list', style: 'list', }
   #.........................................................................................................
   return null
 

@@ -33,6 +33,6 @@
   },
   "dependencies": {
     "cnd": "^4.1.1",
-    "interskiplist": "^0.2.2"
+    "interskiplist": "^0.2.5"
   }
 }
