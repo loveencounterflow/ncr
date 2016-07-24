@@ -456,20 +456,7 @@ hex = ( n ) -> '0x' + n.toString 16
   T.eq (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc&amp;foo#x24563;xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
   T.eq ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc</span><span class=\"foo\">&#x24563;</span><span class=\"u-latn\">xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
 
-#-----------------------------------------------------------------------------------------------------------
 
-
-
-#===========================================================================================================
-# HELPERS
-#-----------------------------------------------------------------------------------------------------------
-@_prune = ->
-  for name, value of @
-    continue if name.startsWith '_'
-    delete @[ name ] unless name in include
-  return null
-
-#-----------------------------------------------------------------------------------------------------------
 ###
   'so|glyph:劬|cp/fncr:u-cjk/52ac|0'
   'so|glyph:邭|cp/fncr:u-cjk/90ad|0'
@@ -532,6 +519,7 @@ hex = ( n ) -> '0x' + n.toString 16
   name        = "style:fallback"
   ISL.insert u, { name, lo, hi, tex, }
   #.........................................................................................................
+  intervals_by_rsg = {}
   for csg, ranges of rsg_registry[ 'names-and-ranges-by-csg' ]
     continue unless csg in [ 'u', 'jzr', ]
     for range in ranges
@@ -543,9 +531,9 @@ hex = ( n ) -> '0x' + n.toString 16
       tex         = tex_command_by_rsgs[ rsg ] ? null
       name        = "block:#{name}"
       if tex?
-        ISL.insert u, { name, lo, hi, rsg, is_cjk, tex, }
+        ISL.insert u, intervals_by_rsg[ rsg ] = { name, lo, hi, rsg, is_cjk, tex, }
       else
-        ISL.insert u, { name, lo, hi, rsg, is_cjk, }
+        ISL.insert u, intervals_by_rsg[ rsg ] = { name, lo, hi, rsg, is_cjk, }
   #.........................................................................................................
   for glyph, style of mkts_options[ 'tex' ][ 'glyph-styles' ]
     glyph       = XNCR.normalize_glyph  glyph
@@ -615,6 +603,28 @@ hex = ( n ) -> '0x' + n.toString 16
     # info glyph, cid_hex, JSON.stringify ISL.find_any_ids    u, cid
   #.........................................................................................................
   debug ISL.aggregate u, '《', { tex: 'list', style: 'list', }
+  cjk_rsgs = [
+    'u-cjk'
+    'u-halfull'
+    'u-cjk-xa'
+    'u-cjk-xb'
+    'u-cjk-xc'
+    'u-cjk-xd'
+    'u-cjk-xe'
+    # 'u-cjk-xf'
+    'u-cjk-cmpi1'
+    'u-cjk-cmpi2'
+    'u-cjk-rad1'
+    'u-cjk-rad2'
+    'u-cjk-sym'
+    'u-cjk-strk'
+    'u-cjk-kata'
+    'u-cjk-hira'
+    'u-hang-syl'
+    'u-cjk-enclett' ]
+  for rsg in cjk_rsgs
+    { lo, hi, } = intervals_by_rsg[ rsg ]
+    debug "#{rpr rsg}: { lo: #{hex lo}, hi: #{hex hi}, name: #{rsg}, }"
   #.........................................................................................................
   return null
 
