@@ -611,7 +611,7 @@ hex = ( n ) -> '0x' + n.toString 16
     'u-cjk-xc'
     'u-cjk-xd'
     'u-cjk-xe'
-    # 'u-cjk-xf'
+    'u-cjk-xf'
     'u-cjk-cmpi1'
     'u-cjk-cmpi2'
     'u-cjk-rad1'
