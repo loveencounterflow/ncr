@@ -603,28 +603,31 @@ hex = ( n ) -> '0x' + n.toString 16
     # info glyph, cid_hex, JSON.stringify ISL.find_any_ids    u, cid
   #.........................................................................................................
   debug ISL.aggregate u, '《', { tex: 'list', style: 'list', }
-  cjk_rsgs = [
-    'u-cjk'
-    'u-halfull'
-    'u-cjk-xa'
-    'u-cjk-xb'
-    'u-cjk-xc'
-    'u-cjk-xd'
-    'u-cjk-xe'
-    'u-cjk-xf'
-    'u-cjk-cmpi1'
-    'u-cjk-cmpi2'
-    'u-cjk-rad1'
-    'u-cjk-rad2'
-    'u-cjk-sym'
-    'u-cjk-strk'
-    'u-cjk-kata'
-    'u-cjk-hira'
-    'u-hang-syl'
-    'u-cjk-enclett' ]
-  for rsg in cjk_rsgs
+  tag_by_rsgs =
+    'u-cjk':          [ 'cjk', ]
+    'u-halfull':      [ 'cjk', ]
+    'u-cjk-xa':       [ 'cjk', ]
+    'u-cjk-xb':       [ 'cjk', ]
+    'u-cjk-xc':       [ 'cjk', ]
+    'u-cjk-xd':       [ 'cjk', ]
+    'u-cjk-xe':       [ 'cjk', ]
+    'u-cjk-xf':       [ 'cjk', ]
+    'u-cjk-cmpi1':    [ 'cjk', ]
+    'u-cjk-cmpi2':    [ 'cjk', ]
+    'u-cjk-rad1':     [ 'cjk', ]
+    'u-cjk-rad2':     [ 'cjk', ]
+    'u-cjk-sym':      [ 'cjk', ]
+    'u-cjk-strk':     [ 'cjk', 'stroke', ]
+    'u-cjk-kata':     [ 'cjk', 'kana', 'katakana', ]
+    'u-cjk-hira':     [ 'cjk', 'kana', 'hiragana', ]
+    'u-hang-syl':     [ 'cjk', 'hangeul', ]
+    'u-cjk-enclett':  [ 'cjk', 'enclosed', ]
+  for rsg, tag of tag_by_rsgs
     { lo, hi, } = intervals_by_rsg[ rsg ]
-    debug "#{rpr rsg}: { lo: #{hex lo}, hi: #{hex hi}, name: #{rsg}, }"
+    ISL.insert { lo, hi, tag, }
+  # debug ISL.find_tag u, ''
+  # debug ISL.find_tag u, ''
+  # debug ISL.find_tag u, ''
   #.........................................................................................................
   return null
 
