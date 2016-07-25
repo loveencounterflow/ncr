@@ -265,6 +265,7 @@ a hyphen, as in `u-latn-b` standing for Unicode range `Latin Extended-B`.
   [ 'CJK Unified Ideographs Extension C',              'u-cjk-xc',         0x2a700,   0x2b73f,  ]
   [ 'CJK Unified Ideographs Extension D',              'u-cjk-xd',         0x2b740,   0x2b81f,  ]
   [ 'CJK Unified Ideographs Extension E',              'u-cjk-xe',         0x2b820,   0x2ceaf,  ]
+  [ 'CJK Unified Ideographs Extension F',              'u-cjk-xf',         0x2ceb0,   0x2ebef,  ]
   [ 'CJK Compatibility Ideographs Supplement',         'u-cjk-cmpi2',      0x2f800,   0x2fa1f,  ]
   [ 'Tags',                                            null,               0xe0000,   0xe007f,  ]
   [ 'Variation Selectors Supplement',                  'u-varsl-s',        0xe0100,   0xe01ef,  ]
