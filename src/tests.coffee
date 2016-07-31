@@ -471,45 +471,138 @@ hex = ( n ) -> '0x' + n.toString 16
 
 
 #-----------------------------------------------------------------------------------------------------------
+@[ "negative tags (demo: how to tag Unicode unassigned codepoints)" ] = ( T ) ->
+  probes_and_matchers = [
+    [ 0x375, 'u9.0.0 assigned' ]
+    [ 0x376, 'u9.0.0 assigned' ]
+    [ 0x377, 'u9.0.0 assigned' ]
+    [ 0x378, 'unassigned u9.0.0' ]
+    [ 0x379, 'unassigned u9.0.0' ]
+    [ 0x37a, 'u9.0.0 assigned' ]
+    [ 0x37b, 'u9.0.0 assigned' ]
+    [ 0x37c, 'u9.0.0 assigned' ]
+    [ 0x37d, 'u9.0.0 assigned' ]
+    [ 0x37e, 'u9.0.0 assigned' ]
+    [ 0x37f, 'u9.0.0 assigned' ]
+    [ 0x380, 'unassigned u9.0.0' ]
+    [ 0x381, 'unassigned u9.0.0' ]
+    [ 0x382, 'unassigned u9.0.0' ]
+    [ 0x383, 'unassigned u9.0.0' ]
+    [ 0x384, 'u9.0.0 assigned' ]
+    [ 0x385, 'u9.0.0 assigned' ]
+    [ 0x386, 'u9.0.0 assigned' ]
+    [ 0x387, 'u9.0.0 assigned' ]
+    [ 0x388, 'u9.0.0 assigned' ]
+    [ 0x389, 'u9.0.0 assigned' ]
+    [ 0x38a, 'u9.0.0 assigned' ]
+    [ 0x38b, 'unassigned u9.0.0' ]
+    [ 0x38c, 'u9.0.0 assigned' ]
+    [ 0x38d, 'unassigned u9.0.0' ]
+    [ 0x38e, 'u9.0.0 assigned' ]
+    [ 0x38f, 'u9.0.0 assigned' ]
+    [ 0x390, 'u9.0.0 assigned' ]
+    [ 0x391, 'u9.0.0 assigned' ]
+    [ 0x392, 'u9.0.0 assigned' ]
+    [ 0x393, 'u9.0.0 assigned' ]
+    ]
+  XNCR          = require './xncr'
+  ISL           = require 'interskiplist'
+  first_cid     = 0x0
+  last_cid      = 0x10ffff
+  ucps          = require '../data/unicode-9.0.0-codepoints.js'
+  cp_intervals  = ISL.intervals_from_points null, ucps.codepoints, ucps.ranges...
+  u             = ISL.new()
+  ISL.add u, { lo: first_cid, hi: last_cid, tag: 'unassigned u9.0.0', }
+  #.........................................................................................................
+  for cp_interval in cp_intervals
+    { lo, hi, } = cp_interval
+    ISL.add u, { lo, hi, tag: '-unassigned assigned', }
+  #.........................................................................................................
+  for [ probe, matcher, ] in probes_and_matchers
+    result  = ( ISL.aggregate u, probe )[ 'tag' ].join ' '
+    # chr     = String.fromCodePoint probe
+    # debug [ ( hex probe ), result, ]
+    T.eq result, matcher
+  #.........................................................................................................
+  return null
+
+#-----------------------------------------------------------------------------------------------------------
+@_Unicode_demo_add_base = ( isl ) ->
+  ISL           = require 'interskiplist'
+  first_cid     = 0x0
+  last_cid      = 0x10ffff
+  ucps          = require '../data/unicode-9.0.0-codepoints.js'
+  cp_intervals  = ISL.intervals_from_points null, ucps.codepoints, ucps.ranges...
+  type          = 'layer'
+  name          = "#{type}:base-u9.0.0"
+  ISL.add isl, { lo: first_cid, hi: last_cid, name, tag: 'unassigned', }
+  #.........................................................................................................
+  for cp_interval in cp_intervals
+    { lo, hi, }   = cp_interval
+    type          = 'layer'
+    name          = "#{type}:assigned-cps"
+    ISL.add isl, { lo, hi, name, tag: '-unassigned assigned', }
+  #.........................................................................................................
+  return isl
+
+#-----------------------------------------------------------------------------------------------------------
+@_Unicode_demo_add_planes = ( isl ) ->
+  ISL           = require 'interskiplist'
+  #.........................................................................................................
+  add_plane = ( isl, lo, hi, name ) ->
+    type        = 'plane'
+    name        = "#{type}:#{name}"
+    ISL.add isl, { name, lo, hi, }
+  #.........................................................................................................
+  add_plane isl,   0x0000,   0xffff, 'Basic Multilingual Plane (BMP)'
+  add_plane isl,  0x10000,  0x1ffff, 'Supplementary Multilingual Plane (SMP)'
+  add_plane isl,  0x20000,  0x2ffff, 'Supplementary Ideographic Plane (SIP)'
+  add_plane isl,  0x30000,  0x3ffff, 'Tertiary Ideographic Plane (TIP)'
+  add_plane isl,  0xe0000,  0xefffd, 'Supplementary Special-purpose Plane (SSP)'
+  add_plane isl,  0xf0000,  0xffffd, 'Private Use Area (PUA)'
+  add_plane isl, 0x100000, 0x10fffd, 'Private Use Area (PUA)'
+  #.........................................................................................................
+  return isl
+
+#-----------------------------------------------------------------------------------------------------------
+@_Unicode_demo_add_planes = ( isl ) ->
+  ISL           = require 'interskiplist'
+  rsg_registry  = require './character-sets-and-ranges'
+  #.........................................................................................................
+  add_block = ( isl, lo, hi, name, mixins... ) ->
+    type        = 'block'
+    name        = "#{type}:#{name}"
+    ISL.add isl, Object.assign { name, lo, hi, }, mixins...
+  #.........................................................................................................
+  for csg, ranges of rsg_registry[ 'names-and-ranges-by-csg' ]
+    continue unless csg in [ 'u', 'jzr', ]
+    for range in ranges
+      name                    = range[ 'range-name' ]
+      rsg                     = range[ 'rsg'        ]
+      lo                      = range[ 'first-cid'  ]
+      hi                      = range[ 'last-cid'   ]
+      add_block isl, lo, hi, name, { rsg, }
+      # # is_cjk                  = is_cjk_rsg rsg
+      # tex                     = tex_command_by_rsgs[ rsg ] ? null
+      # name                    = "block:#{name}"
+      # interval                = { name, lo, hi, rsg, }
+      # interval[ 'tex' ]       = tex if tex?
+      # intervals_by_rsg[ rsg ] = interval
+      # ISL.add u, interval
+  #.........................................................................................................
+  return isl
+
+#-----------------------------------------------------------------------------------------------------------
 @[ "Unicode demo" ] = ( T ) ->
   XNCR          = require './xncr'
   ISL           = require 'interskiplist'
   mkts_options  = require '../../mingkwai-typesetter/options'
-  rsg_registry  = require './character-sets-and-ranges'
   u             = ISL.new()
-  last_cid      = 0x10ffff
+  @_Unicode_demo_add_base       u
+  @_Unicode_demo_add_planes     u
   #.........................................................................................................
-  is_cjk_rsg    = (   rsg ) -> rsg in mkts_options[ 'tex' ][ 'cjk-rsgs' ]
-  is_cjk_glyph  = ( glyph ) -> is_cjk_rsg XNCR.as_rsg glyph
-  # #.........................................................................................................
-  # page_idx      = -1
-  # loop
-  #   page_idx += 1
-  #   page_id   = "page-x#{page_idx.toString 16}"
-  #   page_name = "page-#{page_idx}"
-  #   lo        = page_idx  * 0x100
-  #   hi        = lo        + 0xff
-  #   ISL.insert u, lo, hi, page_id, { name: page_name, page_idx, lo, hi, rsg: null, }
-  #   ISL.insert u, lo, hi, page_name, { name: page_name, page_idx, lo, hi, rsg: null, }
-  #   break if lo > last_cid
-  # #.........................................................................................................
-  # lo      = 0x0
-  # hi      = 0x10ffff
-  # name    = 'UCS Codepoints'
-  # rsg     = null
-  # ISL.insert u, lo, hi, name, { name, lo, hi, rsg, }
-  #.........................................................................................................
-  add_plane = ( isl, name, lo, hi ) ->
-    name        = "plane:#{name}"
-    ISL.insert isl, { name, lo, hi, }
-  #.........................................................................................................
-  add_plane u, 'Basic Multilingual Plane (BMP)',              0x0000,   0xffff
-  add_plane u, 'Supplementary Multilingual Plane (SMP)',     0x10000,  0x1ffff
-  add_plane u, 'Supplementary Ideographic Plane (SIP)',      0x20000,  0x2ffff
-  add_plane u, 'Tertiary Ideographic Plane (TIP)',           0x30000,  0x3ffff
-  add_plane u, 'Supplementary Special-purpose Plane (SSP)',  0xe0000,  0xefffd
-  add_plane u, 'Private Use Area (PUA)',                     0xf0000,  0xffffd
-  add_plane u, 'Private Use Area (PUA)',                    0x100000, 0x10fffd
+  # is_cjk_rsg    = (   rsg ) -> rsg in mkts_options[ 'tex' ][ 'cjk-rsgs' ]
+  # is_cjk_glyph  = ( glyph ) -> is_cjk_rsg XNCR.as_rsg glyph
   #.........................................................................................................
   tex_command_by_rsgs = mkts_options[ 'tex' ][ 'tex-command-by-rsgs' ]
   #.........................................................................................................
@@ -517,23 +610,9 @@ hex = ( n ) -> '0x' + n.toString 16
   hi          = 0x10ffff
   tex         = tex_command_by_rsgs[ 'fallback' ]
   name        = "style:fallback"
-  ISL.insert u, { name, lo, hi, tex, }
+  ISL.add u, { name, lo, hi, tex, }
   #.........................................................................................................
   intervals_by_rsg = {}
-  for csg, ranges of rsg_registry[ 'names-and-ranges-by-csg' ]
-    continue unless csg in [ 'u', 'jzr', ]
-    for range in ranges
-      name        = range[ 'range-name' ]
-      rsg         = range[ 'rsg'        ]
-      lo          = range[ 'first-cid'  ]
-      hi          = range[ 'last-cid'   ]
-      is_cjk      = is_cjk_rsg rsg
-      tex         = tex_command_by_rsgs[ rsg ] ? null
-      name        = "block:#{name}"
-      if tex?
-        ISL.insert u, intervals_by_rsg[ rsg ] = { name, lo, hi, rsg, is_cjk, tex, }
-      else
-        ISL.insert u, intervals_by_rsg[ rsg ] = { name, lo, hi, rsg, is_cjk, }
   #.........................................................................................................
   for glyph, style of mkts_options[ 'tex' ][ 'glyph-styles' ]
     glyph       = XNCR.normalize_glyph  glyph
@@ -543,7 +622,7 @@ hex = ( n ) -> '0x' + n.toString 16
     cid_hex     = hex cid
     name        = "glyph-#{cid_hex}"
     name        = "style:#{name}"
-    ISL.insert u, { name, lo, hi, rsg, style, }
+    ISL.add u, { name, lo, hi, rsg, style, }
   #.........................................................................................................
   source = """
   # The Unicode Standard, V9.0.0, p49
@@ -582,11 +661,12 @@ hex = ( n ) -> '0x' + n.toString 16
     lo                    = parseInt lo, 16
     hi                    = parseInt hi, 16
     name                  = "area:#{name}"
-    ISL.insert u, { name, lo, hi, }
+    ISL.add u, { name, lo, hi, }
     # ISL.add_range u, lo, hi, { type, name, lo, hi, }
   #.........................................................................................................
   # for cid in [ 0x0 .. 0x300 ]
   #   debug ( cid.toString 16 ), find_id_text u, cid
+  ###
   for glyph in XNCR.chrs_from_text "helo äöü你好𢕒𡕴𡕨𠤇𫠠𧑴𨒡《》【】&jzr#xe100;🖹"
     cid     = XNCR.as_cid glyph
     cid_hex = hex cid
@@ -601,8 +681,8 @@ hex = ( n ) -> '0x' + n.toString 16
         help ( CND.grey type + '/' ) + ( CND.steel key ) + ': ' + ( CND.yellow value )
     # urge glyph, cid_hex, JSON.stringify ISL.find_all_ids    u, cid
     # info glyph, cid_hex, JSON.stringify ISL.find_any_ids    u, cid
+  ###
   #.........................................................................................................
-  debug ISL.aggregate u, '《', { tex: 'list', style: 'list', }
   tag_by_rsgs =
     'u-cjk':          [ 'cjk', ]
     'u-halfull':      [ 'cjk', ]
@@ -622,12 +702,20 @@ hex = ( n ) -> '0x' + n.toString 16
     'u-cjk-hira':     [ 'cjk', 'kana', 'hiragana', ]
     'u-hang-syl':     [ 'cjk', 'hangeul', ]
     'u-cjk-enclett':  [ 'cjk', 'enclosed', ]
+  rsg_registry  = require './character-sets-and-ranges'
+  ranges        = rsg_registry[ 'names-and-ranges-by-csg' ][ 'u' ]
   for rsg, tag of tag_by_rsgs
-    { lo, hi, } = intervals_by_rsg[ rsg ]
-    ISL.insert { lo, hi, tag, }
+    continue unless ( range = ranges[ rsg ] )?
+    lo  = range[ 'first-cid'  ]
+    hi  = range[ 'last-cid'   ]
+    ISL.add u, { lo, hi, tag, }
   # debug ISL.find_tag u, ''
   # debug ISL.find_tag u, ''
   # debug ISL.find_tag u, ''
+  #.........................................................................................................
+  info ISL.aggregate u, '《'
+  help ISL.aggregate u, '《', { name: 'list', tex: 'list', style: 'list', }
+  # help ISL.aggregate u, '《', { name:  'tag', tex: 'list', style: 'list', }
   #.........................................................................................................
   return null
 
@@ -637,19 +725,149 @@ hex = ( n ) -> '0x' + n.toString 16
 unless module.parent?
   # debug '0980', JSON.stringify ( Object.keys @ ), null, '  '
   include = [
-    'XXX'
+    # "test # 1"
+    # "test # 2"
+    # "test # 3"
+    # "test # 4"
+    # "test # 5"
+    # "test # 6"
+    # "test # 7"
+    # "test # 8"
+    # "test # 9"
+    # "test # 10"
+    # "test # 11"
+    # "test # 12"
+    # "test # 13"
+    # "test # 14"
+    # "test # 15"
+    # "test # 16"
+    # "test # 17"
+    # "test # 18"
+    # "test # 19"
+    # "test # 20"
+    # "test # 21"
+    # "test # 22"
+    # "test # 22a"
+    # "test # 22b"
+    # "test # 23"
+    # "test # 24"
+    # "test # 25"
+    # "test # 26"
+    # "test # 27"
+    # "test # 28"
+    # "test # 29"
+    # "test # 30"
+    # "test # 31"
+    # "test # 32"
+    # "test # 33"
+    # "test # 34"
+    # "test # 35"
+    # "test # 36"
+    # "test # 37"
+    # "test # 38"
+    # "test # 39"
+    # "test # 40"
+    # "test # 41"
+    # "test # 42"
+    # "test # 43"
+    # "test # 44"
+    # "test # 45"
+    # "test # 46"
+    # "test # 47"
+    # "test # 48"
+    # "test # 49"
+    # "test # 50"
+    # "test # 51"
+    # "test # 52"
+    # "test # 53"
+    # "test # 54"
+    # "test # 55"
+    # "test # 56"
+    # "test # 57"
+    # "test # 58"
+    # "test # 59"
+    # "test # 60"
+    # "test # 61"
+    # "test # 62"
+    # "test # 63"
+    # "test # 64"
+    # "test # 65"
+    # "test # 66"
+    # "test # 67"
+    # "test # 68"
+    # "test # 69"
+    # "test # 70"
+    # "test # 71"
+    # "test # 72"
+    # "test # 73"
+    # "test # 74"
+    # "test # 75"
+    # "test # 76"
+    # "test # 77"
+    # "test # 78"
+    # "test # 79"
+    # "test # 80"
+    # "test # 81"
+    # "test # 82"
+    # "test # 83"
+    # "test # 84"
+    # "test # 85"
+    # "test # 86"
+    # "test # 87"
+    # "test # 88"
+    # "test # 89"
+    # "test # 90"
+    # "test # 91"
+    # "test # 92"
+    # "test # 93"
+    # "test # 94"
+    # "test # 95"
+    # "test # 96"
+    # "test # 97"
+    # "test # 98"
+    # "test # 99"
+    # "test # 100"
+    # "test # 101"
+    # "test # 102"
+    # "test # 103"
+    # "test # 104"
+    # "test # 105"
+    # "test # 106"
+    # "test # 107"
+    # "test # 108"
+    # "test # 109"
+    # "test # 110"
+    # "test # 111"
+    # "test # 112"
+    # "test # 113"
+    # "test # 114"
+    # "test # 115"
+    # "test # 116"
+    # "test # 117"
+    # "test # 118"
+    # "test # 119"
+    # "test # 120"
+    # "test # 121"
+    # "test # 122"
+    # "test # 123"
+    # "test # 124"
+    # "test # 125"
+    # "test Unicode 8 / CJK Extension E"
+    # "test # 200"
+    # "test # 201"
+    # "negative tags (demo: how to tag Unicode unassigned codepoints)"
+    "Unicode demo"
     ]
   # @_prune()
-  @_main()
+  # @_main()
 
   # XNCR = require './xncr'
   # text = 'A-&#x3004;-&jzr#xe100;-&morohashi#x56;-Z'
   # debug rpr ( XNCR.jzr_as_uchr chr for chr in XNCR.chrs_from_text text ).join ''
   # debug rpr XNCR.normalize_text text
+  # debug JSON.stringify Object.keys @
 
-
-
-
+  @[ "Unicode demo" ]()
 
 
 
