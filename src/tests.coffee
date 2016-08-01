@@ -527,93 +527,6 @@ hex = ( n ) -> '0x' + n.toString 16
   return null
 
 #-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_compile_base_intervals = ( intervals ) ->
-  ### Assemble the ~650 intervals that descrive those parts of the Unicode code space that are assigned
-  (over 100,000 codepoints); the rest is (roughly a million codepoints) unassigned. Returns a list of PODs
-  with `lo`, `hi`, `tag` attributes. ###
-  ISL           = require 'interskiplist'
-  ucps          = require '../data/unicode-9.0.0-codepoints.js'
-  cp_intervals  = ISL.intervals_from_points null, ucps.codepoints
-  cp_intervals.push range for range in ucps.ranges
-  #.........................................................................................................
-  intervals.push { lo: 0x000000, hi: 0x10ffff, tag: 'unassigned', }
-  for cp_interval in cp_intervals
-    { lo, hi, }   = cp_interval
-    intervals.push { lo, hi, tag: '-unassigned assigned', }
-  #.........................................................................................................
-  return null
-
-#-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_compile_planes = ( intervals ) ->
-  rsg_registry  = require './character-sets-and-ranges'
-  #.........................................................................................................
-  for [ short_name, lo, hi ] in rsg_registry[ 'unicode-planes' ]
-    type                        = 'plane'
-    name                        = "#{type}:#{short_name}"
-    intervals.push { lo, hi, name, type, plane: short_name, }
-  #.........................................................................................................
-  return null
-
-#-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_compile_areas = ( intervals ) ->
-  rsg_registry  = require './character-sets-and-ranges'
-  #.........................................................................................................
-  for [ short_name, lo, hi ] in rsg_registry[ 'unicode-areas' ]
-    type                        = 'area'
-    name                        = "#{type}:#{short_name}"
-    intervals.push { lo, hi, name, type, area: short_name, }
-  #.........................................................................................................
-  return null
-
-#-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_compile_blocks = ( intervals ) ->
-  rsg_registry  = require './character-sets-and-ranges'
-  #.........................................................................................................
-  for csg, ranges of rsg_registry[ 'names-and-ranges-by-csg' ]
-    continue unless csg is 'u'
-    for range in ranges
-      short_name              = range[ 'range-name' ]
-      rsg                     = range[ 'rsg'        ]
-      lo                      = range[ 'first-cid'  ]
-      hi                      = range[ 'last-cid'   ]
-      type                    = 'block'
-      name                    = "#{type}:#{short_name}"
-      intervals.push { lo, hi, name, type, block: short_name, rsg, }
-      # # is_cjk                  = is_cjk_rsg rsg
-      # tex                     = tex_command_by_rsgs[ rsg ] ? null
-      # name                    = "block:#{name}"
-      # interval                = { name, lo, hi, rsg, }
-      # interval[ 'tex' ]       = tex if tex?
-      # intervals_by_rsg[ rsg ] = interval
-      # ISL.add u, interval
-  #.........................................................................................................
-  return null
-
-#-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_read_or_write_cache = ->
-  ISL           = require 'interskiplist'
-  FS            = require 'fs'
-  cache_route   = ( require 'path' ).resolve __dirname, '../data/_cache-Unicode-V9.0.0-base-intervals.json'
-  #.........................................................................................................
-  if FS.existsSync cache_route
-    intervals         = require cache_route
-  #.........................................................................................................
-  else
-    intervals         = []
-    @_Unicode_demo_compile_base_intervals intervals
-    @_Unicode_demo_compile_planes         intervals
-    @_Unicode_demo_compile_areas          intervals
-    @_Unicode_demo_compile_blocks         intervals
-    intervals_txt     = JSON.stringify intervals, null, '  '
-    FS.writeFileSync cache_route, intervals_txt
-  #.........................................................................................................
-  urge '5041', intervals.length
-  R = ISL.new()
-  ISL.add R, interval for interval in intervals
-  #.........................................................................................................
-  return R
-
-#-----------------------------------------------------------------------------------------------------------
 @_Unicode_demo_add_styles = ( isl ) ->
   ISL                 = require 'interskiplist'
   XNCR                = require './xncr'
@@ -666,7 +579,7 @@ hex = ( n ) -> '0x' + n.toString 16
   # @_Unicode_demo_add_planes     u
   # @_Unicode_demo_add_areas      u
   # @_Unicode_demo_add_blocks     u
-  u = @_Unicode_demo_read_or_write_cache()
+  u = require './unicode-isl'
   #.........................................................................................................
   ### CJK-specific data ###
   @_Unicode_demo_add_cjk_tags   u
