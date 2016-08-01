@@ -569,19 +569,16 @@ hex = ( n ) -> '0x' + n.toString 16
   ISL           = require 'interskiplist'
   rsg_registry  = require './character-sets-and-ranges'
   #.........................................................................................................
-  add_block = ( isl, lo, hi, name, mixins... ) ->
-    type        = 'block'
-    name        = "#{type}:#{name}"
-    ISL.add isl, Object.assign { name, lo, hi, }, mixins...
-  #.........................................................................................................
   for csg, ranges of rsg_registry[ 'names-and-ranges-by-csg' ]
     continue unless csg in [ 'u', 'jzr', ]
     for range in ranges
-      name                    = range[ 'range-name' ]
+      short_name              = range[ 'range-name' ]
       rsg                     = range[ 'rsg'        ]
       lo                      = range[ 'first-cid'  ]
       hi                      = range[ 'last-cid'   ]
-      add_block isl, lo, hi, name, { rsg, }
+      type                    = 'plane'
+      name                    = "#{type}:#{short_name}"
+      ISL.add isl, { lo, hi, name, type, block: short_name, rsg, }
       # # is_cjk                  = is_cjk_rsg rsg
       # tex                     = tex_command_by_rsgs[ rsg ] ? null
       # name                    = "block:#{name}"
@@ -593,37 +590,10 @@ hex = ( n ) -> '0x' + n.toString 16
   return isl
 
 #-----------------------------------------------------------------------------------------------------------
-@[ "Unicode demo" ] = ( T ) ->
-  XNCR          = require './xncr'
+@_Unicode_demo_add_areas = ( isl ) ->
   ISL           = require 'interskiplist'
-  mkts_options  = require '../../mingkwai-typesetter/options'
-  u             = ISL.new()
-  @_Unicode_demo_add_base       u
-  @_Unicode_demo_add_planes     u
   #.........................................................................................................
-  # is_cjk_rsg    = (   rsg ) -> rsg in mkts_options[ 'tex' ][ 'cjk-rsgs' ]
-  # is_cjk_glyph  = ( glyph ) -> is_cjk_rsg XNCR.as_rsg glyph
-  #.........................................................................................................
-  tex_command_by_rsgs = mkts_options[ 'tex' ][ 'tex-command-by-rsgs' ]
-  #.........................................................................................................
-  lo          = 0x000000
-  hi          = 0x10ffff
-  tex         = tex_command_by_rsgs[ 'fallback' ]
-  name        = "style:fallback"
-  ISL.add u, { name, lo, hi, tex, }
-  #.........................................................................................................
-  intervals_by_rsg = {}
-  #.........................................................................................................
-  for glyph, style of mkts_options[ 'tex' ][ 'glyph-styles' ]
-    glyph       = XNCR.normalize_glyph  glyph
-    rsg         = XNCR.as_rsg           glyph
-    cid         = XNCR.as_cid           glyph
-    lo = hi     = cid
-    cid_hex     = hex cid
-    name        = "glyph-#{cid_hex}"
-    name        = "style:#{name}"
-    ISL.add u, { name, lo, hi, rsg, style, }
-  #.........................................................................................................
+  ### TAINT externalize data ###
   source = """
   # The Unicode Standard, V9.0.0, p49
   # Figure 2-14. Allocation on the BMP
@@ -654,34 +624,48 @@ hex = ( n ) -> '0x' + n.toString 16
   1E800-1EFFF General Scripts Area (RTL)
   1F000-1FFFF Symbols Area
   """
+  #.........................................................................................................
   for line in source.split '\n'
     line = line.trim()
     continue if line.startsWith '#'
-    [ _, lo, hi, name, ]  = line.match /^([0-9a-fA-F]{4,5})-([0-9a-fA-F]{4,5}) (.+)$/
-    lo                    = parseInt lo, 16
-    hi                    = parseInt hi, 16
-    name                  = "area:#{name}"
-    ISL.add u, { name, lo, hi, }
+    [ _, lo, hi, short_name, ]  = line.match /^([0-9a-fA-F]{4,5})-([0-9a-fA-F]{4,5}) (.+)$/
+    lo                          = parseInt lo, 16
+    hi                          = parseInt hi, 16
+    type                        = 'area'
+    name                        = "#{type}:#{short_name}"
+    ISL.add isl, { lo, hi, name, type, area: short_name, }
     # ISL.add_range u, lo, hi, { type, name, lo, hi, }
   #.........................................................................................................
-  # for cid in [ 0x0 .. 0x300 ]
-  #   debug ( cid.toString 16 ), find_id_text u, cid
-  ###
-  for glyph in XNCR.chrs_from_text "helo äöü你好𢕒𡕴𡕨𠤇𫠠𧑴𨒡《》【】&jzr#xe100;🖹"
-    cid     = XNCR.as_cid glyph
-    cid_hex = hex cid
-    # debug glyph, cid_hex, find_id_text u, cid
-    descriptions = ISL.find_entries_with_all_points u, cid
-    urge glyph, cid_hex
-    for description in descriptions
-      [ type, _, ] = ( description[ 'name' ] ? '???/' ).split ':'
-      help ( CND.grey type + '/' ) + ( CND.steel 'interval' ) + ': ' + ( CND.yellow "#{hex description[ 'lo' ]}-#{hex description[ 'hi' ]}" )
-      for key, value of description
-        continue if key in [ 'lo', 'hi', 'id', ]
-        help ( CND.grey type + '/' ) + ( CND.steel key ) + ': ' + ( CND.yellow value )
-    # urge glyph, cid_hex, JSON.stringify ISL.find_all_ids    u, cid
-    # info glyph, cid_hex, JSON.stringify ISL.find_any_ids    u, cid
-  ###
+  return isl
+
+#-----------------------------------------------------------------------------------------------------------
+@_Unicode_demo_add_styles = ( isl ) ->
+  ISL                 = require 'interskiplist'
+  XNCR                = require './xncr'
+  mkts_options        = require '../../mingkwai-typesetter/options'
+  tex_command_by_rsgs = mkts_options[ 'tex' ][ 'tex-command-by-rsgs' ]
+  #.........................................................................................................
+  lo          = 0x000000
+  hi          = 0x10ffff
+  tex         = tex_command_by_rsgs[ 'fallback' ]
+  name        = "style:fallback"
+  ISL.add isl, { name, lo, hi, tex, }
+  #.........................................................................................................
+  for glyph, style of mkts_options[ 'tex' ][ 'glyph-styles' ]
+    glyph       = XNCR.normalize_glyph  glyph
+    rsg         = XNCR.as_rsg           glyph
+    cid         = XNCR.as_cid           glyph
+    lo = hi     = cid
+    cid_hex     = hex cid
+    name        = "glyph-#{cid_hex}"
+    name        = "style:#{name}"
+    ISL.add isl, { name, lo, hi, rsg, style, }
+  #.........................................................................................................
+  return isl
+
+#-----------------------------------------------------------------------------------------------------------
+@_Unicode_demo_add_cjk_tags = ( isl ) ->
+  ISL = require 'interskiplist'
   #.........................................................................................................
   tag_by_rsgs =
     'u-cjk':          [ 'cjk', ]
@@ -702,23 +686,70 @@ hex = ( n ) -> '0x' + n.toString 16
     'u-cjk-hira':     [ 'cjk', 'kana', 'hiragana', ]
     'u-hang-syl':     [ 'cjk', 'hangeul', ]
     'u-cjk-enclett':  [ 'cjk', 'enclosed', ]
+  #.........................................................................................................
   rsg_registry  = require './character-sets-and-ranges'
   ranges        = rsg_registry[ 'names-and-ranges-by-csg' ][ 'u' ]
   for rsg, tag of tag_by_rsgs
     continue unless ( range = ranges[ rsg ] )?
     lo  = range[ 'first-cid'  ]
     hi  = range[ 'last-cid'   ]
-    ISL.add u, { lo, hi, tag, }
-  # debug ISL.find_tag u, ''
-  # debug ISL.find_tag u, ''
-  # debug ISL.find_tag u, ''
+    ISL.add isl, { lo, hi, tag, }
+  #.........................................................................................................
+  return isl
+
+#-----------------------------------------------------------------------------------------------------------
+@_Unicode_demo_add_sims = ( isl ) ->
+  ISL                 = require 'interskiplist'
+  #.........................................................................................................
+  return isl
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "Unicode demo" ] = ( T ) ->
+  ISL           = require 'interskiplist'
+  u             = ISL.new()
+  #.........................................................................................................
+  ### General data ###
+  @_Unicode_demo_add_base       u
+  @_Unicode_demo_add_planes     u
+  @_Unicode_demo_add_areas      u
+  #.........................................................................................................
+  ### CJK-specific data ###
+  @_Unicode_demo_add_cjk_tags   u
+  #.........................................................................................................
+  ### Jizura-specific data ###
+  @_Unicode_demo_add_sims       u
+  #.........................................................................................................
+  ### Mingkwai-specific data ###
+  @_Unicode_demo_add_styles     u
   #.........................................................................................................
   info ISL.aggregate u, '《'
-  help ISL.aggregate u, '《', { name: 'list', tex: 'list', style: 'list', }
-  # help ISL.aggregate u, '《', { name:  'tag', tex: 'list', style: 'list', }
+  help ISL.aggregate u, '《', { name: 'list', tex: 'list', style: 'list', type: 'skip', }
   #.........................................................................................................
   return null
 
+#-----------------------------------------------------------------------------------------------------------
+@_Unicode_demo_show_sample = ( isl ) ->
+  XNCR = require './xncr'
+  #.........................................................................................................
+  # is_cjk_rsg    = (   rsg ) -> rsg in mkts_options[ 'tex' ][ 'cjk-rsgs' ]
+  # is_cjk_glyph  = ( glyph ) -> is_cjk_rsg XNCR.as_rsg glyph
+  #.........................................................................................................
+  for glyph in XNCR.chrs_from_text "helo äöü你好𢕒𡕴𡕨𠤇𫠠𧑴𨒡《》【】&jzr#xe100;🖹"
+    cid     = XNCR.as_cid glyph
+    cid_hex = hex cid
+    # debug glyph, cid_hex, find_id_text u, cid
+    descriptions = ISL.find_entries_with_all_points u, cid
+    urge glyph, cid_hex
+    for description in descriptions
+      [ type, _, ] = ( description[ 'name' ] ? '???/' ).split ':'
+      help ( CND.grey type + '/' ) + ( CND.steel 'interval' ) + ': ' + ( CND.yellow "#{hex description[ 'lo' ]}-#{hex description[ 'hi' ]}" )
+      for key, value of description
+        continue if key in [ 'lo', 'hi', 'id', ]
+        help ( CND.grey type + '/' ) + ( CND.steel key ) + ': ' + ( CND.yellow value )
+    # urge glyph, cid_hex, JSON.stringify ISL.find_all_ids    u, cid
+    # info glyph, cid_hex, JSON.stringify ISL.find_any_ids    u, cid
+  #.........................................................................................................
+  return null
 
 
 ############################################################################################################
