@@ -1,0 +1,5228 @@
+[
+  {
+    "lo": 0,
+    "hi": 1114111,
+    "tag": "unassigned"
+  },
+  {
+    "lo": 0,
+    "hi": 887,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 890,
+    "hi": 895,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 900,
+    "hi": 906,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 908,
+    "hi": 908,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 910,
+    "hi": 929,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 931,
+    "hi": 1327,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 1329,
+    "hi": 1366,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 1369,
+    "hi": 1375,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 1377,
+    "hi": 1415,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 1417,
+    "hi": 1418,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 1421,
+    "hi": 1423,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 1425,
+    "hi": 1479,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 1488,
+    "hi": 1514,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 1520,
+    "hi": 1524,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 1536,
+    "hi": 1564,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 1566,
+    "hi": 1805,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 1807,
+    "hi": 1866,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 1869,
+    "hi": 1969,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 1984,
+    "hi": 2042,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2048,
+    "hi": 2093,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2096,
+    "hi": 2110,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2112,
+    "hi": 2139,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2142,
+    "hi": 2142,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2208,
+    "hi": 2228,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2230,
+    "hi": 2237,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2260,
+    "hi": 2435,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2437,
+    "hi": 2444,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2447,
+    "hi": 2448,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2451,
+    "hi": 2472,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2474,
+    "hi": 2480,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2482,
+    "hi": 2482,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2486,
+    "hi": 2489,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2492,
+    "hi": 2500,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2503,
+    "hi": 2504,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2507,
+    "hi": 2510,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2519,
+    "hi": 2519,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2524,
+    "hi": 2525,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2527,
+    "hi": 2531,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2534,
+    "hi": 2555,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2561,
+    "hi": 2563,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2565,
+    "hi": 2570,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2575,
+    "hi": 2576,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2579,
+    "hi": 2600,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2602,
+    "hi": 2608,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2610,
+    "hi": 2611,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2613,
+    "hi": 2614,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2616,
+    "hi": 2617,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2620,
+    "hi": 2620,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2622,
+    "hi": 2626,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2631,
+    "hi": 2632,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2635,
+    "hi": 2637,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2641,
+    "hi": 2641,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2649,
+    "hi": 2652,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2654,
+    "hi": 2654,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2662,
+    "hi": 2677,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2689,
+    "hi": 2691,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2693,
+    "hi": 2701,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2703,
+    "hi": 2705,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2707,
+    "hi": 2728,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2730,
+    "hi": 2736,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2738,
+    "hi": 2739,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2741,
+    "hi": 2745,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2748,
+    "hi": 2757,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2759,
+    "hi": 2761,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2763,
+    "hi": 2765,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2768,
+    "hi": 2768,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2784,
+    "hi": 2787,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2790,
+    "hi": 2801,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2809,
+    "hi": 2809,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2817,
+    "hi": 2819,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2821,
+    "hi": 2828,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2831,
+    "hi": 2832,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2835,
+    "hi": 2856,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2858,
+    "hi": 2864,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2866,
+    "hi": 2867,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2869,
+    "hi": 2873,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2876,
+    "hi": 2884,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2887,
+    "hi": 2888,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2891,
+    "hi": 2893,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2902,
+    "hi": 2903,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2908,
+    "hi": 2909,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2911,
+    "hi": 2915,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2918,
+    "hi": 2935,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2946,
+    "hi": 2947,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2949,
+    "hi": 2954,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2958,
+    "hi": 2960,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2962,
+    "hi": 2965,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2969,
+    "hi": 2970,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2972,
+    "hi": 2972,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2974,
+    "hi": 2975,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2979,
+    "hi": 2980,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2984,
+    "hi": 2986,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 2990,
+    "hi": 3001,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3006,
+    "hi": 3010,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3014,
+    "hi": 3016,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3018,
+    "hi": 3021,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3024,
+    "hi": 3024,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3031,
+    "hi": 3031,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3046,
+    "hi": 3066,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3072,
+    "hi": 3075,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3077,
+    "hi": 3084,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3086,
+    "hi": 3088,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3090,
+    "hi": 3112,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3114,
+    "hi": 3129,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3133,
+    "hi": 3140,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3142,
+    "hi": 3144,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3146,
+    "hi": 3149,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3157,
+    "hi": 3158,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3160,
+    "hi": 3162,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3168,
+    "hi": 3171,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3174,
+    "hi": 3183,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3192,
+    "hi": 3203,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3205,
+    "hi": 3212,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3214,
+    "hi": 3216,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3218,
+    "hi": 3240,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3242,
+    "hi": 3251,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3253,
+    "hi": 3257,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3260,
+    "hi": 3268,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3270,
+    "hi": 3272,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3274,
+    "hi": 3277,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3285,
+    "hi": 3286,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3294,
+    "hi": 3294,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3296,
+    "hi": 3299,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3302,
+    "hi": 3311,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3313,
+    "hi": 3314,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3329,
+    "hi": 3331,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3333,
+    "hi": 3340,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3342,
+    "hi": 3344,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3346,
+    "hi": 3386,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3389,
+    "hi": 3396,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3398,
+    "hi": 3400,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3402,
+    "hi": 3407,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3412,
+    "hi": 3427,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3430,
+    "hi": 3455,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3458,
+    "hi": 3459,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3461,
+    "hi": 3478,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3482,
+    "hi": 3505,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3507,
+    "hi": 3515,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3517,
+    "hi": 3517,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3520,
+    "hi": 3526,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3530,
+    "hi": 3530,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3535,
+    "hi": 3540,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3542,
+    "hi": 3542,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3544,
+    "hi": 3551,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3558,
+    "hi": 3567,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3570,
+    "hi": 3572,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3585,
+    "hi": 3642,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3647,
+    "hi": 3675,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3713,
+    "hi": 3714,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3716,
+    "hi": 3716,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3719,
+    "hi": 3720,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3722,
+    "hi": 3722,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3725,
+    "hi": 3725,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3732,
+    "hi": 3735,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3737,
+    "hi": 3743,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3745,
+    "hi": 3747,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3749,
+    "hi": 3749,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3751,
+    "hi": 3751,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3754,
+    "hi": 3755,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3757,
+    "hi": 3769,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3771,
+    "hi": 3773,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3776,
+    "hi": 3780,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3782,
+    "hi": 3782,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3784,
+    "hi": 3789,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3792,
+    "hi": 3801,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3804,
+    "hi": 3807,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3840,
+    "hi": 3911,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3913,
+    "hi": 3948,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3953,
+    "hi": 3991,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 3993,
+    "hi": 4028,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4030,
+    "hi": 4044,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4046,
+    "hi": 4058,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4096,
+    "hi": 4293,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4295,
+    "hi": 4295,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4301,
+    "hi": 4301,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4304,
+    "hi": 4680,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4682,
+    "hi": 4685,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4688,
+    "hi": 4694,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4696,
+    "hi": 4696,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4698,
+    "hi": 4701,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4704,
+    "hi": 4744,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4746,
+    "hi": 4749,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4752,
+    "hi": 4784,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4786,
+    "hi": 4789,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4792,
+    "hi": 4798,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4800,
+    "hi": 4800,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4802,
+    "hi": 4805,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4808,
+    "hi": 4822,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4824,
+    "hi": 4880,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4882,
+    "hi": 4885,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4888,
+    "hi": 4954,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4957,
+    "hi": 4988,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 4992,
+    "hi": 5017,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 5024,
+    "hi": 5109,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 5112,
+    "hi": 5117,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 5120,
+    "hi": 5788,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 5792,
+    "hi": 5880,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 5888,
+    "hi": 5900,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 5902,
+    "hi": 5908,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 5920,
+    "hi": 5942,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 5952,
+    "hi": 5971,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 5984,
+    "hi": 5996,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 5998,
+    "hi": 6000,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6002,
+    "hi": 6003,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6016,
+    "hi": 6109,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6112,
+    "hi": 6121,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6128,
+    "hi": 6137,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6144,
+    "hi": 6158,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6160,
+    "hi": 6169,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6176,
+    "hi": 6263,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6272,
+    "hi": 6314,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6320,
+    "hi": 6389,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6400,
+    "hi": 6430,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6432,
+    "hi": 6443,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6448,
+    "hi": 6459,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6464,
+    "hi": 6464,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6468,
+    "hi": 6509,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6512,
+    "hi": 6516,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6528,
+    "hi": 6571,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6576,
+    "hi": 6601,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6608,
+    "hi": 6618,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6622,
+    "hi": 6683,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6686,
+    "hi": 6750,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6752,
+    "hi": 6780,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6783,
+    "hi": 6793,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6800,
+    "hi": 6809,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6816,
+    "hi": 6829,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6832,
+    "hi": 6846,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6912,
+    "hi": 6987,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 6992,
+    "hi": 7036,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 7040,
+    "hi": 7155,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 7164,
+    "hi": 7223,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 7227,
+    "hi": 7241,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 7245,
+    "hi": 7304,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 7360,
+    "hi": 7367,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 7376,
+    "hi": 7414,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 7416,
+    "hi": 7417,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 7424,
+    "hi": 7669,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 7675,
+    "hi": 7957,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 7960,
+    "hi": 7965,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 7968,
+    "hi": 8005,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8008,
+    "hi": 8013,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8016,
+    "hi": 8023,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8025,
+    "hi": 8025,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8027,
+    "hi": 8027,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8029,
+    "hi": 8029,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8031,
+    "hi": 8061,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8064,
+    "hi": 8116,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8118,
+    "hi": 8132,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8134,
+    "hi": 8147,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8150,
+    "hi": 8155,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8157,
+    "hi": 8175,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8178,
+    "hi": 8180,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8182,
+    "hi": 8190,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8192,
+    "hi": 8292,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8294,
+    "hi": 8305,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8308,
+    "hi": 8334,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8336,
+    "hi": 8348,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8352,
+    "hi": 8382,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8400,
+    "hi": 8432,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8448,
+    "hi": 8587,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 8592,
+    "hi": 9214,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 9216,
+    "hi": 9254,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 9280,
+    "hi": 9290,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 9312,
+    "hi": 11123,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11126,
+    "hi": 11157,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11160,
+    "hi": 11193,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11197,
+    "hi": 11208,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11210,
+    "hi": 11217,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11244,
+    "hi": 11247,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11264,
+    "hi": 11310,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11312,
+    "hi": 11358,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11360,
+    "hi": 11507,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11513,
+    "hi": 11557,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11559,
+    "hi": 11559,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11565,
+    "hi": 11565,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11568,
+    "hi": 11623,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11631,
+    "hi": 11632,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11647,
+    "hi": 11670,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11680,
+    "hi": 11686,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11688,
+    "hi": 11694,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11696,
+    "hi": 11702,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11704,
+    "hi": 11710,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11712,
+    "hi": 11718,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11720,
+    "hi": 11726,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11728,
+    "hi": 11734,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11736,
+    "hi": 11742,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11744,
+    "hi": 11844,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11904,
+    "hi": 11929,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 11931,
+    "hi": 12019,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 12032,
+    "hi": 12245,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 12272,
+    "hi": 12283,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 12288,
+    "hi": 12351,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 12353,
+    "hi": 12438,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 12441,
+    "hi": 12543,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 12549,
+    "hi": 12589,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 12593,
+    "hi": 12686,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 12688,
+    "hi": 12730,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 12736,
+    "hi": 12771,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 12784,
+    "hi": 12830,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 12832,
+    "hi": 13054,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 13056,
+    "hi": 13311,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 19904,
+    "hi": 19967,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 40960,
+    "hi": 42124,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 42128,
+    "hi": 42182,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 42192,
+    "hi": 42539,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 42560,
+    "hi": 42743,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 42752,
+    "hi": 42926,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 42928,
+    "hi": 42935,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 42999,
+    "hi": 43051,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43056,
+    "hi": 43065,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43072,
+    "hi": 43127,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43136,
+    "hi": 43205,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43214,
+    "hi": 43225,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43232,
+    "hi": 43261,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43264,
+    "hi": 43347,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43359,
+    "hi": 43388,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43392,
+    "hi": 43469,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43471,
+    "hi": 43481,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43486,
+    "hi": 43518,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43520,
+    "hi": 43574,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43584,
+    "hi": 43597,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43600,
+    "hi": 43609,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43612,
+    "hi": 43714,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43739,
+    "hi": 43766,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43777,
+    "hi": 43782,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43785,
+    "hi": 43790,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43793,
+    "hi": 43798,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43808,
+    "hi": 43814,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43816,
+    "hi": 43822,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43824,
+    "hi": 43877,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 43888,
+    "hi": 44013,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 44016,
+    "hi": 44025,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 55216,
+    "hi": 55238,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 55243,
+    "hi": 55291,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 63744,
+    "hi": 64109,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 64112,
+    "hi": 64217,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 64256,
+    "hi": 64262,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 64275,
+    "hi": 64279,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 64285,
+    "hi": 64310,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 64312,
+    "hi": 64316,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 64318,
+    "hi": 64318,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 64320,
+    "hi": 64321,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 64323,
+    "hi": 64324,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 64326,
+    "hi": 64449,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 64467,
+    "hi": 64831,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 64848,
+    "hi": 64911,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 64914,
+    "hi": 64967,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65008,
+    "hi": 65021,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65024,
+    "hi": 65049,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65056,
+    "hi": 65106,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65108,
+    "hi": 65126,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65128,
+    "hi": 65131,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65136,
+    "hi": 65140,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65142,
+    "hi": 65276,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65279,
+    "hi": 65279,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65281,
+    "hi": 65470,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65474,
+    "hi": 65479,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65482,
+    "hi": 65487,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65490,
+    "hi": 65495,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65498,
+    "hi": 65500,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65504,
+    "hi": 65510,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65512,
+    "hi": 65518,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65529,
+    "hi": 65533,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65536,
+    "hi": 65547,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65549,
+    "hi": 65574,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65576,
+    "hi": 65594,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65596,
+    "hi": 65597,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65599,
+    "hi": 65613,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65616,
+    "hi": 65629,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65664,
+    "hi": 65786,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65792,
+    "hi": 65794,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65799,
+    "hi": 65843,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65847,
+    "hi": 65934,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65936,
+    "hi": 65947,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 65952,
+    "hi": 65952,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 66000,
+    "hi": 66045,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 66176,
+    "hi": 66204,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 66208,
+    "hi": 66256,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 66272,
+    "hi": 66299,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 66304,
+    "hi": 66339,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 66352,
+    "hi": 66378,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 66384,
+    "hi": 66426,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 66432,
+    "hi": 66461,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 66463,
+    "hi": 66499,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 66504,
+    "hi": 66517,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 66560,
+    "hi": 66717,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 66720,
+    "hi": 66729,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 66736,
+    "hi": 66771,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 66776,
+    "hi": 66811,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 66816,
+    "hi": 66855,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 66864,
+    "hi": 66915,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 66927,
+    "hi": 66927,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 67072,
+    "hi": 67382,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 67392,
+    "hi": 67413,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 67424,
+    "hi": 67431,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 67584,
+    "hi": 67589,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 67592,
+    "hi": 67592,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 67594,
+    "hi": 67637,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 67639,
+    "hi": 67640,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 67644,
+    "hi": 67644,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 67647,
+    "hi": 67669,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 67671,
+    "hi": 67742,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 67751,
+    "hi": 67759,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 67808,
+    "hi": 67826,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 67828,
+    "hi": 67829,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 67835,
+    "hi": 67867,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 67871,
+    "hi": 67897,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 67903,
+    "hi": 67903,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 67968,
+    "hi": 68023,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68028,
+    "hi": 68047,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68050,
+    "hi": 68099,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68101,
+    "hi": 68102,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68108,
+    "hi": 68115,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68117,
+    "hi": 68119,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68121,
+    "hi": 68147,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68152,
+    "hi": 68154,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68159,
+    "hi": 68167,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68176,
+    "hi": 68184,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68192,
+    "hi": 68255,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68288,
+    "hi": 68326,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68331,
+    "hi": 68342,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68352,
+    "hi": 68405,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68409,
+    "hi": 68437,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68440,
+    "hi": 68466,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68472,
+    "hi": 68497,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68505,
+    "hi": 68508,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68521,
+    "hi": 68527,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68608,
+    "hi": 68680,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68736,
+    "hi": 68786,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68800,
+    "hi": 68850,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 68858,
+    "hi": 68863,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 69216,
+    "hi": 69246,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 69632,
+    "hi": 69709,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 69714,
+    "hi": 69743,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 69759,
+    "hi": 69825,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 69840,
+    "hi": 69864,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 69872,
+    "hi": 69881,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 69888,
+    "hi": 69940,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 69942,
+    "hi": 69955,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 69968,
+    "hi": 70006,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70016,
+    "hi": 70093,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70096,
+    "hi": 70111,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70113,
+    "hi": 70132,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70144,
+    "hi": 70161,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70163,
+    "hi": 70206,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70272,
+    "hi": 70278,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70280,
+    "hi": 70280,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70282,
+    "hi": 70285,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70287,
+    "hi": 70301,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70303,
+    "hi": 70313,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70320,
+    "hi": 70378,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70384,
+    "hi": 70393,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70400,
+    "hi": 70403,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70405,
+    "hi": 70412,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70415,
+    "hi": 70416,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70419,
+    "hi": 70440,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70442,
+    "hi": 70448,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70450,
+    "hi": 70451,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70453,
+    "hi": 70457,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70460,
+    "hi": 70468,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70471,
+    "hi": 70472,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70475,
+    "hi": 70477,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70480,
+    "hi": 70480,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70487,
+    "hi": 70487,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70493,
+    "hi": 70499,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70502,
+    "hi": 70508,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70512,
+    "hi": 70516,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70656,
+    "hi": 70745,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70747,
+    "hi": 70747,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70749,
+    "hi": 70749,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70784,
+    "hi": 70855,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 70864,
+    "hi": 70873,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 71040,
+    "hi": 71093,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 71096,
+    "hi": 71133,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 71168,
+    "hi": 71236,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 71248,
+    "hi": 71257,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 71264,
+    "hi": 71276,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 71296,
+    "hi": 71351,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 71360,
+    "hi": 71369,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 71424,
+    "hi": 71449,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 71453,
+    "hi": 71467,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 71472,
+    "hi": 71487,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 71840,
+    "hi": 71922,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 71935,
+    "hi": 71935,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 72384,
+    "hi": 72440,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 72704,
+    "hi": 72712,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 72714,
+    "hi": 72758,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 72760,
+    "hi": 72773,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 72784,
+    "hi": 72812,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 72816,
+    "hi": 72847,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 72850,
+    "hi": 72871,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 72873,
+    "hi": 72886,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 73728,
+    "hi": 74649,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 74752,
+    "hi": 74862,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 74864,
+    "hi": 74868,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 74880,
+    "hi": 75075,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 77824,
+    "hi": 78894,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 82944,
+    "hi": 83526,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 92160,
+    "hi": 92728,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 92736,
+    "hi": 92766,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 92768,
+    "hi": 92777,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 92782,
+    "hi": 92783,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 92880,
+    "hi": 92909,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 92912,
+    "hi": 92917,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 92928,
+    "hi": 92997,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 93008,
+    "hi": 93017,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 93019,
+    "hi": 93025,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 93027,
+    "hi": 93047,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 93053,
+    "hi": 93071,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 93952,
+    "hi": 94020,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 94032,
+    "hi": 94078,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 94095,
+    "hi": 94111,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 94176,
+    "hi": 94176,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 100352,
+    "hi": 101106,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 110592,
+    "hi": 110593,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 113664,
+    "hi": 113770,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 113776,
+    "hi": 113788,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 113792,
+    "hi": 113800,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 113808,
+    "hi": 113817,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 113820,
+    "hi": 113827,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 118784,
+    "hi": 119029,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 119040,
+    "hi": 119078,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 119081,
+    "hi": 119272,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 119296,
+    "hi": 119365,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 119552,
+    "hi": 119638,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 119648,
+    "hi": 119665,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 119808,
+    "hi": 119892,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 119894,
+    "hi": 119964,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 119966,
+    "hi": 119967,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 119970,
+    "hi": 119970,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 119973,
+    "hi": 119974,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 119977,
+    "hi": 119980,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 119982,
+    "hi": 119993,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 119995,
+    "hi": 119995,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 119997,
+    "hi": 120003,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 120005,
+    "hi": 120069,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 120071,
+    "hi": 120074,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 120077,
+    "hi": 120084,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 120086,
+    "hi": 120092,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 120094,
+    "hi": 120121,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 120123,
+    "hi": 120126,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 120128,
+    "hi": 120132,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 120134,
+    "hi": 120134,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 120138,
+    "hi": 120144,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 120146,
+    "hi": 120485,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 120488,
+    "hi": 120779,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 120782,
+    "hi": 121483,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 121499,
+    "hi": 121503,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 121505,
+    "hi": 121519,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 122880,
+    "hi": 122886,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 122888,
+    "hi": 122904,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 122907,
+    "hi": 122913,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 122915,
+    "hi": 122916,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 122918,
+    "hi": 122922,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 124928,
+    "hi": 125124,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 125127,
+    "hi": 125142,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 125184,
+    "hi": 125258,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 125264,
+    "hi": 125273,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 125278,
+    "hi": 125279,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126464,
+    "hi": 126467,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126469,
+    "hi": 126495,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126497,
+    "hi": 126498,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126500,
+    "hi": 126500,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126503,
+    "hi": 126503,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126505,
+    "hi": 126514,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126516,
+    "hi": 126519,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126521,
+    "hi": 126521,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126523,
+    "hi": 126523,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126530,
+    "hi": 126530,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126535,
+    "hi": 126535,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126537,
+    "hi": 126537,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126539,
+    "hi": 126539,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126541,
+    "hi": 126543,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126545,
+    "hi": 126546,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126548,
+    "hi": 126548,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126551,
+    "hi": 126551,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126553,
+    "hi": 126553,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126555,
+    "hi": 126555,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126557,
+    "hi": 126557,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126559,
+    "hi": 126559,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126561,
+    "hi": 126562,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126564,
+    "hi": 126564,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126567,
+    "hi": 126570,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126572,
+    "hi": 126578,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126580,
+    "hi": 126583,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126585,
+    "hi": 126588,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126590,
+    "hi": 126590,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126592,
+    "hi": 126601,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126603,
+    "hi": 126619,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126625,
+    "hi": 126627,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126629,
+    "hi": 126633,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126635,
+    "hi": 126651,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126704,
+    "hi": 126705,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 126976,
+    "hi": 127019,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 127024,
+    "hi": 127123,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 127136,
+    "hi": 127150,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 127153,
+    "hi": 127167,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 127169,
+    "hi": 127183,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 127185,
+    "hi": 127221,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 127232,
+    "hi": 127244,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 127248,
+    "hi": 127278,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 127280,
+    "hi": 127339,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 127344,
+    "hi": 127404,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 127462,
+    "hi": 127490,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 127504,
+    "hi": 127547,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 127552,
+    "hi": 127560,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 127568,
+    "hi": 127569,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 127744,
+    "hi": 128722,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 128736,
+    "hi": 128748,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 128752,
+    "hi": 128758,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 128768,
+    "hi": 128883,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 128896,
+    "hi": 128980,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 129024,
+    "hi": 129035,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 129040,
+    "hi": 129095,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 129104,
+    "hi": 129113,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 129120,
+    "hi": 129159,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 129168,
+    "hi": 129197,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 129296,
+    "hi": 129310,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 129312,
+    "hi": 129319,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 129328,
+    "hi": 129328,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 129331,
+    "hi": 129342,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 129344,
+    "hi": 129355,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 129360,
+    "hi": 129374,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 129408,
+    "hi": 129425,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 129472,
+    "hi": 129472,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 194560,
+    "hi": 195101,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 917505,
+    "hi": 917505,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 917536,
+    "hi": 917631,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 917760,
+    "hi": 917999,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 983040,
+    "hi": 1048573,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 1048576,
+    "hi": 1114109,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 131072,
+    "hi": 173782,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 173824,
+    "hi": 177972,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 177984,
+    "hi": 178205,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 178208,
+    "hi": 183969,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 19968,
+    "hi": 40917,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 13312,
+    "hi": 19893,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 44032,
+    "hi": 55203,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 55296,
+    "hi": 56191,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 56192,
+    "hi": 56319,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 56320,
+    "hi": 57343,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 57344,
+    "hi": 63743,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 94208,
+    "hi": 100332,
+    "tag": "-unassigned assigned"
+  },
+  {
+    "lo": 0,
+    "hi": 65535,
+    "name": "plane:Basic Multilingual Plane (BMP)",
+    "type": "plane",
+    "plane": "Basic Multilingual Plane (BMP)"
+  },
+  {
+    "lo": 65536,
+    "hi": 131071,
+    "name": "plane:Supplementary Multilingual Plane (SMP)",
+    "type": "plane",
+    "plane": "Supplementary Multilingual Plane (SMP)"
+  },
+  {
+    "lo": 131072,
+    "hi": 196607,
+    "name": "plane:Supplementary Ideographic Plane (SIP)",
+    "type": "plane",
+    "plane": "Supplementary Ideographic Plane (SIP)"
+  },
+  {
+    "lo": 196608,
+    "hi": 262143,
+    "name": "plane:Tertiary Ideographic Plane (TIP)",
+    "type": "plane",
+    "plane": "Tertiary Ideographic Plane (TIP)"
+  },
+  {
+    "lo": 917504,
+    "hi": 983037,
+    "name": "plane:Supplementary Special-purpose Plane (SSP)",
+    "type": "plane",
+    "plane": "Supplementary Special-purpose Plane (SSP)"
+  },
+  {
+    "lo": 983040,
+    "hi": 1048573,
+    "name": "plane:Private Use Area (PUA)",
+    "type": "plane",
+    "plane": "Private Use Area (PUA)"
+  },
+  {
+    "lo": 1048576,
+    "hi": 1114109,
+    "name": "plane:Private Use Area (PUA)",
+    "type": "plane",
+    "plane": "Private Use Area (PUA)"
+  },
+  {
+    "lo": 0,
+    "hi": 255,
+    "name": "area:ASCII & Latin-1 Compatibility Area",
+    "type": "area",
+    "area": "ASCII & Latin-1 Compatibility Area"
+  },
+  {
+    "lo": 256,
+    "hi": 1423,
+    "name": "area:General Scripts Area",
+    "type": "area",
+    "area": "General Scripts Area"
+  },
+  {
+    "lo": 1424,
+    "hi": 2303,
+    "name": "area:General Scripts Area (RTL)",
+    "type": "area",
+    "area": "General Scripts Area (RTL)"
+  },
+  {
+    "lo": 2304,
+    "hi": 8191,
+    "name": "area:General Scripts Area",
+    "type": "area",
+    "area": "General Scripts Area"
+  },
+  {
+    "lo": 8192,
+    "hi": 11263,
+    "name": "area:Punctuation and Symbols Area",
+    "type": "area",
+    "area": "Punctuation and Symbols Area"
+  },
+  {
+    "lo": 11264,
+    "hi": 11775,
+    "name": "area:General Scripts Area",
+    "type": "area",
+    "area": "General Scripts Area"
+  },
+  {
+    "lo": 11776,
+    "hi": 11903,
+    "name": "area:Supplemental Punctuation Area",
+    "type": "area",
+    "area": "Supplemental Punctuation Area"
+  },
+  {
+    "lo": 11904,
+    "hi": 13311,
+    "name": "area:CJK Miscellaneous Area",
+    "type": "area",
+    "area": "CJK Miscellaneous Area"
+  },
+  {
+    "lo": 13312,
+    "hi": 40959,
+    "name": "area:CJKV Unified Ideographs Area",
+    "type": "area",
+    "area": "CJKV Unified Ideographs Area"
+  },
+  {
+    "lo": 40960,
+    "hi": 44031,
+    "name": "area:General Scripts Area (Asia & Africa)",
+    "type": "area",
+    "area": "General Scripts Area (Asia & Africa)"
+  },
+  {
+    "lo": 44032,
+    "hi": 55295,
+    "name": "area:Hangul Syllables Area",
+    "type": "area",
+    "area": "Hangul Syllables Area"
+  },
+  {
+    "lo": 55296,
+    "hi": 57343,
+    "name": "area:Surrogate Codes",
+    "type": "area",
+    "area": "Surrogate Codes"
+  },
+  {
+    "lo": 57344,
+    "hi": 63743,
+    "name": "area:Private Use Area (PUA)",
+    "type": "area",
+    "area": "Private Use Area (PUA)"
+  },
+  {
+    "lo": 63744,
+    "hi": 65535,
+    "name": "area:Compatibility and Specials Area",
+    "type": "area",
+    "area": "Compatibility and Specials Area"
+  },
+  {
+    "lo": 65536,
+    "hi": 67583,
+    "name": "area:General Scripts Area",
+    "type": "area",
+    "area": "General Scripts Area"
+  },
+  {
+    "lo": 67584,
+    "hi": 69631,
+    "name": "area:General Scripts Area (RTL)",
+    "type": "area",
+    "area": "General Scripts Area (RTL)"
+  },
+  {
+    "lo": 69632,
+    "hi": 73727,
+    "name": "area:General Scripts Area",
+    "type": "area",
+    "area": "General Scripts Area"
+  },
+  {
+    "lo": 73728,
+    "hi": 90111,
+    "name": "area:Cuneiform & Hieroglyphic Area",
+    "type": "area",
+    "area": "Cuneiform & Hieroglyphic Area"
+  },
+  {
+    "lo": 90112,
+    "hi": 94207,
+    "name": "area:General Scripts Area",
+    "type": "area",
+    "area": "General Scripts Area"
+  },
+  {
+    "lo": 94208,
+    "hi": 113663,
+    "name": "area:Ideographic Scripts Area",
+    "type": "area",
+    "area": "Ideographic Scripts Area"
+  },
+  {
+    "lo": 113664,
+    "hi": 118783,
+    "name": "area:General Scripts Area",
+    "type": "area",
+    "area": "General Scripts Area"
+  },
+  {
+    "lo": 118784,
+    "hi": 124927,
+    "name": "area:Symbols Area",
+    "type": "area",
+    "area": "Symbols Area"
+  },
+  {
+    "lo": 124928,
+    "hi": 126975,
+    "name": "area:General Scripts Area (RTL)",
+    "type": "area",
+    "area": "General Scripts Area (RTL)"
+  },
+  {
+    "lo": 126976,
+    "hi": 131071,
+    "name": "area:Symbols Area",
+    "type": "area",
+    "area": "Symbols Area"
+  },
+  {
+    "lo": 0,
+    "hi": 127,
+    "name": "plane:Basic Latin",
+    "type": "plane",
+    "block": "Basic Latin",
+    "rsg": "u-latn"
+  },
+  {
+    "lo": 128,
+    "hi": 255,
+    "name": "plane:Latin-1 Supplement",
+    "type": "plane",
+    "block": "Latin-1 Supplement",
+    "rsg": "u-latn-1"
+  },
+  {
+    "lo": 256,
+    "hi": 383,
+    "name": "plane:Latin Extended-A",
+    "type": "plane",
+    "block": "Latin Extended-A",
+    "rsg": "u-latn-a"
+  },
+  {
+    "lo": 384,
+    "hi": 591,
+    "name": "plane:Latin Extended-B",
+    "type": "plane",
+    "block": "Latin Extended-B",
+    "rsg": "u-latn-b"
+  },
+  {
+    "lo": 592,
+    "hi": 687,
+    "name": "plane:IPA Extensions",
+    "type": "plane",
+    "block": "IPA Extensions",
+    "rsg": "u-ipa-x"
+  },
+  {
+    "lo": 688,
+    "hi": 767,
+    "name": "plane:Spacing Modifier Letters",
+    "type": "plane",
+    "block": "Spacing Modifier Letters",
+    "rsg": "u-sml"
+  },
+  {
+    "lo": 768,
+    "hi": 879,
+    "name": "plane:Combining Diacritical Marks",
+    "type": "plane",
+    "block": "Combining Diacritical Marks",
+    "rsg": "u-cdm"
+  },
+  {
+    "lo": 880,
+    "hi": 1023,
+    "name": "plane:Greek and Coptic",
+    "type": "plane",
+    "block": "Greek and Coptic",
+    "rsg": "u-grek"
+  },
+  {
+    "lo": 1024,
+    "hi": 1279,
+    "name": "plane:Cyrillic",
+    "type": "plane",
+    "block": "Cyrillic",
+    "rsg": "u-cyrl"
+  },
+  {
+    "lo": 1280,
+    "hi": 1327,
+    "name": "plane:Cyrillic Supplement",
+    "type": "plane",
+    "block": "Cyrillic Supplement",
+    "rsg": "u-cyrl-s"
+  },
+  {
+    "lo": 1328,
+    "hi": 1423,
+    "name": "plane:Armenian",
+    "type": "plane",
+    "block": "Armenian",
+    "rsg": null
+  },
+  {
+    "lo": 1424,
+    "hi": 1535,
+    "name": "plane:Hebrew",
+    "type": "plane",
+    "block": "Hebrew",
+    "rsg": null
+  },
+  {
+    "lo": 1536,
+    "hi": 1791,
+    "name": "plane:Arabic",
+    "type": "plane",
+    "block": "Arabic",
+    "rsg": "u-arab"
+  },
+  {
+    "lo": 1792,
+    "hi": 1871,
+    "name": "plane:Syriac",
+    "type": "plane",
+    "block": "Syriac",
+    "rsg": null
+  },
+  {
+    "lo": 1872,
+    "hi": 1919,
+    "name": "plane:Arabic Supplement",
+    "type": "plane",
+    "block": "Arabic Supplement",
+    "rsg": "u-arab-s"
+  },
+  {
+    "lo": 1920,
+    "hi": 1983,
+    "name": "plane:Thaana",
+    "type": "plane",
+    "block": "Thaana",
+    "rsg": null
+  },
+  {
+    "lo": 1984,
+    "hi": 2047,
+    "name": "plane:NKo",
+    "type": "plane",
+    "block": "NKo",
+    "rsg": null
+  },
+  {
+    "lo": 2048,
+    "hi": 2111,
+    "name": "plane:Samaritan",
+    "type": "plane",
+    "block": "Samaritan",
+    "rsg": null
+  },
+  {
+    "lo": 2112,
+    "hi": 2143,
+    "name": "plane:Mandaic",
+    "type": "plane",
+    "block": "Mandaic",
+    "rsg": null
+  },
+  {
+    "lo": 2208,
+    "hi": 2303,
+    "name": "plane:Arabic Extended-A",
+    "type": "plane",
+    "block": "Arabic Extended-A",
+    "rsg": null
+  },
+  {
+    "lo": 2304,
+    "hi": 2431,
+    "name": "plane:Devanagari",
+    "type": "plane",
+    "block": "Devanagari",
+    "rsg": null
+  },
+  {
+    "lo": 2432,
+    "hi": 2559,
+    "name": "plane:Bengali",
+    "type": "plane",
+    "block": "Bengali",
+    "rsg": null
+  },
+  {
+    "lo": 2560,
+    "hi": 2687,
+    "name": "plane:Gurmukhi",
+    "type": "plane",
+    "block": "Gurmukhi",
+    "rsg": null
+  },
+  {
+    "lo": 2688,
+    "hi": 2815,
+    "name": "plane:Gujarati",
+    "type": "plane",
+    "block": "Gujarati",
+    "rsg": null
+  },
+  {
+    "lo": 2816,
+    "hi": 2943,
+    "name": "plane:Oriya",
+    "type": "plane",
+    "block": "Oriya",
+    "rsg": null
+  },
+  {
+    "lo": 2944,
+    "hi": 3071,
+    "name": "plane:Tamil",
+    "type": "plane",
+    "block": "Tamil",
+    "rsg": null
+  },
+  {
+    "lo": 3072,
+    "hi": 3199,
+    "name": "plane:Telugu",
+    "type": "plane",
+    "block": "Telugu",
+    "rsg": null
+  },
+  {
+    "lo": 3200,
+    "hi": 3327,
+    "name": "plane:Kannada",
+    "type": "plane",
+    "block": "Kannada",
+    "rsg": null
+  },
+  {
+    "lo": 3328,
+    "hi": 3455,
+    "name": "plane:Malayalam",
+    "type": "plane",
+    "block": "Malayalam",
+    "rsg": null
+  },
+  {
+    "lo": 3456,
+    "hi": 3583,
+    "name": "plane:Sinhala",
+    "type": "plane",
+    "block": "Sinhala",
+    "rsg": null
+  },
+  {
+    "lo": 3584,
+    "hi": 3711,
+    "name": "plane:Thai",
+    "type": "plane",
+    "block": "Thai",
+    "rsg": null
+  },
+  {
+    "lo": 3712,
+    "hi": 3839,
+    "name": "plane:Lao",
+    "type": "plane",
+    "block": "Lao",
+    "rsg": null
+  },
+  {
+    "lo": 3840,
+    "hi": 4095,
+    "name": "plane:Tibetan",
+    "type": "plane",
+    "block": "Tibetan",
+    "rsg": null
+  },
+  {
+    "lo": 4096,
+    "hi": 4255,
+    "name": "plane:Myanmar",
+    "type": "plane",
+    "block": "Myanmar",
+    "rsg": null
+  },
+  {
+    "lo": 4256,
+    "hi": 4351,
+    "name": "plane:Georgian",
+    "type": "plane",
+    "block": "Georgian",
+    "rsg": null
+  },
+  {
+    "lo": 4352,
+    "hi": 4607,
+    "name": "plane:Hangul Jamo",
+    "type": "plane",
+    "block": "Hangul Jamo",
+    "rsg": "u-hang-jm"
+  },
+  {
+    "lo": 4608,
+    "hi": 4991,
+    "name": "plane:Ethiopic",
+    "type": "plane",
+    "block": "Ethiopic",
+    "rsg": null
+  },
+  {
+    "lo": 4992,
+    "hi": 5023,
+    "name": "plane:Ethiopic Supplement",
+    "type": "plane",
+    "block": "Ethiopic Supplement",
+    "rsg": null
+  },
+  {
+    "lo": 5024,
+    "hi": 5119,
+    "name": "plane:Cherokee",
+    "type": "plane",
+    "block": "Cherokee",
+    "rsg": null
+  },
+  {
+    "lo": 5120,
+    "hi": 5759,
+    "name": "plane:Unified Canadian Aboriginal Syllabics",
+    "type": "plane",
+    "block": "Unified Canadian Aboriginal Syllabics",
+    "rsg": null
+  },
+  {
+    "lo": 5760,
+    "hi": 5791,
+    "name": "plane:Ogham",
+    "type": "plane",
+    "block": "Ogham",
+    "rsg": null
+  },
+  {
+    "lo": 5792,
+    "hi": 5887,
+    "name": "plane:Runic",
+    "type": "plane",
+    "block": "Runic",
+    "rsg": null
+  },
+  {
+    "lo": 5888,
+    "hi": 5919,
+    "name": "plane:Tagalog",
+    "type": "plane",
+    "block": "Tagalog",
+    "rsg": null
+  },
+  {
+    "lo": 5920,
+    "hi": 5951,
+    "name": "plane:Hanunoo",
+    "type": "plane",
+    "block": "Hanunoo",
+    "rsg": null
+  },
+  {
+    "lo": 5952,
+    "hi": 5983,
+    "name": "plane:Buhid",
+    "type": "plane",
+    "block": "Buhid",
+    "rsg": null
+  },
+  {
+    "lo": 5984,
+    "hi": 6015,
+    "name": "plane:Tagbanwa",
+    "type": "plane",
+    "block": "Tagbanwa",
+    "rsg": null
+  },
+  {
+    "lo": 6016,
+    "hi": 6143,
+    "name": "plane:Khmer",
+    "type": "plane",
+    "block": "Khmer",
+    "rsg": null
+  },
+  {
+    "lo": 6144,
+    "hi": 6319,
+    "name": "plane:Mongolian",
+    "type": "plane",
+    "block": "Mongolian",
+    "rsg": null
+  },
+  {
+    "lo": 6320,
+    "hi": 6399,
+    "name": "plane:Unified Canadian Aboriginal Syllabics Extended",
+    "type": "plane",
+    "block": "Unified Canadian Aboriginal Syllabics Extended",
+    "rsg": null
+  },
+  {
+    "lo": 6400,
+    "hi": 6479,
+    "name": "plane:Limbu",
+    "type": "plane",
+    "block": "Limbu",
+    "rsg": null
+  },
+  {
+    "lo": 6480,
+    "hi": 6527,
+    "name": "plane:Tai Le",
+    "type": "plane",
+    "block": "Tai Le",
+    "rsg": null
+  },
+  {
+    "lo": 6528,
+    "hi": 6623,
+    "name": "plane:New Tai Lue",
+    "type": "plane",
+    "block": "New Tai Lue",
+    "rsg": null
+  },
+  {
+    "lo": 6624,
+    "hi": 6655,
+    "name": "plane:Khmer Symbols",
+    "type": "plane",
+    "block": "Khmer Symbols",
+    "rsg": null
+  },
+  {
+    "lo": 6656,
+    "hi": 6687,
+    "name": "plane:Buginese",
+    "type": "plane",
+    "block": "Buginese",
+    "rsg": null
+  },
+  {
+    "lo": 6688,
+    "hi": 6831,
+    "name": "plane:Tai Tham",
+    "type": "plane",
+    "block": "Tai Tham",
+    "rsg": null
+  },
+  {
+    "lo": 6912,
+    "hi": 7039,
+    "name": "plane:Balinese",
+    "type": "plane",
+    "block": "Balinese",
+    "rsg": null
+  },
+  {
+    "lo": 7040,
+    "hi": 7103,
+    "name": "plane:Sundanese",
+    "type": "plane",
+    "block": "Sundanese",
+    "rsg": null
+  },
+  {
+    "lo": 7104,
+    "hi": 7167,
+    "name": "plane:Batak",
+    "type": "plane",
+    "block": "Batak",
+    "rsg": null
+  },
+  {
+    "lo": 7168,
+    "hi": 7247,
+    "name": "plane:Lepcha",
+    "type": "plane",
+    "block": "Lepcha",
+    "rsg": null
+  },
+  {
+    "lo": 7248,
+    "hi": 7295,
+    "name": "plane:Ol Chiki",
+    "type": "plane",
+    "block": "Ol Chiki",
+    "rsg": "u-olck"
+  },
+  {
+    "lo": 7360,
+    "hi": 7375,
+    "name": "plane:Sundanese Supplement",
+    "type": "plane",
+    "block": "Sundanese Supplement",
+    "rsg": null
+  },
+  {
+    "lo": 7376,
+    "hi": 7423,
+    "name": "plane:Vedic Extensions",
+    "type": "plane",
+    "block": "Vedic Extensions",
+    "rsg": null
+  },
+  {
+    "lo": 7424,
+    "hi": 7551,
+    "name": "plane:Phonetic Extensions",
+    "type": "plane",
+    "block": "Phonetic Extensions",
+    "rsg": "u-phon-x"
+  },
+  {
+    "lo": 7552,
+    "hi": 7615,
+    "name": "plane:Phonetic Extensions Supplement",
+    "type": "plane",
+    "block": "Phonetic Extensions Supplement",
+    "rsg": "u-phon-xs"
+  },
+  {
+    "lo": 7616,
+    "hi": 7679,
+    "name": "plane:Combining Diacritical Marks Supplement",
+    "type": "plane",
+    "block": "Combining Diacritical Marks Supplement",
+    "rsg": "u-cdm-s"
+  },
+  {
+    "lo": 7680,
+    "hi": 7935,
+    "name": "plane:Latin Extended Additional",
+    "type": "plane",
+    "block": "Latin Extended Additional",
+    "rsg": "u-latn-xa"
+  },
+  {
+    "lo": 7936,
+    "hi": 8191,
+    "name": "plane:Greek Extended",
+    "type": "plane",
+    "block": "Greek Extended",
+    "rsg": "u-grek-x"
+  },
+  {
+    "lo": 8192,
+    "hi": 8303,
+    "name": "plane:General Punctuation",
+    "type": "plane",
+    "block": "General Punctuation",
+    "rsg": "u-punct"
+  },
+  {
+    "lo": 8304,
+    "hi": 8351,
+    "name": "plane:Superscripts and Subscripts",
+    "type": "plane",
+    "block": "Superscripts and Subscripts",
+    "rsg": "u-supsub"
+  },
+  {
+    "lo": 8352,
+    "hi": 8399,
+    "name": "plane:Currency Symbols",
+    "type": "plane",
+    "block": "Currency Symbols",
+    "rsg": "u-currn"
+  },
+  {
+    "lo": 8400,
+    "hi": 8447,
+    "name": "plane:Combining Diacritical Marks for Symbols",
+    "type": "plane",
+    "block": "Combining Diacritical Marks for Symbols",
+    "rsg": "u-cdm-sy"
+  },
+  {
+    "lo": 8448,
+    "hi": 8527,
+    "name": "plane:Letterlike Symbols",
+    "type": "plane",
+    "block": "Letterlike Symbols",
+    "rsg": "u-llsym"
+  },
+  {
+    "lo": 8528,
+    "hi": 8591,
+    "name": "plane:Number Forms",
+    "type": "plane",
+    "block": "Number Forms",
+    "rsg": "u-num"
+  },
+  {
+    "lo": 8592,
+    "hi": 8703,
+    "name": "plane:Arrows",
+    "type": "plane",
+    "block": "Arrows",
+    "rsg": "u-arrow"
+  },
+  {
+    "lo": 8704,
+    "hi": 8959,
+    "name": "plane:Mathematical Operators",
+    "type": "plane",
+    "block": "Mathematical Operators",
+    "rsg": null
+  },
+  {
+    "lo": 8960,
+    "hi": 9215,
+    "name": "plane:Miscellaneous Technical",
+    "type": "plane",
+    "block": "Miscellaneous Technical",
+    "rsg": null
+  },
+  {
+    "lo": 9216,
+    "hi": 9279,
+    "name": "plane:Control Pictures",
+    "type": "plane",
+    "block": "Control Pictures",
+    "rsg": "u-ctrlp"
+  },
+  {
+    "lo": 9280,
+    "hi": 9311,
+    "name": "plane:Optical Character Recognition",
+    "type": "plane",
+    "block": "Optical Character Recognition",
+    "rsg": "u-ocr"
+  },
+  {
+    "lo": 9312,
+    "hi": 9471,
+    "name": "plane:Enclosed Alphanumerics",
+    "type": "plane",
+    "block": "Enclosed Alphanumerics",
+    "rsg": "u-enalp"
+  },
+  {
+    "lo": 9472,
+    "hi": 9599,
+    "name": "plane:Box Drawing",
+    "type": "plane",
+    "block": "Box Drawing",
+    "rsg": "u-boxdr"
+  },
+  {
+    "lo": 9600,
+    "hi": 9631,
+    "name": "plane:Block Elements",
+    "type": "plane",
+    "block": "Block Elements",
+    "rsg": "u-block"
+  },
+  {
+    "lo": 9632,
+    "hi": 9727,
+    "name": "plane:Geometric Shapes",
+    "type": "plane",
+    "block": "Geometric Shapes",
+    "rsg": "u-geoms"
+  },
+  {
+    "lo": 9728,
+    "hi": 9983,
+    "name": "plane:Miscellaneous Symbols",
+    "type": "plane",
+    "block": "Miscellaneous Symbols",
+    "rsg": "u-sym"
+  },
+  {
+    "lo": 9984,
+    "hi": 10175,
+    "name": "plane:Dingbats",
+    "type": "plane",
+    "block": "Dingbats",
+    "rsg": "u-dingb"
+  },
+  {
+    "lo": 10176,
+    "hi": 10223,
+    "name": "plane:Miscellaneous Mathematical Symbols-A",
+    "type": "plane",
+    "block": "Miscellaneous Mathematical Symbols-A",
+    "rsg": "u-maths-a"
+  },
+  {
+    "lo": 10224,
+    "hi": 10239,
+    "name": "plane:Supplemental Arrows-A",
+    "type": "plane",
+    "block": "Supplemental Arrows-A",
+    "rsg": "u-arrow-a"
+  },
+  {
+    "lo": 10240,
+    "hi": 10495,
+    "name": "plane:Braille Patterns",
+    "type": "plane",
+    "block": "Braille Patterns",
+    "rsg": "u-brail"
+  },
+  {
+    "lo": 10496,
+    "hi": 10623,
+    "name": "plane:Supplemental Arrows-B",
+    "type": "plane",
+    "block": "Supplemental Arrows-B",
+    "rsg": "u-arrow-b"
+  },
+  {
+    "lo": 10624,
+    "hi": 10751,
+    "name": "plane:Miscellaneous Mathematical Symbols-B",
+    "type": "plane",
+    "block": "Miscellaneous Mathematical Symbols-B",
+    "rsg": null
+  },
+  {
+    "lo": 10752,
+    "hi": 11007,
+    "name": "plane:Supplemental Mathematical Operators",
+    "type": "plane",
+    "block": "Supplemental Mathematical Operators",
+    "rsg": null
+  },
+  {
+    "lo": 11008,
+    "hi": 11263,
+    "name": "plane:Miscellaneous Symbols and Arrows",
+    "type": "plane",
+    "block": "Miscellaneous Symbols and Arrows",
+    "rsg": null
+  },
+  {
+    "lo": 11264,
+    "hi": 11359,
+    "name": "plane:Glagolitic",
+    "type": "plane",
+    "block": "Glagolitic",
+    "rsg": null
+  },
+  {
+    "lo": 11360,
+    "hi": 11391,
+    "name": "plane:Latin Extended-C",
+    "type": "plane",
+    "block": "Latin Extended-C",
+    "rsg": "u-latn-c"
+  },
+  {
+    "lo": 11392,
+    "hi": 11519,
+    "name": "plane:Coptic",
+    "type": "plane",
+    "block": "Coptic",
+    "rsg": null
+  },
+  {
+    "lo": 11520,
+    "hi": 11567,
+    "name": "plane:Georgian Supplement",
+    "type": "plane",
+    "block": "Georgian Supplement",
+    "rsg": null
+  },
+  {
+    "lo": 11568,
+    "hi": 11647,
+    "name": "plane:Tifinagh",
+    "type": "plane",
+    "block": "Tifinagh",
+    "rsg": null
+  },
+  {
+    "lo": 11648,
+    "hi": 11743,
+    "name": "plane:Ethiopic Extended",
+    "type": "plane",
+    "block": "Ethiopic Extended",
+    "rsg": null
+  },
+  {
+    "lo": 11744,
+    "hi": 11775,
+    "name": "plane:Cyrillic Extended-A",
+    "type": "plane",
+    "block": "Cyrillic Extended-A",
+    "rsg": "u-cyrl-a"
+  },
+  {
+    "lo": 11776,
+    "hi": 11903,
+    "name": "plane:Supplemental Punctuation",
+    "type": "plane",
+    "block": "Supplemental Punctuation",
+    "rsg": "u-punct-s"
+  },
+  {
+    "lo": 11904,
+    "hi": 12031,
+    "name": "plane:CJK Radicals Supplement",
+    "type": "plane",
+    "block": "CJK Radicals Supplement",
+    "rsg": "u-cjk-rad2"
+  },
+  {
+    "lo": 12032,
+    "hi": 12255,
+    "name": "plane:Kangxi Radicals",
+    "type": "plane",
+    "block": "Kangxi Radicals",
+    "rsg": "u-cjk-rad1"
+  },
+  {
+    "lo": 12272,
+    "hi": 12287,
+    "name": "plane:Ideographic Description Characters",
+    "type": "plane",
+    "block": "Ideographic Description Characters",
+    "rsg": "u-cjk-idc"
+  },
+  {
+    "lo": 12288,
+    "hi": 12351,
+    "name": "plane:CJK Symbols and Punctuation",
+    "type": "plane",
+    "block": "CJK Symbols and Punctuation",
+    "rsg": "u-cjk-sym"
+  },
+  {
+    "lo": 12352,
+    "hi": 12447,
+    "name": "plane:Hiragana",
+    "type": "plane",
+    "block": "Hiragana",
+    "rsg": "u-cjk-hira"
+  },
+  {
+    "lo": 12448,
+    "hi": 12543,
+    "name": "plane:Katakana",
+    "type": "plane",
+    "block": "Katakana",
+    "rsg": "u-cjk-kata"
+  },
+  {
+    "lo": 12544,
+    "hi": 12591,
+    "name": "plane:Bopomofo",
+    "type": "plane",
+    "block": "Bopomofo",
+    "rsg": "u-bopo"
+  },
+  {
+    "lo": 12592,
+    "hi": 12687,
+    "name": "plane:Hangul Compatibility Jamo",
+    "type": "plane",
+    "block": "Hangul Compatibility Jamo",
+    "rsg": "u-hang-comp-jm"
+  },
+  {
+    "lo": 12688,
+    "hi": 12703,
+    "name": "plane:Kanbun",
+    "type": "plane",
+    "block": "Kanbun",
+    "rsg": "u-cjk-kanbun"
+  },
+  {
+    "lo": 12704,
+    "hi": 12735,
+    "name": "plane:Bopomofo Extended",
+    "type": "plane",
+    "block": "Bopomofo Extended",
+    "rsg": "u-bopo-x"
+  },
+  {
+    "lo": 12736,
+    "hi": 12783,
+    "name": "plane:CJK Strokes",
+    "type": "plane",
+    "block": "CJK Strokes",
+    "rsg": "u-cjk-strk"
+  },
+  {
+    "lo": 12784,
+    "hi": 12799,
+    "name": "plane:Katakana Phonetic Extensions",
+    "type": "plane",
+    "block": "Katakana Phonetic Extensions",
+    "rsg": "u-cjk-kata-x"
+  },
+  {
+    "lo": 12800,
+    "hi": 13055,
+    "name": "plane:Enclosed CJK Letters and Months",
+    "type": "plane",
+    "block": "Enclosed CJK Letters and Months",
+    "rsg": "u-cjk-enclett"
+  },
+  {
+    "lo": 13056,
+    "hi": 13311,
+    "name": "plane:CJK Compatibility",
+    "type": "plane",
+    "block": "CJK Compatibility",
+    "rsg": "u-cjk-cmp"
+  },
+  {
+    "lo": 13312,
+    "hi": 19903,
+    "name": "plane:CJK Unified Ideographs Extension A",
+    "type": "plane",
+    "block": "CJK Unified Ideographs Extension A",
+    "rsg": "u-cjk-xa"
+  },
+  {
+    "lo": 19904,
+    "hi": 19967,
+    "name": "plane:Yijing Hexagram Symbols",
+    "type": "plane",
+    "block": "Yijing Hexagram Symbols",
+    "rsg": "u-yijng"
+  },
+  {
+    "lo": 19968,
+    "hi": 40959,
+    "name": "plane:CJK Unified Ideographs",
+    "type": "plane",
+    "block": "CJK Unified Ideographs",
+    "rsg": "u-cjk"
+  },
+  {
+    "lo": 40960,
+    "hi": 42127,
+    "name": "plane:Yi Syllables",
+    "type": "plane",
+    "block": "Yi Syllables",
+    "rsg": null
+  },
+  {
+    "lo": 42128,
+    "hi": 42191,
+    "name": "plane:Yi Radicals",
+    "type": "plane",
+    "block": "Yi Radicals",
+    "rsg": null
+  },
+  {
+    "lo": 42192,
+    "hi": 42239,
+    "name": "plane:Lisu",
+    "type": "plane",
+    "block": "Lisu",
+    "rsg": null
+  },
+  {
+    "lo": 42240,
+    "hi": 42559,
+    "name": "plane:Vai",
+    "type": "plane",
+    "block": "Vai",
+    "rsg": null
+  },
+  {
+    "lo": 42560,
+    "hi": 42655,
+    "name": "plane:Cyrillic Extended-B",
+    "type": "plane",
+    "block": "Cyrillic Extended-B",
+    "rsg": "u-cyrl-b"
+  },
+  {
+    "lo": 42656,
+    "hi": 42751,
+    "name": "plane:Bamum",
+    "type": "plane",
+    "block": "Bamum",
+    "rsg": null
+  },
+  {
+    "lo": 42752,
+    "hi": 42783,
+    "name": "plane:Modifier Tone Letters",
+    "type": "plane",
+    "block": "Modifier Tone Letters",
+    "rsg": null
+  },
+  {
+    "lo": 42784,
+    "hi": 43007,
+    "name": "plane:Latin Extended-D",
+    "type": "plane",
+    "block": "Latin Extended-D",
+    "rsg": "u-latn-d"
+  },
+  {
+    "lo": 43008,
+    "hi": 43055,
+    "name": "plane:Syloti Nagri",
+    "type": "plane",
+    "block": "Syloti Nagri",
+    "rsg": null
+  },
+  {
+    "lo": 43056,
+    "hi": 43071,
+    "name": "plane:Common Indic Number Forms",
+    "type": "plane",
+    "block": "Common Indic Number Forms",
+    "rsg": null
+  },
+  {
+    "lo": 43072,
+    "hi": 43135,
+    "name": "plane:Phags-pa",
+    "type": "plane",
+    "block": "Phags-pa",
+    "rsg": null
+  },
+  {
+    "lo": 43136,
+    "hi": 43231,
+    "name": "plane:Saurashtra",
+    "type": "plane",
+    "block": "Saurashtra",
+    "rsg": null
+  },
+  {
+    "lo": 43232,
+    "hi": 43263,
+    "name": "plane:Devanagari Extended",
+    "type": "plane",
+    "block": "Devanagari Extended",
+    "rsg": null
+  },
+  {
+    "lo": 43264,
+    "hi": 43311,
+    "name": "plane:Kayah Li",
+    "type": "plane",
+    "block": "Kayah Li",
+    "rsg": null
+  },
+  {
+    "lo": 43312,
+    "hi": 43359,
+    "name": "plane:Rejang",
+    "type": "plane",
+    "block": "Rejang",
+    "rsg": null
+  },
+  {
+    "lo": 43360,
+    "hi": 43391,
+    "name": "plane:Hangul Jamo Extended-A",
+    "type": "plane",
+    "block": "Hangul Jamo Extended-A",
+    "rsg": null
+  },
+  {
+    "lo": 43392,
+    "hi": 43487,
+    "name": "plane:Javanese",
+    "type": "plane",
+    "block": "Javanese",
+    "rsg": null
+  },
+  {
+    "lo": 43520,
+    "hi": 43615,
+    "name": "plane:Cham",
+    "type": "plane",
+    "block": "Cham",
+    "rsg": null
+  },
+  {
+    "lo": 43616,
+    "hi": 43647,
+    "name": "plane:Myanmar Extended-A",
+    "type": "plane",
+    "block": "Myanmar Extended-A",
+    "rsg": null
+  },
+  {
+    "lo": 43648,
+    "hi": 43743,
+    "name": "plane:Tai Viet",
+    "type": "plane",
+    "block": "Tai Viet",
+    "rsg": null
+  },
+  {
+    "lo": 43744,
+    "hi": 43775,
+    "name": "plane:Meetei Mayek Extensions",
+    "type": "plane",
+    "block": "Meetei Mayek Extensions",
+    "rsg": null
+  },
+  {
+    "lo": 43776,
+    "hi": 43823,
+    "name": "plane:Ethiopic Extended-A",
+    "type": "plane",
+    "block": "Ethiopic Extended-A",
+    "rsg": null
+  },
+  {
+    "lo": 43968,
+    "hi": 44031,
+    "name": "plane:Meetei Mayek",
+    "type": "plane",
+    "block": "Meetei Mayek",
+    "rsg": null
+  },
+  {
+    "lo": 44032,
+    "hi": 55215,
+    "name": "plane:Hangul Syllables",
+    "type": "plane",
+    "block": "Hangul Syllables",
+    "rsg": "u-hang-syl"
+  },
+  {
+    "lo": 55216,
+    "hi": 55295,
+    "name": "plane:Hangul Jamo Extended-B",
+    "type": "plane",
+    "block": "Hangul Jamo Extended-B",
+    "rsg": null
+  },
+  {
+    "lo": 55296,
+    "hi": 56191,
+    "name": "plane:High Surrogates",
+    "type": "plane",
+    "block": "High Surrogates",
+    "rsg": null
+  },
+  {
+    "lo": 56192,
+    "hi": 56319,
+    "name": "plane:High Private Use Surrogates",
+    "type": "plane",
+    "block": "High Private Use Surrogates",
+    "rsg": null
+  },
+  {
+    "lo": 56320,
+    "hi": 57343,
+    "name": "plane:Low Surrogates",
+    "type": "plane",
+    "block": "Low Surrogates",
+    "rsg": null
+  },
+  {
+    "lo": 57344,
+    "hi": 63743,
+    "name": "plane:Private Use Area",
+    "type": "plane",
+    "block": "Private Use Area",
+    "rsg": "u-pua"
+  },
+  {
+    "lo": 63744,
+    "hi": 64255,
+    "name": "plane:CJK Compatibility Ideographs",
+    "type": "plane",
+    "block": "CJK Compatibility Ideographs",
+    "rsg": "u-cjk-cmpi1"
+  },
+  {
+    "lo": 64256,
+    "hi": 64335,
+    "name": "plane:Alphabetic Presentation Forms",
+    "type": "plane",
+    "block": "Alphabetic Presentation Forms",
+    "rsg": "u-abc-pf"
+  },
+  {
+    "lo": 64336,
+    "hi": 65023,
+    "name": "plane:Arabic Presentation Forms-A",
+    "type": "plane",
+    "block": "Arabic Presentation Forms-A",
+    "rsg": "u-arab-pf-a"
+  },
+  {
+    "lo": 65024,
+    "hi": 65039,
+    "name": "plane:Variation Selectors",
+    "type": "plane",
+    "block": "Variation Selectors",
+    "rsg": "u-varsl"
+  },
+  {
+    "lo": 65040,
+    "hi": 65055,
+    "name": "plane:Vertical Forms",
+    "type": "plane",
+    "block": "Vertical Forms",
+    "rsg": "u-vertf"
+  },
+  {
+    "lo": 65056,
+    "hi": 65071,
+    "name": "plane:Combining Half Marks",
+    "type": "plane",
+    "block": "Combining Half Marks",
+    "rsg": null
+  },
+  {
+    "lo": 65072,
+    "hi": 65103,
+    "name": "plane:CJK Compatibility Forms",
+    "type": "plane",
+    "block": "CJK Compatibility Forms",
+    "rsg": "u-cjk-cmpf"
+  },
+  {
+    "lo": 65104,
+    "hi": 65135,
+    "name": "plane:Small Form Variants",
+    "type": "plane",
+    "block": "Small Form Variants",
+    "rsg": "u-small"
+  },
+  {
+    "lo": 65136,
+    "hi": 65279,
+    "name": "plane:Arabic Presentation Forms-B",
+    "type": "plane",
+    "block": "Arabic Presentation Forms-B",
+    "rsg": "u-arab-pf-b"
+  },
+  {
+    "lo": 65280,
+    "hi": 65519,
+    "name": "plane:Halfwidth and Fullwidth Forms",
+    "type": "plane",
+    "block": "Halfwidth and Fullwidth Forms",
+    "rsg": "u-halfull"
+  },
+  {
+    "lo": 65520,
+    "hi": 65535,
+    "name": "plane:Specials",
+    "type": "plane",
+    "block": "Specials",
+    "rsg": "u-special"
+  },
+  {
+    "lo": 65536,
+    "hi": 65663,
+    "name": "plane:Linear B Syllabary",
+    "type": "plane",
+    "block": "Linear B Syllabary",
+    "rsg": null
+  },
+  {
+    "lo": 65664,
+    "hi": 65791,
+    "name": "plane:Linear B Ideograms",
+    "type": "plane",
+    "block": "Linear B Ideograms",
+    "rsg": null
+  },
+  {
+    "lo": 65792,
+    "hi": 65855,
+    "name": "plane:Aegean Numbers",
+    "type": "plane",
+    "block": "Aegean Numbers",
+    "rsg": null
+  },
+  {
+    "lo": 65856,
+    "hi": 65935,
+    "name": "plane:Ancient Greek Numbers",
+    "type": "plane",
+    "block": "Ancient Greek Numbers",
+    "rsg": null
+  },
+  {
+    "lo": 65936,
+    "hi": 65999,
+    "name": "plane:Ancient Symbols",
+    "type": "plane",
+    "block": "Ancient Symbols",
+    "rsg": null
+  },
+  {
+    "lo": 66000,
+    "hi": 66047,
+    "name": "plane:Phaistos Disc",
+    "type": "plane",
+    "block": "Phaistos Disc",
+    "rsg": null
+  },
+  {
+    "lo": 66176,
+    "hi": 66207,
+    "name": "plane:Lycian",
+    "type": "plane",
+    "block": "Lycian",
+    "rsg": null
+  },
+  {
+    "lo": 66208,
+    "hi": 66271,
+    "name": "plane:Carian",
+    "type": "plane",
+    "block": "Carian",
+    "rsg": null
+  },
+  {
+    "lo": 66304,
+    "hi": 66351,
+    "name": "plane:Old Italic",
+    "type": "plane",
+    "block": "Old Italic",
+    "rsg": null
+  },
+  {
+    "lo": 66352,
+    "hi": 66383,
+    "name": "plane:Gothic",
+    "type": "plane",
+    "block": "Gothic",
+    "rsg": null
+  },
+  {
+    "lo": 66432,
+    "hi": 66463,
+    "name": "plane:Ugaritic",
+    "type": "plane",
+    "block": "Ugaritic",
+    "rsg": null
+  },
+  {
+    "lo": 66464,
+    "hi": 66527,
+    "name": "plane:Old Persian",
+    "type": "plane",
+    "block": "Old Persian",
+    "rsg": null
+  },
+  {
+    "lo": 66560,
+    "hi": 66639,
+    "name": "plane:Deseret",
+    "type": "plane",
+    "block": "Deseret",
+    "rsg": null
+  },
+  {
+    "lo": 66640,
+    "hi": 66687,
+    "name": "plane:Shavian",
+    "type": "plane",
+    "block": "Shavian",
+    "rsg": null
+  },
+  {
+    "lo": 66688,
+    "hi": 66735,
+    "name": "plane:Osmanya",
+    "type": "plane",
+    "block": "Osmanya",
+    "rsg": null
+  },
+  {
+    "lo": 67584,
+    "hi": 67647,
+    "name": "plane:Cypriot Syllabary",
+    "type": "plane",
+    "block": "Cypriot Syllabary",
+    "rsg": null
+  },
+  {
+    "lo": 67648,
+    "hi": 67679,
+    "name": "plane:Imperial Aramaic",
+    "type": "plane",
+    "block": "Imperial Aramaic",
+    "rsg": null
+  },
+  {
+    "lo": 67840,
+    "hi": 67871,
+    "name": "plane:Phoenician",
+    "type": "plane",
+    "block": "Phoenician",
+    "rsg": null
+  },
+  {
+    "lo": 67872,
+    "hi": 67903,
+    "name": "plane:Lydian",
+    "type": "plane",
+    "block": "Lydian",
+    "rsg": null
+  },
+  {
+    "lo": 67968,
+    "hi": 67999,
+    "name": "plane:Meroitic Hieroglyphs",
+    "type": "plane",
+    "block": "Meroitic Hieroglyphs",
+    "rsg": null
+  },
+  {
+    "lo": 68000,
+    "hi": 68095,
+    "name": "plane:Meroitic Cursive",
+    "type": "plane",
+    "block": "Meroitic Cursive",
+    "rsg": null
+  },
+  {
+    "lo": 68096,
+    "hi": 68191,
+    "name": "plane:Kharoshthi",
+    "type": "plane",
+    "block": "Kharoshthi",
+    "rsg": null
+  },
+  {
+    "lo": 68192,
+    "hi": 68223,
+    "name": "plane:Old South Arabian",
+    "type": "plane",
+    "block": "Old South Arabian",
+    "rsg": null
+  },
+  {
+    "lo": 68352,
+    "hi": 68415,
+    "name": "plane:Avestan",
+    "type": "plane",
+    "block": "Avestan",
+    "rsg": null
+  },
+  {
+    "lo": 68416,
+    "hi": 68447,
+    "name": "plane:Inscriptional Parthian",
+    "type": "plane",
+    "block": "Inscriptional Parthian",
+    "rsg": null
+  },
+  {
+    "lo": 68448,
+    "hi": 68479,
+    "name": "plane:Inscriptional Pahlavi",
+    "type": "plane",
+    "block": "Inscriptional Pahlavi",
+    "rsg": null
+  },
+  {
+    "lo": 68608,
+    "hi": 68687,
+    "name": "plane:Old Turkic",
+    "type": "plane",
+    "block": "Old Turkic",
+    "rsg": null
+  },
+  {
+    "lo": 69216,
+    "hi": 69247,
+    "name": "plane:Rumi Numeral Symbols",
+    "type": "plane",
+    "block": "Rumi Numeral Symbols",
+    "rsg": null
+  },
+  {
+    "lo": 69632,
+    "hi": 69759,
+    "name": "plane:Brahmi",
+    "type": "plane",
+    "block": "Brahmi",
+    "rsg": null
+  },
+  {
+    "lo": 69760,
+    "hi": 69839,
+    "name": "plane:Kaithi",
+    "type": "plane",
+    "block": "Kaithi",
+    "rsg": null
+  },
+  {
+    "lo": 69840,
+    "hi": 69887,
+    "name": "plane:Sora Sompeng",
+    "type": "plane",
+    "block": "Sora Sompeng",
+    "rsg": null
+  },
+  {
+    "lo": 69888,
+    "hi": 69967,
+    "name": "plane:Chakma",
+    "type": "plane",
+    "block": "Chakma",
+    "rsg": null
+  },
+  {
+    "lo": 70016,
+    "hi": 70111,
+    "name": "plane:Sharada",
+    "type": "plane",
+    "block": "Sharada",
+    "rsg": null
+  },
+  {
+    "lo": 71296,
+    "hi": 71375,
+    "name": "plane:Takri",
+    "type": "plane",
+    "block": "Takri",
+    "rsg": null
+  },
+  {
+    "lo": 73728,
+    "hi": 74751,
+    "name": "plane:Cuneiform",
+    "type": "plane",
+    "block": "Cuneiform",
+    "rsg": null
+  },
+  {
+    "lo": 74752,
+    "hi": 74879,
+    "name": "plane:Cuneiform Numbers and Punctuation",
+    "type": "plane",
+    "block": "Cuneiform Numbers and Punctuation",
+    "rsg": null
+  },
+  {
+    "lo": 77824,
+    "hi": 78895,
+    "name": "plane:Egyptian Hieroglyphs",
+    "type": "plane",
+    "block": "Egyptian Hieroglyphs",
+    "rsg": null
+  },
+  {
+    "lo": 92160,
+    "hi": 92735,
+    "name": "plane:Bamum Supplement",
+    "type": "plane",
+    "block": "Bamum Supplement",
+    "rsg": null
+  },
+  {
+    "lo": 93952,
+    "hi": 94111,
+    "name": "plane:Miao",
+    "type": "plane",
+    "block": "Miao",
+    "rsg": null
+  },
+  {
+    "lo": 110592,
+    "hi": 110847,
+    "name": "plane:Kana Supplement",
+    "type": "plane",
+    "block": "Kana Supplement",
+    "rsg": null
+  },
+  {
+    "lo": 118784,
+    "hi": 119039,
+    "name": "plane:Byzantine Musical Symbols",
+    "type": "plane",
+    "block": "Byzantine Musical Symbols",
+    "rsg": null
+  },
+  {
+    "lo": 119040,
+    "hi": 119295,
+    "name": "plane:Musical Symbols",
+    "type": "plane",
+    "block": "Musical Symbols",
+    "rsg": null
+  },
+  {
+    "lo": 119296,
+    "hi": 119375,
+    "name": "plane:Ancient Greek Musical Notation",
+    "type": "plane",
+    "block": "Ancient Greek Musical Notation",
+    "rsg": null
+  },
+  {
+    "lo": 119552,
+    "hi": 119647,
+    "name": "plane:Tai Xuan Jing Symbols",
+    "type": "plane",
+    "block": "Tai Xuan Jing Symbols",
+    "rsg": "u-txj-sym"
+  },
+  {
+    "lo": 119648,
+    "hi": 119679,
+    "name": "plane:Counting Rod Numerals",
+    "type": "plane",
+    "block": "Counting Rod Numerals",
+    "rsg": null
+  },
+  {
+    "lo": 119808,
+    "hi": 120831,
+    "name": "plane:Mathematical Alphanumeric Symbols",
+    "type": "plane",
+    "block": "Mathematical Alphanumeric Symbols",
+    "rsg": null
+  },
+  {
+    "lo": 126464,
+    "hi": 126719,
+    "name": "plane:Arabic Mathematical Alphabetic Symbols",
+    "type": "plane",
+    "block": "Arabic Mathematical Alphabetic Symbols",
+    "rsg": null
+  },
+  {
+    "lo": 126976,
+    "hi": 127023,
+    "name": "plane:Mahjong Tiles",
+    "type": "plane",
+    "block": "Mahjong Tiles",
+    "rsg": null
+  },
+  {
+    "lo": 127024,
+    "hi": 127135,
+    "name": "plane:Domino Tiles",
+    "type": "plane",
+    "block": "Domino Tiles",
+    "rsg": null
+  },
+  {
+    "lo": 127136,
+    "hi": 127231,
+    "name": "plane:Playing Cards",
+    "type": "plane",
+    "block": "Playing Cards",
+    "rsg": null
+  },
+  {
+    "lo": 127232,
+    "hi": 127487,
+    "name": "plane:Enclosed Alphanumeric Supplement",
+    "type": "plane",
+    "block": "Enclosed Alphanumeric Supplement",
+    "rsg": null
+  },
+  {
+    "lo": 127488,
+    "hi": 127743,
+    "name": "plane:Enclosed Ideographic Supplement",
+    "type": "plane",
+    "block": "Enclosed Ideographic Supplement",
+    "rsg": "u-cjk-encsupp"
+  },
+  {
+    "lo": 127744,
+    "hi": 128511,
+    "name": "plane:Miscellaneous Symbols And Pictographs",
+    "type": "plane",
+    "block": "Miscellaneous Symbols And Pictographs",
+    "rsg": null
+  },
+  {
+    "lo": 128512,
+    "hi": 128591,
+    "name": "plane:Emoticons",
+    "type": "plane",
+    "block": "Emoticons",
+    "rsg": null
+  },
+  {
+    "lo": 128640,
+    "hi": 128767,
+    "name": "plane:Transport And Map Symbols",
+    "type": "plane",
+    "block": "Transport And Map Symbols",
+    "rsg": null
+  },
+  {
+    "lo": 128768,
+    "hi": 128895,
+    "name": "plane:Alchemical Symbols",
+    "type": "plane",
+    "block": "Alchemical Symbols",
+    "rsg": null
+  },
+  {
+    "lo": 131072,
+    "hi": 173791,
+    "name": "plane:CJK Unified Ideographs Extension B",
+    "type": "plane",
+    "block": "CJK Unified Ideographs Extension B",
+    "rsg": "u-cjk-xb"
+  },
+  {
+    "lo": 173824,
+    "hi": 177983,
+    "name": "plane:CJK Unified Ideographs Extension C",
+    "type": "plane",
+    "block": "CJK Unified Ideographs Extension C",
+    "rsg": "u-cjk-xc"
+  },
+  {
+    "lo": 177984,
+    "hi": 178207,
+    "name": "plane:CJK Unified Ideographs Extension D",
+    "type": "plane",
+    "block": "CJK Unified Ideographs Extension D",
+    "rsg": "u-cjk-xd"
+  },
+  {
+    "lo": 178208,
+    "hi": 183983,
+    "name": "plane:CJK Unified Ideographs Extension E",
+    "type": "plane",
+    "block": "CJK Unified Ideographs Extension E",
+    "rsg": "u-cjk-xe"
+  },
+  {
+    "lo": 183984,
+    "hi": 191471,
+    "name": "plane:CJK Unified Ideographs Extension F",
+    "type": "plane",
+    "block": "CJK Unified Ideographs Extension F",
+    "rsg": "u-cjk-xf"
+  },
+  {
+    "lo": 194560,
+    "hi": 195103,
+    "name": "plane:CJK Compatibility Ideographs Supplement",
+    "type": "plane",
+    "block": "CJK Compatibility Ideographs Supplement",
+    "rsg": "u-cjk-cmpi2"
+  },
+  {
+    "lo": 917504,
+    "hi": 917631,
+    "name": "plane:Tags",
+    "type": "plane",
+    "block": "Tags",
+    "rsg": null
+  },
+  {
+    "lo": 917760,
+    "hi": 917999,
+    "name": "plane:Variation Selectors Supplement",
+    "type": "plane",
+    "block": "Variation Selectors Supplement",
+    "rsg": "u-varsl-s"
+  },
+  {
+    "lo": 983040,
+    "hi": 1048575,
+    "name": "plane:Supplementary Private Use Area-A",
+    "type": "plane",
+    "block": "Supplementary Private Use Area-A",
+    "rsg": null
+  },
+  {
+    "lo": 1048576,
+    "hi": 1114111,
+    "name": "plane:Supplementary Private Use Area-B",
+    "type": "plane",
+    "block": "Supplementary Private Use Area-B",
+    "rsg": null
+  },
+  {
+    "lo": 57344,
+    "hi": 63743,
+    "name": "plane:Jizura Character Components",
+    "type": "plane",
+    "block": "Jizura Character Components",
+    "rsg": "jzr-fig"
+  }
+]

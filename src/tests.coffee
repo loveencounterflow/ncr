@@ -593,7 +593,7 @@ hex = ( n ) -> '0x' + n.toString 16
 @_Unicode_demo_read_or_write_cache = ->
   ISL           = require 'interskiplist'
   FS            = require 'fs'
-  cache_route   = '/tmp/_cache-Unicode-V9.0.0-base-intervals.json'
+  cache_route   = ( require 'path' ).resolve __dirname, '../data/_cache-Unicode-V9.0.0-base-intervals.json'
   #.........................................................................................................
   if FS.existsSync cache_route
     intervals         = require cache_route
