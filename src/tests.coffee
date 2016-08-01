@@ -570,13 +570,13 @@ hex = ( n ) -> '0x' + n.toString 16
   rsg_registry  = require './character-sets-and-ranges'
   #.........................................................................................................
   for csg, ranges of rsg_registry[ 'names-and-ranges-by-csg' ]
-    continue unless csg in [ 'u', 'jzr', ]
+    continue unless csg is 'u'
     for range in ranges
       short_name              = range[ 'range-name' ]
       rsg                     = range[ 'rsg'        ]
       lo                      = range[ 'first-cid'  ]
       hi                      = range[ 'last-cid'   ]
-      type                    = 'plane'
+      type                    = 'block'
       name                    = "#{type}:#{short_name}"
       intervals.push { lo, hi, name, type, block: short_name, rsg, }
       # # is_cjk                  = is_cjk_rsg rsg

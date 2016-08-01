@@ -3444,1785 +3444,1777 @@
   {
     "lo": 0,
     "hi": 127,
-    "name": "plane:Basic Latin",
-    "type": "plane",
+    "name": "block:Basic Latin",
+    "type": "block",
     "block": "Basic Latin",
     "rsg": "u-latn"
   },
   {
     "lo": 128,
     "hi": 255,
-    "name": "plane:Latin-1 Supplement",
-    "type": "plane",
+    "name": "block:Latin-1 Supplement",
+    "type": "block",
     "block": "Latin-1 Supplement",
     "rsg": "u-latn-1"
   },
   {
     "lo": 256,
     "hi": 383,
-    "name": "plane:Latin Extended-A",
-    "type": "plane",
+    "name": "block:Latin Extended-A",
+    "type": "block",
     "block": "Latin Extended-A",
     "rsg": "u-latn-a"
   },
   {
     "lo": 384,
     "hi": 591,
-    "name": "plane:Latin Extended-B",
-    "type": "plane",
+    "name": "block:Latin Extended-B",
+    "type": "block",
     "block": "Latin Extended-B",
     "rsg": "u-latn-b"
   },
   {
     "lo": 592,
     "hi": 687,
-    "name": "plane:IPA Extensions",
-    "type": "plane",
+    "name": "block:IPA Extensions",
+    "type": "block",
     "block": "IPA Extensions",
     "rsg": "u-ipa-x"
   },
   {
     "lo": 688,
     "hi": 767,
-    "name": "plane:Spacing Modifier Letters",
-    "type": "plane",
+    "name": "block:Spacing Modifier Letters",
+    "type": "block",
     "block": "Spacing Modifier Letters",
     "rsg": "u-sml"
   },
   {
     "lo": 768,
     "hi": 879,
-    "name": "plane:Combining Diacritical Marks",
-    "type": "plane",
+    "name": "block:Combining Diacritical Marks",
+    "type": "block",
     "block": "Combining Diacritical Marks",
     "rsg": "u-cdm"
   },
   {
     "lo": 880,
     "hi": 1023,
-    "name": "plane:Greek and Coptic",
-    "type": "plane",
+    "name": "block:Greek and Coptic",
+    "type": "block",
     "block": "Greek and Coptic",
     "rsg": "u-grek"
   },
   {
     "lo": 1024,
     "hi": 1279,
-    "name": "plane:Cyrillic",
-    "type": "plane",
+    "name": "block:Cyrillic",
+    "type": "block",
     "block": "Cyrillic",
     "rsg": "u-cyrl"
   },
   {
     "lo": 1280,
     "hi": 1327,
-    "name": "plane:Cyrillic Supplement",
-    "type": "plane",
+    "name": "block:Cyrillic Supplement",
+    "type": "block",
     "block": "Cyrillic Supplement",
     "rsg": "u-cyrl-s"
   },
   {
     "lo": 1328,
     "hi": 1423,
-    "name": "plane:Armenian",
-    "type": "plane",
+    "name": "block:Armenian",
+    "type": "block",
     "block": "Armenian",
     "rsg": null
   },
   {
     "lo": 1424,
     "hi": 1535,
-    "name": "plane:Hebrew",
-    "type": "plane",
+    "name": "block:Hebrew",
+    "type": "block",
     "block": "Hebrew",
     "rsg": null
   },
   {
     "lo": 1536,
     "hi": 1791,
-    "name": "plane:Arabic",
-    "type": "plane",
+    "name": "block:Arabic",
+    "type": "block",
     "block": "Arabic",
     "rsg": "u-arab"
   },
   {
     "lo": 1792,
     "hi": 1871,
-    "name": "plane:Syriac",
-    "type": "plane",
+    "name": "block:Syriac",
+    "type": "block",
     "block": "Syriac",
     "rsg": null
   },
   {
     "lo": 1872,
     "hi": 1919,
-    "name": "plane:Arabic Supplement",
-    "type": "plane",
+    "name": "block:Arabic Supplement",
+    "type": "block",
     "block": "Arabic Supplement",
     "rsg": "u-arab-s"
   },
   {
     "lo": 1920,
     "hi": 1983,
-    "name": "plane:Thaana",
-    "type": "plane",
+    "name": "block:Thaana",
+    "type": "block",
     "block": "Thaana",
     "rsg": null
   },
   {
     "lo": 1984,
     "hi": 2047,
-    "name": "plane:NKo",
-    "type": "plane",
+    "name": "block:NKo",
+    "type": "block",
     "block": "NKo",
     "rsg": null
   },
   {
     "lo": 2048,
     "hi": 2111,
-    "name": "plane:Samaritan",
-    "type": "plane",
+    "name": "block:Samaritan",
+    "type": "block",
     "block": "Samaritan",
     "rsg": null
   },
   {
     "lo": 2112,
     "hi": 2143,
-    "name": "plane:Mandaic",
-    "type": "plane",
+    "name": "block:Mandaic",
+    "type": "block",
     "block": "Mandaic",
     "rsg": null
   },
   {
     "lo": 2208,
     "hi": 2303,
-    "name": "plane:Arabic Extended-A",
-    "type": "plane",
+    "name": "block:Arabic Extended-A",
+    "type": "block",
     "block": "Arabic Extended-A",
     "rsg": null
   },
   {
     "lo": 2304,
     "hi": 2431,
-    "name": "plane:Devanagari",
-    "type": "plane",
+    "name": "block:Devanagari",
+    "type": "block",
     "block": "Devanagari",
     "rsg": null
   },
   {
     "lo": 2432,
     "hi": 2559,
-    "name": "plane:Bengali",
-    "type": "plane",
+    "name": "block:Bengali",
+    "type": "block",
     "block": "Bengali",
     "rsg": null
   },
   {
     "lo": 2560,
     "hi": 2687,
-    "name": "plane:Gurmukhi",
-    "type": "plane",
+    "name": "block:Gurmukhi",
+    "type": "block",
     "block": "Gurmukhi",
     "rsg": null
   },
   {
     "lo": 2688,
     "hi": 2815,
-    "name": "plane:Gujarati",
-    "type": "plane",
+    "name": "block:Gujarati",
+    "type": "block",
     "block": "Gujarati",
     "rsg": null
   },
   {
     "lo": 2816,
     "hi": 2943,
-    "name": "plane:Oriya",
-    "type": "plane",
+    "name": "block:Oriya",
+    "type": "block",
     "block": "Oriya",
     "rsg": null
   },
   {
     "lo": 2944,
     "hi": 3071,
-    "name": "plane:Tamil",
-    "type": "plane",
+    "name": "block:Tamil",
+    "type": "block",
     "block": "Tamil",
     "rsg": null
   },
   {
     "lo": 3072,
     "hi": 3199,
-    "name": "plane:Telugu",
-    "type": "plane",
+    "name": "block:Telugu",
+    "type": "block",
     "block": "Telugu",
     "rsg": null
   },
   {
     "lo": 3200,
     "hi": 3327,
-    "name": "plane:Kannada",
-    "type": "plane",
+    "name": "block:Kannada",
+    "type": "block",
     "block": "Kannada",
     "rsg": null
   },
   {
     "lo": 3328,
     "hi": 3455,
-    "name": "plane:Malayalam",
-    "type": "plane",
+    "name": "block:Malayalam",
+    "type": "block",
     "block": "Malayalam",
     "rsg": null
   },
   {
     "lo": 3456,
     "hi": 3583,
-    "name": "plane:Sinhala",
-    "type": "plane",
+    "name": "block:Sinhala",
+    "type": "block",
     "block": "Sinhala",
     "rsg": null
   },
   {
     "lo": 3584,
     "hi": 3711,
-    "name": "plane:Thai",
-    "type": "plane",
+    "name": "block:Thai",
+    "type": "block",
     "block": "Thai",
     "rsg": null
   },
   {
     "lo": 3712,
     "hi": 3839,
-    "name": "plane:Lao",
-    "type": "plane",
+    "name": "block:Lao",
+    "type": "block",
     "block": "Lao",
     "rsg": null
   },
   {
     "lo": 3840,
     "hi": 4095,
-    "name": "plane:Tibetan",
-    "type": "plane",
+    "name": "block:Tibetan",
+    "type": "block",
     "block": "Tibetan",
     "rsg": null
   },
   {
     "lo": 4096,
     "hi": 4255,
-    "name": "plane:Myanmar",
-    "type": "plane",
+    "name": "block:Myanmar",
+    "type": "block",
     "block": "Myanmar",
     "rsg": null
   },
   {
     "lo": 4256,
     "hi": 4351,
-    "name": "plane:Georgian",
-    "type": "plane",
+    "name": "block:Georgian",
+    "type": "block",
     "block": "Georgian",
     "rsg": null
   },
   {
     "lo": 4352,
     "hi": 4607,
-    "name": "plane:Hangul Jamo",
-    "type": "plane",
+    "name": "block:Hangul Jamo",
+    "type": "block",
     "block": "Hangul Jamo",
     "rsg": "u-hang-jm"
   },
   {
     "lo": 4608,
     "hi": 4991,
-    "name": "plane:Ethiopic",
-    "type": "plane",
+    "name": "block:Ethiopic",
+    "type": "block",
     "block": "Ethiopic",
     "rsg": null
   },
   {
     "lo": 4992,
     "hi": 5023,
-    "name": "plane:Ethiopic Supplement",
-    "type": "plane",
+    "name": "block:Ethiopic Supplement",
+    "type": "block",
     "block": "Ethiopic Supplement",
     "rsg": null
   },
   {
     "lo": 5024,
     "hi": 5119,
-    "name": "plane:Cherokee",
-    "type": "plane",
+    "name": "block:Cherokee",
+    "type": "block",
     "block": "Cherokee",
     "rsg": null
   },
   {
     "lo": 5120,
     "hi": 5759,
-    "name": "plane:Unified Canadian Aboriginal Syllabics",
-    "type": "plane",
+    "name": "block:Unified Canadian Aboriginal Syllabics",
+    "type": "block",
     "block": "Unified Canadian Aboriginal Syllabics",
     "rsg": null
   },
   {
     "lo": 5760,
     "hi": 5791,
-    "name": "plane:Ogham",
-    "type": "plane",
+    "name": "block:Ogham",
+    "type": "block",
     "block": "Ogham",
     "rsg": null
   },
   {
     "lo": 5792,
     "hi": 5887,
-    "name": "plane:Runic",
-    "type": "plane",
+    "name": "block:Runic",
+    "type": "block",
     "block": "Runic",
     "rsg": null
   },
   {
     "lo": 5888,
     "hi": 5919,
-    "name": "plane:Tagalog",
-    "type": "plane",
+    "name": "block:Tagalog",
+    "type": "block",
     "block": "Tagalog",
     "rsg": null
   },
   {
     "lo": 5920,
     "hi": 5951,
-    "name": "plane:Hanunoo",
-    "type": "plane",
+    "name": "block:Hanunoo",
+    "type": "block",
     "block": "Hanunoo",
     "rsg": null
   },
   {
     "lo": 5952,
     "hi": 5983,
-    "name": "plane:Buhid",
-    "type": "plane",
+    "name": "block:Buhid",
+    "type": "block",
     "block": "Buhid",
     "rsg": null
   },
   {
     "lo": 5984,
     "hi": 6015,
-    "name": "plane:Tagbanwa",
-    "type": "plane",
+    "name": "block:Tagbanwa",
+    "type": "block",
     "block": "Tagbanwa",
     "rsg": null
   },
   {
     "lo": 6016,
     "hi": 6143,
-    "name": "plane:Khmer",
-    "type": "plane",
+    "name": "block:Khmer",
+    "type": "block",
     "block": "Khmer",
     "rsg": null
   },
   {
     "lo": 6144,
     "hi": 6319,
-    "name": "plane:Mongolian",
-    "type": "plane",
+    "name": "block:Mongolian",
+    "type": "block",
     "block": "Mongolian",
     "rsg": null
   },
   {
     "lo": 6320,
     "hi": 6399,
-    "name": "plane:Unified Canadian Aboriginal Syllabics Extended",
-    "type": "plane",
+    "name": "block:Unified Canadian Aboriginal Syllabics Extended",
+    "type": "block",
     "block": "Unified Canadian Aboriginal Syllabics Extended",
     "rsg": null
   },
   {
     "lo": 6400,
     "hi": 6479,
-    "name": "plane:Limbu",
-    "type": "plane",
+    "name": "block:Limbu",
+    "type": "block",
     "block": "Limbu",
     "rsg": null
   },
   {
     "lo": 6480,
     "hi": 6527,
-    "name": "plane:Tai Le",
-    "type": "plane",
+    "name": "block:Tai Le",
+    "type": "block",
     "block": "Tai Le",
     "rsg": null
   },
   {
     "lo": 6528,
     "hi": 6623,
-    "name": "plane:New Tai Lue",
-    "type": "plane",
+    "name": "block:New Tai Lue",
+    "type": "block",
     "block": "New Tai Lue",
     "rsg": null
   },
   {
     "lo": 6624,
     "hi": 6655,
-    "name": "plane:Khmer Symbols",
-    "type": "plane",
+    "name": "block:Khmer Symbols",
+    "type": "block",
     "block": "Khmer Symbols",
     "rsg": null
   },
   {
     "lo": 6656,
     "hi": 6687,
-    "name": "plane:Buginese",
-    "type": "plane",
+    "name": "block:Buginese",
+    "type": "block",
     "block": "Buginese",
     "rsg": null
   },
   {
     "lo": 6688,
     "hi": 6831,
-    "name": "plane:Tai Tham",
-    "type": "plane",
+    "name": "block:Tai Tham",
+    "type": "block",
     "block": "Tai Tham",
     "rsg": null
   },
   {
     "lo": 6912,
     "hi": 7039,
-    "name": "plane:Balinese",
-    "type": "plane",
+    "name": "block:Balinese",
+    "type": "block",
     "block": "Balinese",
     "rsg": null
   },
   {
     "lo": 7040,
     "hi": 7103,
-    "name": "plane:Sundanese",
-    "type": "plane",
+    "name": "block:Sundanese",
+    "type": "block",
     "block": "Sundanese",
     "rsg": null
   },
   {
     "lo": 7104,
     "hi": 7167,
-    "name": "plane:Batak",
-    "type": "plane",
+    "name": "block:Batak",
+    "type": "block",
     "block": "Batak",
     "rsg": null
   },
   {
     "lo": 7168,
     "hi": 7247,
-    "name": "plane:Lepcha",
-    "type": "plane",
+    "name": "block:Lepcha",
+    "type": "block",
     "block": "Lepcha",
     "rsg": null
   },
   {
     "lo": 7248,
     "hi": 7295,
-    "name": "plane:Ol Chiki",
-    "type": "plane",
+    "name": "block:Ol Chiki",
+    "type": "block",
     "block": "Ol Chiki",
     "rsg": "u-olck"
   },
   {
     "lo": 7360,
     "hi": 7375,
-    "name": "plane:Sundanese Supplement",
-    "type": "plane",
+    "name": "block:Sundanese Supplement",
+    "type": "block",
     "block": "Sundanese Supplement",
     "rsg": null
   },
   {
     "lo": 7376,
     "hi": 7423,
-    "name": "plane:Vedic Extensions",
-    "type": "plane",
+    "name": "block:Vedic Extensions",
+    "type": "block",
     "block": "Vedic Extensions",
     "rsg": null
   },
   {
     "lo": 7424,
     "hi": 7551,
-    "name": "plane:Phonetic Extensions",
-    "type": "plane",
+    "name": "block:Phonetic Extensions",
+    "type": "block",
     "block": "Phonetic Extensions",
     "rsg": "u-phon-x"
   },
   {
     "lo": 7552,
     "hi": 7615,
-    "name": "plane:Phonetic Extensions Supplement",
-    "type": "plane",
+    "name": "block:Phonetic Extensions Supplement",
+    "type": "block",
     "block": "Phonetic Extensions Supplement",
     "rsg": "u-phon-xs"
   },
   {
     "lo": 7616,
     "hi": 7679,
-    "name": "plane:Combining Diacritical Marks Supplement",
-    "type": "plane",
+    "name": "block:Combining Diacritical Marks Supplement",
+    "type": "block",
     "block": "Combining Diacritical Marks Supplement",
     "rsg": "u-cdm-s"
   },
   {
     "lo": 7680,
     "hi": 7935,
-    "name": "plane:Latin Extended Additional",
-    "type": "plane",
+    "name": "block:Latin Extended Additional",
+    "type": "block",
     "block": "Latin Extended Additional",
     "rsg": "u-latn-xa"
   },
   {
     "lo": 7936,
     "hi": 8191,
-    "name": "plane:Greek Extended",
-    "type": "plane",
+    "name": "block:Greek Extended",
+    "type": "block",
     "block": "Greek Extended",
     "rsg": "u-grek-x"
   },
   {
     "lo": 8192,
     "hi": 8303,
-    "name": "plane:General Punctuation",
-    "type": "plane",
+    "name": "block:General Punctuation",
+    "type": "block",
     "block": "General Punctuation",
     "rsg": "u-punct"
   },
   {
     "lo": 8304,
     "hi": 8351,
-    "name": "plane:Superscripts and Subscripts",
-    "type": "plane",
+    "name": "block:Superscripts and Subscripts",
+    "type": "block",
     "block": "Superscripts and Subscripts",
     "rsg": "u-supsub"
   },
   {
     "lo": 8352,
     "hi": 8399,
-    "name": "plane:Currency Symbols",
-    "type": "plane",
+    "name": "block:Currency Symbols",
+    "type": "block",
     "block": "Currency Symbols",
     "rsg": "u-currn"
   },
   {
     "lo": 8400,
     "hi": 8447,
-    "name": "plane:Combining Diacritical Marks for Symbols",
-    "type": "plane",
+    "name": "block:Combining Diacritical Marks for Symbols",
+    "type": "block",
     "block": "Combining Diacritical Marks for Symbols",
     "rsg": "u-cdm-sy"
   },
   {
     "lo": 8448,
     "hi": 8527,
-    "name": "plane:Letterlike Symbols",
-    "type": "plane",
+    "name": "block:Letterlike Symbols",
+    "type": "block",
     "block": "Letterlike Symbols",
     "rsg": "u-llsym"
   },
   {
     "lo": 8528,
     "hi": 8591,
-    "name": "plane:Number Forms",
-    "type": "plane",
+    "name": "block:Number Forms",
+    "type": "block",
     "block": "Number Forms",
     "rsg": "u-num"
   },
   {
     "lo": 8592,
     "hi": 8703,
-    "name": "plane:Arrows",
-    "type": "plane",
+    "name": "block:Arrows",
+    "type": "block",
     "block": "Arrows",
     "rsg": "u-arrow"
   },
   {
     "lo": 8704,
     "hi": 8959,
-    "name": "plane:Mathematical Operators",
-    "type": "plane",
+    "name": "block:Mathematical Operators",
+    "type": "block",
     "block": "Mathematical Operators",
     "rsg": null
   },
   {
     "lo": 8960,
     "hi": 9215,
-    "name": "plane:Miscellaneous Technical",
-    "type": "plane",
+    "name": "block:Miscellaneous Technical",
+    "type": "block",
     "block": "Miscellaneous Technical",
     "rsg": null
   },
   {
     "lo": 9216,
     "hi": 9279,
-    "name": "plane:Control Pictures",
-    "type": "plane",
+    "name": "block:Control Pictures",
+    "type": "block",
     "block": "Control Pictures",
     "rsg": "u-ctrlp"
   },
   {
     "lo": 9280,
     "hi": 9311,
-    "name": "plane:Optical Character Recognition",
-    "type": "plane",
+    "name": "block:Optical Character Recognition",
+    "type": "block",
     "block": "Optical Character Recognition",
     "rsg": "u-ocr"
   },
   {
     "lo": 9312,
     "hi": 9471,
-    "name": "plane:Enclosed Alphanumerics",
-    "type": "plane",
+    "name": "block:Enclosed Alphanumerics",
+    "type": "block",
     "block": "Enclosed Alphanumerics",
     "rsg": "u-enalp"
   },
   {
     "lo": 9472,
     "hi": 9599,
-    "name": "plane:Box Drawing",
-    "type": "plane",
+    "name": "block:Box Drawing",
+    "type": "block",
     "block": "Box Drawing",
     "rsg": "u-boxdr"
   },
   {
     "lo": 9600,
     "hi": 9631,
-    "name": "plane:Block Elements",
-    "type": "plane",
+    "name": "block:Block Elements",
+    "type": "block",
     "block": "Block Elements",
     "rsg": "u-block"
   },
   {
     "lo": 9632,
     "hi": 9727,
-    "name": "plane:Geometric Shapes",
-    "type": "plane",
+    "name": "block:Geometric Shapes",
+    "type": "block",
     "block": "Geometric Shapes",
     "rsg": "u-geoms"
   },
   {
     "lo": 9728,
     "hi": 9983,
-    "name": "plane:Miscellaneous Symbols",
-    "type": "plane",
+    "name": "block:Miscellaneous Symbols",
+    "type": "block",
     "block": "Miscellaneous Symbols",
     "rsg": "u-sym"
   },
   {
     "lo": 9984,
     "hi": 10175,
-    "name": "plane:Dingbats",
-    "type": "plane",
+    "name": "block:Dingbats",
+    "type": "block",
     "block": "Dingbats",
     "rsg": "u-dingb"
   },
   {
     "lo": 10176,
     "hi": 10223,
-    "name": "plane:Miscellaneous Mathematical Symbols-A",
-    "type": "plane",
+    "name": "block:Miscellaneous Mathematical Symbols-A",
+    "type": "block",
     "block": "Miscellaneous Mathematical Symbols-A",
     "rsg": "u-maths-a"
   },
   {
     "lo": 10224,
     "hi": 10239,
-    "name": "plane:Supplemental Arrows-A",
-    "type": "plane",
+    "name": "block:Supplemental Arrows-A",
+    "type": "block",
     "block": "Supplemental Arrows-A",
     "rsg": "u-arrow-a"
   },
   {
     "lo": 10240,
     "hi": 10495,
-    "name": "plane:Braille Patterns",
-    "type": "plane",
+    "name": "block:Braille Patterns",
+    "type": "block",
     "block": "Braille Patterns",
     "rsg": "u-brail"
   },
   {
     "lo": 10496,
     "hi": 10623,
-    "name": "plane:Supplemental Arrows-B",
-    "type": "plane",
+    "name": "block:Supplemental Arrows-B",
+    "type": "block",
     "block": "Supplemental Arrows-B",
     "rsg": "u-arrow-b"
   },
   {
     "lo": 10624,
     "hi": 10751,
-    "name": "plane:Miscellaneous Mathematical Symbols-B",
-    "type": "plane",
+    "name": "block:Miscellaneous Mathematical Symbols-B",
+    "type": "block",
     "block": "Miscellaneous Mathematical Symbols-B",
     "rsg": null
   },
   {
     "lo": 10752,
     "hi": 11007,
-    "name": "plane:Supplemental Mathematical Operators",
-    "type": "plane",
+    "name": "block:Supplemental Mathematical Operators",
+    "type": "block",
     "block": "Supplemental Mathematical Operators",
     "rsg": null
   },
   {
     "lo": 11008,
     "hi": 11263,
-    "name": "plane:Miscellaneous Symbols and Arrows",
-    "type": "plane",
+    "name": "block:Miscellaneous Symbols and Arrows",
+    "type": "block",
     "block": "Miscellaneous Symbols and Arrows",
     "rsg": null
   },
   {
     "lo": 11264,
     "hi": 11359,
-    "name": "plane:Glagolitic",
-    "type": "plane",
+    "name": "block:Glagolitic",
+    "type": "block",
     "block": "Glagolitic",
     "rsg": null
   },
   {
     "lo": 11360,
     "hi": 11391,
-    "name": "plane:Latin Extended-C",
-    "type": "plane",
+    "name": "block:Latin Extended-C",
+    "type": "block",
     "block": "Latin Extended-C",
     "rsg": "u-latn-c"
   },
   {
     "lo": 11392,
     "hi": 11519,
-    "name": "plane:Coptic",
-    "type": "plane",
+    "name": "block:Coptic",
+    "type": "block",
     "block": "Coptic",
     "rsg": null
   },
   {
     "lo": 11520,
     "hi": 11567,
-    "name": "plane:Georgian Supplement",
-    "type": "plane",
+    "name": "block:Georgian Supplement",
+    "type": "block",
     "block": "Georgian Supplement",
     "rsg": null
   },
   {
     "lo": 11568,
     "hi": 11647,
-    "name": "plane:Tifinagh",
-    "type": "plane",
+    "name": "block:Tifinagh",
+    "type": "block",
     "block": "Tifinagh",
     "rsg": null
   },
   {
     "lo": 11648,
     "hi": 11743,
-    "name": "plane:Ethiopic Extended",
-    "type": "plane",
+    "name": "block:Ethiopic Extended",
+    "type": "block",
     "block": "Ethiopic Extended",
     "rsg": null
   },
   {
     "lo": 11744,
     "hi": 11775,
-    "name": "plane:Cyrillic Extended-A",
-    "type": "plane",
+    "name": "block:Cyrillic Extended-A",
+    "type": "block",
     "block": "Cyrillic Extended-A",
     "rsg": "u-cyrl-a"
   },
   {
     "lo": 11776,
     "hi": 11903,
-    "name": "plane:Supplemental Punctuation",
-    "type": "plane",
+    "name": "block:Supplemental Punctuation",
+    "type": "block",
     "block": "Supplemental Punctuation",
     "rsg": "u-punct-s"
   },
   {
     "lo": 11904,
     "hi": 12031,
-    "name": "plane:CJK Radicals Supplement",
-    "type": "plane",
+    "name": "block:CJK Radicals Supplement",
+    "type": "block",
     "block": "CJK Radicals Supplement",
     "rsg": "u-cjk-rad2"
   },
   {
     "lo": 12032,
     "hi": 12255,
-    "name": "plane:Kangxi Radicals",
-    "type": "plane",
+    "name": "block:Kangxi Radicals",
+    "type": "block",
     "block": "Kangxi Radicals",
     "rsg": "u-cjk-rad1"
   },
   {
     "lo": 12272,
     "hi": 12287,
-    "name": "plane:Ideographic Description Characters",
-    "type": "plane",
+    "name": "block:Ideographic Description Characters",
+    "type": "block",
     "block": "Ideographic Description Characters",
     "rsg": "u-cjk-idc"
   },
   {
     "lo": 12288,
     "hi": 12351,
-    "name": "plane:CJK Symbols and Punctuation",
-    "type": "plane",
+    "name": "block:CJK Symbols and Punctuation",
+    "type": "block",
     "block": "CJK Symbols and Punctuation",
     "rsg": "u-cjk-sym"
   },
   {
     "lo": 12352,
     "hi": 12447,
-    "name": "plane:Hiragana",
-    "type": "plane",
+    "name": "block:Hiragana",
+    "type": "block",
     "block": "Hiragana",
     "rsg": "u-cjk-hira"
   },
   {
     "lo": 12448,
     "hi": 12543,
-    "name": "plane:Katakana",
-    "type": "plane",
+    "name": "block:Katakana",
+    "type": "block",
     "block": "Katakana",
     "rsg": "u-cjk-kata"
   },
   {
     "lo": 12544,
     "hi": 12591,
-    "name": "plane:Bopomofo",
-    "type": "plane",
+    "name": "block:Bopomofo",
+    "type": "block",
     "block": "Bopomofo",
     "rsg": "u-bopo"
   },
   {
     "lo": 12592,
     "hi": 12687,
-    "name": "plane:Hangul Compatibility Jamo",
-    "type": "plane",
+    "name": "block:Hangul Compatibility Jamo",
+    "type": "block",
     "block": "Hangul Compatibility Jamo",
     "rsg": "u-hang-comp-jm"
   },
   {
     "lo": 12688,
     "hi": 12703,
-    "name": "plane:Kanbun",
-    "type": "plane",
+    "name": "block:Kanbun",
+    "type": "block",
     "block": "Kanbun",
     "rsg": "u-cjk-kanbun"
   },
   {
     "lo": 12704,
     "hi": 12735,
-    "name": "plane:Bopomofo Extended",
-    "type": "plane",
+    "name": "block:Bopomofo Extended",
+    "type": "block",
     "block": "Bopomofo Extended",
     "rsg": "u-bopo-x"
   },
   {
     "lo": 12736,
     "hi": 12783,
-    "name": "plane:CJK Strokes",
-    "type": "plane",
+    "name": "block:CJK Strokes",
+    "type": "block",
     "block": "CJK Strokes",
     "rsg": "u-cjk-strk"
   },
   {
     "lo": 12784,
     "hi": 12799,
-    "name": "plane:Katakana Phonetic Extensions",
-    "type": "plane",
+    "name": "block:Katakana Phonetic Extensions",
+    "type": "block",
     "block": "Katakana Phonetic Extensions",
     "rsg": "u-cjk-kata-x"
   },
   {
     "lo": 12800,
     "hi": 13055,
-    "name": "plane:Enclosed CJK Letters and Months",
-    "type": "plane",
+    "name": "block:Enclosed CJK Letters and Months",
+    "type": "block",
     "block": "Enclosed CJK Letters and Months",
     "rsg": "u-cjk-enclett"
   },
   {
     "lo": 13056,
     "hi": 13311,
-    "name": "plane:CJK Compatibility",
-    "type": "plane",
+    "name": "block:CJK Compatibility",
+    "type": "block",
     "block": "CJK Compatibility",
     "rsg": "u-cjk-cmp"
   },
   {
     "lo": 13312,
     "hi": 19903,
-    "name": "plane:CJK Unified Ideographs Extension A",
-    "type": "plane",
+    "name": "block:CJK Unified Ideographs Extension A",
+    "type": "block",
     "block": "CJK Unified Ideographs Extension A",
     "rsg": "u-cjk-xa"
   },
   {
     "lo": 19904,
     "hi": 19967,
-    "name": "plane:Yijing Hexagram Symbols",
-    "type": "plane",
+    "name": "block:Yijing Hexagram Symbols",
+    "type": "block",
     "block": "Yijing Hexagram Symbols",
     "rsg": "u-yijng"
   },
   {
     "lo": 19968,
     "hi": 40959,
-    "name": "plane:CJK Unified Ideographs",
-    "type": "plane",
+    "name": "block:CJK Unified Ideographs",
+    "type": "block",
     "block": "CJK Unified Ideographs",
     "rsg": "u-cjk"
   },
   {
     "lo": 40960,
     "hi": 42127,
-    "name": "plane:Yi Syllables",
-    "type": "plane",
+    "name": "block:Yi Syllables",
+    "type": "block",
     "block": "Yi Syllables",
     "rsg": null
   },
   {
     "lo": 42128,
     "hi": 42191,
-    "name": "plane:Yi Radicals",
-    "type": "plane",
+    "name": "block:Yi Radicals",
+    "type": "block",
     "block": "Yi Radicals",
     "rsg": null
   },
   {
     "lo": 42192,
     "hi": 42239,
-    "name": "plane:Lisu",
-    "type": "plane",
+    "name": "block:Lisu",
+    "type": "block",
     "block": "Lisu",
     "rsg": null
   },
   {
     "lo": 42240,
     "hi": 42559,
-    "name": "plane:Vai",
-    "type": "plane",
+    "name": "block:Vai",
+    "type": "block",
     "block": "Vai",
     "rsg": null
   },
   {
     "lo": 42560,
     "hi": 42655,
-    "name": "plane:Cyrillic Extended-B",
-    "type": "plane",
+    "name": "block:Cyrillic Extended-B",
+    "type": "block",
     "block": "Cyrillic Extended-B",
     "rsg": "u-cyrl-b"
   },
   {
     "lo": 42656,
     "hi": 42751,
-    "name": "plane:Bamum",
-    "type": "plane",
+    "name": "block:Bamum",
+    "type": "block",
     "block": "Bamum",
     "rsg": null
   },
   {
     "lo": 42752,
     "hi": 42783,
-    "name": "plane:Modifier Tone Letters",
-    "type": "plane",
+    "name": "block:Modifier Tone Letters",
+    "type": "block",
     "block": "Modifier Tone Letters",
     "rsg": null
   },
   {
     "lo": 42784,
     "hi": 43007,
-    "name": "plane:Latin Extended-D",
-    "type": "plane",
+    "name": "block:Latin Extended-D",
+    "type": "block",
     "block": "Latin Extended-D",
     "rsg": "u-latn-d"
   },
   {
     "lo": 43008,
     "hi": 43055,
-    "name": "plane:Syloti Nagri",
-    "type": "plane",
+    "name": "block:Syloti Nagri",
+    "type": "block",
     "block": "Syloti Nagri",
     "rsg": null
   },
   {
     "lo": 43056,
     "hi": 43071,
-    "name": "plane:Common Indic Number Forms",
-    "type": "plane",
+    "name": "block:Common Indic Number Forms",
+    "type": "block",
     "block": "Common Indic Number Forms",
     "rsg": null
   },
   {
     "lo": 43072,
     "hi": 43135,
-    "name": "plane:Phags-pa",
-    "type": "plane",
+    "name": "block:Phags-pa",
+    "type": "block",
     "block": "Phags-pa",
     "rsg": null
   },
   {
     "lo": 43136,
     "hi": 43231,
-    "name": "plane:Saurashtra",
-    "type": "plane",
+    "name": "block:Saurashtra",
+    "type": "block",
     "block": "Saurashtra",
     "rsg": null
   },
   {
     "lo": 43232,
     "hi": 43263,
-    "name": "plane:Devanagari Extended",
-    "type": "plane",
+    "name": "block:Devanagari Extended",
+    "type": "block",
     "block": "Devanagari Extended",
     "rsg": null
   },
   {
     "lo": 43264,
     "hi": 43311,
-    "name": "plane:Kayah Li",
-    "type": "plane",
+    "name": "block:Kayah Li",
+    "type": "block",
     "block": "Kayah Li",
     "rsg": null
   },
   {
     "lo": 43312,
     "hi": 43359,
-    "name": "plane:Rejang",
-    "type": "plane",
+    "name": "block:Rejang",
+    "type": "block",
     "block": "Rejang",
     "rsg": null
   },
   {
     "lo": 43360,
     "hi": 43391,
-    "name": "plane:Hangul Jamo Extended-A",
-    "type": "plane",
+    "name": "block:Hangul Jamo Extended-A",
+    "type": "block",
     "block": "Hangul Jamo Extended-A",
     "rsg": null
   },
   {
     "lo": 43392,
     "hi": 43487,
-    "name": "plane:Javanese",
-    "type": "plane",
+    "name": "block:Javanese",
+    "type": "block",
     "block": "Javanese",
     "rsg": null
   },
   {
     "lo": 43520,
     "hi": 43615,
-    "name": "plane:Cham",
-    "type": "plane",
+    "name": "block:Cham",
+    "type": "block",
     "block": "Cham",
     "rsg": null
   },
   {
     "lo": 43616,
     "hi": 43647,
-    "name": "plane:Myanmar Extended-A",
-    "type": "plane",
+    "name": "block:Myanmar Extended-A",
+    "type": "block",
     "block": "Myanmar Extended-A",
     "rsg": null
   },
   {
     "lo": 43648,
     "hi": 43743,
-    "name": "plane:Tai Viet",
-    "type": "plane",
+    "name": "block:Tai Viet",
+    "type": "block",
     "block": "Tai Viet",
     "rsg": null
   },
   {
     "lo": 43744,
     "hi": 43775,
-    "name": "plane:Meetei Mayek Extensions",
-    "type": "plane",
+    "name": "block:Meetei Mayek Extensions",
+    "type": "block",
     "block": "Meetei Mayek Extensions",
     "rsg": null
   },
   {
     "lo": 43776,
     "hi": 43823,
-    "name": "plane:Ethiopic Extended-A",
-    "type": "plane",
+    "name": "block:Ethiopic Extended-A",
+    "type": "block",
     "block": "Ethiopic Extended-A",
     "rsg": null
   },
   {
     "lo": 43968,
     "hi": 44031,
-    "name": "plane:Meetei Mayek",
-    "type": "plane",
+    "name": "block:Meetei Mayek",
+    "type": "block",
     "block": "Meetei Mayek",
     "rsg": null
   },
   {
     "lo": 44032,
     "hi": 55215,
-    "name": "plane:Hangul Syllables",
-    "type": "plane",
+    "name": "block:Hangul Syllables",
+    "type": "block",
     "block": "Hangul Syllables",
     "rsg": "u-hang-syl"
   },
   {
     "lo": 55216,
     "hi": 55295,
-    "name": "plane:Hangul Jamo Extended-B",
-    "type": "plane",
+    "name": "block:Hangul Jamo Extended-B",
+    "type": "block",
     "block": "Hangul Jamo Extended-B",
     "rsg": null
   },
   {
     "lo": 55296,
     "hi": 56191,
-    "name": "plane:High Surrogates",
-    "type": "plane",
+    "name": "block:High Surrogates",
+    "type": "block",
     "block": "High Surrogates",
     "rsg": null
   },
   {
     "lo": 56192,
     "hi": 56319,
-    "name": "plane:High Private Use Surrogates",
-    "type": "plane",
+    "name": "block:High Private Use Surrogates",
+    "type": "block",
     "block": "High Private Use Surrogates",
     "rsg": null
   },
   {
     "lo": 56320,
     "hi": 57343,
-    "name": "plane:Low Surrogates",
-    "type": "plane",
+    "name": "block:Low Surrogates",
+    "type": "block",
     "block": "Low Surrogates",
     "rsg": null
   },
   {
     "lo": 57344,
     "hi": 63743,
-    "name": "plane:Private Use Area",
-    "type": "plane",
+    "name": "block:Private Use Area",
+    "type": "block",
     "block": "Private Use Area",
     "rsg": "u-pua"
   },
   {
     "lo": 63744,
     "hi": 64255,
-    "name": "plane:CJK Compatibility Ideographs",
-    "type": "plane",
+    "name": "block:CJK Compatibility Ideographs",
+    "type": "block",
     "block": "CJK Compatibility Ideographs",
     "rsg": "u-cjk-cmpi1"
   },
   {
     "lo": 64256,
     "hi": 64335,
-    "name": "plane:Alphabetic Presentation Forms",
-    "type": "plane",
+    "name": "block:Alphabetic Presentation Forms",
+    "type": "block",
     "block": "Alphabetic Presentation Forms",
     "rsg": "u-abc-pf"
   },
   {
     "lo": 64336,
     "hi": 65023,
-    "name": "plane:Arabic Presentation Forms-A",
-    "type": "plane",
+    "name": "block:Arabic Presentation Forms-A",
+    "type": "block",
     "block": "Arabic Presentation Forms-A",
     "rsg": "u-arab-pf-a"
   },
   {
     "lo": 65024,
     "hi": 65039,
-    "name": "plane:Variation Selectors",
-    "type": "plane",
+    "name": "block:Variation Selectors",
+    "type": "block",
     "block": "Variation Selectors",
     "rsg": "u-varsl"
   },
   {
     "lo": 65040,
     "hi": 65055,
-    "name": "plane:Vertical Forms",
-    "type": "plane",
+    "name": "block:Vertical Forms",
+    "type": "block",
     "block": "Vertical Forms",
     "rsg": "u-vertf"
   },
   {
     "lo": 65056,
     "hi": 65071,
-    "name": "plane:Combining Half Marks",
-    "type": "plane",
+    "name": "block:Combining Half Marks",
+    "type": "block",
     "block": "Combining Half Marks",
     "rsg": null
   },
   {
     "lo": 65072,
     "hi": 65103,
-    "name": "plane:CJK Compatibility Forms",
-    "type": "plane",
+    "name": "block:CJK Compatibility Forms",
+    "type": "block",
     "block": "CJK Compatibility Forms",
     "rsg": "u-cjk-cmpf"
   },
   {
     "lo": 65104,
     "hi": 65135,
-    "name": "plane:Small Form Variants",
-    "type": "plane",
+    "name": "block:Small Form Variants",
+    "type": "block",
     "block": "Small Form Variants",
     "rsg": "u-small"
   },
   {
     "lo": 65136,
     "hi": 65279,
-    "name": "plane:Arabic Presentation Forms-B",
-    "type": "plane",
+    "name": "block:Arabic Presentation Forms-B",
+    "type": "block",
     "block": "Arabic Presentation Forms-B",
     "rsg": "u-arab-pf-b"
   },
   {
     "lo": 65280,
     "hi": 65519,
-    "name": "plane:Halfwidth and Fullwidth Forms",
-    "type": "plane",
+    "name": "block:Halfwidth and Fullwidth Forms",
+    "type": "block",
     "block": "Halfwidth and Fullwidth Forms",
     "rsg": "u-halfull"
   },
   {
     "lo": 65520,
     "hi": 65535,
-    "name": "plane:Specials",
-    "type": "plane",
+    "name": "block:Specials",
+    "type": "block",
     "block": "Specials",
     "rsg": "u-special"
   },
   {
     "lo": 65536,
     "hi": 65663,
-    "name": "plane:Linear B Syllabary",
-    "type": "plane",
+    "name": "block:Linear B Syllabary",
+    "type": "block",
     "block": "Linear B Syllabary",
     "rsg": null
   },
   {
     "lo": 65664,
     "hi": 65791,
-    "name": "plane:Linear B Ideograms",
-    "type": "plane",
+    "name": "block:Linear B Ideograms",
+    "type": "block",
     "block": "Linear B Ideograms",
     "rsg": null
   },
   {
     "lo": 65792,
     "hi": 65855,
-    "name": "plane:Aegean Numbers",
-    "type": "plane",
+    "name": "block:Aegean Numbers",
+    "type": "block",
     "block": "Aegean Numbers",
     "rsg": null
   },
   {
     "lo": 65856,
     "hi": 65935,
-    "name": "plane:Ancient Greek Numbers",
-    "type": "plane",
+    "name": "block:Ancient Greek Numbers",
+    "type": "block",
     "block": "Ancient Greek Numbers",
     "rsg": null
   },
   {
     "lo": 65936,
     "hi": 65999,
-    "name": "plane:Ancient Symbols",
-    "type": "plane",
+    "name": "block:Ancient Symbols",
+    "type": "block",
     "block": "Ancient Symbols",
     "rsg": null
   },
   {
     "lo": 66000,
     "hi": 66047,
-    "name": "plane:Phaistos Disc",
-    "type": "plane",
+    "name": "block:Phaistos Disc",
+    "type": "block",
     "block": "Phaistos Disc",
     "rsg": null
   },
   {
     "lo": 66176,
     "hi": 66207,
-    "name": "plane:Lycian",
-    "type": "plane",
+    "name": "block:Lycian",
+    "type": "block",
     "block": "Lycian",
     "rsg": null
   },
   {
     "lo": 66208,
     "hi": 66271,
-    "name": "plane:Carian",
-    "type": "plane",
+    "name": "block:Carian",
+    "type": "block",
     "block": "Carian",
     "rsg": null
   },
   {
     "lo": 66304,
     "hi": 66351,
-    "name": "plane:Old Italic",
-    "type": "plane",
+    "name": "block:Old Italic",
+    "type": "block",
     "block": "Old Italic",
     "rsg": null
   },
   {
     "lo": 66352,
     "hi": 66383,
-    "name": "plane:Gothic",
-    "type": "plane",
+    "name": "block:Gothic",
+    "type": "block",
     "block": "Gothic",
     "rsg": null
   },
   {
     "lo": 66432,
     "hi": 66463,
-    "name": "plane:Ugaritic",
-    "type": "plane",
+    "name": "block:Ugaritic",
+    "type": "block",
     "block": "Ugaritic",
     "rsg": null
   },
   {
     "lo": 66464,
     "hi": 66527,
-    "name": "plane:Old Persian",
-    "type": "plane",
+    "name": "block:Old Persian",
+    "type": "block",
     "block": "Old Persian",
     "rsg": null
   },
   {
     "lo": 66560,
     "hi": 66639,
-    "name": "plane:Deseret",
-    "type": "plane",
+    "name": "block:Deseret",
+    "type": "block",
     "block": "Deseret",
     "rsg": null
   },
   {
     "lo": 66640,
     "hi": 66687,
-    "name": "plane:Shavian",
-    "type": "plane",
+    "name": "block:Shavian",
+    "type": "block",
     "block": "Shavian",
     "rsg": null
   },
   {
     "lo": 66688,
     "hi": 66735,
-    "name": "plane:Osmanya",
-    "type": "plane",
+    "name": "block:Osmanya",
+    "type": "block",
     "block": "Osmanya",
     "rsg": null
   },
   {
     "lo": 67584,
     "hi": 67647,
-    "name": "plane:Cypriot Syllabary",
-    "type": "plane",
+    "name": "block:Cypriot Syllabary",
+    "type": "block",
     "block": "Cypriot Syllabary",
     "rsg": null
   },
   {
     "lo": 67648,
     "hi": 67679,
-    "name": "plane:Imperial Aramaic",
-    "type": "plane",
+    "name": "block:Imperial Aramaic",
+    "type": "block",
     "block": "Imperial Aramaic",
     "rsg": null
   },
   {
     "lo": 67840,
     "hi": 67871,
-    "name": "plane:Phoenician",
-    "type": "plane",
+    "name": "block:Phoenician",
+    "type": "block",
     "block": "Phoenician",
     "rsg": null
   },
   {
     "lo": 67872,
     "hi": 67903,
-    "name": "plane:Lydian",
-    "type": "plane",
+    "name": "block:Lydian",
+    "type": "block",
     "block": "Lydian",
     "rsg": null
   },
   {
     "lo": 67968,
     "hi": 67999,
-    "name": "plane:Meroitic Hieroglyphs",
-    "type": "plane",
+    "name": "block:Meroitic Hieroglyphs",
+    "type": "block",
     "block": "Meroitic Hieroglyphs",
     "rsg": null
   },
   {
     "lo": 68000,
     "hi": 68095,
-    "name": "plane:Meroitic Cursive",
-    "type": "plane",
+    "name": "block:Meroitic Cursive",
+    "type": "block",
     "block": "Meroitic Cursive",
     "rsg": null
   },
   {
     "lo": 68096,
     "hi": 68191,
-    "name": "plane:Kharoshthi",
-    "type": "plane",
+    "name": "block:Kharoshthi",
+    "type": "block",
     "block": "Kharoshthi",
     "rsg": null
   },
   {
     "lo": 68192,
     "hi": 68223,
-    "name": "plane:Old South Arabian",
-    "type": "plane",
+    "name": "block:Old South Arabian",
+    "type": "block",
     "block": "Old South Arabian",
     "rsg": null
   },
   {
     "lo": 68352,
     "hi": 68415,
-    "name": "plane:Avestan",
-    "type": "plane",
+    "name": "block:Avestan",
+    "type": "block",
     "block": "Avestan",
     "rsg": null
   },
   {
     "lo": 68416,
     "hi": 68447,
-    "name": "plane:Inscriptional Parthian",
-    "type": "plane",
+    "name": "block:Inscriptional Parthian",
+    "type": "block",
     "block": "Inscriptional Parthian",
     "rsg": null
   },
   {
     "lo": 68448,
     "hi": 68479,
-    "name": "plane:Inscriptional Pahlavi",
-    "type": "plane",
+    "name": "block:Inscriptional Pahlavi",
+    "type": "block",
     "block": "Inscriptional Pahlavi",
     "rsg": null
   },
   {
     "lo": 68608,
     "hi": 68687,
-    "name": "plane:Old Turkic",
-    "type": "plane",
+    "name": "block:Old Turkic",
+    "type": "block",
     "block": "Old Turkic",
     "rsg": null
   },
   {
     "lo": 69216,
     "hi": 69247,
-    "name": "plane:Rumi Numeral Symbols",
-    "type": "plane",
+    "name": "block:Rumi Numeral Symbols",
+    "type": "block",
     "block": "Rumi Numeral Symbols",
     "rsg": null
   },
   {
     "lo": 69632,
     "hi": 69759,
-    "name": "plane:Brahmi",
-    "type": "plane",
+    "name": "block:Brahmi",
+    "type": "block",
     "block": "Brahmi",
     "rsg": null
   },
   {
     "lo": 69760,
     "hi": 69839,
-    "name": "plane:Kaithi",
-    "type": "plane",
+    "name": "block:Kaithi",
+    "type": "block",
     "block": "Kaithi",
     "rsg": null
   },
   {
     "lo": 69840,
     "hi": 69887,
-    "name": "plane:Sora Sompeng",
-    "type": "plane",
+    "name": "block:Sora Sompeng",
+    "type": "block",
     "block": "Sora Sompeng",
     "rsg": null
   },
   {
     "lo": 69888,
     "hi": 69967,
-    "name": "plane:Chakma",
-    "type": "plane",
+    "name": "block:Chakma",
+    "type": "block",
     "block": "Chakma",
     "rsg": null
   },
   {
     "lo": 70016,
     "hi": 70111,
-    "name": "plane:Sharada",
-    "type": "plane",
+    "name": "block:Sharada",
+    "type": "block",
     "block": "Sharada",
     "rsg": null
   },
   {
     "lo": 71296,
     "hi": 71375,
-    "name": "plane:Takri",
-    "type": "plane",
+    "name": "block:Takri",
+    "type": "block",
     "block": "Takri",
     "rsg": null
   },
   {
     "lo": 73728,
     "hi": 74751,
-    "name": "plane:Cuneiform",
-    "type": "plane",
+    "name": "block:Cuneiform",
+    "type": "block",
     "block": "Cuneiform",
     "rsg": null
   },
   {
     "lo": 74752,
     "hi": 74879,
-    "name": "plane:Cuneiform Numbers and Punctuation",
-    "type": "plane",
+    "name": "block:Cuneiform Numbers and Punctuation",
+    "type": "block",
     "block": "Cuneiform Numbers and Punctuation",
     "rsg": null
   },
   {
     "lo": 77824,
     "hi": 78895,
-    "name": "plane:Egyptian Hieroglyphs",
-    "type": "plane",
+    "name": "block:Egyptian Hieroglyphs",
+    "type": "block",
     "block": "Egyptian Hieroglyphs",
     "rsg": null
   },
   {
     "lo": 92160,
     "hi": 92735,
-    "name": "plane:Bamum Supplement",
-    "type": "plane",
+    "name": "block:Bamum Supplement",
+    "type": "block",
     "block": "Bamum Supplement",
     "rsg": null
   },
   {
     "lo": 93952,
     "hi": 94111,
-    "name": "plane:Miao",
-    "type": "plane",
+    "name": "block:Miao",
+    "type": "block",
     "block": "Miao",
     "rsg": null
   },
   {
     "lo": 110592,
     "hi": 110847,
-    "name": "plane:Kana Supplement",
-    "type": "plane",
+    "name": "block:Kana Supplement",
+    "type": "block",
     "block": "Kana Supplement",
     "rsg": null
   },
   {
     "lo": 118784,
     "hi": 119039,
-    "name": "plane:Byzantine Musical Symbols",
-    "type": "plane",
+    "name": "block:Byzantine Musical Symbols",
+    "type": "block",
     "block": "Byzantine Musical Symbols",
     "rsg": null
   },
   {
     "lo": 119040,
     "hi": 119295,
-    "name": "plane:Musical Symbols",
-    "type": "plane",
+    "name": "block:Musical Symbols",
+    "type": "block",
     "block": "Musical Symbols",
     "rsg": null
   },
   {
     "lo": 119296,
     "hi": 119375,
-    "name": "plane:Ancient Greek Musical Notation",
-    "type": "plane",
+    "name": "block:Ancient Greek Musical Notation",
+    "type": "block",
     "block": "Ancient Greek Musical Notation",
     "rsg": null
   },
   {
     "lo": 119552,
     "hi": 119647,
-    "name": "plane:Tai Xuan Jing Symbols",
-    "type": "plane",
+    "name": "block:Tai Xuan Jing Symbols",
+    "type": "block",
     "block": "Tai Xuan Jing Symbols",
     "rsg": "u-txj-sym"
   },
   {
     "lo": 119648,
     "hi": 119679,
-    "name": "plane:Counting Rod Numerals",
-    "type": "plane",
+    "name": "block:Counting Rod Numerals",
+    "type": "block",
     "block": "Counting Rod Numerals",
     "rsg": null
   },
   {
     "lo": 119808,
     "hi": 120831,
-    "name": "plane:Mathematical Alphanumeric Symbols",
-    "type": "plane",
+    "name": "block:Mathematical Alphanumeric Symbols",
+    "type": "block",
     "block": "Mathematical Alphanumeric Symbols",
     "rsg": null
   },
   {
     "lo": 126464,
     "hi": 126719,
-    "name": "plane:Arabic Mathematical Alphabetic Symbols",
-    "type": "plane",
+    "name": "block:Arabic Mathematical Alphabetic Symbols",
+    "type": "block",
     "block": "Arabic Mathematical Alphabetic Symbols",
     "rsg": null
   },
   {
     "lo": 126976,
     "hi": 127023,
-    "name": "plane:Mahjong Tiles",
-    "type": "plane",
+    "name": "block:Mahjong Tiles",
+    "type": "block",
     "block": "Mahjong Tiles",
     "rsg": null
   },
   {
     "lo": 127024,
     "hi": 127135,
-    "name": "plane:Domino Tiles",
-    "type": "plane",
+    "name": "block:Domino Tiles",
+    "type": "block",
     "block": "Domino Tiles",
     "rsg": null
   },
   {
     "lo": 127136,
     "hi": 127231,
-    "name": "plane:Playing Cards",
-    "type": "plane",
+    "name": "block:Playing Cards",
+    "type": "block",
     "block": "Playing Cards",
     "rsg": null
   },
   {
     "lo": 127232,
     "hi": 127487,
-    "name": "plane:Enclosed Alphanumeric Supplement",
-    "type": "plane",
+    "name": "block:Enclosed Alphanumeric Supplement",
+    "type": "block",
     "block": "Enclosed Alphanumeric Supplement",
     "rsg": null
   },
   {
     "lo": 127488,
     "hi": 127743,
-    "name": "plane:Enclosed Ideographic Supplement",
-    "type": "plane",
+    "name": "block:Enclosed Ideographic Supplement",
+    "type": "block",
     "block": "Enclosed Ideographic Supplement",
     "rsg": "u-cjk-encsupp"
   },
   {
     "lo": 127744,
     "hi": 128511,
-    "name": "plane:Miscellaneous Symbols And Pictographs",
-    "type": "plane",
+    "name": "block:Miscellaneous Symbols And Pictographs",
+    "type": "block",
     "block": "Miscellaneous Symbols And Pictographs",
     "rsg": null
   },
   {
     "lo": 128512,
     "hi": 128591,
-    "name": "plane:Emoticons",
-    "type": "plane",
+    "name": "block:Emoticons",
+    "type": "block",
     "block": "Emoticons",
     "rsg": null
   },
   {
     "lo": 128640,
     "hi": 128767,
-    "name": "plane:Transport And Map Symbols",
-    "type": "plane",
+    "name": "block:Transport And Map Symbols",
+    "type": "block",
     "block": "Transport And Map Symbols",
     "rsg": null
   },
   {
     "lo": 128768,
     "hi": 128895,
-    "name": "plane:Alchemical Symbols",
-    "type": "plane",
+    "name": "block:Alchemical Symbols",
+    "type": "block",
     "block": "Alchemical Symbols",
     "rsg": null
   },
   {
     "lo": 131072,
     "hi": 173791,
-    "name": "plane:CJK Unified Ideographs Extension B",
-    "type": "plane",
+    "name": "block:CJK Unified Ideographs Extension B",
+    "type": "block",
     "block": "CJK Unified Ideographs Extension B",
     "rsg": "u-cjk-xb"
   },
   {
     "lo": 173824,
     "hi": 177983,
-    "name": "plane:CJK Unified Ideographs Extension C",
-    "type": "plane",
+    "name": "block:CJK Unified Ideographs Extension C",
+    "type": "block",
     "block": "CJK Unified Ideographs Extension C",
     "rsg": "u-cjk-xc"
   },
   {
     "lo": 177984,
     "hi": 178207,
-    "name": "plane:CJK Unified Ideographs Extension D",
-    "type": "plane",
+    "name": "block:CJK Unified Ideographs Extension D",
+    "type": "block",
     "block": "CJK Unified Ideographs Extension D",
     "rsg": "u-cjk-xd"
   },
   {
     "lo": 178208,
     "hi": 183983,
-    "name": "plane:CJK Unified Ideographs Extension E",
-    "type": "plane",
+    "name": "block:CJK Unified Ideographs Extension E",
+    "type": "block",
     "block": "CJK Unified Ideographs Extension E",
     "rsg": "u-cjk-xe"
   },
   {
     "lo": 183984,
     "hi": 191471,
-    "name": "plane:CJK Unified Ideographs Extension F",
-    "type": "plane",
+    "name": "block:CJK Unified Ideographs Extension F",
+    "type": "block",
     "block": "CJK Unified Ideographs Extension F",
     "rsg": "u-cjk-xf"
   },
   {
     "lo": 194560,
     "hi": 195103,
-    "name": "plane:CJK Compatibility Ideographs Supplement",
-    "type": "plane",
+    "name": "block:CJK Compatibility Ideographs Supplement",
+    "type": "block",
     "block": "CJK Compatibility Ideographs Supplement",
     "rsg": "u-cjk-cmpi2"
   },
   {
     "lo": 917504,
     "hi": 917631,
-    "name": "plane:Tags",
-    "type": "plane",
+    "name": "block:Tags",
+    "type": "block",
     "block": "Tags",
     "rsg": null
   },
   {
     "lo": 917760,
     "hi": 917999,
-    "name": "plane:Variation Selectors Supplement",
-    "type": "plane",
+    "name": "block:Variation Selectors Supplement",
+    "type": "block",
     "block": "Variation Selectors Supplement",
     "rsg": "u-varsl-s"
   },
   {
     "lo": 983040,
     "hi": 1048575,
-    "name": "plane:Supplementary Private Use Area-A",
-    "type": "plane",
+    "name": "block:Supplementary Private Use Area-A",
+    "type": "block",
     "block": "Supplementary Private Use Area-A",
     "rsg": null
   },
   {
     "lo": 1048576,
     "hi": 1114111,
-    "name": "plane:Supplementary Private Use Area-B",
-    "type": "plane",
+    "name": "block:Supplementary Private Use Area-B",
+    "type": "block",
     "block": "Supplementary Private Use Area-B",
     "rsg": null
-  },
-  {
-    "lo": 57344,
-    "hi": 63743,
-    "name": "plane:Jizura Character Components",
-    "type": "plane",
-    "block": "Jizura Character Components",
-    "rsg": "jzr-fig"
   }
 ]
