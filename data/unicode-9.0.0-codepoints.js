@@ -56,5 +56,3 @@ Unicode v9.0.0
   ];
 
 }).call(this);
-
-//# sourceMappingURL=unicode-9.0.0-codepoints.js.map

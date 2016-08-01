@@ -548,24 +548,17 @@ hex = ( n ) -> '0x' + n.toString 16
 #-----------------------------------------------------------------------------------------------------------
 @_Unicode_demo_add_planes = ( isl ) ->
   ISL           = require 'interskiplist'
+  rsg_registry  = require './character-sets-and-ranges'
   #.........................................................................................................
-  add_plane = ( isl, lo, hi, name ) ->
-    type        = 'plane'
-    name        = "#{type}:#{name}"
-    ISL.add isl, { name, lo, hi, }
-  #.........................................................................................................
-  add_plane isl,   0x0000,   0xffff, 'Basic Multilingual Plane (BMP)'
-  add_plane isl,  0x10000,  0x1ffff, 'Supplementary Multilingual Plane (SMP)'
-  add_plane isl,  0x20000,  0x2ffff, 'Supplementary Ideographic Plane (SIP)'
-  add_plane isl,  0x30000,  0x3ffff, 'Tertiary Ideographic Plane (TIP)'
-  add_plane isl,  0xe0000,  0xefffd, 'Supplementary Special-purpose Plane (SSP)'
-  add_plane isl,  0xf0000,  0xffffd, 'Private Use Area (PUA)'
-  add_plane isl, 0x100000, 0x10fffd, 'Private Use Area (PUA)'
+  for [ short_name, lo, hi ] in rsg_registry[ 'unicode-planes' ]
+    type                        = 'plane'
+    name                        = "#{type}:#{short_name}"
+    ISL.add isl, { lo, hi, name, type, plane: short_name, }
   #.........................................................................................................
   return isl
 
 #-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_add_planes = ( isl ) ->
+@_Unicode_demo_add_blocks = ( isl ) ->
   ISL           = require 'interskiplist'
   rsg_registry  = require './character-sets-and-ranges'
   #.........................................................................................................
@@ -592,49 +585,12 @@ hex = ( n ) -> '0x' + n.toString 16
 #-----------------------------------------------------------------------------------------------------------
 @_Unicode_demo_add_areas = ( isl ) ->
   ISL           = require 'interskiplist'
+  rsg_registry  = require './character-sets-and-ranges'
   #.........................................................................................................
-  ### TAINT externalize data ###
-  source = """
-  # The Unicode Standard, V9.0.0, p49
-  # Figure 2-14. Allocation on the BMP
-  0000-00FF ASCII & Latin-1 Compatibility Area
-  0100-058F General Scripts Area
-  0590-08FF General Scripts Area (RTL)
-  0900-1FFF General Scripts Area
-  2000-2BFF Punctuation and Symbols Area
-  2C00-2DFF General Scripts Area
-  2E00-2E7F Supplemental Punctuation Area
-  2E80-33FF CJK Miscellaneous Area
-  3400-9FFF CJKV Unified Ideographs Area
-  A000-ABFF General Scripts Area (Asia & Africa)
-  AC00-D7FF Hangul Syllables Area
-  D800-DFFF Surrogate Codes
-  E000-F8FF Private Use Area (PUA)
-  F900-FFFF Compatibility and Specials Area
-  # The Unicode Standard, V9.0.0, p51
-  # Figure 2-15. Allocation on Plane 1
-  10000-107FF General Scripts Area
-  10800-10FFF General Scripts Area (RTL)
-  11000-11FFF General Scripts Area
-  12000-15FFF Cuneiform & Hieroglyphic Area
-  16000-16FFF General Scripts Area
-  17000-1BBFF Ideographic Scripts Area
-  1BC00-1CFFF General Scripts Area
-  1D000-1E7FF Symbols Area
-  1E800-1EFFF General Scripts Area (RTL)
-  1F000-1FFFF Symbols Area
-  """
-  #.........................................................................................................
-  for line in source.split '\n'
-    line = line.trim()
-    continue if line.startsWith '#'
-    [ _, lo, hi, short_name, ]  = line.match /^([0-9a-fA-F]{4,5})-([0-9a-fA-F]{4,5}) (.+)$/
-    lo                          = parseInt lo, 16
-    hi                          = parseInt hi, 16
+  for [ short_name, lo, hi ] in rsg_registry[ 'unicode-areas' ]
     type                        = 'area'
     name                        = "#{type}:#{short_name}"
     ISL.add isl, { lo, hi, name, type, area: short_name, }
-    # ISL.add_range u, lo, hi, { type, name, lo, hi, }
   #.........................................................................................................
   return isl
 
@@ -666,30 +622,9 @@ hex = ( n ) -> '0x' + n.toString 16
 #-----------------------------------------------------------------------------------------------------------
 @_Unicode_demo_add_cjk_tags = ( isl ) ->
   ISL = require 'interskiplist'
-  #.........................................................................................................
-  tag_by_rsgs =
-    'u-cjk':          [ 'cjk', ]
-    'u-halfull':      [ 'cjk', ]
-    'u-cjk-xa':       [ 'cjk', ]
-    'u-cjk-xb':       [ 'cjk', ]
-    'u-cjk-xc':       [ 'cjk', ]
-    'u-cjk-xd':       [ 'cjk', ]
-    'u-cjk-xe':       [ 'cjk', ]
-    'u-cjk-xf':       [ 'cjk', ]
-    'u-cjk-cmpi1':    [ 'cjk', ]
-    'u-cjk-cmpi2':    [ 'cjk', ]
-    'u-cjk-rad1':     [ 'cjk', ]
-    'u-cjk-rad2':     [ 'cjk', ]
-    'u-cjk-sym':      [ 'cjk', ]
-    'u-cjk-strk':     [ 'cjk', 'stroke', ]
-    'u-cjk-kata':     [ 'cjk', 'kana', 'katakana', ]
-    'u-cjk-hira':     [ 'cjk', 'kana', 'hiragana', ]
-    'u-hang-syl':     [ 'cjk', 'hangeul', ]
-    'u-cjk-enclett':  [ 'cjk', 'enclosed', ]
-  #.........................................................................................................
   rsg_registry  = require './character-sets-and-ranges'
   ranges        = rsg_registry[ 'names-and-ranges-by-csg' ][ 'u' ]
-  for rsg, tag of tag_by_rsgs
+  for rsg, tag of rsg_registry[ 'tag-by-rsgs' ]
     continue unless ( range = ranges[ rsg ] )?
     lo  = range[ 'first-cid'  ]
     hi  = range[ 'last-cid'   ]
@@ -712,6 +647,7 @@ hex = ( n ) -> '0x' + n.toString 16
   @_Unicode_demo_add_base       u
   @_Unicode_demo_add_planes     u
   @_Unicode_demo_add_areas      u
+  @_Unicode_demo_add_blocks     u
   #.........................................................................................................
   ### CJK-specific data ###
   @_Unicode_demo_add_cjk_tags   u
@@ -724,6 +660,9 @@ hex = ( n ) -> '0x' + n.toString 16
   #.........................................................................................................
   info ISL.aggregate u, '《'
   help ISL.aggregate u, '《', { name: 'list', tex: 'list', style: 'list', type: 'skip', }
+  info ISL.aggregate u, 'A'
+  info ISL.aggregate u, '\u9fd5'
+  info ISL.aggregate u, '\u9fd6'
   #.........................................................................................................
   return null
 
