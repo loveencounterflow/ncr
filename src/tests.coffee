@@ -527,39 +527,46 @@ hex = ( n ) -> '0x' + n.toString 16
   return null
 
 #-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_add_base = ( isl ) ->
+@_Unicode_demo_compile_base_intervals = ( intervals ) ->
+  ### Assemble the ~650 intervals that descrive those parts of the Unicode code space that are assigned
+  (over 100,000 codepoints); the rest is (roughly a million codepoints) unassigned. Returns a list of PODs
+  with `lo`, `hi`, `tag` attributes. ###
   ISL           = require 'interskiplist'
-  first_cid     = 0x0
-  last_cid      = 0x10ffff
   ucps          = require '../data/unicode-9.0.0-codepoints.js'
-  cp_intervals  = ISL.intervals_from_points null, ucps.codepoints, ucps.ranges...
-  type          = 'layer'
-  name          = "#{type}:base-u9.0.0"
-  ISL.add isl, { lo: first_cid, hi: last_cid, name, tag: 'unassigned', }
+  cp_intervals  = ISL.intervals_from_points null, ucps.codepoints
+  cp_intervals.push range for range in ucps.ranges
   #.........................................................................................................
+  intervals.push { lo: 0x000000, hi: 0x10ffff, tag: 'unassigned', }
   for cp_interval in cp_intervals
     { lo, hi, }   = cp_interval
-    type          = 'layer'
-    name          = "#{type}:assigned-cps"
-    ISL.add isl, { lo, hi, name, tag: '-unassigned assigned', }
+    intervals.push { lo, hi, tag: '-unassigned assigned', }
   #.........................................................................................................
-  return isl
+  return null
 
 #-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_add_planes = ( isl ) ->
-  ISL           = require 'interskiplist'
+@_Unicode_demo_compile_planes = ( intervals ) ->
   rsg_registry  = require './character-sets-and-ranges'
   #.........................................................................................................
   for [ short_name, lo, hi ] in rsg_registry[ 'unicode-planes' ]
     type                        = 'plane'
     name                        = "#{type}:#{short_name}"
-    ISL.add isl, { lo, hi, name, type, plane: short_name, }
+    intervals.push { lo, hi, name, type, plane: short_name, }
   #.........................................................................................................
-  return isl
+  return null
 
 #-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_add_blocks = ( isl ) ->
-  ISL           = require 'interskiplist'
+@_Unicode_demo_compile_areas = ( intervals ) ->
+  rsg_registry  = require './character-sets-and-ranges'
+  #.........................................................................................................
+  for [ short_name, lo, hi ] in rsg_registry[ 'unicode-areas' ]
+    type                        = 'area'
+    name                        = "#{type}:#{short_name}"
+    intervals.push { lo, hi, name, type, area: short_name, }
+  #.........................................................................................................
+  return null
+
+#-----------------------------------------------------------------------------------------------------------
+@_Unicode_demo_compile_blocks = ( intervals ) ->
   rsg_registry  = require './character-sets-and-ranges'
   #.........................................................................................................
   for csg, ranges of rsg_registry[ 'names-and-ranges-by-csg' ]
@@ -571,7 +578,7 @@ hex = ( n ) -> '0x' + n.toString 16
       hi                      = range[ 'last-cid'   ]
       type                    = 'plane'
       name                    = "#{type}:#{short_name}"
-      ISL.add isl, { lo, hi, name, type, block: short_name, rsg, }
+      intervals.push { lo, hi, name, type, block: short_name, rsg, }
       # # is_cjk                  = is_cjk_rsg rsg
       # tex                     = tex_command_by_rsgs[ rsg ] ? null
       # name                    = "block:#{name}"
@@ -580,19 +587,31 @@ hex = ( n ) -> '0x' + n.toString 16
       # intervals_by_rsg[ rsg ] = interval
       # ISL.add u, interval
   #.........................................................................................................
-  return isl
+  return null
 
 #-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_add_areas = ( isl ) ->
+@_Unicode_demo_read_or_write_cache = ->
   ISL           = require 'interskiplist'
-  rsg_registry  = require './character-sets-and-ranges'
+  FS            = require 'fs'
+  cache_route   = '/tmp/_cache-Unicode-V9.0.0-base-intervals.json'
   #.........................................................................................................
-  for [ short_name, lo, hi ] in rsg_registry[ 'unicode-areas' ]
-    type                        = 'area'
-    name                        = "#{type}:#{short_name}"
-    ISL.add isl, { lo, hi, name, type, area: short_name, }
+  if FS.existsSync cache_route
+    intervals         = require cache_route
   #.........................................................................................................
-  return isl
+  else
+    intervals         = []
+    @_Unicode_demo_compile_base_intervals intervals
+    @_Unicode_demo_compile_planes         intervals
+    @_Unicode_demo_compile_areas          intervals
+    @_Unicode_demo_compile_blocks         intervals
+    intervals_txt     = JSON.stringify intervals, null, '  '
+    FS.writeFileSync cache_route, intervals_txt
+  #.........................................................................................................
+  urge '5041', intervals.length
+  R = ISL.new()
+  ISL.add R, interval for interval in intervals
+  #.........................................................................................................
+  return R
 
 #-----------------------------------------------------------------------------------------------------------
 @_Unicode_demo_add_styles = ( isl ) ->
@@ -641,28 +660,28 @@ hex = ( n ) -> '0x' + n.toString 16
 #-----------------------------------------------------------------------------------------------------------
 @[ "Unicode demo" ] = ( T ) ->
   ISL           = require 'interskiplist'
-  u             = ISL.new()
   #.........................................................................................................
   ### General data ###
-  @_Unicode_demo_add_base       u
-  @_Unicode_demo_add_planes     u
-  @_Unicode_demo_add_areas      u
-  @_Unicode_demo_add_blocks     u
+  # @_Unicode_demo_add_base       u
+  # @_Unicode_demo_add_planes     u
+  # @_Unicode_demo_add_areas      u
+  # @_Unicode_demo_add_blocks     u
+  u = @_Unicode_demo_read_or_write_cache()
   #.........................................................................................................
   ### CJK-specific data ###
   @_Unicode_demo_add_cjk_tags   u
-  #.........................................................................................................
   ### Jizura-specific data ###
   @_Unicode_demo_add_sims       u
-  #.........................................................................................................
   ### Mingkwai-specific data ###
   @_Unicode_demo_add_styles     u
   #.........................................................................................................
-  info ISL.aggregate u, '《'
-  help ISL.aggregate u, '《', { name: 'list', tex: 'list', style: 'list', type: 'skip', }
-  info ISL.aggregate u, 'A'
-  info ISL.aggregate u, '\u9fd5'
-  info ISL.aggregate u, '\u9fd6'
+  reducers = { name: 'list', tex: 'list', style: 'list', type: 'skip', }
+  for glyph in Array.from '《A↻'
+    urge glyph, ISL.aggregate u, glyph, { reducers, }
+  # for cid in [ 0x9f00 .. 0x9fff ]
+  # for cid in [ 0x9000 .. 0x9fff ] by +0x10
+  for cid in [ 0x9fd5 .. 0x9fd6 ]
+    info ( hex cid ), ( String.fromCodePoint cid ), ( ISL.aggregate u, cid )[ 'tag' ]
   #.........................................................................................................
   return null
 
@@ -695,137 +714,137 @@ hex = ( n ) -> '0x' + n.toString 16
 unless module.parent?
   # debug '0980', JSON.stringify ( Object.keys @ ), null, '  '
   include = [
-    # "test # 1"
-    # "test # 2"
-    # "test # 3"
-    # "test # 4"
-    # "test # 5"
-    # "test # 6"
-    # "test # 7"
-    # "test # 8"
-    # "test # 9"
-    # "test # 10"
-    # "test # 11"
-    # "test # 12"
-    # "test # 13"
-    # "test # 14"
-    # "test # 15"
-    # "test # 16"
-    # "test # 17"
-    # "test # 18"
-    # "test # 19"
-    # "test # 20"
-    # "test # 21"
-    # "test # 22"
-    # "test # 22a"
-    # "test # 22b"
-    # "test # 23"
-    # "test # 24"
-    # "test # 25"
-    # "test # 26"
-    # "test # 27"
-    # "test # 28"
-    # "test # 29"
-    # "test # 30"
-    # "test # 31"
-    # "test # 32"
-    # "test # 33"
-    # "test # 34"
-    # "test # 35"
-    # "test # 36"
-    # "test # 37"
-    # "test # 38"
-    # "test # 39"
-    # "test # 40"
-    # "test # 41"
-    # "test # 42"
-    # "test # 43"
-    # "test # 44"
-    # "test # 45"
-    # "test # 46"
-    # "test # 47"
-    # "test # 48"
-    # "test # 49"
-    # "test # 50"
-    # "test # 51"
-    # "test # 52"
-    # "test # 53"
-    # "test # 54"
-    # "test # 55"
-    # "test # 56"
-    # "test # 57"
-    # "test # 58"
-    # "test # 59"
-    # "test # 60"
-    # "test # 61"
-    # "test # 62"
-    # "test # 63"
-    # "test # 64"
-    # "test # 65"
-    # "test # 66"
-    # "test # 67"
-    # "test # 68"
-    # "test # 69"
-    # "test # 70"
-    # "test # 71"
-    # "test # 72"
-    # "test # 73"
-    # "test # 74"
-    # "test # 75"
-    # "test # 76"
-    # "test # 77"
-    # "test # 78"
-    # "test # 79"
-    # "test # 80"
-    # "test # 81"
-    # "test # 82"
-    # "test # 83"
-    # "test # 84"
-    # "test # 85"
-    # "test # 86"
-    # "test # 87"
-    # "test # 88"
-    # "test # 89"
-    # "test # 90"
-    # "test # 91"
-    # "test # 92"
-    # "test # 93"
-    # "test # 94"
-    # "test # 95"
-    # "test # 96"
-    # "test # 97"
-    # "test # 98"
-    # "test # 99"
-    # "test # 100"
-    # "test # 101"
-    # "test # 102"
-    # "test # 103"
-    # "test # 104"
-    # "test # 105"
-    # "test # 106"
-    # "test # 107"
-    # "test # 108"
-    # "test # 109"
-    # "test # 110"
-    # "test # 111"
-    # "test # 112"
-    # "test # 113"
-    # "test # 114"
-    # "test # 115"
-    # "test # 116"
-    # "test # 117"
-    # "test # 118"
-    # "test # 119"
-    # "test # 120"
-    # "test # 121"
-    # "test # 122"
-    # "test # 123"
-    # "test # 124"
-    # "test # 125"
-    # "test Unicode 8 / CJK Extension E"
-    # "test # 200"
-    # "test # 201"
-    # "negative tags (demo: how to tag Unicode unassigned codepoints)"
+    "test # 1"
+    "test # 2"
+    "test # 3"
+    "test # 4"
+    "test # 5"
+    "test # 6"
+    "test # 7"
+    "test # 8"
+    "test # 9"
+    "test # 10"
+    "test # 11"
+    "test # 12"
+    "test # 13"
+    "test # 14"
+    "test # 15"
+    "test # 16"
+    "test # 17"
+    "test # 18"
+    "test # 19"
+    "test # 20"
+    "test # 21"
+    "test # 22"
+    "test # 22a"
+    "test # 22b"
+    "test # 23"
+    "test # 24"
+    "test # 25"
+    "test # 26"
+    "test # 27"
+    "test # 28"
+    "test # 29"
+    "test # 30"
+    "test # 31"
+    "test # 32"
+    "test # 33"
+    "test # 34"
+    "test # 35"
+    "test # 36"
+    "test # 37"
+    "test # 38"
+    "test # 39"
+    "test # 40"
+    "test # 41"
+    "test # 42"
+    "test # 43"
+    "test # 44"
+    "test # 45"
+    "test # 46"
+    "test # 47"
+    "test # 48"
+    "test # 49"
+    "test # 50"
+    "test # 51"
+    "test # 52"
+    "test # 53"
+    "test # 54"
+    "test # 55"
+    "test # 56"
+    "test # 57"
+    "test # 58"
+    "test # 59"
+    "test # 60"
+    "test # 61"
+    "test # 62"
+    "test # 63"
+    "test # 64"
+    "test # 65"
+    "test # 66"
+    "test # 67"
+    "test # 68"
+    "test # 69"
+    "test # 70"
+    "test # 71"
+    "test # 72"
+    "test # 73"
+    "test # 74"
+    "test # 75"
+    "test # 76"
+    "test # 77"
+    "test # 78"
+    "test # 79"
+    "test # 80"
+    "test # 81"
+    "test # 82"
+    "test # 83"
+    "test # 84"
+    "test # 85"
+    "test # 86"
+    "test # 87"
+    "test # 88"
+    "test # 89"
+    "test # 90"
+    "test # 91"
+    "test # 92"
+    "test # 93"
+    "test # 94"
+    "test # 95"
+    "test # 96"
+    "test # 97"
+    "test # 98"
+    "test # 99"
+    "test # 100"
+    "test # 101"
+    "test # 102"
+    "test # 103"
+    "test # 104"
+    "test # 105"
+    "test # 106"
+    "test # 107"
+    "test # 108"
+    "test # 109"
+    "test # 110"
+    "test # 111"
+    "test # 112"
+    "test # 113"
+    "test # 114"
+    "test # 115"
+    "test # 116"
+    "test # 117"
+    "test # 118"
+    "test # 119"
+    "test # 120"
+    "test # 121"
+    "test # 122"
+    "test # 123"
+    "test # 124"
+    "test # 125"
+    "test Unicode 8 / CJK Extension E"
+    "test # 200"
+    "test # 201"
+    "negative tags (demo: how to tag Unicode unassigned codepoints)"
     "Unicode demo"
     ]
   # @_prune()
