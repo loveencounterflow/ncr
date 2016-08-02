@@ -82,6 +82,26 @@ a hyphen, as in `u-latn-b` standing for Unicode range `Latin Extended-B`.
   [ 'Symbols Area',                           0x1f000,  0x1ffff, ]
   ]
 
+#-----------------------------------------------------------------------------------------------------------
+@[ 'tag-by-rsgs' ] =
+  'u-cjk':          [ 'cjk', ]
+  'u-halfull':      [ 'cjk', ]
+  'u-cjk-xa':       [ 'cjk', ]
+  'u-cjk-xb':       [ 'cjk', ]
+  'u-cjk-xc':       [ 'cjk', ]
+  'u-cjk-xd':       [ 'cjk', ]
+  'u-cjk-xe':       [ 'cjk', ]
+  'u-cjk-xf':       [ 'cjk', ]
+  'u-cjk-cmpi1':    [ 'cjk', ]
+  'u-cjk-cmpi2':    [ 'cjk', ]
+  'u-cjk-rad1':     [ 'cjk', ]
+  'u-cjk-rad2':     [ 'cjk', ]
+  'u-cjk-sym':      [ 'cjk', ]
+  'u-cjk-strk':     [ 'cjk', 'stroke', ]
+  'u-cjk-kata':     [ 'cjk', 'kana', 'katakana', ]
+  'u-cjk-hira':     [ 'cjk', 'kana', 'hiragana', ]
+  'u-hang-syl':     [ 'cjk', 'hangeul', ]
+  'u-cjk-enclett':  [ 'cjk', 'enclosed', ]
 
 
 ############################################################################################################

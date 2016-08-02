@@ -569,8 +569,11 @@ hex = ( n ) -> '0x' + n.toString 16
   ISL = require 'interskiplist'
   rsg_registry  = require './character-sets-and-ranges'
   ranges        = rsg_registry[ 'names-and-ranges-by-csg' ][ 'jzr' ]
+  debug '©95520', ranges
+  debug '©95520', rsg_registry[ 'tag-by-rsgs' ]
   for rsg, tag of rsg_registry[ 'tag-by-rsgs' ]
     continue unless ( range = ranges[ rsg ] )?
+    debug '©74688', range, rsg, tag
     lo  = range[ 'first-cid'  ]
     hi  = range[ 'last-cid'   ]
     ISL.add isl, { lo, hi, tag, }
@@ -601,14 +604,22 @@ hex = ( n ) -> '0x' + n.toString 16
   @_Unicode_demo_add_sims           u
   ### Mingkwai-specific data ###
   @_Unicode_demo_add_styles         u
+  ISL.add u, { lo: 0x0, hi: 0x10ffff, tag: 'foo bar', }
   #.........................................................................................................
-  reducers = { name: 'list', tex: 'list', style: 'list', type: 'skip', }
-  for glyph in Array.from '《A↻\ue000鿕'
-    urge glyph, ISL.aggregate u, glyph, { reducers, }
-  # for cid in [ 0x9f00 .. 0x9fff ]
-  # for cid in [ 0x9000 .. 0x9fff ] by +0x10
-  for cid in [ 0x9fd5 .. 0x9fd6 ]
-    info ( hex cid ), ( String.fromCodePoint cid ), ( ISL.aggregate u, cid )[ 'tag' ]
+  reducers = { name: 'skip', tex: 'list', style: 'list', type: 'skip', }
+  for glyph in Array.from '《A↻\ue000鿕\u9fd6'
+    cid       = glyph.codePointAt 0
+    cid_hex   = hex cid
+    { plane
+      area
+      block
+      rsg
+      tag
+      tex
+      style } = ISL.aggregate u, cid, reducers
+    rsg      ?= 'u-???'
+    tag       = tag.join ', '
+    urge cid_hex, ( CND.lime rpr glyph ), ( CND.gold "#{plane} / #{area} / #{block} / #{rsg}" ), ( CND.white tag )
   #.........................................................................................................
   return null
 
