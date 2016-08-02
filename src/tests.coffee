@@ -565,6 +565,19 @@ hex = ( n ) -> '0x' + n.toString 16
   return isl
 
 #-----------------------------------------------------------------------------------------------------------
+@_Unicode_demo_add_jzr_tag = ( isl ) ->
+  ISL = require 'interskiplist'
+  rsg_registry  = require './character-sets-and-ranges'
+  ranges        = rsg_registry[ 'names-and-ranges-by-csg' ][ 'jzr' ]
+  for rsg, tag of rsg_registry[ 'tag-by-rsgs' ]
+    continue unless ( range = ranges[ rsg ] )?
+    lo  = range[ 'first-cid'  ]
+    hi  = range[ 'last-cid'   ]
+    ISL.add isl, { lo, hi, tag, }
+  #.........................................................................................................
+  return isl
+
+#-----------------------------------------------------------------------------------------------------------
 @_Unicode_demo_add_sims = ( isl ) ->
   ISL                 = require 'interskiplist'
   #.........................................................................................................
@@ -579,17 +592,18 @@ hex = ( n ) -> '0x' + n.toString 16
   # @_Unicode_demo_add_planes     u
   # @_Unicode_demo_add_areas      u
   # @_Unicode_demo_add_blocks     u
-  u = require './unicode-isl'
+  u = ISL.copy require './unicode-isl'
   #.........................................................................................................
   ### CJK-specific data ###
-  @_Unicode_demo_add_cjk_tags   u
+  @_Unicode_demo_add_cjk_tags       u
   ### Jizura-specific data ###
-  @_Unicode_demo_add_sims       u
+  @_Unicode_demo_add_jzr_tag        u
+  @_Unicode_demo_add_sims           u
   ### Mingkwai-specific data ###
-  @_Unicode_demo_add_styles     u
+  @_Unicode_demo_add_styles         u
   #.........................................................................................................
   reducers = { name: 'list', tex: 'list', style: 'list', type: 'skip', }
-  for glyph in Array.from '《A↻'
+  for glyph in Array.from '《A↻\ue000鿕'
     urge glyph, ISL.aggregate u, glyph, { reducers, }
   # for cid in [ 0x9f00 .. 0x9fff ]
   # for cid in [ 0x9000 .. 0x9fff ] by +0x10
