@@ -239,11 +239,6 @@ unicode_isl               = null
 
 #-----------------------------------------------------------------------------------------------------------
 @_as_rsg = ( csg, cid ) ->
-  ### TAINT code duplication ###
-  # throw new Error "only Unicode supported at this time, got CSG #{rpr csg}" unless csg is 'u'
-  # ISL          ?= require 'interskiplist'
-  # unicode_isl  ?= require './unicode-isl'
-  # return ( ISL.aggregate unicode_isl, cid )[ 'rsg' ]
   return csg unless csg is 'u'
   ISL          ?= require 'interskiplist'
   unicode_isl  ?= require './unicode-isl'
@@ -251,13 +246,11 @@ unicode_isl               = null
 
 #-----------------------------------------------------------------------------------------------------------
 @_as_range_name = ( csg, cid ) ->
-  ### TAINT code duplication ###
   return @_as_rsg csg, cid unless csg is 'u'
   ISL          ?= require 'interskiplist'
   unicode_isl  ?= require './unicode-isl'
-  R             = ( ISL.aggregate unicode_isl, cid )[ 'block' ]
-  return @_as_rsg csg, cid unless R?
-  return R
+  return ( ISL.aggregate unicode_isl, cid )[ 'block' ] ? ( @_as_rsg csg, cid )
+
 
 #===========================================================================================================
 # ANALYZE ARGUMENTS
