@@ -785,8 +785,8 @@ unless module.parent?
     "negative tags (demo: how to tag Unicode unassigned codepoints)"
     "Unicode demo"
     ]
-  # @_prune()
-  # @_main()
+  @_prune()
+  @_main()
 
   # XNCR = require './xncr'
   # text = 'A-&#x3004;-&jzr#xe100;-&morohashi#x56;-Z'
@@ -794,7 +794,7 @@ unless module.parent?
   # debug rpr XNCR.normalize_text text
   # debug JSON.stringify Object.keys @
 
-  @[ "Unicode demo" ]()
+  # @[ "Unicode demo" ]()
 
 
 
