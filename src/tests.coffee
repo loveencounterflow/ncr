@@ -544,7 +544,7 @@ hex = ( n ) -> '0x' + n.toString 16
 ###  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ###
 
 #-----------------------------------------------------------------------------------------------------------
-@[ "Unicode demo" ] = ( T ) ->
+@[ "(v2) create derivatives of NCR (3)" ] = ( T ) ->
   ISL           = require 'interskiplist'
   #.........................................................................................................
   ### General data ###
@@ -799,9 +799,9 @@ unless module.parent?
     "test # 97"
     "test # 98"
     "test # 122"
-    # "(v2) create derivatives of NCR (1)"
+    "(v2) create derivatives of NCR (1)"
     # "(v2) create derivatives of NCR (2)"
-    # "Unicode demo"
+    # "(v2) create derivatives of NCR (3)"
     ]
   @_prune()
   @_main()
@@ -815,7 +815,7 @@ unless module.parent?
   # debug rpr XNCR.normalize_text text
   # debug JSON.stringify Object.keys @
 
-  # @[ "Unicode demo" ]()
+  # @[ "(v2) create derivatives of NCR (3)" ]()
 
 
 
