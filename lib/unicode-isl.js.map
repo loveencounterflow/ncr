@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "unicode-isl.js",
+  "sourceRoot": "..",
+  "sources": [
+    "src/unicode-isl.coffee"
+  ],
+  "names": [],
+  "mappings": ";;AAGA;;;;;;;AAAA;AAAA,MAAA;;EAQA,GAAA,GAAkB,OAAA,CAAQ,eAAR;;EAClB,CAAA,GAAkB,GAAG,CAAC,KAAD,CAAH,CAAA;;AAClB;AAAA,OAAA,qCAAA;;IAAA,GAAG,CAAC,GAAJ,CAAQ,CAAR,EAAW,QAAX;AAAA;;EACA,MAAM,CAAC,OAAP,GAAkB;AAXlB"
+}

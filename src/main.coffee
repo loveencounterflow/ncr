@@ -16,16 +16,13 @@ whisper                   = CND.get_logger 'whisper', badge
 help                      = CND.get_logger 'help',    badge
 echo                      = CND.echo.bind CND
 #...........................................................................................................
-character_sets_and_ranges = require './character-sets-and-ranges'
-@_names_and_ranges_by_csg = character_sets_and_ranges[ 'names-and-ranges-by-csg' ]
-@_ranges_by_rsg           = character_sets_and_ranges[ 'ranges-by-rsg' ]
-# binary_interval_search    = require './binary-interval-search'
 @_input_default           = 'plain'
 # @_input_default           = 'ncr'
 # @_input_default           = 'xncr'
 #...........................................................................................................
 ISL                       = null
 unicode_isl               = null
+
 
 #===========================================================================================================
 # SPLIT TEXT INTO CHARACTERS
@@ -314,7 +311,7 @@ unicode_isl               = null
   else
     csg = 'u'
   #.........................................................................................................
-  @validate_is_csg csg
+  # @validate_is_csg csg
   @validate_is_cid cid
   return [ csg, cid, ]
 
@@ -363,41 +360,28 @@ decG                      = ( /// (?:    ([      0-9]+)      ) /// ).source
                                   #{@_nonsurrogate_matcher.source}    ) ///
 
 
-#===========================================================================================================
-#
-#-----------------------------------------------------------------------------------------------------------
-@cid_range_from_rsg = ( rsg ) ->
-  # [ csg, ... ] = rsg.split '-'
-  unless ( R = @_ranges_by_rsg[ rsg ] )?
-    throw new Error "unknown RSG: #{rpr rsg}"
-  return R
+# #-----------------------------------------------------------------------------------------------------------
+# @cid_range_from_rsg = ( rsg ) ->
+#   # [ csg, ... ] = rsg.split '-'
+#   unless ( R = @_ranges_by_rsg[ rsg ] )?
+#     throw new Error "unknown RSG: #{rpr rsg}"
+#   return R
 
-
-#===========================================================================================================
-# VALIDATION
-#-----------------------------------------------------------------------------------------------------------
-@validate_is_csg = ( x ) ->
-  CND.validate_isa_text x
-  throw new Error "not a valid CSG: #{rpr x}" unless ( x.match @_csg_matcher )?
-  throw new Error "unknown CSG: #{rpr x}"     unless @_names_and_ranges_by_csg[ x ]?
-  return null
+# #-----------------------------------------------------------------------------------------------------------
+# @validate_is_csg = ( x ) ->
+#   CND.validate_isa_text x
+#   throw new Error "not a valid CSG: #{rpr x}" unless ( x.match @_csg_matcher )?
+#   throw new Error "unknown CSG: #{rpr x}"     unless @_names_and_ranges_by_csg[ x ]?
+#   return null
 
 #-----------------------------------------------------------------------------------------------------------
 @validate_is_cid = ( x ) ->
   CND.validate_isa_number x
-  # if x < 0 or x > 0x10ffff or ( parseInt x ) != x
-  if x < 0 or x > 0xffffffff or ( parseInt x ) != x
-    throw new Error "expected an integer between 0x0 and 0x10ffff, got 0x#{x.toString 16}"
+  if x < 0x000000 or x > 0x10ffff or ( parseInt x ) != x
+    throw new Error "expected an integer between 0x000000 and 0x10ffff, got 0x#{x.toString 16}"
   return null
 
 
-
-
-
-
-# console.log name for name of @
-# console.log String.fromCharCode 0x61
-# console.log String.fromCharCode 0x24563
 
 
 

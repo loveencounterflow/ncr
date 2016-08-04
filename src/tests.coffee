@@ -95,23 +95,6 @@ hex = ( n ) -> '0x' + n.toString 16
 @[ 'test # 19' ] = ( T ) ->
   T.eq ( NCR.analyze '&#x24563;', input: 'xncr'     ), {'~isa':     'NCR/info',"uchr":"𤕣","chr":"𤕣","csg":"u","cid":148835,"fncr":"u-cjk-xb-24563","sfncr":"u-24563","ncr":"&#x24563;","xncr":"&#x24563;","rsg":"u-cjk-xb"}
 
-@[ 'test # 20' ] = ( T ) ->
-  T.eq ( NCR.analyze '&jzr#x24563;'                ), {'~isa':     'NCR/info',"uchr":"&","chr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
-
-@[ 'test # 21' ] = ( T ) ->
-  T.eq ( NCR.analyze '&jzr#x24563;', input: 'ncr'   ), {'~isa':     'NCR/info',"uchr":"&","chr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
-
-@[ 'test # 22' ] = ( T ) ->
-  # debug '©BY7x6', JSON.stringify ( NCR.analyze '&jzr#x24563;', input: 'xncr'  )
-  T.eq ( NCR.analyze '&jzr#x24563;', input: 'xncr'  ), {'~isa':     'NCR/info',"uchr":"𤕣","chr":"&jzr#x24563;","csg":"jzr","cid":148835,"fncr":"jzr-24563","sfncr":"jzr-24563","ncr":"&#x24563;","xncr":"&jzr#x24563;","rsg":null}
-
-@[ 'test # 22a' ] = ( T ) ->
-  debug '©BY7x6', JSON.stringify ( NCR.analyze '&jzr#xe101;', input: 'xncr'  )
-  T.eq ( NCR.analyze '&jzr#xe101;', input: 'xncr'  ), {"~isa":"NCR/info","chr":"&jzr#xe101;","uchr":"","csg":"jzr","cid":57601,"fncr":"jzr-fig-e101","sfncr":"jzr-e101","ncr":"&#xe101;","xncr":"&jzr#xe101;","rsg":"jzr-fig"}
-
-@[ 'test # 22b' ] = ( T ) ->
-  T.eq ( NCR.analyze '&jzr#e101;', input: 'xncr'  ), {"~isa":"NCR/info","chr":"&","uchr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
-
 @[ 'test # 23' ] = ( T ) ->
   T.eq ( NCR.analyze 'helo world' ), {'~isa':     'NCR/info',"uchr":"h","chr":"h","csg":"u","cid":104,"fncr":"u-latn-68","sfncr":"u-68","ncr":"&#x68;","xncr":"&#x68;","rsg":"u-latn"}
 
@@ -202,12 +185,6 @@ hex = ( n ) -> '0x' + n.toString 16
 @[ 'test # 52' ] = ( T ) ->
   T.eq ( NCR.chunks_from_text 'ab&jzr#xe063;d', input: 'ncr'                   ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"ab&jzr#xe063;d"}]
 
-@[ 'test # 53' ] = ( T ) ->
-  T.eq ( NCR.chunks_from_text 'ab&jzr#xe063;d', input: 'xncr'                  ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"ab"},{"~isa":"NCR/chunk","csg":"jzr","rsg":"jzr-fig","text":"&#xe063;"},{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"d"}]
-
-@[ 'test # 54' ] = ( T ) ->
-  T.eq ( NCR.chunks_from_text 'ab&jzr#xe063;d', input: 'xncr', output: 'html'  ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"ab"},{"~isa":"NCR/chunk","csg":"jzr","rsg":"jzr-fig","text":"&#xe063;"},{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"d"}]
-
 @[ 'test # 55' ] = ( T ) ->
   T.eq ( NCR.chunks_from_text 'helo wörld'                                     ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"helo w"},{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn-1","text":"ö"},{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"rld"}]
 
@@ -280,12 +257,6 @@ hex = ( n ) -> '0x' + n.toString 16
 @[ 'test # 78' ] = ( T ) ->
   T.eq ( NCR.as_csg      '𤕣',           input:  'xncr'              ), 'u'
 
-@[ 'test # 79' ] = ( T ) ->
-  T.eq ( NCR.as_fncr     '&#x1;',        input:  'xncr', csg: 'jzr' ), 'jzr-1'
-
-@[ 'test # 80' ] = ( T ) ->
-  T.eq ( NCR.as_fncr     '&#xe123;',     input:  'xncr', csg: 'jzr' ), 'jzr-fig-e123'
-
 @[ 'test # 81' ] = ( T ) ->
   T.eq ( NCR.as_fncr     '𤕣',           input:  'xncr'             ), 'u-cjk-xb-24563'
 
@@ -307,9 +278,6 @@ hex = ( n ) -> '0x' + n.toString 16
 @[ 'test # 87' ] = ( T ) ->
   T.eq ( NCR.as_range_name '&jzr#xe100;',  input: 'plain' ), 'Basic Latin'
 
-@[ 'test # 88' ] = ( T ) ->
-  T.eq ( NCR.as_range_name '&jzr#xe100;',  input: 'xncr' ), 'Jizura Character Components'
-
 @[ 'test # 89' ] = ( T ) ->
   T.eq ( NCR.as_range_name 'a' ), 'Basic Latin'
 
@@ -330,15 +298,6 @@ hex = ( n ) -> '0x' + n.toString 16
 
 @[ 'test # 95' ] = ( T ) ->
   T.eq ( NCR.as_rsg        '&jzr#xe100;',  input: 'plain' ), 'u-latn'
-
-@[ 'test # 96' ] = ( T ) ->
-  T.eq ( NCR.as_rsg        '&jzr#xe100;',  input: 'xncr' ), 'jzr-fig'
-
-@[ 'test # 97' ] = ( T ) ->
-  T.eq ( NCR.as_rsg      '&#x1;',        input:  'xncr', csg: 'jzr' ), null
-
-@[ 'test # 98' ] = ( T ) ->
-  T.eq ( NCR.as_rsg      '&#xe100;',     input:  'xncr', csg: 'jzr' ), 'jzr-fig'
 
 @[ 'test # 99' ] = ( T ) ->
   T.eq ( NCR.as_rsg      '&#xe100;',     input:  'xncr', csg: 'u'   ), 'u-pua'
@@ -409,9 +368,6 @@ hex = ( n ) -> '0x' + n.toString 16
 @[ 'test # 121' ] = ( T ) ->
   T.eq ( NCR.cid_from_chr 'x',          input: 'xncr', ), 120
 
-@[ 'test # 122' ] = ( T ) ->
-  T.eq ( NCR.html_from_text '&jzr#xe101; & you', input: 'xncr'   ), """<span class="jzr-fig">&#xe101;</span><span class="u-latn"> &amp; you</span>"""
-
 @[ 'test # 123' ] = ( T ) ->
   T.eq ( NCR.html_from_text 'helo &#x24563; wörld'               ), """<span class="u-latn">helo &amp;#x24563; w</span><span class="u-latn-1">ö</span><span class="u-latn">rld</span>"""
 
@@ -426,49 +382,12 @@ hex = ( n ) -> '0x' + n.toString 16
   T.eq ( NCR.as_rsg '𫠠' ), 'u-cjk-xe'
   T.eq ( NCR.as_fncr '𫠠' ), 'u-cjk-xe-2b820'
 
-@[ 'test # 200' ] = ( T ) ->
-  XNCR = Object.assign {}, NCR, { _input_default: 'xncr', }
-  XNCR._names_and_ranges_by_csg[ 'foo' ] = [ [ '(Glyphs)', 'foo', 0x0000, 0xffffffff, ] ]
-  # debug '6651', XNCR._names_and_ranges_by_csg is NCR._names_and_ranges_by_csg
-  # debug '8090', JSON.stringify (  NCR.analyze '&foo#x24563;' )
-  # debug '8090', JSON.stringify ( XNCR.analyze '&foo#x24563;' )
-  # debug '8090', JSON.stringify (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' )
-  # debug '8090', JSON.stringify ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' )
-  T.eq (  NCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&","uchr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
-  T.eq ( XNCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&foo#x24563;","uchr":"𤕣","csg":"foo","cid":148835,"fncr":"foo-24563","sfncr":"foo-24563","ncr":"&#x24563;","xncr":"&foo#x24563;","rsg":null}
-  T.eq (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc&amp;foo#x24563;xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
-  T.eq ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc</span><span class=\"foo\">&#x24563;</span><span class=\"u-latn\">xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
 
-@[ 'test # 201' ] = ( T ) ->
-  # debug '4432', NCR
-  ### TAINT poor man's deep copy: ###
-  XNCR = Object.assign {}, NCR
-  XNCR._names_and_ranges_by_csg = Object.assign {}, XNCR._names_and_ranges_by_csg
-  XNCR._input_default = 'xncr'
-  XNCR._names_and_ranges_by_csg[ 'foo' ] = [ [ '(Glyphs)', 'foo', 0x0000, 0xffffffff, ] ]
-  T.eq ( XNCR._names_and_ranges_by_csg is NCR._names_and_ranges_by_csg ), false
-  # debug '8090', JSON.stringify (  NCR.analyze '&foo#x24563;' )
-  # debug '8090', JSON.stringify ( XNCR.analyze '&foo#x24563;' )
-  # debug '8090', JSON.stringify (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' )
-  # debug '8090', JSON.stringify ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' )
-  T.eq (  NCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&","uchr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
-  T.eq ( XNCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&foo#x24563;","uchr":"𤕣","csg":"foo","cid":148835,"fncr":"foo-24563","sfncr":"foo-24563","ncr":"&#x24563;","xncr":"&foo#x24563;","rsg":null}
-  T.eq (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc&amp;foo#x24563;xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
-  T.eq ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc</span><span class=\"foo\">&#x24563;</span><span class=\"u-latn\">xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
-
-
-###
-  'so|glyph:劬|cp/fncr:u-cjk/52ac|0'
-  'so|glyph:邭|cp/fncr:u-cjk/90ad|0'
-  'so|glyph:𠴦|cp/fncr:u-cjk-xb/20d26|0'
-  'so|glyph:𤿯|cp/fncr:u-cjk-xb/24fef|0'
-  'so|glyph:𧑴|cp/fncr:u-cjk-xb/27474|0'
-  'so|glyph:𨒡|cp/fncr:u-cjk-xb/284a1|0'
-  'so|glyph:𪚧|cp/fncr:u-cjk-xb/2a6a7|0'
-  'so|glyph:𪚫|cp/fncr:u-cjk-xb/2a6ab|0'
-  '丁三夫國形丁三夫國形丁三夫國形'
-###
-
+### # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  ###
+###  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ###
+### # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  ###
+###  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ###
+### # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  ###
 
 #-----------------------------------------------------------------------------------------------------------
 @[ "negative tags (demo: how to tag Unicode unassigned codepoints)" ] = ( T ) ->
@@ -526,65 +445,96 @@ hex = ( n ) -> '0x' + n.toString 16
   #.........................................................................................................
   return null
 
-#-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_add_styles = ( isl ) ->
-  ISL                 = require 'interskiplist'
-  XNCR                = require './xncr'
-  mkts_options        = require '../../mingkwai-typesetter/options'
-  tex_command_by_rsgs = mkts_options[ 'tex' ][ 'tex-command-by-rsgs' ]
-  #.........................................................................................................
-  lo          = 0x000000
-  hi          = 0x10ffff
-  tex         = tex_command_by_rsgs[ 'fallback' ]
-  name        = "style:fallback"
-  ISL.add isl, { name, lo, hi, tex, }
-  #.........................................................................................................
-  for glyph, style of mkts_options[ 'tex' ][ 'glyph-styles' ]
-    glyph       = XNCR.normalize_glyph  glyph
-    rsg         = XNCR.as_rsg           glyph
-    cid         = XNCR.as_cid           glyph
-    lo = hi     = cid
-    cid_hex     = hex cid
-    name        = "glyph-#{cid_hex}"
-    name        = "style:#{name}"
-    ISL.add isl, { name, lo, hi, rsg, style, }
-  #.........................................................................................................
-  return isl
+@[ 'test # 22' ] = ( T ) ->
+  # debug '©BY7x6', JSON.stringify ( NCR.analyze '&jzr#x24563;', input: 'xncr'  )
+  T.eq ( NCR.analyze '&jzr#x24563;', input: 'xncr'  ), {'~isa':     'NCR/info',"uchr":"𤕣","chr":"&jzr#x24563;","csg":"jzr","cid":148835,"fncr":"jzr-24563","sfncr":"jzr-24563","ncr":"&#x24563;","xncr":"&jzr#x24563;","rsg":null}
 
-#-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_add_cjk_tags = ( isl ) ->
-  ISL = require 'interskiplist'
-  rsg_registry  = require './character-sets-and-ranges'
-  ranges        = rsg_registry[ 'names-and-ranges-by-csg' ][ 'u' ]
-  for rsg, tag of rsg_registry[ 'tag-by-rsgs' ]
-    continue unless ( range = ranges[ rsg ] )?
-    lo  = range[ 'first-cid'  ]
-    hi  = range[ 'last-cid'   ]
-    ISL.add isl, { lo, hi, tag, }
-  #.........................................................................................................
-  return isl
+@[ 'test # 20' ] = ( T ) ->
+  T.eq ( NCR.analyze '&jzr#x24563;'                ), {'~isa':     'NCR/info',"uchr":"&","chr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
 
-#-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_add_jzr_tag = ( isl ) ->
-  ISL = require 'interskiplist'
-  rsg_registry  = require './character-sets-and-ranges'
-  ranges        = rsg_registry[ 'names-and-ranges-by-csg' ][ 'jzr' ]
-  # debug '©95520', ranges
-  # debug '©95520', rsg_registry[ 'tag-by-rsgs' ]
-  for rsg, tag of rsg_registry[ 'tag-by-rsgs' ]
-    continue unless ( range = ranges[ rsg ] )?
-    debug '©74688', range, rsg, tag
-    lo  = range[ 'first-cid'  ]
-    hi  = range[ 'last-cid'   ]
-    ISL.add isl, { lo, hi, tag, }
-  #.........................................................................................................
-  return isl
+@[ 'test # 21' ] = ( T ) ->
+  T.eq ( NCR.analyze '&jzr#x24563;', input: 'ncr'   ), {'~isa':     'NCR/info',"uchr":"&","chr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
 
-#-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_add_sims = ( isl ) ->
-  ISL                 = require 'interskiplist'
-  #.........................................................................................................
-  return isl
+@[ 'test # 22a' ] = ( T ) ->
+  debug '©BY7x6', JSON.stringify ( NCR.analyze '&jzr#xe101;', input: 'xncr'  )
+  T.eq ( NCR.analyze '&jzr#xe101;', input: 'xncr'  ), {"~isa":"NCR/info","chr":"&jzr#xe101;","uchr":"","csg":"jzr","cid":57601,"fncr":"jzr-fig-e101","sfncr":"jzr-e101","ncr":"&#xe101;","xncr":"&jzr#xe101;","rsg":"jzr-fig"}
+
+@[ 'test # 22b' ] = ( T ) ->
+  T.eq ( NCR.analyze '&jzr#e101;', input: 'xncr'  ), {"~isa":"NCR/info","chr":"&","uchr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
+
+@[ 'test # 53' ] = ( T ) ->
+  T.eq ( NCR.chunks_from_text 'ab&jzr#xe063;d', input: 'xncr'                  ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"ab"},{"~isa":"NCR/chunk","csg":"jzr","rsg":"jzr-fig","text":"&#xe063;"},{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"d"}]
+
+@[ 'test # 54' ] = ( T ) ->
+  T.eq ( NCR.chunks_from_text 'ab&jzr#xe063;d', input: 'xncr', output: 'html'  ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"ab"},{"~isa":"NCR/chunk","csg":"jzr","rsg":"jzr-fig","text":"&#xe063;"},{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"d"}]
+
+@[ 'test # 79' ] = ( T ) ->
+  T.eq ( NCR.as_fncr     '&#x1;',        input:  'xncr', csg: 'jzr' ), 'jzr-1'
+
+@[ 'test # 80' ] = ( T ) ->
+  T.eq ( NCR.as_fncr     '&#xe123;',     input:  'xncr', csg: 'jzr' ), 'jzr-fig-e123'
+
+@[ 'test # 88' ] = ( T ) ->
+  T.eq ( NCR.as_range_name '&jzr#xe100;',  input: 'xncr' ), 'Jizura Character Components'
+
+@[ 'test # 96' ] = ( T ) ->
+  T.eq ( NCR.as_rsg        '&jzr#xe100;',  input: 'xncr' ), 'jzr-fig'
+
+@[ 'test # 97' ] = ( T ) ->
+  T.eq ( NCR.as_rsg      '&#x1;',        input:  'xncr', csg: 'jzr' ), null
+
+@[ 'test # 98' ] = ( T ) ->
+  T.eq ( NCR.as_rsg      '&#xe100;',     input:  'xncr', csg: 'jzr' ), 'jzr-fig'
+
+@[ 'test # 122' ] = ( T ) ->
+  T.eq ( NCR.html_from_text '&jzr#xe101; & you', input: 'xncr'   ), """<span class="jzr-fig">&#xe101;</span><span class="u-latn"> &amp; you</span>"""
+
+
+@[ 'test # 200' ] = ( T ) ->
+  XNCR = Object.assign {}, NCR, { _input_default: 'xncr', }
+  XNCR._names_and_ranges_by_csg[ 'foo' ] = [ [ '(Glyphs)', 'foo', 0x0000, 0xffffffff, ] ]
+  # debug '6651', XNCR._names_and_ranges_by_csg is NCR._names_and_ranges_by_csg
+  # debug '8090', JSON.stringify (  NCR.analyze '&foo#x24563;' )
+  # debug '8090', JSON.stringify ( XNCR.analyze '&foo#x24563;' )
+  # debug '8090', JSON.stringify (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' )
+  # debug '8090', JSON.stringify ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' )
+  T.eq (  NCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&","uchr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
+  T.eq ( XNCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&foo#x24563;","uchr":"𤕣","csg":"foo","cid":148835,"fncr":"foo-24563","sfncr":"foo-24563","ncr":"&#x24563;","xncr":"&foo#x24563;","rsg":null}
+  T.eq (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc&amp;foo#x24563;xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
+  T.eq ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc</span><span class=\"foo\">&#x24563;</span><span class=\"u-latn\">xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
+
+
+###
+  'so|glyph:劬|cp/fncr:u-cjk/52ac|0'
+  'so|glyph:邭|cp/fncr:u-cjk/90ad|0'
+  'so|glyph:𠴦|cp/fncr:u-cjk-xb/20d26|0'
+  'so|glyph:𤿯|cp/fncr:u-cjk-xb/24fef|0'
+  'so|glyph:𧑴|cp/fncr:u-cjk-xb/27474|0'
+  'so|glyph:𨒡|cp/fncr:u-cjk-xb/284a1|0'
+  'so|glyph:𪚧|cp/fncr:u-cjk-xb/2a6a7|0'
+  'so|glyph:𪚫|cp/fncr:u-cjk-xb/2a6ab|0'
+  '丁三夫國形丁三夫國形丁三夫國形'
+###
+
+@[ 'test # 201' ] = ( T ) ->
+  # debug '4432', NCR
+  ### TAINT poor man's deep copy: ###
+  XNCR = Object.assign {}, NCR
+  XNCR._names_and_ranges_by_csg = Object.assign {}, XNCR._names_and_ranges_by_csg
+  XNCR._input_default = 'xncr'
+  XNCR._names_and_ranges_by_csg[ 'foo' ] = [ [ '(Glyphs)', 'foo', 0x0000, 0xffffffff, ] ]
+  T.eq ( XNCR._names_and_ranges_by_csg is NCR._names_and_ranges_by_csg ), false
+  # debug '8090', JSON.stringify (  NCR.analyze '&foo#x24563;' )
+  # debug '8090', JSON.stringify ( XNCR.analyze '&foo#x24563;' )
+  # debug '8090', JSON.stringify (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' )
+  # debug '8090', JSON.stringify ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' )
+  T.eq (  NCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&","uchr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
+  T.eq ( XNCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&foo#x24563;","uchr":"𤕣","csg":"foo","cid":148835,"fncr":"foo-24563","sfncr":"foo-24563","ncr":"&#x24563;","xncr":"&foo#x24563;","rsg":null}
+  T.eq (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc&amp;foo#x24563;xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
+  T.eq ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc</span><span class=\"foo\">&#x24563;</span><span class=\"u-latn\">xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
+
+### # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  ###
+###  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ###
 
 #-----------------------------------------------------------------------------------------------------------
 @[ "Unicode demo" ] = ( T ) ->
@@ -648,6 +598,73 @@ hex = ( n ) -> '0x' + n.toString 16
   return null
 
 
+#-----------------------------------------------------------------------------------------------------------
+@_Unicode_demo_add_styles = ( isl ) ->
+  ISL                 = require 'interskiplist'
+  XNCR                = require './xncr'
+  mkts_options        = require '../../mingkwai-typesetter/options'
+  tex_command_by_rsgs = mkts_options[ 'tex' ][ 'tex-command-by-rsgs' ]
+  #.........................................................................................................
+  lo          = 0x000000
+  hi          = 0x10ffff
+  tex         = tex_command_by_rsgs[ 'fallback' ]
+  name        = "style:fallback"
+  ISL.add isl, { name, lo, hi, tex, }
+  #.........................................................................................................
+  for glyph, style of mkts_options[ 'tex' ][ 'glyph-styles' ]
+    glyph       = XNCR.normalize_glyph  glyph
+    rsg         = XNCR.as_rsg           glyph
+    cid         = XNCR.as_cid           glyph
+    lo = hi     = cid
+    cid_hex     = hex cid
+    name        = "glyph-#{cid_hex}"
+    name        = "style:#{name}"
+    ISL.add isl, { name, lo, hi, rsg, style, }
+  #.........................................................................................................
+  return isl
+
+#-----------------------------------------------------------------------------------------------------------
+@_Unicode_demo_add_cjk_tags = ( isl ) ->
+  ISL = require 'interskiplist'
+  rsg_registry  = require './character-sets-and-ranges'
+  ranges        = rsg_registry[ 'names-and-ranges-by-csg' ][ 'u' ]
+  for rsg, tag of rsg_registry[ 'tag-by-rsgs' ]
+    continue unless ( range = ranges[ rsg ] )?
+    lo  = range[ 'first-cid'  ]
+    hi  = range[ 'last-cid'   ]
+    ISL.add isl, { lo, hi, tag, }
+  #.........................................................................................................
+  return isl
+
+#-----------------------------------------------------------------------------------------------------------
+@_Unicode_demo_add_jzr_tag = ( isl ) ->
+  ISL = require 'interskiplist'
+  rsg_registry  = require './character-sets-and-ranges'
+  ranges        = rsg_registry[ 'names-and-ranges-by-csg' ][ 'jzr' ]
+  # debug '©95520', ranges
+  # debug '©95520', rsg_registry[ 'tag-by-rsgs' ]
+  for rsg, tag of rsg_registry[ 'tag-by-rsgs' ]
+    continue unless ( range = ranges[ rsg ] )?
+    debug '©74688', range, rsg, tag
+    lo  = range[ 'first-cid'  ]
+    hi  = range[ 'last-cid'   ]
+    ISL.add isl, { lo, hi, tag, }
+  #.........................................................................................................
+  return isl
+
+#-----------------------------------------------------------------------------------------------------------
+@_Unicode_demo_add_sims = ( isl ) ->
+  ISL                 = require 'interskiplist'
+  #.........................................................................................................
+  return isl
+
+###  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ###
+### # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  ###
+###  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ###
+### # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  ###
+###  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ###
+
+
 ############################################################################################################
 unless module.parent?
   # debug '0980', JSON.stringify ( Object.keys @ ), null, '  '
@@ -673,9 +690,6 @@ unless module.parent?
     "test # 19"
     "test # 20"
     "test # 21"
-    "test # 22"
-    "test # 22a"
-    "test # 22b"
     "test # 23"
     "test # 24"
     "test # 25"
@@ -706,8 +720,6 @@ unless module.parent?
     "test # 50"
     "test # 51"
     "test # 52"
-    "test # 53"
-    "test # 54"
     "test # 55"
     "test # 56"
     "test # 57"
@@ -732,8 +744,6 @@ unless module.parent?
     "test # 76"
     "test # 77"
     "test # 78"
-    "test # 79"
-    "test # 80"
     "test # 81"
     "test # 82"
     "test # 83"
@@ -741,7 +751,6 @@ unless module.parent?
     "test # 85"
     "test # 86"
     "test # 87"
-    "test # 88"
     "test # 89"
     "test # 90"
     "test # 91"
@@ -749,9 +758,6 @@ unless module.parent?
     "test # 93"
     "test # 94"
     "test # 95"
-    "test # 96"
-    "test # 97"
-    "test # 98"
     "test # 99"
     "test # 100"
     "test # 101"
@@ -775,15 +781,27 @@ unless module.parent?
     "test # 119"
     "test # 120"
     "test # 121"
-    "test # 122"
     "test # 123"
     "test # 124"
     "test # 125"
     "test Unicode 8 / CJK Extension E"
-    "test # 200"
-    "test # 201"
-    "negative tags (demo: how to tag Unicode unassigned codepoints)"
-    "Unicode demo"
+    #.......................................................................................................
+    # "test # 22"
+    # "test # 22a"
+    # "test # 22b"
+    # "test # 53"
+    # "test # 54"
+    # "test # 79"
+    # "test # 80"
+    # "test # 88"
+    # "test # 96"
+    # "test # 97"
+    # "test # 98"
+    # "test # 122"
+    # "test # 200"
+    # "test # 201"
+    # "negative tags (demo: how to tag Unicode unassigned codepoints)"
+    # "Unicode demo"
     ]
   @_prune()
   @_main()
