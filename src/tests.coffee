@@ -569,8 +569,8 @@ hex = ( n ) -> '0x' + n.toString 16
   ISL = require 'interskiplist'
   rsg_registry  = require './character-sets-and-ranges'
   ranges        = rsg_registry[ 'names-and-ranges-by-csg' ][ 'jzr' ]
-  debug '©95520', ranges
-  debug '©95520', rsg_registry[ 'tag-by-rsgs' ]
+  # debug '©95520', ranges
+  # debug '©95520', rsg_registry[ 'tag-by-rsgs' ]
   for rsg, tag of rsg_registry[ 'tag-by-rsgs' ]
     continue unless ( range = ranges[ rsg ] )?
     debug '©74688', range, rsg, tag

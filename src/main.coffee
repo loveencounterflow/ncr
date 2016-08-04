@@ -19,11 +19,13 @@ echo                      = CND.echo.bind CND
 character_sets_and_ranges = require './character-sets-and-ranges'
 @_names_and_ranges_by_csg = character_sets_and_ranges[ 'names-and-ranges-by-csg' ]
 @_ranges_by_rsg           = character_sets_and_ranges[ 'ranges-by-rsg' ]
-binary_interval_search    = require './binary-interval-search'
+# binary_interval_search    = require './binary-interval-search'
 @_input_default           = 'plain'
 # @_input_default           = 'ncr'
 # @_input_default           = 'xncr'
-
+#...........................................................................................................
+ISL                       = null
+unicode_isl               = null
 
 #===========================================================================================================
 # SPLIT TEXT INTO CHARACTERS
@@ -240,11 +242,19 @@ binary_interval_search    = require './binary-interval-search'
 
 #-----------------------------------------------------------------------------------------------------------
 @_as_rsg = ( csg, cid ) ->
-  return binary_interval_search @_names_and_ranges_by_csg[ csg ], 'first-cid', 'last-cid', 'rsg', cid
+  ### TAINT code duplication ###
+  throw new Error "only Unicode supported at this time, got CSG #{rpr csg}" unless csg is 'u'
+  ISL          ?= require 'interskiplist'
+  unicode_isl  ?= require './unicode-isl'
+  return ( ISL.aggregate unicode_isl, cid )[ 'rsg' ]
 
 #-----------------------------------------------------------------------------------------------------------
 @_as_range_name = ( csg, cid ) ->
-  return binary_interval_search @_names_and_ranges_by_csg[ csg ], 'first-cid', 'last-cid', 'range-name', cid
+  ### TAINT code duplication ###
+  throw new Error "only Unicode supported at this time, got CSG #{rpr csg}" unless csg is 'u'
+  ISL          ?= require 'interskiplist'
+  unicode_isl  ?= require './unicode-isl'
+  return ( ISL.aggregate unicode_isl, cid )[ 'block' ]
 
 
 #===========================================================================================================
