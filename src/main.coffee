@@ -20,9 +20,16 @@ echo                      = CND.echo.bind CND
 # @_input_default           = 'ncr'
 # @_input_default           = 'xncr'
 #...........................................................................................................
-ISL                       = null
-unicode_isl               = null
+@_ISL                     = null
+@_unicode_isl             = null
 
+#-----------------------------------------------------------------------------------------------------------
+@_get_unicode_isl = ->
+  return @_unicode_isl if @_unicode_isl?
+  @_ISL          ?= require 'interskiplist'
+  @_unicode_isl   = @_ISL.new()
+  @_ISL.add @_unicode_isl, interval for interval in require '../data/unicode-9.0.0-intervals.json'
+  return @_unicode_isl
 
 #===========================================================================================================
 # SPLIT TEXT INTO CHARACTERS
@@ -240,16 +247,14 @@ unicode_isl               = null
 #-----------------------------------------------------------------------------------------------------------
 @_as_rsg = ( csg, cid ) ->
   return csg unless csg is 'u'
-  ISL          ?= require 'interskiplist'
-  unicode_isl  ?= require './unicode-isl'
-  return ( ISL.aggregate unicode_isl, cid )[ 'rsg' ] ? csg
+  @_get_unicode_isl()
+  return ( @_ISL.aggregate @_unicode_isl, cid )[ 'rsg' ] ? csg
 
 #-----------------------------------------------------------------------------------------------------------
 @_as_range_name = ( csg, cid ) ->
   return @_as_rsg csg, cid unless csg is 'u'
-  ISL          ?= require 'interskiplist'
-  unicode_isl  ?= require './unicode-isl'
-  return ( ISL.aggregate unicode_isl, cid )[ 'block' ] ? ( @_as_rsg csg, cid )
+  @_get_unicode_isl()
+  return ( @_ISL.aggregate @_unicode_isl, cid )[ 'block' ] ? ( @_as_rsg csg, cid )
 
 
 #===========================================================================================================
