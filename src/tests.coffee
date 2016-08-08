@@ -500,162 +500,24 @@ hex = ( n ) -> '0x' + n.toString 16
 @[ "(v2) create derivatives of NCR (1)" ] = ( T ) ->
   reducers =
     '*':          'assign'
-    unicode_isl:  ( values ) -> NCR.ISL.copy values[ 0 ]
-  mix = ( require 'multimix' ).mix.use reducers
-  XNCR = mix NCR, { _input_default: 'xncr', }
+    _unicode_isl: ( values ) ->
+      unicode_isl = NCR._get_unicode_isl()
+      return NCR._ISL.copy unicode_isl
+  #.........................................................................................................
+  mix   = ( require 'multimix' ).mix.use reducers
+  XNCR  = mix NCR, { _input_default: 'xncr', }
+  #.........................................................................................................
+  T.ok NCR._unicode_isl?
+  T.ok XNCR._unicode_isl isnt NCR._unicode_isl
   T.eq (  NCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&","uchr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
   T.eq ( XNCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&foo#x24563;","uchr":"𤕣","csg":"foo","cid":148835,"fncr":"foo-24563","sfncr":"foo-24563","ncr":"&#x24563;","xncr":"&foo#x24563;","rsg":'foo'}
   T.eq (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc&amp;foo#x24563;xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
   T.eq ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc</span><span class=\"foo\">&#x24563;</span><span class=\"u-latn\">xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
-
-#-----------------------------------------------------------------------------------------------------------
-@[ "(v2) create derivatives of NCR (2)" ] = ( T ) ->
-  # debug '4432', NCR
-  ### TAINT poor man's deep copy: ###
-  XNCR = Object.assign {}, NCR
-  # XNCR._names_and_ranges_by_csg = Object.assign {}, XNCR._names_and_ranges_by_csg
-  XNCR._input_default = 'xncr'
-  XNCR._names_and_ranges_by_csg[ 'foo' ] = [ [ '(Glyphs)', 'foo', 0x0000, 0xffffffff, ] ]
-  T.eq ( XNCR._names_and_ranges_by_csg is NCR._names_and_ranges_by_csg ), false
-  # debug '8090', JSON.stringify (  NCR.analyze '&foo#x24563;' )
-  # debug '8090', JSON.stringify ( XNCR.analyze '&foo#x24563;' )
-  # debug '8090', JSON.stringify (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' )
-  # debug '8090', JSON.stringify ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' )
-  T.eq (  NCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&","uchr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
-  T.eq ( XNCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&foo#x24563;","uchr":"𤕣","csg":"foo","cid":148835,"fncr":"foo-24563","sfncr":"foo-24563","ncr":"&#x24563;","xncr":"&foo#x24563;","rsg":null}
-  T.eq (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc&amp;foo#x24563;xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
-  T.eq ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc</span><span class=\"foo\">&#x24563;</span><span class=\"u-latn\">xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
-
-### # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  ###
-###  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ###
-
-#-----------------------------------------------------------------------------------------------------------
-@[ "(v2) create derivatives of NCR (3)" ] = ( T ) ->
-  ISL           = require 'interskiplist'
-  #.........................................................................................................
-  ### General data ###
-  # @_Unicode_demo_add_base       u
-  # @_Unicode_demo_add_planes     u
-  # @_Unicode_demo_add_areas      u
-  # @_Unicode_demo_add_blocks     u
-  u = ISL.copy require './unicode-isl'
-  #.........................................................................................................
-  ### CJK-specific data ###
-  @_Unicode_demo_add_cjk_tags       u
-  ### Jizura-specific data ###
-  @_Unicode_demo_add_jzr_tag        u
-  @_Unicode_demo_add_sims           u
-  ### Mingkwai-specific data ###
-  @_Unicode_demo_add_styles         u
-  ISL.add u, { lo: 0x0, hi: 0x10ffff, tag: 'foo bar', }
-  #.........................................................................................................
-  reducers = { name: 'skip', tex: 'list', style: 'list', type: 'skip', }
-  for glyph in Array.from '《A↻\ue000鿕\u9fd6'
-    cid       = glyph.codePointAt 0
-    cid_hex   = hex cid
-    { plane
-      area
-      block
-      rsg
-      tag
-      tex
-      style } = ISL.aggregate u, cid, reducers
-    rsg      ?= 'u-???'
-    tag       = tag.join ', '
-    urge cid_hex, ( CND.lime rpr glyph ), ( CND.gold "#{plane} / #{area} / #{block} / #{rsg}" ), ( CND.white tag )
+  XNCR._ISL.add XNCR._unicode_isl, { lo: 0x00, hi: 0xff, rsg: 'u-foobar', }
+  T.eq ( XNCR.as_rsg 'a' ), 'u-foobar'
+  T.eq (  NCR.as_rsg 'a' ), 'u-latn'
   #.........................................................................................................
   return null
-
-#-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_show_sample = ( isl ) ->
-  XNCR = require './xncr'
-  #.........................................................................................................
-  # is_cjk_rsg    = (   rsg ) -> rsg in mkts_options[ 'tex' ][ 'cjk-rsgs' ]
-  # is_cjk_glyph  = ( glyph ) -> is_cjk_rsg XNCR.as_rsg glyph
-  #.........................................................................................................
-  for glyph in XNCR.chrs_from_text "helo äöü你好𢕒𡕴𡕨𠤇𫠠𧑴𨒡《》【】&jzr#xe100;🖹"
-    cid     = XNCR.as_cid glyph
-    cid_hex = hex cid
-    # debug glyph, cid_hex, find_id_text u, cid
-    descriptions = ISL.find_entries_with_all_points u, cid
-    urge glyph, cid_hex
-    for description in descriptions
-      [ type, _, ] = ( description[ 'name' ] ? '???/' ).split ':'
-      help ( CND.grey type + '/' ) + ( CND.steel 'interval' ) + ': ' + ( CND.yellow "#{hex description[ 'lo' ]}-#{hex description[ 'hi' ]}" )
-      for key, value of description
-        continue if key in [ 'lo', 'hi', 'id', ]
-        help ( CND.grey type + '/' ) + ( CND.steel key ) + ': ' + ( CND.yellow value )
-    # urge glyph, cid_hex, JSON.stringify ISL.find_all_ids    u, cid
-    # info glyph, cid_hex, JSON.stringify ISL.find_any_ids    u, cid
-  #.........................................................................................................
-  return null
-
-
-#-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_add_styles = ( isl ) ->
-  ISL                 = require 'interskiplist'
-  XNCR                = require './xncr'
-  mkts_options        = require '../../mingkwai-typesetter/options'
-  tex_command_by_rsgs = mkts_options[ 'tex' ][ 'tex-command-by-rsgs' ]
-  #.........................................................................................................
-  lo          = 0x000000
-  hi          = 0x10ffff
-  tex         = tex_command_by_rsgs[ 'fallback' ]
-  name        = "style:fallback"
-  ISL.add isl, { name, lo, hi, tex, }
-  #.........................................................................................................
-  for glyph, style of mkts_options[ 'tex' ][ 'glyph-styles' ]
-    glyph       = XNCR.normalize_glyph  glyph
-    rsg         = XNCR.as_rsg           glyph
-    cid         = XNCR.as_cid           glyph
-    lo = hi     = cid
-    cid_hex     = hex cid
-    name        = "glyph-#{cid_hex}"
-    name        = "style:#{name}"
-    ISL.add isl, { name, lo, hi, rsg, style, }
-  #.........................................................................................................
-  return isl
-
-#-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_add_cjk_tags = ( isl ) ->
-  ISL = require 'interskiplist'
-  rsg_registry  = require './character-sets-and-ranges'
-  ranges        = rsg_registry[ 'names-and-ranges-by-csg' ][ 'u' ]
-  for rsg, tag of rsg_registry[ 'tag-by-rsgs' ]
-    continue unless ( range = ranges[ rsg ] )?
-    lo  = range[ 'first-cid'  ]
-    hi  = range[ 'last-cid'   ]
-    ISL.add isl, { lo, hi, tag, }
-  #.........................................................................................................
-  return isl
-
-#-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_add_jzr_tag = ( isl ) ->
-  ISL = require 'interskiplist'
-  rsg_registry  = require './character-sets-and-ranges'
-  ranges        = rsg_registry[ 'names-and-ranges-by-csg' ][ 'jzr' ]
-  # debug '©95520', ranges
-  # debug '©95520', rsg_registry[ 'tag-by-rsgs' ]
-  for rsg, tag of rsg_registry[ 'tag-by-rsgs' ]
-    continue unless ( range = ranges[ rsg ] )?
-    debug '©74688', range, rsg, tag
-    lo  = range[ 'first-cid'  ]
-    hi  = range[ 'last-cid'   ]
-    ISL.add isl, { lo, hi, tag, }
-  #.........................................................................................................
-  return isl
-
-#-----------------------------------------------------------------------------------------------------------
-@_Unicode_demo_add_sims = ( isl ) ->
-  ISL                 = require 'interskiplist'
-  #.........................................................................................................
-  return isl
-
-###  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ###
-### # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  ###
-###  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ###
-### # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  ###
-###  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ###
 
 
 ############################################################################################################
@@ -786,14 +648,12 @@ unless module.parent?
     "test # 98"
     "test # 122"
     "(v2) create derivatives of NCR (1)"
-    # "(v2) create derivatives of NCR (2)"
-    # "(v2) create derivatives of NCR (3)"
     ]
   @_prune()
   @_main()
 
 
-  ( warn JSON.stringify key unless key in include ) for key in Object.keys @
+  # ( warn JSON.stringify key unless key in include ) for key in Object.keys @
 
   # XNCR = require './xncr'
   # text = 'A-&#x3004;-&jzr#xe100;-&morohashi#x56;-Z'
