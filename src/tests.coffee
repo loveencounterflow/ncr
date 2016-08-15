@@ -519,6 +519,29 @@ hex = ( n ) -> '0x' + n.toString 16
   #.........................................................................................................
   return null
 
+#-----------------------------------------------------------------------------------------------------------
+@[ "(v2) 53846537846" ] = ( T ) ->
+  # NCR       = require '../ncr'
+  u         = NCR._get_unicode_isl()
+  ISL       = NCR._ISL
+  probes_and_matchers = [
+    [ 'q', { rsg: 'u-latn', tag: [ 'assigned' ],                       }, ]
+    [ '里', { rsg: 'u-cjk', tag: [ 'assigned', 'cjk', 'ideograph' ],    }, ]
+    [ '䊷', { rsg: 'u-cjk-xa', tag: [ 'assigned', 'cjk', 'ideograph' ], }, ]
+    ]
+  reducers  = { '*': 'skip', 'tag': 'include', 'rsg': 'assign', }
+  for [ probe, matcher, ] in probes_and_matchers
+    result_A = ISL.aggregate u, probe
+    result_B = ISL.aggregate u, probe, reducers
+    T.eq result_A[ 'rsg' ], result_B[ 'rsg' ]
+    T.eq result_A[ 'tag' ], result_B[ 'tag' ]
+    T.eq result_B, matcher
+  #.........................................................................................................
+  return null
+
+
+
+
 
 ############################################################################################################
 unless module.parent?
@@ -648,6 +671,7 @@ unless module.parent?
     "test # 98"
     "test # 122"
     "(v2) create derivatives of NCR (1)"
+    "(v2) 53846537846"
     ]
   @_prune()
   @_main()
