@@ -529,7 +529,7 @@ hex = ( n ) -> '0x' + n.toString 16
     [ '里', { rsg: 'u-cjk', tag: [ 'assigned', 'cjk', 'ideograph' ],    }, ]
     [ '䊷', { rsg: 'u-cjk-xa', tag: [ 'assigned', 'cjk', 'ideograph' ], }, ]
     ]
-  reducers  = { '*': 'skip', 'tag': 'include', 'rsg': 'assign', }
+  reducers  = { '*': 'skip', 'tag': 'tag', 'rsg': 'assign', }
   for [ probe, matcher, ] in probes_and_matchers
     result_A = ISL.aggregate u, probe
     result_B = ISL.aggregate u, probe, reducers
