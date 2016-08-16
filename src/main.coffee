@@ -28,6 +28,8 @@ echo                      = CND.echo.bind CND
   return @_unicode_isl if @_unicode_isl?
   @_ISL          ?= require 'interskiplist'
   @_unicode_isl   = @_ISL.new()
+  @_ISL.add_index @_unicode_isl, 'rsg'
+  @_ISL.add_index @_unicode_isl, 'tag'
   @_ISL.add @_unicode_isl, interval for interval in require '../data/unicode-9.0.0-intervals.json'
   return @_unicode_isl
 
