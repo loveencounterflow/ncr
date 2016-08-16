@@ -555,8 +555,9 @@ hex = ( n ) -> '0x' + n.toString 16
   # #.........................................................................................................
   # T.eq ( ISL.find_ids u, 'tag', 'cjk'           ), [ '+[2]', '+[4]' ]
   # T.eq ( ISL.find_ids u, 'tag', 'assigned'      ), [ '+[0]', '+[1]', '+[3]' ]
-  # T.eq ( ISL.find_ids u, 'tag', 'foobar'        ), []
-  # T.eq ( ISL.find_ids u, 'rsg', 'u-latn'        ), [ '+[0]' ]
+  T.eq ( ISL.find_ids u, 'tag', 'foobar'        ), []
+  T.eq ( ISL.find_ids u, 'rsg', 'u-latn'        ), [ 'block:Basic Latin[0]' ]
+  T.eq ( ISL.find_ids u, 'rsg', 'u-cjk'         ), [ 'block:CJK Unified Ideographs[0]' ]
   # T.eq ( ISL.find_entries u, 'tag', 'cjk'       ), [{"lo":37324,"hi":37324,"tag":["cjk","ideograph"],"idx":2,"id":"+[2]","name":"+","size":1},{"lo":17079,"hi":17079,"tag":["cjk","ideograph"],"idx":4,"id":"+[4]","name":"+","size":1}]
   # T.eq ( ISL.find_entries u, 'tag', 'assigned'  ), [{"lo":113,"hi":113,"tag":["assigned"],"rsg":"u-latn","idx":0,"id":"+[0]","name":"+","size":1},{"lo":37324,"hi":37324,"tag":["assigned"],"rsg":"u-cjk","idx":1,"id":"+[1]","name":"+","size":1},{"lo":17079,"hi":17079,"tag":["assigned"],"rsg":"u-cjk-xa","idx":3,"id":"+[3]","name":"+","size":1}]
   # T.eq ( ISL.find_entries u, 'tag', 'foobar'    ), []
