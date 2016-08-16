@@ -500,20 +500,18 @@ hex = ( n ) -> '0x' + n.toString 16
 @[ "(v2) create derivatives of NCR (1)" ] = ( T ) ->
   reducers =
     '*':          'assign'
-    _unicode_isl: ( values ) ->
-      unicode_isl = NCR._get_unicode_isl()
-      return NCR._ISL.copy unicode_isl
+    unicode_isl: ( values ) -> NCR._ISL.copy NCR.unicode_isl
   #.........................................................................................................
   mix   = ( require 'multimix' ).mix.use reducers
   XNCR  = mix NCR, { _input_default: 'xncr', }
   #.........................................................................................................
-  T.ok NCR._unicode_isl?
-  T.ok XNCR._unicode_isl isnt NCR._unicode_isl
+  T.ok NCR.unicode_isl?
+  T.ok XNCR.unicode_isl isnt NCR.unicode_isl
   T.eq (  NCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&","uchr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
   T.eq ( XNCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&foo#x24563;","uchr":"𤕣","csg":"foo","cid":148835,"fncr":"foo-24563","sfncr":"foo-24563","ncr":"&#x24563;","xncr":"&foo#x24563;","rsg":'foo'}
   T.eq (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc&amp;foo#x24563;xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
   T.eq ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc</span><span class=\"foo\">&#x24563;</span><span class=\"u-latn\">xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
-  XNCR._ISL.add XNCR._unicode_isl, { lo: 0x00, hi: 0xff, rsg: 'u-foobar', }
+  XNCR._ISL.add XNCR.unicode_isl, { lo: 0x00, hi: 0xff, rsg: 'u-foobar', }
   T.eq ( XNCR.as_rsg 'a' ), 'u-foobar'
   T.eq (  NCR.as_rsg 'a' ), 'u-latn'
   #.........................................................................................................
@@ -522,7 +520,7 @@ hex = ( n ) -> '0x' + n.toString 16
 #-----------------------------------------------------------------------------------------------------------
 @[ "(v2) 53846537846" ] = ( T ) ->
   # NCR       = require '../ncr'
-  u         = NCR._get_unicode_isl()
+  u         = NCR.unicode_isl
   ISL       = NCR._ISL
   probes_and_matchers = [
     [ 'q', { rsg: 'u-latn', tag: [ 'assigned' ],                       }, ]
@@ -542,7 +540,7 @@ hex = ( n ) -> '0x' + n.toString 16
 #-----------------------------------------------------------------------------------------------------------
 @[ "(v2) query for fact" ] = ( T ) ->
   #.........................................................................................................
-  u         = NCR._get_unicode_isl()
+  u         = NCR.unicode_isl
   ISL       = NCR._ISL
   #.........................................................................................................
   # urge ISL.find_ids u, 'tag', 'cjk'
@@ -552,8 +550,8 @@ hex = ( n ) -> '0x' + n.toString 16
   # urge JSON.stringify ISL.find_entries u, 'tag', 'cjk'
   # urge JSON.stringify ISL.find_entries u, 'tag', 'assigned'
   # urge JSON.stringify ISL.find_entries u, 'tag', 'foobar'
-  urge JSON.stringify ISL.find_entries u, 'rsg', 'u-latn'
-  urge JSON.stringify ISL.find_entries u, 'rsg', 'u-cjk'
+  # urge JSON.stringify ISL.find_entries u, 'rsg', 'u-latn'
+  # urge JSON.stringify ISL.find_entries u, 'rsg', 'u-cjk'
   # #.........................................................................................................
   # T.eq ( ISL.find_ids u, 'tag', 'cjk'           ), [ '+[2]', '+[4]' ]
   # T.eq ( ISL.find_ids u, 'tag', 'assigned'      ), [ '+[0]', '+[1]', '+[3]' ]
@@ -563,8 +561,12 @@ hex = ( n ) -> '0x' + n.toString 16
   # T.eq ( ISL.find_entries u, 'tag', 'assigned'  ), [{"lo":113,"hi":113,"tag":["assigned"],"rsg":"u-latn","idx":0,"id":"+[0]","name":"+","size":1},{"lo":37324,"hi":37324,"tag":["assigned"],"rsg":"u-cjk","idx":1,"id":"+[1]","name":"+","size":1},{"lo":17079,"hi":17079,"tag":["assigned"],"rsg":"u-cjk-xa","idx":3,"id":"+[3]","name":"+","size":1}]
   # T.eq ( ISL.find_entries u, 'tag', 'foobar'    ), []
   # T.eq ( ISL.find_entries u, 'rsg', 'u-latn'    ), [{"lo":113,"hi":113,"tag":["assigned"],"rsg":"u-latn","idx":0,"id":"+[0]","name":"+","size":1}]
+  T.eq ( ISL.find_entries u, 'rsg', 'u-latn' ), [{"lo":0,"hi":127,"name":"block:Basic Latin","type":"block","block":"Basic Latin","rsg":"u-latn","comment":"(U+0..U+7f)","idx":676,"id":"block:Basic Latin[0]","size":128}]
+  T.eq ( ISL.find_entries u, 'rsg', 'u-cjk' ), [{"lo":19968,"hi":40959,"name":"block:CJK Unified Ideographs","type":"block","block":"CJK Unified Ideographs","rsg":"u-cjk","comment":"(U+4e00..U+9fff)","idx":793,"id":"block:CJK Unified Ideographs[0]","size":20992}]
   #.........................................................................................................
   return null
+
+
 
 
 

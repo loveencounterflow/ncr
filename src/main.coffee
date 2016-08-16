@@ -20,18 +20,13 @@ echo                      = CND.echo.bind CND
 # @_input_default           = 'ncr'
 # @_input_default           = 'xncr'
 #...........................................................................................................
-@_ISL                     = null
-@_unicode_isl             = null
-
-#-----------------------------------------------------------------------------------------------------------
-@_get_unicode_isl = ->
-  return @_unicode_isl if @_unicode_isl?
-  @_ISL          ?= require 'interskiplist'
-  @_unicode_isl   = @_ISL.new()
-  @_ISL.add_index @_unicode_isl, 'rsg'
-  @_ISL.add_index @_unicode_isl, 'tag'
-  @_ISL.add @_unicode_isl, interval for interval in require '../data/unicode-9.0.0-intervals.json'
-  return @_unicode_isl
+@_ISL                     = require 'interskiplist'
+@unicode_isl              = do =>
+  R = @_ISL.new()
+  @_ISL.add_index R, 'rsg'
+  @_ISL.add_index R, 'tag'
+  @_ISL.add R, interval for interval in require '../data/unicode-9.0.0-intervals.json'
+  return R
 
 #===========================================================================================================
 # SPLIT TEXT INTO CHARACTERS
@@ -249,14 +244,12 @@ echo                      = CND.echo.bind CND
 #-----------------------------------------------------------------------------------------------------------
 @_as_rsg = ( csg, cid ) ->
   return csg unless csg is 'u'
-  @_get_unicode_isl()
-  return ( @_ISL.aggregate @_unicode_isl, cid )[ 'rsg' ] ? csg
+  return ( @_ISL.aggregate @unicode_isl, cid )[ 'rsg' ] ? csg
 
 #-----------------------------------------------------------------------------------------------------------
 @_as_range_name = ( csg, cid ) ->
   return @_as_rsg csg, cid unless csg is 'u'
-  @_get_unicode_isl()
-  return ( @_ISL.aggregate @_unicode_isl, cid )[ 'block' ] ? ( @_as_rsg csg, cid )
+  return ( @_ISL.aggregate @unicode_isl, cid )[ 'block' ] ? ( @_as_rsg csg, cid )
 
 
 #===========================================================================================================
