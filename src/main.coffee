@@ -244,12 +244,14 @@ echo                      = CND.echo.bind CND
 #-----------------------------------------------------------------------------------------------------------
 @_as_rsg = ( csg, cid ) ->
   return csg unless csg is 'u'
-  return ( @_ISL.aggregate @unicode_isl, cid )[ 'rsg' ] ? csg
+  reducers = { '*': 'skip', rsg: 'assign', }
+  return ( @_ISL.aggregate @unicode_isl, cid, reducers )[ 'rsg' ] ? csg
 
 #-----------------------------------------------------------------------------------------------------------
 @_as_range_name = ( csg, cid ) ->
   return @_as_rsg csg, cid unless csg is 'u'
-  return ( @_ISL.aggregate @unicode_isl, cid )[ 'block' ] ? ( @_as_rsg csg, cid )
+  reducers = { '*': 'skip', block: 'assign', }
+  return ( @_ISL.aggregate @unicode_isl, cid, reducers )[ 'block' ] ? ( @_as_rsg csg, cid )
 
 
 #===========================================================================================================
