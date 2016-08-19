@@ -567,6 +567,30 @@ hex = ( n ) -> '0x' + n.toString 16
   #.........................................................................................................
   return null
 
+#-----------------------------------------------------------------------------------------------------------
+@[ "(v2) validates Unicode CID; does not validate non-Unicode CID" ] = ( T ) ->
+  #.........................................................................................................
+  # { target_fncr: 'mcs/6000c388',
+  #   target_glyph: '&mcs#x6000c388;',
+  #   source_fncr: 'cb/17c2',
+  #   source_glyph: '&cb#x17c2;',
+  #   tag: 'global',
+  #   source_glyph_realm: 'outer',
+  #   target_glyph_realm: 'outer' }
+  hex = ( x ) -> '0x' + x.toString 16
+  T.eq ( hex NCR.as_cid         '&#x0;', input: 'xncr' ),      '0x0'
+  T.eq ( hex NCR.as_cid      '&#x1234;', input: 'xncr' ),   '0x1234'
+  T.eq ( hex NCR.as_cid    '&#x10ffff;', input: 'xncr' ), '0x10ffff'
+  T.throws "expected an integer between 0x000000 and 0x10ffff, got 0x110000", -> NCR.as_cid '&#x110000;', input: 'xncr'
+  T.eq ( hex NCR.as_cid      '&foo#x0;', input: 'xncr' ),      '0x0'
+  T.eq ( hex NCR.as_cid '&foo#x10ffff;', input: 'xncr' ), '0x10ffff'
+  T.eq ( hex NCR.as_cid '&foo#x110000;', input: 'xncr' ), '0x110000'
+  T.eq ( NCR.analyze '&#x1234;',         input: 'xncr' ), {"~isa":"NCR/info","chr":"ሴ","uchr":"ሴ","csg":"u","cid":4660,"fncr":"u-1234","sfncr":"u-1234","ncr":"&#x1234;","xncr":"&#x1234;","rsg":"u"}
+  T.eq ( NCR.analyze '&mcs#x1234;',      input: 'xncr' ), {"~isa":"NCR/info","chr":"&mcs#x1234;","uchr":"ሴ","csg":"mcs","cid":4660,"fncr":"mcs-1234","sfncr":"mcs-1234","ncr":"&#x1234;","xncr":"&mcs#x1234;","rsg":"mcs"}
+  T.eq ( NCR.analyze '&mcs#x6000c388;',  input: 'xncr' ), {"~isa":"NCR/info","chr":"&mcs#x6000c388;","uchr":null,"csg":"mcs","cid":1610662792,"fncr":"mcs-6000c388","sfncr":"mcs-6000c388","ncr":"&#x6000c388;","xncr":"&mcs#x6000c388;","rsg":"mcs"}
+  #.........................................................................................................
+  return null
+
 
 
 
@@ -703,6 +727,7 @@ unless module.parent?
     "(v2) create derivatives of NCR (1)"
     "(v2) 53846537846"
     "(v2) query for fact"
+    "(v2) validates Unicode CID; does not validate non-Unicode CID"
     ]
   @_prune()
   @_main()

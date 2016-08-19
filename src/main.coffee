@@ -221,11 +221,12 @@ echo                      = CND.echo.bind CND
 
 #-----------------------------------------------------------------------------------------------------------
 @_unicode_chr_from_cid = ( cid ) ->
-  return String.fromCharCode cid if cid <= 0xffff
-  ### thx to http://perldoc.perl.org/Encode/Unicode.html ###
-  hi = ( Math.floor ( cid - 0x10000 ) / 0x400 ) + 0xD800
-  lo =              ( cid - 0x10000 ) % 0x400   + 0xDC00
-  return ( String.fromCharCode hi ) + ( String.fromCharCode lo )
+  return null unless 0x000000 <= cid <= 0x10ffff
+  return String.fromCodePoint cid
+  # ### thx to http://perldoc.perl.org/Encode/Unicode.html ###
+  # hi = ( Math.floor ( cid - 0x10000 ) / 0x400 ) + 0xD800
+  # lo =              ( cid - 0x10000 ) % 0x400   + 0xDC00
+  # return ( String.fromCharCode hi ) + ( String.fromCharCode lo )
 
 #-----------------------------------------------------------------------------------------------------------
 @_as_fncr = ( csg, cid ) ->
@@ -312,7 +313,7 @@ echo                      = CND.echo.bind CND
     csg = 'u'
   #.........................................................................................................
   # @validate_is_csg csg
-  @validate_is_cid cid
+  @validate_cid csg, cid
   return [ csg, cid, ]
 
 
@@ -375,10 +376,12 @@ decG                      = ( /// (?:    ([      0-9]+)      ) /// ).source
 #   return null
 
 #-----------------------------------------------------------------------------------------------------------
-@validate_is_cid = ( x ) ->
-  CND.validate_isa_number x
-  if x < 0x000000 or x > 0x10ffff or ( parseInt x ) != x
-    throw new Error "expected an integer between 0x000000 and 0x10ffff, got 0x#{x.toString 16}"
+@validate_cid = ( csg, cid ) ->
+  CND.validate_isa_number cid
+  throw new Error "expected an integer, got #{cid}" unless cid is Math.floor cid
+  throw new Error "expected a positive integer, got #{cid}" unless cid >= 0
+  if ( csg is 'u' ) and not ( 0x000000 <= cid <= 0x10ffff )
+    throw new Error "expected an integer between 0x000000 and 0x10ffff, got 0x#{cid.toString 16}"
   return null
 
 
