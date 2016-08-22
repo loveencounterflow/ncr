@@ -570,13 +570,6 @@ hex = ( n ) -> '0x' + n.toString 16
 #-----------------------------------------------------------------------------------------------------------
 @[ "(v2) validates Unicode CID; does not validate non-Unicode CID" ] = ( T ) ->
   #.........................................................................................................
-  # { target_fncr: 'mcs/6000c388',
-  #   target_glyph: '&mcs#x6000c388;',
-  #   source_fncr: 'cb/17c2',
-  #   source_glyph: '&cb#x17c2;',
-  #   tag: 'global',
-  #   source_glyph_realm: 'outer',
-  #   target_glyph_realm: 'outer' }
   hex = ( x ) -> '0x' + x.toString 16
   T.eq ( hex NCR.as_cid         '&#x0;', input: 'xncr' ),      '0x0'
   T.eq ( hex NCR.as_cid      '&#x1234;', input: 'xncr' ),   '0x1234'
@@ -591,10 +584,27 @@ hex = ( n ) -> '0x' + n.toString 16
   #.........................................................................................................
   return null
 
-
-
-
-
+#-----------------------------------------------------------------------------------------------------------
+@[ "(v2) aggregation over several codepoints" ] = ( T ) ->
+  #.........................................................................................................
+  u         = NCR.unicode_isl
+  ISL       = NCR._ISL
+  #.........................................................................................................
+  reducers  =
+    '*':      'list'
+    id:       'skip'
+    name:     'skip'
+    type:     'skip'
+    tag:      'tag'
+  #.........................................................................................................
+  debug CND.rainbow '6091', ISL.aggregate u, [ 'a',              ], reducers
+  debug CND.rainbow '6091', ISL.aggregate u, [ '¶',              ], reducers
+  debug CND.rainbow '6091', ISL.aggregate u, [ 'σ',              ], reducers
+  debug CND.rainbow '6091', ISL.aggregate u, [ 'a', '¶',         ], reducers
+  debug CND.rainbow '6091', ISL.aggregate u, [ 'a', 'σ',         ], reducers
+  debug CND.rainbow '6091', ISL.aggregate u, [ 'a', '¶', 'σ',    ], reducers
+  #.........................................................................................................
+  return null
 
 
 ############################################################################################################
@@ -728,6 +738,7 @@ unless module.parent?
     "(v2) 53846537846"
     "(v2) query for fact"
     "(v2) validates Unicode CID; does not validate non-Unicode CID"
+    # "(v2) aggregation over several codepoints"
     ]
   @_prune()
   @_main()

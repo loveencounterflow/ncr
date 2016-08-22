@@ -20,12 +20,14 @@ echo                      = CND.echo.bind CND
 # @_input_default           = 'ncr'
 # @_input_default           = 'xncr'
 #...........................................................................................................
+@_aggregate               = null
 @_ISL                     = require 'interskiplist'
 @unicode_isl              = do =>
   R = @_ISL.new()
   @_ISL.add_index R, 'rsg'
   @_ISL.add_index R, 'tag'
   @_ISL.add R, interval for interval in require '../data/unicode-9.0.0-intervals.json'
+  @_aggregate = @_ISL.aggregate.use R
   return R
 
 #===========================================================================================================
@@ -245,14 +247,12 @@ echo                      = CND.echo.bind CND
 #-----------------------------------------------------------------------------------------------------------
 @_as_rsg = ( csg, cid ) ->
   return csg unless csg is 'u'
-  reducers = { '*': 'skip', rsg: 'assign', }
-  return ( @_ISL.aggregate @unicode_isl, cid, reducers )[ 'rsg' ] ? csg
+  return ( @_aggregate cid )[ 'rsg' ] ? csg
 
 #-----------------------------------------------------------------------------------------------------------
 @_as_range_name = ( csg, cid ) ->
   return @_as_rsg csg, cid unless csg is 'u'
-  reducers = { '*': 'skip', block: 'assign', }
-  return ( @_ISL.aggregate @unicode_isl, cid, reducers )[ 'block' ] ? ( @_as_rsg csg, cid )
+  return ( @_aggregate cid )[ 'block' ] ? ( @_as_rsg csg, cid )
 
 
 #===========================================================================================================
