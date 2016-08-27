@@ -528,6 +528,31 @@ hex = ( n ) -> '0x' + n.toString 16
   return null
 
 #-----------------------------------------------------------------------------------------------------------
+@[ "(v2) create derivatives of NCR (2)" ] = ( T ) ->
+  XNCR = NCR._copy_library 'xncr'
+  XNCR._ISL.add XNCR.unicode_isl, { lo: 0x00, hi: 0xff, rsg: 'u-foobar', }
+  ### TAINT because `aggregate` memoizes results, you must not add anything to the Unicode InterSkipList
+  after the first codepoint query—any result *might* reflect an outdated state of the data structure ###
+  #.........................................................................................................
+  T.ok  NCR.unicode_isl?
+  T.ok XNCR.unicode_isl?
+  T.ok XNCR.unicode_isl isnt NCR.unicode_isl
+  T.eq  NCR._input_default, 'plain'
+  T.eq XNCR._input_default, 'xncr'
+  T.eq (  NCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&","uchr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
+  T.eq ( XNCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&foo#x24563;","uchr":"𤕣","csg":"foo","cid":148835,"fncr":"foo-24563","sfncr":"foo-24563","ncr":"&#x24563;","xncr":"&foo#x24563;","rsg":'foo'}
+  # T.eq (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc&amp;foo#x24563;xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
+  # T.eq ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc</span><span class=\"foo\">&#x24563;</span><span class=\"u-latn\">xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
+  T.eq (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三𫠠' ), '<span class="u-latn">abc&amp;foo#x24563;xyz</span><span class="u-latn-1">äöü</span><span class="u-cjk">丁三</span><span class="u-cjk-xe">𫠠</span>'
+  T.eq ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三𫠠' ), '<span class="u-foobar">abc</span><span class="foo">&#x24563;</span><span class="u-foobar">xyzäöü</span><span class="u-cjk">丁三</span><span class="u-cjk-xe">𫠠</span>'
+  T.eq ( XNCR.as_rsg 'a' ), 'u-foobar'
+  T.eq (  NCR.as_rsg 'b' ), 'u-latn'
+  T.eq ( XNCR.as_rsg 'c' ), 'u-foobar'
+  T.eq (  NCR.as_rsg 'd' ), 'u-latn'
+  #.........................................................................................................
+  return null
+
+#-----------------------------------------------------------------------------------------------------------
 @[ "(v2) 53846537846" ] = ( T ) ->
   # NCR       = require '../ncr'
   u         = NCR.unicode_isl
@@ -749,6 +774,7 @@ unless module.parent?
     "(v2) validates Unicode CID; does not validate non-Unicode CID"
     # "(v2) aggregation over several codepoints"
     "(v2) create derivatives of NCR (1)"
+    "(v2) create derivatives of NCR (2)"
     ]
   @_prune()
   @_main()

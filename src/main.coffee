@@ -31,6 +31,23 @@ echo                      = CND.echo.bind CND
   return R
 
 #===========================================================================================================
+#
+#-----------------------------------------------------------------------------------------------------------
+@_copy_library = ( input_default = 'plain' ) ->
+  ### TAINT makeshift method until we have something better; refer to
+  `tests[ "(v2) create derivatives of NCR (2)" ]` for example usage ###
+  reducers =
+    '*':          'assign'
+    unicode_isl: ( values ) => @_ISL.copy @unicode_isl
+  #.........................................................................................................
+  mix             = ( require 'multimix' ).mix.use reducers
+  R               = mix @, { _input_default: input_default, }
+  R._aggregate    = R._ISL.aggregate.use R.unicode_isl
+  #.........................................................................................................
+  return R
+
+
+#===========================================================================================================
 # SPLIT TEXT INTO CHARACTERS
 #-----------------------------------------------------------------------------------------------------------
 @chrs_from_text = ( text, settings ) ->
