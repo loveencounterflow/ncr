@@ -37,8 +37,9 @@ echo                      = CND.echo.bind CND
   ### TAINT makeshift method until we have something better; refer to
   `tests[ "(v2) create derivatives of NCR (2)" ]` for example usage ###
   reducers =
-    '*':          'assign'
-    unicode_isl: ( values ) => @_ISL.copy @unicode_isl
+    fallback:    'assign'
+    fields:
+      unicode_isl: ( values ) => @_ISL.copy @unicode_isl
   #.........................................................................................................
   mix             = ( require 'multimix' ).mix.use reducers
   R               = mix @, { _input_default: input_default, }
