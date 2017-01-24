@@ -6428,12 +6428,6 @@
     "tag": "cjk idl"
   },
   {
-    "lo": 12288,
-    "hi": 12351,
-    "comment": "(U+3000..U+303f) References RSG u-cjk-sym (CJK Symbols and Punctuation).",
-    "tag": "cjk punctuation"
-  },
-  {
     "lo": 12736,
     "hi": 12783,
     "comment": "(U+31c0..U+31ef) References RSG u-cjk-strk (CJK Strokes).",
@@ -6506,6 +6500,12 @@
     "tag": "cjk korean hangeul jamo"
   },
   {
+    "lo": 12592,
+    "hi": 12687,
+    "comment": "(U+3130..U+318f) References RSG u-hang-comp-jm (Hangul Compatibility Jamo).",
+    "tag": "cjk korean hangeul jamo"
+  },
+  {
     "lo": 12544,
     "hi": 12591,
     "comment": "(U+3100..U+312f) References RSG u-bopo (Bopomofo).",
@@ -6571,28 +6571,22 @@
     "tag": "cjk yijing taixuanjing tetragram"
   },
   {
-    "lo": 63744,
-    "hi": 64255,
-    "comment": "(U+f900..U+faff) References RSG u-cjk-cmpi1 (CJK Compatibility Ideographs).",
-    "tag": "cjk"
-  },
-  {
-    "lo": 12592,
-    "hi": 12687,
-    "comment": "(U+3130..U+318f) References RSG u-hang-comp-jm (Hangul Compatibility Jamo).",
-    "tag": "cjk"
-  },
-  {
     "lo": 13056,
     "hi": 13311,
     "comment": "(U+3300..U+33ff) References RSG u-cjk-cmp (CJK Compatibility).",
     "tag": "cjk"
   },
   {
+    "lo": 63744,
+    "hi": 64255,
+    "comment": "(U+f900..U+faff) References RSG u-cjk-cmpi1 (CJK Compatibility Ideographs).",
+    "tag": "cjk ideograph"
+  },
+  {
     "lo": 194560,
     "hi": 195103,
     "comment": "(U+2f800..U+2fa1f) References RSG u-cjk-cmpi2 (CJK Compatibility Ideographs Supplement).",
-    "tag": "cjk"
+    "tag": "cjk ideograph"
   },
   {
     "lo": 57344,
@@ -6611,5 +6605,95 @@
     "hi": 1114111,
     "comment": "(U+100000..U+10ffff) References RSG u-pua-xb (Supplementary Private Use Area-B).",
     "tag": "pua"
+  },
+  {
+    "lo": 12288,
+    "hi": 12351,
+    "comment": "(U+3000..U+303f) References RSG u-cjk-sym (CJK Symbols and Punctuation).",
+    "tag": "cjk"
+  },
+  {
+    "lo": 12289,
+    "hi": 12291,
+    "tag": "punctuation",
+    "comment": "(U+3001..U+3003)"
+  },
+  {
+    "lo": 12292,
+    "hi": 12292,
+    "tag": "symbol",
+    "comment": "(U+3004..U+3004)"
+  },
+  {
+    "lo": 12293,
+    "hi": 12295,
+    "tag": "ideograph",
+    "comment": "(U+3005..U+3007)"
+  },
+  {
+    "lo": 12296,
+    "hi": 12305,
+    "tag": "punctuation",
+    "comment": "(U+3008..U+3011)"
+  },
+  {
+    "lo": 12306,
+    "hi": 12306,
+    "tag": "symbol",
+    "comment": "(U+3012..U+3012)"
+  },
+  {
+    "lo": 12307,
+    "hi": 12307,
+    "tag": "ideograph geta",
+    "comment": "(U+3013..U+3013)"
+  },
+  {
+    "lo": 12308,
+    "hi": 12319,
+    "tag": "punctuation",
+    "comment": "(U+3014..U+301f)"
+  },
+  {
+    "lo": 12320,
+    "hi": 12320,
+    "tag": "symbol",
+    "comment": "(U+3020..U+3020)"
+  },
+  {
+    "lo": 12321,
+    "hi": 12329,
+    "tag": "ideograph",
+    "comment": "(U+3021..U+3029)"
+  },
+  {
+    "lo": 12330,
+    "hi": 12336,
+    "tag": "punctuation",
+    "comment": "(U+302a..U+3030)"
+  },
+  {
+    "lo": 12337,
+    "hi": 12341,
+    "tag": "kana",
+    "comment": "(U+3031..U+3035)"
+  },
+  {
+    "lo": 12342,
+    "hi": 12343,
+    "tag": "symbol",
+    "comment": "(U+3036..U+3037)"
+  },
+  {
+    "lo": 12344,
+    "hi": 12348,
+    "tag": "ideograph",
+    "comment": "(U+3038..U+303c)"
+  },
+  {
+    "lo": 12349,
+    "hi": 12349,
+    "tag": "symbol",
+    "comment": "(U+303d..U+303d)"
   }
 ]
