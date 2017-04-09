@@ -6431,13 +6431,25 @@
     "lo": 12736,
     "hi": 12783,
     "comment": "(U+31c0..U+31ef) References RSG u-cjk-strk (CJK Strokes).",
-    "tag": "cjk stroke"
+    "tag": "cjk stroke ideograph"
   },
   {
     "lo": 12800,
     "hi": 13055,
     "comment": "(U+3200..U+32ff) References RSG u-cjk-enclett (Enclosed CJK Letters and Months).",
     "tag": "cjk"
+  },
+  {
+    "lo": 12832,
+    "hi": 12871,
+    "tag": "cjk ideograph",
+    "comment": "(U+3220..U+3247)"
+  },
+  {
+    "lo": 12928,
+    "hi": 12976,
+    "tag": "cjk ideograph",
+    "comment": "(U+3280..U+32b0)"
   },
   {
     "lo": 12032,
@@ -6575,6 +6587,12 @@
     "hi": 13311,
     "comment": "(U+3300..U+33ff) References RSG u-cjk-cmp (CJK Compatibility).",
     "tag": "cjk"
+  },
+  {
+    "lo": 13179,
+    "hi": 13183,
+    "tag": "cjk ideograph",
+    "comment": "(U+337b..U+337f)"
   },
   {
     "lo": 63744,
