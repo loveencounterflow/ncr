@@ -1,0 +1,89 @@
+
+# # Asssociations between Range Sigils (RSGs) or codepoint intervals and tags
+
+
+# NOTE: Fields are separated by
+#
+# — *one* or more tabs (U+0009), or
+# — *two* or more spaces (U+0020), or
+#
+# combinations thereof.
+
+
+
+#...........................................................................................................
+u-cjk              cjk ideograph                            # block: CJK Unified Ideographs
+#...........................................................................................................
+u-cjk-xa           cjk ideograph                            # block: CJK Unified Ideographs Extension A
+u-cjk-xb           cjk ideograph                            # block: CJK Unified Ideographs Extension B
+u-cjk-xc           cjk ideograph                            # block: CJK Unified Ideographs Extension C
+u-cjk-xd           cjk ideograph                            # block: CJK Unified Ideographs Extension D
+u-cjk-xe           cjk ideograph                            # block: CJK Unified Ideographs Extension E
+# u-cjk-xf           cjk ideograph                            # block: CJK Unified Ideographs Extension F
+#...........................................................................................................
+u-cjk-idc          cjk idl                                  # block: Ideographic Description Characters
+u-cjk-strk         cjk stroke ideograph                     # block: CJK Strokes
+#...........................................................................................................
+u-cjk-enclett      cjk                                      # block: Enclosed CJK Letters and Months
+^3220..3247        cjk ideograph                            # ㈠..㉇
+^3280..32b0        cjk ideograph                            # ㊀..㊰
+#...........................................................................................................
+u-cjk-rad1         cjk ideograph kxr                        # block: Kangxi Radicals
+u-cjk-rad2         cjk ideograph                            # block: CJK Radicals Supplement
+#...........................................................................................................
+u-cjk-hira         cjk japanese kana hiragana               # block: Hiragana
+u-cjk-kata         cjk japanese kana katakana               # block: Katakana
+u-cjk-kanbun       cjk japanese kanbun                      # block: Kanbun
+u-cjk-kata-x       cjk japanese kana katakana               # block: Katakana Phonetic Extensions
+#...........................................................................................................
+u-hang-jm          cjk korean hangeul jamo                  # block: Hangul Jamo
+u-hang-syl         cjk korean hangeul syllable              # block: Hangul Syllables
+u-hang-jm-xa       cjk korean hangeul jamo                  # block: Hangul Jamo Extended-A
+u-hang-jm-xb       cjk korean hangeul jamo                  # block: Hangul Jamo Extended-B
+u-hang-comp-jm     cjk korean hangeul jamo                  # block: Hangul Compatibility Jamo
+#...........................................................................................................
+u-bopo             cjk bopomofo                             # block: Bopomofo
+u-bopo-x           cjk bopomofo                             # block: Bopomofo Extended
+#...........................................................................................................
+u-cjk-cmpf         cjk vertical                             # block: CJK Compatibility Forms
+^fe45..fe46        -vertical
+^fe49..fe4f        -vertical
+u-vertf            cjk vertical                             # block: Vertical Forms
+#...........................................................................................................
+u-sym                                                       # block: Miscellaneous Symbols
+^262f..2637        cjk
+^2630..2637        cjk yijing trigram
+u-yijng            cjk yijing hexagram                      # block: Yijing Hexagram Symbols
+u-txj-sym          cjk yijing taixuanjing tetragram         # block: Tai Xuan Jing Symbols
+#...........................................................................................................
+u-cjk-cmp          cjk                                      # block: CJK Compatibility
+^337b..337f        cjk ideograph                            # ㍻㍼㍽㍾㍿
+#...........................................................................................................
+u-cjk-cmpi1        cjk ideograph                            # block: CJK Compatibility Ideographs
+u-cjk-cmpi2        cjk ideograph                            # block: CJK Compatibility Ideographs Supplement
+#...........................................................................................................
+u-pua              pua                                      # block: Private Use Area
+u-pua-xa           pua                                      # Supplementary Private Use Area-A
+u-pua-xb           pua                                      # Supplementary Private Use Area-B
+#...........................................................................................................
+u-cjk-sym          cjk                                      # block: CJK Symbols and Punctuation
+^3001..3003        punctuation                              # 、。〃
+^3004..3004        symbol                                   # 〄
+^3005..3007        ideograph                                # 々〆〇
+^3008..3011        punctuation                              # 〈〉《》「」『』【】
+^3012..3012        symbol                                   # 〒
+^3013..3013        ideograph geta                           # 〓
+^3014..301f        punctuation                              # 〔〕〖〗〘〙〚〛〜〝〞〟
+^3020..3020        symbol                                   # 〠
+^3021..3029        ideograph                                # 〡〢〣〤〥〦〧〨〩
+^302a..3030        punctuation                              # 〪〭〮〯〫〬〰
+^3031..3035        kana                                     # 〱〲〳〴〵
+^3036..3037        symbol                                   # 〶〷
+^3038..303c        ideograph                                # 〸〹〺〻〼〽
+^303d..303d        symbol                                   # 〽
+
+
+
+
+
+
