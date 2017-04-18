@@ -56,9 +56,9 @@ extras_range_pattern = ///
 #===========================================================================================================
 # HELPERS
 #-----------------------------------------------------------------------------------------------------------
-resolve         = ( path ) -> PATH.resolve __dirname,                 '..', path
-resolve_ucd     = ( path ) -> resolve PATH.join 'Unicode-UCD-9.0.0',        path
-resolve_extras  = ( path ) -> resolve PATH.join 'data',                     path
+resolve         = ( path ) -> PATH.resolve __dirname,                         '..', path
+resolve_ucd     = ( path ) -> resolve PATH.join '../../ncr-unicode-data-ucd-9.0.0', path
+resolve_extras  = ( path ) -> resolve PATH.join 'data',                             path
 
 #-----------------------------------------------------------------------------------------------------------
 interval_from_block_name = ( S, rsg, block_name ) ->
