@@ -45,10 +45,9 @@ u-hang-comp-jm     cjk korean hangeul jamo                  # block: Hangul Comp
 u-bopo             cjk bopomofo                             # block: Bopomofo
 u-bopo-x           cjk bopomofo                             # block: Bopomofo Extended
 #...........................................................................................................
-u-cjk-cmpf         cjk vertical                             # block: CJK Compatibility Forms
-^fe45..fe46        -vertical
-^fe49..fe4f        -vertical
-u-vertf            cjk vertical                             # block: Vertical Forms
+u-cjk-cmpf         cjk punctuation                          # block: CJK Compatibility Forms
+^fe30..fe48        vertical
+u-vertf            cjk vertical punctuation                 # block: Vertical Forms
 #...........................................................................................................
 u-sym                                                       # block: Miscellaneous Symbols
 ^262f..2637        cjk
@@ -81,6 +80,8 @@ u-cjk-sym          cjk                                      # block: CJK Symbols
 ^3036..3037        symbol                                   # 〶〷
 ^3038..303c        ideograph                                # 〸〹〺〻〼〽
 ^303d..303d        symbol                                   # 〽
+#...........................................................................................................
+^d800..dfff        surrogate
 
 
 
