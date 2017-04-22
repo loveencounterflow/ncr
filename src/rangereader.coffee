@@ -157,9 +157,9 @@ append_tag = ( S, interval, tag ) ->
     .pipe $ ( fields,             send ) => send [ fields[ 0 ], fields[ 1 ], ]
     .pipe $ ( [ cid_hex, name, ], send ) => send [ ( parseInt cid_hex, 16 ), name, ]
     .pipe @$collect_intervals S
-    # .pipe $ ( { lo, hi, } ) => urge ( lo.toString 16 ), ( hi.toString 16 )
-    .pipe $ ( { lo, hi, }, send ) => send { lo, hi, tag: '-unassigned assigned', }
-    .pipe $ 'start', ( send ) => send { lo: 0x000000, hi: 0x10ffff, tag: 'unassigned', }
+    .pipe $ ( { lo, hi, }, send ) => send { lo, hi, tag: 'assigned', }
+    # .pipe $ ( { lo, hi, }, send ) => send { lo, hi, tag: '-unassigned assigned', }
+    # .pipe $ 'start', ( send ) => send { lo: 0x000000, hi: 0x10ffff, tag: 'unassigned', }
     .pipe $ ( interval ) => S.intervals.push interval
     # .pipe $ 'finish', handler
     .pipe $ 'finish', =>
