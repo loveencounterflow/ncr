@@ -24,7 +24,7 @@ u-cjk-xe           cjk ideograph                            # block: CJK Unified
 u-cjk-idc          cjk idl                                  # block: Ideographic Description Characters
 u-cjk-strk         cjk stroke ideograph                     # block: CJK Strokes
 #...........................................................................................................
-u-cjk-enclett      cjk                                      # block: Enclosed CJK Letters and Months
+u-cjk-enclett      cjk enclosed                             # block: Enclosed CJK Letters and Months
 ^3220..3247        cjk ideograph                            # ㈠..㉇
 ^3280..32b0        cjk ideograph                            # ㊀..㊰
 #...........................................................................................................
@@ -62,8 +62,8 @@ u-cjk-cmpi1        cjk ideograph                            # block: CJK Compati
 u-cjk-cmpi2        cjk ideograph                            # block: CJK Compatibility Ideographs Supplement
 #...........................................................................................................
 u-pua              pua                                      # block: Private Use Area
-u-pua-xa           pua                                      # Supplementary Private Use Area-A
-u-pua-xb           pua                                      # Supplementary Private Use Area-B
+u-pua-xa           pua puax                                 # Supplementary Private Use Area-A
+u-pua-xb           pua puax                                 # Supplementary Private Use Area-B
 #...........................................................................................................
 u-cjk-sym          cjk                                      # block: CJK Symbols and Punctuation
 ^3001..3003        punctuation                              # 、。〃
