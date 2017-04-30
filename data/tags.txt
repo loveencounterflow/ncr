@@ -20,8 +20,6 @@ u-cjk-xc           cjk ideograph                            # block: CJK Unified
 u-cjk-xd           cjk ideograph                            # block: CJK Unified Ideographs Extension D
 u-cjk-xe           cjk ideograph                            # block: CJK Unified Ideographs Extension E
 # u-cjk-xf           cjk ideograph                            # block: CJK Unified Ideographs Extension F
-#...........................................................................................................
-u-cjk-idc          cjk idl                                  # block: Ideographic Description Characters
 u-cjk-strk         cjk stroke ideograph                     # block: CJK Strokes
 #...........................................................................................................
 u-cjk-enclett      cjk enclosed                             # block: Enclosed CJK Letters and Months
@@ -82,6 +80,10 @@ u-cjk-sym          cjk                                      # block: CJK Symbols
 ^303d..303d        symbol                                   # 〽
 #...........................................................................................................
 ^d800..dfff        surrogate
+#...........................................................................................................
+^00a7..00a7        cjk cjk-auxiliary
+u-cjk-idc          cjk idl                                  # block: Ideographic Description Characters
+
 
 
 
