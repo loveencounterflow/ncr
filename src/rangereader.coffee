@@ -69,7 +69,7 @@ interval_from_block_name = ( S, rsg, block_name ) ->
 #-----------------------------------------------------------------------------------------------------------
 interval_from_rsg = ( S, rsg ) ->
   unless ( R = S.interval_by_rsgs[ rsg ] )?
-    debug '4020', S.interval_by_rsgs
+    # debug '4020', S.interval_by_rsgs
     throw new Error "unknown RSG #{rpr rsg}"
   return R
 
