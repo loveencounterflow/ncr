@@ -82,15 +82,15 @@ u-cjk-sym           cjk                                       # block: CJK Symbo
 ^d800..dfff         surrogate
 #...........................................................................................................
 ^00a7..00a7         cjk idlx                                  # §
-u-cjk-idc           cjk idl                                   # block: Ideographic Description Characters
-^28..28             cjk idlx open-bracket                     # (
-^29..29             cjk idlx close-bracket                    # )
-^2194..2194         cjk idlx                                  # ↔
-^21bb..21bb         cjk idlx                                  # ↻
-^2248..2248         cjk idlx                                  # ≈
-^25bd..25bd         cjk idlx                                  # ▽
-^25cf..25cf         cjk idlx terminal                         # ●
-^25f0..25f0         cjk idlx                                  # ◰
+u-cjk-idc           cjk idl idlb                              # block: Ideographic Description Characters
+^28..28             cjk idl idlx open-bracket                 # (
+^29..29             cjk idl idlx close-bracket                # )
+^2194..2194         cjk idl idlx                              # ↔
+^21bb..21bb         cjk idl idlx                              # ↻
+^2248..2248         cjk idl idlx                              # ≈
+^25bd..25bd         cjk idl idlx                              # ▽
+^25cf..25cf         cjk idl idlx terminal                     # ●
+^25f0..25f0         cjk idl idlx                              # ◰
 ^2ff0..2ff0         idlx                                      # ⿰
 ^2ff1..2ff1         idlx                                      # ⿱
 # ^2ff2..2ff2                                                   # ⿲
@@ -104,44 +104,44 @@ u-cjk-idc           cjk idl                                   # block: Ideograph
 ^2ffa..2ffa         idlx                                      # ⿺
 ^2ffb..2ffb         idlx                                      # ⿻
 
-^e01b..e01b   idlx idlx2                                      # 
-^e01c..e01c   idlx idlx2                                      # 
-^e01d..e01d   idlx idlx2                                      # 
-^e024..e024   idlx idlx2                                      # 
-^e025..e025   idlx idlx2                                      # 
-^e026..e026   idlx idlx2                                      # 
-^e027..e027   idlx idlx2                                      # 
-^e028..e028   idlx idlx2                                      # 
-^e029..e029   idlx idlx2                                      # 
-^e02a..e02a   idlx idlx2                                      # 
-^e02b..e02b   idlx idlx2                                      # 
-^e02c..e02c   idlx idlx2                                      # 
-^e02d..e02d   idlx idlx2                                      # 
-^e02e..e02e   idlx idlx2                                      # 
-^e02f..e02f   idlx idlx2                                      # 
-^e030..e030   idlx idlx2                                      # 
-^e031..e031   idlx idlx2                                      # 
-^e032..e032   idlx idlx2                                      # 
-^e033..e033   idlx idlx2                                      # 
-^e034..e034   idlx idlx2                                      # 
-^e035..e035   idlx idlx2                                      # 
-^e036..e036   idlx idlx2                                      # 
-^e037..e037   idlx idlx2                                      # 
-^e038..e038   idlx idlx2                                      # 
-^e039..e039   idlx idlx2                                      # 
-^e03a..e03a   idlx idlx2                                      # 
-^e03b..e03b   idlx idlx2                                      # 
-^e03c..e03c   idlx idlx2                                      # 
-^e03d..e03d   idlx idlx2                                      # 
-^e03e..e03e   idlx idlx2                                      # 
-^e03f..e03f   idlx idlx2                                      # 
-^e040..e040   idlx idlx2                                      # 
-^e041..e041   idlx idlx2                                      # 
-^e042..e042   idlx idlx2                                      # 
-^e043..e043   idlx idlx2                                      # 
-^e044..e044   idlx idlx2                                      # 
-^e045..e045   idlx idlx2                                      # 
-^e046..e046   idlx idlx2                                      # 
-^e047..e047   idlx idlx2                                      # 
-^e048..e048   idlx idlx2                                      # 
-^e049..e049   idlx idlx2                                      # 
+^e01b..e01b   idl idlx2                                       # 
+^e01c..e01c   idl idlx2                                       # 
+^e01d..e01d   idl idlx2                                       # 
+^e024..e024   idl idlx2                                       # 
+^e025..e025   idl idlx2                                       # 
+^e026..e026   idl idlx2                                       # 
+^e027..e027   idl idlx2                                       # 
+^e028..e028   idl idlx2                                       # 
+^e029..e029   idl idlx2                                       # 
+^e02a..e02a   idl idlx2                                       # 
+^e02b..e02b   idl idlx2                                       # 
+^e02c..e02c   idl idlx2                                       # 
+^e02d..e02d   idl idlx2                                       # 
+^e02e..e02e   idl idlx2                                       # 
+^e02f..e02f   idl idlx2                                       # 
+^e030..e030   idl idlx2                                       # 
+^e031..e031   idl idlx2                                       # 
+^e032..e032   idl idlx2                                       # 
+^e033..e033   idl idlx2                                       # 
+^e034..e034   idl idlx2                                       # 
+^e035..e035   idl idlx2                                       # 
+^e036..e036   idl idlx2                                       # 
+^e037..e037   idl idlx2                                       # 
+^e038..e038   idl idlx2                                       # 
+^e039..e039   idl idlx2                                       # 
+^e03a..e03a   idl idlx2                                       # 
+^e03b..e03b   idl idlx2                                       # 
+^e03c..e03c   idl idlx2                                       # 
+^e03d..e03d   idl idlx2                                       # 
+^e03e..e03e   idl idlx2                                       # 
+^e03f..e03f   idl idlx2                                       # 
+^e040..e040   idl idlx2                                       # 
+^e041..e041   idl idlx2                                       # 
+^e042..e042   idl idlx2                                       # 
+^e043..e043   idl idlx2                                       # 
+^e044..e044   idl idlx2                                       # 
+^e045..e045   idl idlx2                                       # 
+^e046..e046   idl idlx2                                       # 
+^e047..e047   idl idlx2                                       # 
+^e048..e048   idl idlx2                                       # 
+^e049..e049   idl idlx2                                       # 
