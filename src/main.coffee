@@ -61,29 +61,6 @@ echo                      = CND.echo.bind CND
 # SPLIT TEXT INTO CHARACTERS
 #-----------------------------------------------------------------------------------------------------------
 @chrs_from_esc_text = ( text, settings ) ->
-  # return [] if text.length is 0
-  # raw_parts   = text.split /// \\ ( [ ^ . ] ) ///
-  # parts       = []
-  # is_escaped  = true
-  # idx         = -1
-  # last_idx    = raw_parts.length - 1
-  # loop
-  #   idx += +1
-  #   break if idx > last_idx
-  #   raw_part = raw_parts[ idx ]
-  #   if is_escaped = not is_escaped
-  #     # info '77762', idx, raw_parts, parts, raw_parts[ idx + 1 ]
-  #     if raw_part is '\\'
-  #       parts[ parts.length - 1 ] = parts[ parts.length - 1 ] + '\\' + ( raw_parts[ idx + 1 ] ? '' )
-  #       idx += 2
-  #       continue
-  #     parts.push '' if idx % 2 is 0
-  #     parts.push raw_part
-  #     continue
-  #   parts.push '' unless idx % 2 is 0
-  #   parts.push raw_part
-  # debug '77621', raw_parts
-  # debug '77621', parts
   R           = []
   parts       = text.split /// \\ ( [ ^ . ] ) ///
   is_escaped  = true
