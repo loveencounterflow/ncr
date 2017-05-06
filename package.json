@@ -35,8 +35,8 @@
   },
   "dependencies": {
     "cnd": "^4.2.2",
+    "interskiplist": "^0.2.6",
     "multimix": "0.0.6",
     "pipedreams": "^6.3.2"
-    "interskiplist": "^0.2.6"
   }
 }
