@@ -16,17 +16,65 @@ whisper                   = CND.get_logger 'whisper', badge
 help                      = CND.get_logger 'help',    badge
 echo                      = CND.echo.bind CND
 #...........................................................................................................
-character_sets_and_ranges = require './character-sets-and-ranges'
-@_names_and_ranges_by_csg = character_sets_and_ranges[ 'names-and-ranges-by-csg' ]
-@_ranges_by_rsg           = character_sets_and_ranges[ 'ranges-by-rsg' ]
-binary_interval_search    = require './binary-interval-search'
 @_input_default           = 'plain'
 # @_input_default           = 'ncr'
 # @_input_default           = 'xncr'
+#...........................................................................................................
+@cloak                    = ( require './cloak' ).new()
+@_aggregate               = null
+@_ISL                     = require 'interskiplist'
+@unicode_isl              = do =>
+  R = @_ISL.new()
+  @_ISL.add_index R, 'rsg'
+  @_ISL.add_index R, 'tag'
+  @_ISL.add R, interval for interval in require '../data/unicode-9.0.0-intervals.json'
+  @_aggregate = @_ISL.aggregate.use R
+  return R
+
+#===========================================================================================================
+#
+#-----------------------------------------------------------------------------------------------------------
+@_copy_library = ( input_default = 'plain' ) ->
+  ### TAINT makeshift method until we have something better; refer to
+  `tests[ "(v2) create derivatives of NCR (2)" ]` for example usage ###
+  reducers =
+    fallback:    'assign'
+    fields:
+      unicode_isl: ( values ) => @_ISL.copy @unicode_isl
+  #.........................................................................................................
+  mix             = ( require 'multimix' ).mix.use reducers
+  R               = mix @, { _input_default: input_default, }
+  R._aggregate    = R._ISL.aggregate.use R.unicode_isl
+  #.........................................................................................................
+  return R
+
+
+#===========================================================================================================
+# CLOAK
+#-----------------------------------------------------------------------------------------------------------
+@_XXX_escape_chrs                 = ( text ) => @cloak.backslashed.hide  @cloak.hide               text
+@_XXX_unescape_escape_chrs        = ( text ) => @cloak.reveal            @cloak.backslashed.reveal text
+@_XXX_remove_escaping_backslashes = ( text ) => @cloak.backslashed.remove text
 
 
 #===========================================================================================================
 # SPLIT TEXT INTO CHARACTERS
+#-----------------------------------------------------------------------------------------------------------
+@chrs_from_esc_text = ( text, settings ) ->
+  R           = []
+  parts       = text.split /// \\ ( [ ^ . ] ) ///
+  is_escaped  = true
+  for part in parts
+    if is_escaped = not is_escaped
+      ### almost ###
+      R.push part
+      continue
+    chrs = @chrs_from_text part, settings
+    chrs.pop() if chrs[ chrs.length - 1 ] is '\\'
+    R.splice R.length, 0, chrs...
+  #.........................................................................................................
+  return R
+
 #-----------------------------------------------------------------------------------------------------------
 @chrs_from_text = ( text, settings ) ->
   return [] if text.length is 0
@@ -218,11 +266,12 @@ binary_interval_search    = require './binary-interval-search'
 
 #-----------------------------------------------------------------------------------------------------------
 @_unicode_chr_from_cid = ( cid ) ->
-  return String.fromCharCode cid if cid <= 0xffff
-  ### thx to http://perldoc.perl.org/Encode/Unicode.html ###
-  hi = ( Math.floor ( cid - 0x10000 ) / 0x400 ) + 0xD800
-  lo =              ( cid - 0x10000 ) % 0x400   + 0xDC00
-  return ( String.fromCharCode hi ) + ( String.fromCharCode lo )
+  return null unless 0x000000 <= cid <= 0x10ffff
+  return String.fromCodePoint cid
+  # ### thx to http://perldoc.perl.org/Encode/Unicode.html ###
+  # hi = ( Math.floor ( cid - 0x10000 ) / 0x400 ) + 0xD800
+  # lo =              ( cid - 0x10000 ) % 0x400   + 0xDC00
+  # return ( String.fromCharCode hi ) + ( String.fromCharCode lo )
 
 #-----------------------------------------------------------------------------------------------------------
 @_as_fncr = ( csg, cid ) ->
@@ -240,11 +289,13 @@ binary_interval_search    = require './binary-interval-search'
 
 #-----------------------------------------------------------------------------------------------------------
 @_as_rsg = ( csg, cid ) ->
-  return binary_interval_search @_names_and_ranges_by_csg[ csg ], 'first-cid', 'last-cid', 'rsg', cid
+  return csg unless csg is 'u'
+  return ( @_aggregate cid )[ 'rsg' ] ? csg
 
 #-----------------------------------------------------------------------------------------------------------
 @_as_range_name = ( csg, cid ) ->
-  return binary_interval_search @_names_and_ranges_by_csg[ csg ], 'first-cid', 'last-cid', 'range-name', cid
+  return @_as_rsg csg, cid unless csg is 'u'
+  return ( @_aggregate cid )[ 'block' ] ? ( @_as_rsg csg, cid )
 
 
 #===========================================================================================================
@@ -304,8 +355,8 @@ binary_interval_search    = require './binary-interval-search'
   else
     csg = 'u'
   #.........................................................................................................
-  @validate_is_csg csg
-  @validate_is_cid cid
+  # @validate_is_csg csg
+  @validate_cid csg, cid
   return [ csg, cid, ]
 
 
@@ -353,41 +404,30 @@ decG                      = ( /// (?:    ([      0-9]+)      ) /// ).source
                                   #{@_nonsurrogate_matcher.source}    ) ///
 
 
-#===========================================================================================================
-#
-#-----------------------------------------------------------------------------------------------------------
-@cid_range_from_rsg = ( rsg ) ->
-  # [ csg, ... ] = rsg.split '-'
-  unless ( R = @_ranges_by_rsg[ rsg ] )?
-    throw new Error "unknown RSG: #{rpr rsg}"
-  return R
+# #-----------------------------------------------------------------------------------------------------------
+# @cid_range_from_rsg = ( rsg ) ->
+#   # [ csg, ... ] = rsg.split '-'
+#   unless ( R = @_ranges_by_rsg[ rsg ] )?
+#     throw new Error "unknown RSG: #{rpr rsg}"
+#   return R
 
-
-#===========================================================================================================
-# VALIDATION
-#-----------------------------------------------------------------------------------------------------------
-@validate_is_csg = ( x ) ->
-  CND.validate_isa_text x
-  throw new Error "not a valid CSG: #{rpr x}" unless ( x.match @_csg_matcher )?
-  throw new Error "unknown CSG: #{rpr x}"     unless @_names_and_ranges_by_csg[ x ]?
-  return null
+# #-----------------------------------------------------------------------------------------------------------
+# @validate_is_csg = ( x ) ->
+#   CND.validate_isa_text x
+#   throw new Error "not a valid CSG: #{rpr x}" unless ( x.match @_csg_matcher )?
+#   throw new Error "unknown CSG: #{rpr x}"     unless @_names_and_ranges_by_csg[ x ]?
+#   return null
 
 #-----------------------------------------------------------------------------------------------------------
-@validate_is_cid = ( x ) ->
-  CND.validate_isa_number x
-  # if x < 0 or x > 0x10ffff or ( parseInt x ) != x
-  if x < 0 or x > 0xffffffff or ( parseInt x ) != x
-    throw new Error "expected an integer between 0x0 and 0x10ffff, got 0x#{x.toString 16}"
+@validate_cid = ( csg, cid ) ->
+  CND.validate_isa_number cid
+  throw new Error "expected an integer, got #{cid}" unless cid is Math.floor cid
+  throw new Error "expected a positive integer, got #{cid}" unless cid >= 0
+  if ( csg is 'u' ) and not ( 0x000000 <= cid <= 0x10ffff )
+    throw new Error "expected an integer between 0x000000 and 0x10ffff, got 0x#{cid.toString 16}"
   return null
 
 
-
-
-
-
-# console.log name for name of @
-# console.log String.fromCharCode 0x61
-# console.log String.fromCharCode 0x24563
 
 
 

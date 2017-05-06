@@ -38,584 +38,635 @@ hex = ( n ) -> '0x' + n.toString 16
 #===========================================================================================================
 # TESTS
 #-----------------------------------------------------------------------------------------------------------
-@[ 'test # 1' ] = ( T ) ->
+@[ "test # 1" ] = ( T ) ->
   T.eq ( ( '&#123;helo'.match     NCR._first_chr_matcher_ncr )[ 1 .. 3 ] ), [ '', undefined, '123' ]
 
-@[ 'test # 2' ] = ( T ) ->
+@[ "test # 2" ] = ( T ) ->
   T.eq ( ( '&#x123;helo'.match    NCR._first_chr_matcher_ncr )[ 1 .. 3 ] ), [ '', '123', undefined ]
 
-@[ 'test # 3' ] = ( T ) ->
+@[ "test # 3" ] = ( T ) ->
   T.eq ( ( '&#x123;helo'.match    NCR._first_chr_matcher_xncr )[ 1 .. 3 ] ),[ '', '123', undefined ]
 
-@[ 'test # 4' ] = ( T ) ->
+@[ "test # 4" ] = ( T ) ->
   T.eq ( ( '&jzr#123;helo'.match  NCR._first_chr_matcher_xncr )[ 1 .. 3 ] ),[ 'jzr', undefined, '123' ]
 
-@[ 'test # 5' ] = ( T ) ->
+@[ "test # 5" ] = ( T ) ->
   T.eq ( ( '&jzr#x123;helo'.match NCR._first_chr_matcher_xncr )[ 1 .. 3 ] ),[ 'jzr', '123', undefined ]
 
-@[ 'test # 6' ] = ( T ) ->
+@[ "test # 6" ] = ( T ) ->
   T.eq ( ( '𤕣'[ 0 ] + 'x' ).match NCR._first_chr_matcher_plain ), null
 
-@[ 'test # 7' ] = ( T ) ->
+@[ "test # 7" ] = ( T ) ->
   T.eq ( NCR._chr_csg_cid_from_chr '&#97;abc', 'ncr' ),                    [ '&#97;', 'u', 97 ]
 
-@[ 'test # 8' ] = ( T ) ->
+@[ "test # 8" ] = ( T ) ->
   T.eq ( NCR._chr_csg_cid_from_chr '&#97;abc', 'plain' ),                  [ '&', 'u', 38 ]
 
-@[ 'test # 9' ] = ( T ) ->
+@[ "test # 9" ] = ( T ) ->
   T.eq ( NCR._chr_csg_cid_from_chr '&#97;abc', 'xncr' ),                   [ '&#97;', 'u', 97 ]
 
-@[ 'test # 10' ] = ( T ) ->
+@[ "test # 10" ] = ( T ) ->
   T.eq ( NCR._chr_csg_cid_from_chr '&#x61;abc' ),                          [ '&', 'u', 38 ]
 
-@[ 'test # 11' ] = ( T ) ->
+@[ "test # 11" ] = ( T ) ->
   T.eq ( NCR._chr_csg_cid_from_chr '&#x61;abc', 'ncr' ),                   [ '&#x61;', 'u', 97 ]
 
-@[ 'test # 12' ] = ( T ) ->
+@[ "test # 12" ] = ( T ) ->
   T.eq ( NCR._chr_csg_cid_from_chr '&#x61;abc', 'plain' ),                 [ '&', 'u', 38 ]
 
-@[ 'test # 13' ] = ( T ) ->
+@[ "test # 13" ] = ( T ) ->
   T.eq ( NCR._chr_csg_cid_from_chr '&#x61;abc', 'xncr' ),                  [ '&#x61;', 'u', 97 ]
 
-@[ 'test # 14' ] = ( T ) ->
+@[ "test # 14" ] = ( T ) ->
   T.eq ( NCR._chr_csg_cid_from_chr 'abc', 'ncr' ),                         [ 'a', 'u', 97 ]
 
-@[ 'test # 15' ] = ( T ) ->
+@[ "test # 15" ] = ( T ) ->
   T.eq ( NCR._chr_csg_cid_from_chr 'abc', 'plain' ),                       [ 'a', 'u', 97 ]
 
-@[ 'test # 16' ] = ( T ) ->
+@[ "test # 16" ] = ( T ) ->
   T.eq ( NCR._chr_csg_cid_from_chr 'abc', 'xncr' ),                        [ 'a', 'u', 97 ]
 
-@[ 'test # 17' ] = ( T ) ->
+@[ "test # 17" ] = ( T ) ->
   T.eq ( NCR.analyze '&#x24563;'                   ), {'~isa':     'NCR/info',"uchr":"&","chr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
 
-@[ 'test # 18' ] = ( T ) ->
+@[ "test # 18" ] = ( T ) ->
   T.eq ( NCR.analyze '&#x24563;', input: 'ncr'      ), {'~isa':     'NCR/info',"uchr":"𤕣","chr":"𤕣","csg":"u","cid":148835,"fncr":"u-cjk-xb-24563","sfncr":"u-24563","ncr":"&#x24563;","xncr":"&#x24563;","rsg":"u-cjk-xb"}
 
-@[ 'test # 19' ] = ( T ) ->
+@[ "test # 19" ] = ( T ) ->
   T.eq ( NCR.analyze '&#x24563;', input: 'xncr'     ), {'~isa':     'NCR/info',"uchr":"𤕣","chr":"𤕣","csg":"u","cid":148835,"fncr":"u-cjk-xb-24563","sfncr":"u-24563","ncr":"&#x24563;","xncr":"&#x24563;","rsg":"u-cjk-xb"}
 
-@[ 'test # 20' ] = ( T ) ->
-  T.eq ( NCR.analyze '&jzr#x24563;'                ), {'~isa':     'NCR/info',"uchr":"&","chr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
-
-@[ 'test # 21' ] = ( T ) ->
-  T.eq ( NCR.analyze '&jzr#x24563;', input: 'ncr'   ), {'~isa':     'NCR/info',"uchr":"&","chr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
-
-@[ 'test # 22' ] = ( T ) ->
-  # debug '©BY7x6', JSON.stringify ( NCR.analyze '&jzr#x24563;', input: 'xncr'  )
-  T.eq ( NCR.analyze '&jzr#x24563;', input: 'xncr'  ), {'~isa':     'NCR/info',"uchr":"𤕣","chr":"&jzr#x24563;","csg":"jzr","cid":148835,"fncr":"jzr-24563","sfncr":"jzr-24563","ncr":"&#x24563;","xncr":"&jzr#x24563;","rsg":null}
-
-@[ 'test # 22a' ] = ( T ) ->
-  debug '©BY7x6', JSON.stringify ( NCR.analyze '&jzr#xe101;', input: 'xncr'  )
-  T.eq ( NCR.analyze '&jzr#xe101;', input: 'xncr'  ), {"~isa":"NCR/info","chr":"&jzr#xe101;","uchr":"","csg":"jzr","cid":57601,"fncr":"jzr-fig-e101","sfncr":"jzr-e101","ncr":"&#xe101;","xncr":"&jzr#xe101;","rsg":"jzr-fig"}
-
-@[ 'test # 22b' ] = ( T ) ->
-  T.eq ( NCR.analyze '&jzr#e101;', input: 'xncr'  ), {"~isa":"NCR/info","chr":"&","uchr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
-
-@[ 'test # 23' ] = ( T ) ->
+@[ "test # 23" ] = ( T ) ->
   T.eq ( NCR.analyze 'helo world' ), {'~isa':     'NCR/info',"uchr":"h","chr":"h","csg":"u","cid":104,"fncr":"u-latn-68","sfncr":"u-68","ncr":"&#x68;","xncr":"&#x68;","rsg":"u-latn"}
 
-@[ 'test # 24' ] = ( T ) ->
+@[ "test # 24" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text ''                   ), []
 
-@[ 'test # 25' ] = ( T ) ->
+@[ "test # 25" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '',                  input: 'ncr'  ), []
 
-@[ 'test # 26' ] = ( T ) ->
+@[ "test # 26" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '',                  input: 'xncr' ), []
 
-@[ 'test # 27' ] = ( T ) ->
+@[ "test # 27" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text 'abc'                ), [ 'a', 'b', 'c' ]
 
-@[ 'test # 28' ] = ( T ) ->
+@[ "test # 28" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text 'abc',               input: 'ncr'  ), [ 'a', 'b', 'c' ]
 
-@[ 'test # 29' ] = ( T ) ->
+@[ "test # 29" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text 'abc',               input: 'xncr' ), [ 'a', 'b', 'c' ]
 
-@[ 'test # 30' ] = ( T ) ->
+@[ "test # 30" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '𤕣a&#123;b𤕣c'        ), [ '𤕣', 'a', '&', '#', '1', '2', '3', ';', 'b', '𤕣', 'c' ]
 
-@[ 'test # 31' ] = ( T ) ->
+@[ "test # 31" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '𤕣a&#123;b𤕣c',       input: 'ncr'  ), [ '𤕣', 'a', '&#123;', 'b', '𤕣', 'c' ]
 
-@[ 'test # 32' ] = ( T ) ->
+@[ "test # 32" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '𤕣a&#123;b𤕣c',       input: 'xncr' ), [ '𤕣', 'a', '&#123;', 'b', '𤕣', 'c' ]
 
-@[ 'test # 33' ] = ( T ) ->
+@[ "test # 33" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '𤕣a&#x123ab;b𤕣c'     ), [ '𤕣', 'a', '&', '#', 'x', '1', '2', '3', 'a', 'b', ';', 'b', '𤕣', 'c' ]
 
-@[ 'test # 34' ] = ( T ) ->
+@[ "test # 34" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '𤕣a&#x123ab;b𤕣c',    input: 'ncr'  ), [ '𤕣', 'a', '&#x123ab;', 'b', '𤕣', 'c' ]
 
-@[ 'test # 35' ] = ( T ) ->
+@[ "test # 35" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '𤕣a&#x123ab;b𤕣c',    input: 'xncr' ), [ '𤕣', 'a', '&#x123ab;', 'b', '𤕣', 'c' ]
 
-@[ 'test # 36' ] = ( T ) ->
+@[ "test # 36" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '𤕣a&jzr#123;b𤕣c'     ), [ '𤕣', 'a', '&', 'j', 'z', 'r', '#', '1', '2', '3', ';', 'b', '𤕣', 'c' ]
 
-@[ 'test # 37' ] = ( T ) ->
+@[ "test # 37" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '𤕣a&jzr#x123ab;b𤕣c'  ), [ '𤕣', 'a', '&', 'j', 'z', 'r', '#', 'x', '1', '2', '3', 'a', 'b', ';', 'b', '𤕣', 'c' ]
 
-@[ 'test # 38' ] = ( T ) ->
+@[ "test # 38" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '𤕣a&jzr#x123ab;b𤕣c', input: 'ncr'  ), [ '𤕣', 'a', '&', 'j', 'z', 'r', '#', 'x', '1', '2', '3', 'a', 'b', ';', 'b', '𤕣', 'c' ]
 
-@[ 'test # 39' ] = ( T ) ->
+@[ "test # 39" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '𤕣a&jzr#x123ab;b𤕣c', input: 'xncr' ), [ '𤕣', 'a', '&jzr#x123ab;', 'b', '𤕣', 'c' ]
 
-@[ 'test # 40' ] = ( T ) ->
+@[ "test # 40" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '𤕣abc'               ), [ '𤕣', 'a', 'b', 'c' ]
 
-@[ 'test # 41' ] = ( T ) ->
+@[ "test # 41" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '𤕣abc',              input: 'ncr'  ), [ '𤕣', 'a', 'b', 'c' ]
 
-@[ 'test # 42' ] = ( T ) ->
+@[ "test # 42" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '𤕣abc',              input: 'xncr' ), [ '𤕣', 'a', 'b', 'c' ]
 
-@[ 'test # 43' ] = ( T ) ->
+@[ "test # 43" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '𤕣ab𤕣c'              ), [ '𤕣', 'a', 'b', '𤕣', 'c' ]
 
-@[ 'test # 44' ] = ( T ) ->
+@[ "test # 44" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '𤕣ab𤕣c',             input: 'ncr'  ), [ '𤕣', 'a', 'b', '𤕣', 'c' ]
 
-@[ 'test # 45' ] = ( T ) ->
+@[ "test # 45" ] = ( T ) ->
   T.eq ( NCR.chrs_from_text '𤕣ab𤕣c',             input: 'xncr' ), [ '𤕣', 'a', 'b', '𤕣', 'c' ]
 
-@[ 'test # 46' ] = ( T ) ->
+@[ "test # 46" ] = ( T ) ->
   T.eq ( NCR.chunks_from_text '1 < 2', output: 'html'                          ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"1 &lt; 2"}]
 
-@[ 'test # 47' ] = ( T ) ->
+@[ "test # 47" ] = ( T ) ->
   T.eq ( NCR.chunks_from_text '2 > 1', output: 'html'                          ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"2 &gt; 1"}]
 
-@[ 'test # 48' ] = ( T ) ->
+@[ "test # 48" ] = ( T ) ->
   T.eq ( NCR.chunks_from_text 'ab&#x63;d'                                      ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"ab&#x63;d"}]
 
-@[ 'test # 49' ] = ( T ) ->
+@[ "test # 49" ] = ( T ) ->
   T.eq ( NCR.chunks_from_text 'ab&#x63;d', input: 'ncr'                        ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"abcd"}]
 
-@[ 'test # 50' ] = ( T ) ->
+@[ "test # 50" ] = ( T ) ->
   T.eq ( NCR.chunks_from_text 'ab&#x63;d', input: 'xncr'                       ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"abcd"}]
 
-@[ 'test # 51' ] = ( T ) ->
+@[ "test # 51" ] = ( T ) ->
   T.eq ( NCR.chunks_from_text 'ab&jzr#xe063;d'                                 ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"ab&jzr#xe063;d"}]
 
-@[ 'test # 52' ] = ( T ) ->
+@[ "test # 52" ] = ( T ) ->
   T.eq ( NCR.chunks_from_text 'ab&jzr#xe063;d', input: 'ncr'                   ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"ab&jzr#xe063;d"}]
 
-@[ 'test # 53' ] = ( T ) ->
-  T.eq ( NCR.chunks_from_text 'ab&jzr#xe063;d', input: 'xncr'                  ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"ab"},{"~isa":"NCR/chunk","csg":"jzr","rsg":"jzr-fig","text":"&#xe063;"},{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"d"}]
-
-@[ 'test # 54' ] = ( T ) ->
-  T.eq ( NCR.chunks_from_text 'ab&jzr#xe063;d', input: 'xncr', output: 'html'  ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"ab"},{"~isa":"NCR/chunk","csg":"jzr","rsg":"jzr-fig","text":"&#xe063;"},{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"d"}]
-
-@[ 'test # 55' ] = ( T ) ->
+@[ "test # 55" ] = ( T ) ->
   T.eq ( NCR.chunks_from_text 'helo wörld'                                     ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"helo w"},{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn-1","text":"ö"},{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"rld"}]
 
-@[ 'test # 56' ] = ( T ) ->
+@[ "test # 56" ] = ( T ) ->
   T.eq ( NCR.chunks_from_text 'helo wörld', output: 'html'                     ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"helo w"},{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn-1","text":"ö"},{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"rld"}]
 
-@[ 'test # 57' ] = ( T ) ->
+@[ "test # 57" ] = ( T ) ->
   T.eq ( NCR.chunks_from_text 'me & you', output: 'html'                       ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"me &amp; you"}]
 
-@[ 'test # 58' ] = ( T ) ->
+@[ "test # 58" ] = ( T ) ->
   T.eq ( NCR.chunks_from_text 'me &amp; you', output: 'html'                   ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"me &amp;amp; you"}]
 
-@[ 'test # 59' ] = ( T ) ->
+@[ "test # 59" ] = ( T ) ->
   T.eq ( NCR.chunks_from_text '種果〇𤕣カタカナ'                                       ), [{"~isa":"NCR/chunk","csg":"u","rsg":"u-cjk","text":"種果"},{"~isa":"NCR/chunk","csg":"u","rsg":"u-cjk-sym","text":"〇"},{"~isa":"NCR/chunk","csg":"u","rsg":"u-cjk-xb","text":"𤕣"},{"~isa":"NCR/chunk","csg":"u","rsg":"u-cjk-kata","text":"カタカナ"}]
 
-@[ 'test # 60' ] = ( T ) ->
+@[ "test # 60" ] = ( T ) ->
   T.eq ( NCR.csg_cid_from_chr '&#x24563;' ),                               [ 'u', 38 ]
 
-@[ 'test # 61' ] = ( T ) ->
+@[ "test # 61" ] = ( T ) ->
   T.eq ( NCR.csg_cid_from_chr '&#x24563;', input: 'ncr' ),                        [ 'u', 148835 ]
 
-@[ 'test # 62' ] = ( T ) ->
+@[ "test # 62" ] = ( T ) ->
   T.eq ( NCR.csg_cid_from_chr '&#x24563;', input: 'plain' ),                      [ 'u', 38 ]
 
-@[ 'test # 63' ] = ( T ) ->
+@[ "test # 63" ] = ( T ) ->
   T.eq ( NCR.csg_cid_from_chr '&#x24563;', input: 'xncr' ),                       [ 'u', 148835 ]
 
-@[ 'test # 64' ] = ( T ) ->
+@[ "test # 64" ] = ( T ) ->
   T.eq ( NCR.csg_cid_from_chr '𤕣' ),                                       [ 'u', 148835 ]
 
-@[ 'test # 65' ] = ( T ) ->
+@[ "test # 65" ] = ( T ) ->
   T.eq ( NCR.csg_cid_from_chr '𤕣', input: 'ncr' ),                                [ 'u', 148835 ]
 
-@[ 'test # 66' ] = ( T ) ->
+@[ "test # 66" ] = ( T ) ->
   T.eq ( NCR.csg_cid_from_chr '𤕣', input: 'plain' ),                              [ 'u', 148835 ]
 
-@[ 'test # 67' ] = ( T ) ->
+@[ "test # 67" ] = ( T ) ->
   T.eq ( NCR.csg_cid_from_chr '𤕣', input: 'xncr' ),                               [ 'u', 148835 ]
 
-@[ 'test # 68' ] = ( T ) ->
+@[ "test # 68" ] = ( T ) ->
   T.eq ( NCR._as_sfncr 'jzr', 0x12abc ), 'jzr-12abc'
 
-@[ 'test # 69' ] = ( T ) ->
+@[ "test # 69" ] = ( T ) ->
   T.eq ( NCR._as_sfncr 'u', 0x12abc   ), 'u-12abc'
 
-@[ 'test # 70' ] = ( T ) ->
+@[ "test # 70" ] = ( T ) ->
   T.eq ( NCR._as_xncr 'jzr', 0x12abc ), '&jzr#x12abc;'
 
-@[ 'test # 71' ] = ( T ) ->
+@[ "test # 71" ] = ( T ) ->
   T.eq ( NCR._as_xncr 'u', 0x12abc     ), '&#x12abc;'
 
-@[ 'test # 72' ] = ( T ) ->
+@[ "test # 72" ] = ( T ) ->
   T.eq ( NCR._as_xncr 'u', 0x12abc   ), '&#x12abc;'
 
-@[ 'test # 73' ] = ( T ) ->
+@[ "test # 73" ] = ( T ) ->
   T.eq ( NCR.as_cid      '&jzr#xe100;',  input:  'xncr', csg: 'u'   ), 0xe100
 
-@[ 'test # 74' ] = ( T ) ->
+@[ "test # 74" ] = ( T ) ->
   T.eq ( NCR.as_cid      '&jzr#xe100;',  input: 'xncr'              ), 0xe100
 
-@[ 'test # 75' ] = ( T ) ->
+@[ "test # 75" ] = ( T ) ->
   T.eq ( NCR.as_cid      '𤕣',           input:  'xncr'              ), 0x24563
 
-@[ 'test # 76' ] = ( T ) ->
+@[ "test # 76" ] = ( T ) ->
   T.eq ( NCR.as_csg      '&jzr#xe100;',  input:  'xncr', csg: 'u'   ), 'u'
 
-@[ 'test # 77' ] = ( T ) ->
+@[ "test # 77" ] = ( T ) ->
   T.eq ( NCR.as_csg      '&jzr#xe100;',  input: 'xncr'              ), 'jzr'
 
-@[ 'test # 78' ] = ( T ) ->
+@[ "test # 78" ] = ( T ) ->
   T.eq ( NCR.as_csg      '𤕣',           input:  'xncr'              ), 'u'
 
-@[ 'test # 79' ] = ( T ) ->
-  T.eq ( NCR.as_fncr     '&#x1;',        input:  'xncr', csg: 'jzr' ), 'jzr-1'
-
-@[ 'test # 80' ] = ( T ) ->
-  T.eq ( NCR.as_fncr     '&#xe123;',     input:  'xncr', csg: 'jzr' ), 'jzr-fig-e123'
-
-@[ 'test # 81' ] = ( T ) ->
+@[ "test # 81" ] = ( T ) ->
   T.eq ( NCR.as_fncr     '𤕣',           input:  'xncr'             ), 'u-cjk-xb-24563'
 
-@[ 'test # 82' ] = ( T ) ->
+@[ "test # 82" ] = ( T ) ->
   T.eq ( NCR.as_ncr 0x12abc        ), '&#x12abc;'
 
-@[ 'test # 83' ] = ( T ) ->
-  T.eq ( NCR.as_range_name '&#xe100;',     input: 'ncr' ), 'Private Use Area'
-
-@[ 'test # 84' ] = ( T ) ->
-  T.eq ( NCR.as_range_name '&#xe100;',     input: 'plain' ), 'Basic Latin'
-
-@[ 'test # 85' ] = ( T ) ->
-  T.eq ( NCR.as_range_name '&#xe100;',     input: 'xncr' ), 'Private Use Area'
-
-@[ 'test # 86' ] = ( T ) ->
-  T.eq ( NCR.as_range_name '&jzr#xe100;',  input: 'ncr' ), 'Basic Latin'
-
-@[ 'test # 87' ] = ( T ) ->
-  T.eq ( NCR.as_range_name '&jzr#xe100;',  input: 'plain' ), 'Basic Latin'
-
-@[ 'test # 88' ] = ( T ) ->
-  T.eq ( NCR.as_range_name '&jzr#xe100;',  input: 'xncr' ), 'Jizura Character Components'
-
-@[ 'test # 89' ] = ( T ) ->
-  T.eq ( NCR.as_range_name 'a' ), 'Basic Latin'
-
-@[ 'test # 90' ] = ( T ) ->
-  T.eq ( NCR.as_range_name '𤕣' ), 'CJK Unified Ideographs Extension B'
-
-@[ 'test # 91' ] = ( T ) ->
+@[ "test # 91" ] = ( T ) ->
   T.eq ( NCR.as_rsg        '&#xe100;',     input: 'ncr' ), 'u-pua'
 
-@[ 'test # 92' ] = ( T ) ->
+@[ "test # 92" ] = ( T ) ->
   T.eq ( NCR.as_rsg        '&#xe100;',     input: 'plain' ), 'u-latn'
 
-@[ 'test # 93' ] = ( T ) ->
+@[ "test # 93" ] = ( T ) ->
   T.eq ( NCR.as_rsg        '&#xe100;',     input: 'xncr' ), 'u-pua'
 
-@[ 'test # 94' ] = ( T ) ->
+@[ "test # 94" ] = ( T ) ->
   T.eq ( NCR.as_rsg        '&jzr#xe100;',  input: 'ncr' ), 'u-latn'
 
-@[ 'test # 95' ] = ( T ) ->
+@[ "test # 95" ] = ( T ) ->
   T.eq ( NCR.as_rsg        '&jzr#xe100;',  input: 'plain' ), 'u-latn'
 
-@[ 'test # 96' ] = ( T ) ->
-  T.eq ( NCR.as_rsg        '&jzr#xe100;',  input: 'xncr' ), 'jzr-fig'
-
-@[ 'test # 97' ] = ( T ) ->
-  T.eq ( NCR.as_rsg      '&#x1;',        input:  'xncr', csg: 'jzr' ), null
-
-@[ 'test # 98' ] = ( T ) ->
-  T.eq ( NCR.as_rsg      '&#xe100;',     input:  'xncr', csg: 'jzr' ), 'jzr-fig'
-
-@[ 'test # 99' ] = ( T ) ->
+@[ "test # 99" ] = ( T ) ->
   T.eq ( NCR.as_rsg      '&#xe100;',     input:  'xncr', csg: 'u'   ), 'u-pua'
 
-@[ 'test # 100' ] = ( T ) ->
+@[ "test # 100" ] = ( T ) ->
   T.eq ( NCR.as_rsg      '&jzr#xe100;',  input:  'xncr', csg: 'u'   ), 'u-pua'
 
-@[ 'test # 101' ] = ( T ) ->
+@[ "test # 101" ] = ( T ) ->
   T.eq ( NCR.as_rsg 'a'        ), 'u-latn'
 
-@[ 'test # 102' ] = ( T ) ->
+@[ "test # 102" ] = ( T ) ->
   T.eq ( NCR.as_rsg '𤕣'        ), 'u-cjk-xb'
 
-@[ 'test # 103' ] = ( T ) ->
+@[ "test # 103" ] = ( T ) ->
   T.eq ( NCR.as_sfncr 'a'      ), 'u-61'
 
-@[ 'test # 104' ] = ( T ) ->
+@[ "test # 104" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr '&#678;'            ), 38
 
-@[ 'test # 105' ] = ( T ) ->
+@[ "test # 105" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr '&#678;',     input: 'ncr', ), 678
 
-@[ 'test # 106' ] = ( T ) ->
+@[ "test # 106" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr '&#678;',     input: 'xncr', ), 678
 
-@[ 'test # 107' ] = ( T ) ->
+@[ "test # 107" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr '&#x678;'           ), 38
 
-@[ 'test # 108' ] = ( T ) ->
+@[ "test # 108" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr '&#x678;',    input: 'ncr', ), 0x678
 
-@[ 'test # 109' ] = ( T ) ->
+@[ "test # 109" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr '&#x678;',    input: 'xncr', ), 0x678
 
-@[ 'test # 110' ] = ( T ) ->
+@[ "test # 110" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr '&jzr#678;'         ), 38
 
-@[ 'test # 111' ] = ( T ) ->
+@[ "test # 111" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr '&jzr#678;',  input: 'ncr', ), 38
 
-@[ 'test # 112' ] = ( T ) ->
+@[ "test # 112" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr '&jzr#678;',  input: 'xncr', ), 678
 
-@[ 'test # 113' ] = ( T ) ->
+@[ "test # 113" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr '&jzr#x678;'        ), 38
 
-@[ 'test # 114' ] = ( T ) ->
+@[ "test # 114" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr '&jzr#x678;', input: 'ncr', ), 38
 
-@[ 'test # 115' ] = ( T ) ->
+@[ "test # 115" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr '&jzr#x678;', input: 'xncr', ), 0x678
 
-@[ 'test # 116' ] = ( T ) ->
+@[ "test # 116" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr 'a'                 ), 97
 
-@[ 'test # 117' ] = ( T ) ->
+@[ "test # 117" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr 'a',          input: 'ncr', ), 97
 
-@[ 'test # 118' ] = ( T ) ->
+@[ "test # 118" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr 'a',          input: 'xncr', ), 97
 
-@[ 'test # 119' ] = ( T ) ->
+@[ "test # 119" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr 'x'                 ), 120
 
-@[ 'test # 120' ] = ( T ) ->
+@[ "test # 120" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr 'x',          input: 'ncr', ), 120
 
-@[ 'test # 121' ] = ( T ) ->
+@[ "test # 121" ] = ( T ) ->
   T.eq ( NCR.cid_from_chr 'x',          input: 'xncr', ), 120
 
-@[ 'test # 122' ] = ( T ) ->
-  T.eq ( NCR.html_from_text '&jzr#xe101; & you', input: 'xncr'   ), """<span class="jzr-fig">&#xe101;</span><span class="u-latn"> &amp; you</span>"""
-
-@[ 'test # 123' ] = ( T ) ->
+@[ "test # 123" ] = ( T ) ->
   T.eq ( NCR.html_from_text 'helo &#x24563; wörld'               ), """<span class="u-latn">helo &amp;#x24563; w</span><span class="u-latn-1">ö</span><span class="u-latn">rld</span>"""
 
-@[ 'test # 124' ] = ( T ) ->
+@[ "test # 124" ] = ( T ) ->
   T.eq ( NCR.html_from_text 'helo &#x24563; wörld', input: 'xncr'), """<span class="u-latn">helo </span><span class="u-cjk-xb">𤕣</span><span class="u-latn"> w</span><span class="u-latn-1">ö</span><span class="u-latn">rld</span>"""
 
-@[ 'test # 125' ] = ( T ) ->
+@[ "test # 125" ] = ( T ) ->
   T.eq ( NCR.html_from_text 'helo wörld'                         ), """<span class="u-latn">helo w</span><span class="u-latn-1">ö</span><span class="u-latn">rld</span>"""
 
-@[ 'test Unicode 8 / CJK Extension E' ] = ( T ) ->
+@[ "test Unicode 8 / CJK Extension E" ] = ( T ) ->
   T.eq ( NCR.as_csg '𫠠' ), 'u'
   T.eq ( NCR.as_rsg '𫠠' ), 'u-cjk-xe'
   T.eq ( NCR.as_fncr '𫠠' ), 'u-cjk-xe-2b820'
 
-@[ 'test # 200' ] = ( T ) ->
-  XNCR = Object.assign {}, NCR, { _input_default: 'xncr', }
-  XNCR._names_and_ranges_by_csg[ 'foo' ] = [ [ '(Glyphs)', 'foo', 0x0000, 0xffffffff, ] ]
-  # debug '6651', XNCR._names_and_ranges_by_csg is NCR._names_and_ranges_by_csg
-  # debug '8090', JSON.stringify (  NCR.analyze '&foo#x24563;' )
-  # debug '8090', JSON.stringify ( XNCR.analyze '&foo#x24563;' )
-  # debug '8090', JSON.stringify (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' )
-  # debug '8090', JSON.stringify ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' )
-  T.eq (  NCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&","uchr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
-  T.eq ( XNCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&foo#x24563;","uchr":"𤕣","csg":"foo","cid":148835,"fncr":"foo-24563","sfncr":"foo-24563","ncr":"&#x24563;","xncr":"&foo#x24563;","rsg":null}
-  T.eq (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc&amp;foo#x24563;xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
-  T.eq ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc</span><span class=\"foo\">&#x24563;</span><span class=\"u-latn\">xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
 
-@[ 'test # 201' ] = ( T ) ->
-  # debug '4432', NCR
-  ### TAINT poor man's deep copy: ###
-  XNCR = Object.assign {}, NCR
-  XNCR._names_and_ranges_by_csg = Object.assign {}, XNCR._names_and_ranges_by_csg
-  XNCR._input_default = 'xncr'
-  XNCR._names_and_ranges_by_csg[ 'foo' ] = [ [ '(Glyphs)', 'foo', 0x0000, 0xffffffff, ] ]
-  T.eq ( XNCR._names_and_ranges_by_csg is NCR._names_and_ranges_by_csg ), false
-  # debug '8090', JSON.stringify (  NCR.analyze '&foo#x24563;' )
-  # debug '8090', JSON.stringify ( XNCR.analyze '&foo#x24563;' )
-  # debug '8090', JSON.stringify (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' )
-  # debug '8090', JSON.stringify ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' )
-  T.eq (  NCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&","uchr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
-  T.eq ( XNCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&foo#x24563;","uchr":"𤕣","csg":"foo","cid":148835,"fncr":"foo-24563","sfncr":"foo-24563","ncr":"&#x24563;","xncr":"&foo#x24563;","rsg":null}
-  T.eq (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc&amp;foo#x24563;xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
-  T.eq ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc</span><span class=\"foo\">&#x24563;</span><span class=\"u-latn\">xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
+### # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  ###
+###  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ###
+### # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  ###
+###  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ###
+### # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  ###
+
 
 #-----------------------------------------------------------------------------------------------------------
+@[ "test # 20" ] = ( T ) ->
+  result  = NCR.analyze '&jzr#x24563;'
+  matcher = {'~isa':     'NCR/info',"uchr":"&","chr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
+  T.eq result, matcher
 
-
-
-#===========================================================================================================
-# HELPERS
 #-----------------------------------------------------------------------------------------------------------
-@_prune = ->
-  for name, value of @
-    continue if name.startsWith '_'
-    delete @[ name ] unless name in include
+@[ "test # 21" ] = ( T ) ->
+  result  = NCR.analyze '&jzr#x24563;', input: 'ncr'
+  matcher = {'~isa':     'NCR/info',"uchr":"&","chr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
+  T.eq result, matcher
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "test # 22" ] = ( T ) ->
+  # debug '©BY7x6', JSON.stringify ( NCR.analyze '&jzr#x24563;', input: 'xncr'  )
+  result  = NCR.analyze '&jzr#x24563;', input: 'xncr'
+  # debug '©54241', result
+  ### TAINT Character is mapped from JZR (i.e. another character set) to a Unicode non-PUA codepoint;
+  this *may* be OK when there is appropriate styling information at that point (e.g.
+  `<span style='font-family: foobar;'>𤕣</span>`), but is not desirable in text-only environments. ###
+  matcher =
+    '~isa':   'NCR/info'
+    chr:      '&jzr#x24563;'
+    uchr:     '𤕣'
+    csg:      'jzr'
+    cid:      148835
+    fncr:     'jzr-24563'
+    sfncr:    'jzr-24563'
+    ncr:      '&#x24563;'
+    xncr:     '&jzr#x24563;'
+    rsg:      'jzr'
+  ### Previous version:
+  matcher =
+    '~isa':   'NCR/info'
+    chr:      '&jzr#x24563;'
+    uchr:     '𤕣'
+    csg:      'jzr'
+    cid:      148835
+    fncr:     'jzr-24563'
+    sfncr:    'jzr-24563'
+    ncr:      '&#x24563;'
+    xncr:     '&jzr#x24563;'
+    rsg:      null
+  ###
+  T.eq result, matcher
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "test # 22a" ] = ( T ) ->
+  result  = NCR.analyze '&jzr#xe101;', input: 'xncr'
+  # debug '©BY7x6', result
+  matcher = {"~isa":"NCR/info","chr":"&jzr#xe101;","uchr":"","csg":"jzr","cid":57601,"fncr":"jzr-e101","sfncr":"jzr-e101","ncr":"&#xe101;","xncr":"&jzr#xe101;","rsg":"jzr"}
+  T.eq result, matcher
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "test # 22b" ] = ( T ) ->
+  result  = NCR.analyze '&jzr#e101;', input: 'xncr'
+  matcher = {"~isa":"NCR/info","chr":"&","uchr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
+  T.eq result, matcher
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "test # 53" ] = ( T ) ->
+  result  = NCR.chunks_from_text 'ab&jzr#xe063;d', input: 'xncr'
+  matcher = [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"ab"},{"~isa":"NCR/chunk","csg":"jzr","rsg":"jzr","text":"&#xe063;"},{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"d"}]
+  T.eq result, matcher
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "test # 54" ] = ( T ) ->
+  result  = NCR.chunks_from_text 'ab&jzr#xe063;d', input: 'xncr', output: 'html'
+  matcher = [{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"ab"},{"~isa":"NCR/chunk","csg":"jzr","rsg":"jzr","text":"&#xe063;"},{"~isa":"NCR/chunk","csg":"u","rsg":"u-latn","text":"d"}]
+  T.eq result, matcher
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "test # 79" ] = ( T ) ->
+  result  = NCR.as_fncr     '&#x1;',        input:  'xncr', csg: 'jzr'
+  matcher = 'jzr-1'
+  T.eq result, matcher
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "test # 80" ] = ( T ) ->
+  result  = NCR.as_fncr     '&#xe123;',     input:  'xncr', csg: 'jzr'
+  matcher = 'jzr-e123'
+  T.eq result, matcher
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "test # 83" ] = ( T ) ->
+  T.eq ( NCR.as_range_name '&#xe100;',     input: 'ncr' ), 'Private Use Area'
+  T.eq ( NCR.as_range_name '&#xe100;',     input: 'plain' ), 'Basic Latin'
+  T.eq ( NCR.as_range_name '&#xe100;',     input: 'xncr' ), 'Private Use Area'
+  T.eq ( NCR.as_range_name '&jzr#xe100;',  input: 'ncr' ), 'Basic Latin'
+  T.eq ( NCR.as_range_name '&jzr#xe100;',  input: 'plain' ), 'Basic Latin'
+  T.eq ( NCR.as_range_name 'a' ), 'Basic Latin'
+  T.eq ( NCR.as_range_name '𤕣' ), 'CJK Unified Ideographs Extension B'
   return null
 
 #-----------------------------------------------------------------------------------------------------------
-###
-  'so|glyph:劬|cp/fncr:u-cjk/52ac|0'
-  'so|glyph:邭|cp/fncr:u-cjk/90ad|0'
-  'so|glyph:𠴦|cp/fncr:u-cjk-xb/20d26|0'
-  'so|glyph:𤿯|cp/fncr:u-cjk-xb/24fef|0'
-  'so|glyph:𧑴|cp/fncr:u-cjk-xb/27474|0'
-  'so|glyph:𨒡|cp/fncr:u-cjk-xb/284a1|0'
-  'so|glyph:𪚧|cp/fncr:u-cjk-xb/2a6a7|0'
-  'so|glyph:𪚫|cp/fncr:u-cjk-xb/2a6ab|0'
-  '丁三夫國形丁三夫國形丁三夫國形'
-###
-
+@[ "test # 88" ] = ( T ) ->
+  result  = NCR.as_range_name '&jzr#xe100;',  input: 'xncr'
+  matcher = 'jzr'
+  T.eq result, matcher
 
 #-----------------------------------------------------------------------------------------------------------
-@[ "Unicode demo" ] = ( T ) ->
-  XNCR          = require './xncr'
-  ISL           = require 'interskiplist'
-  mkts_options  = require '../../mingkwai-typesetter/options'
-  rsg_registry  = require './character-sets-and-ranges'
-  u             = ISL.new()
-  last_cid      = 0x10ffff
+@[ "test # 96" ] = ( T ) ->
+  result  = NCR.as_rsg '&jzr#xe100;', input: 'xncr'
+  matcher = 'jzr'
+  T.eq result, matcher
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "test # 97" ] = ( T ) ->
+  result  = NCR.as_rsg '&#x1;', input: 'xncr', csg: 'jzr'
+  matcher = 'jzr'
+  T.eq result, matcher
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "test # 98" ] = ( T ) ->
+  result  = NCR.as_rsg      '&#xe100;',     input:  'xncr', csg: 'jzr'
+  matcher = 'jzr'
+  T.eq result, matcher
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "test # 122" ] = ( T ) ->
+  result  = NCR.html_from_text '&jzr#xe101; & you', input: 'xncr'
+  matcher = """<span class="jzr">&#xe101;</span><span class="u-latn"> &amp; you</span>"""
+  T.eq result, matcher
+
+### # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #  ###
+###  # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # ###
+
+# #-----------------------------------------------------------------------------------------------------------
+# @[ "(v2) create derivatives of NCR (1)" ] = ( T ) ->
+#   reducers =
+#     '*':          'assign'
+#     unicode_isl: ( values ) -> NCR._ISL.copy NCR.unicode_isl
+#   #.........................................................................................................
+#   mix             = ( require 'multimix' ).mix.use reducers
+#   XNCR            = mix NCR, { _input_default: 'xncr', }
+#   XNCR._aggregate = XNCR._ISL.aggregate.use XNCR.unicode_isl
+#   XNCR._ISL.add XNCR.unicode_isl, { lo: 0x00, hi: 0xff, rsg: 'u-foobar', }
+#   ### TAINT because `aggregate` memoizes results, you must not add anything to the Unicode InterSkipList
+#   after the first codepoint query—any result *might* reflect an outdated state of the data structure ###
+#   #.........................................................................................................
+#   T.ok  NCR.unicode_isl?
+#   T.ok XNCR.unicode_isl?
+#   T.ok XNCR.unicode_isl isnt NCR.unicode_isl
+#   T.eq  NCR._input_default, 'plain'
+#   T.eq XNCR._input_default, 'xncr'
+#   T.eq (  NCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&","uchr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
+#   T.eq ( XNCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&foo#x24563;","uchr":"𤕣","csg":"foo","cid":148835,"fncr":"foo-24563","sfncr":"foo-24563","ncr":"&#x24563;","xncr":"&foo#x24563;","rsg":'foo'}
+#   # T.eq (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc&amp;foo#x24563;xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
+#   # T.eq ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc</span><span class=\"foo\">&#x24563;</span><span class=\"u-latn\">xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
+#   T.eq (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三𫠠' ), '<span class="u-latn">abc&amp;foo#x24563;xyz</span><span class="u-latn-1">äöü</span><span class="u-cjk">丁三</span><span class="u-cjk-xe">𫠠</span>'
+#   T.eq ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三𫠠' ), '<span class="u-foobar">abc</span><span class="foo">&#x24563;</span><span class="u-foobar">xyzäöü</span><span class="u-cjk">丁三</span><span class="u-cjk-xe">𫠠</span>'
+#   T.eq ( XNCR.as_rsg 'a' ), 'u-foobar'
+#   T.eq (  NCR.as_rsg 'b' ), 'u-latn'
+#   T.eq ( XNCR.as_rsg 'c' ), 'u-foobar'
+#   T.eq (  NCR.as_rsg 'd' ), 'u-latn'
+#   #.........................................................................................................
+#   return null
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "(v2) create derivatives of NCR (2)" ] = ( T ) ->
+  XNCR = NCR._copy_library 'xncr'
+  XNCR._ISL.add XNCR.unicode_isl, { lo: 0x00, hi: 0xff, rsg: 'u-foobar', }
+  ### TAINT because `aggregate` memoizes results, you must not add anything to the Unicode InterSkipList
+  after the first codepoint query—any result *might* reflect an outdated state of the data structure ###
   #.........................................................................................................
-  is_cjk_rsg    = (   rsg ) -> rsg in mkts_options[ 'tex' ][ 'cjk-rsgs' ]
-  is_cjk_glyph  = ( glyph ) -> is_cjk_rsg XNCR.as_rsg glyph
+  T.ok  NCR.unicode_isl?
+  T.ok XNCR.unicode_isl?
+  T.ok XNCR.unicode_isl isnt NCR.unicode_isl
+  T.eq  NCR._input_default, 'plain'
+  T.eq XNCR._input_default, 'xncr'
+  T.eq (  NCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&","uchr":"&","csg":"u","cid":38,"fncr":"u-latn-26","sfncr":"u-26","ncr":"&#x26;","xncr":"&#x26;","rsg":"u-latn"}
+  T.eq ( XNCR.analyze '&foo#x24563;' ), {"~isa":"NCR/info","chr":"&foo#x24563;","uchr":"𤕣","csg":"foo","cid":148835,"fncr":"foo-24563","sfncr":"foo-24563","ncr":"&#x24563;","xncr":"&foo#x24563;","rsg":'foo'}
+  # T.eq (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc&amp;foo#x24563;xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
+  # T.eq ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三夫國形丁三夫國形丁三夫國形𫠠𧑴𨒡' ), "<span class=\"u-latn\">abc</span><span class=\"foo\">&#x24563;</span><span class=\"u-latn\">xyz</span><span class=\"u-latn-1\">äöü</span><span class=\"u-cjk\">丁三夫國形丁三夫國形丁三夫國形</span><span class=\"u-cjk-xe\">𫠠</span><span class=\"u-cjk-xb\">𧑴𨒡</span>"
+  T.eq (  NCR.html_from_text 'abc&foo#x24563;xyzäöü丁三𫠠' ), '<span class="u-latn">abc&amp;foo#x24563;xyz</span><span class="u-latn-1">äöü</span><span class="u-cjk">丁三</span><span class="u-cjk-xe">𫠠</span>'
+  T.eq ( XNCR.html_from_text 'abc&foo#x24563;xyzäöü丁三𫠠' ), '<span class="u-foobar">abc</span><span class="foo">&#x24563;</span><span class="u-foobar">xyzäöü</span><span class="u-cjk">丁三</span><span class="u-cjk-xe">𫠠</span>'
+  T.eq ( XNCR.as_rsg 'a' ), 'u-foobar'
+  T.eq (  NCR.as_rsg 'b' ), 'u-latn'
+  T.eq ( XNCR.as_rsg 'c' ), 'u-foobar'
+  T.eq (  NCR.as_rsg 'd' ), 'u-latn'
+  #.........................................................................................................
+  return null
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "(v2) aggregate" ] = ( T ) ->
+  # NCR       = require '../ncr'
+  u         = NCR.unicode_isl
+  ISL       = NCR._ISL
+  probes_and_matchers = [
+    [ 'q', {"tag":["assigned"],"rsg":"u-latn"}, ]
+    [ '里', {"tag":["assigned","cjk","ideograph"],"rsg":"u-cjk"}, ]
+    [ '䊷', {"tag":["assigned","cjk","ideograph"],"rsg":"u-cjk-xa"}, ]
+    [ '《', {"tag":["assigned","cjk","punctuation"],"rsg":"u-cjk-sym"}, ]
+    [ '🖹', {"tag":["assigned"]}, ]
+    [ 887, {"tag":["assigned"],"rsg":"u-grek"}, ]
+    [ 888, {"tag":["unassigned"],"rsg":"u-grek"}, ]
+    [ 889, {"tag":["unassigned"],"rsg":"u-grek"}, ]
+    [ 890, {"tag":["assigned"],"rsg":"u-grek"}, ]
+    ]
+  reducers  = { fallback: 'skip', fields: { 'tag': 'tag', 'rsg': 'assign', }, }
+  for [ probe, matcher, ] in probes_and_matchers
+    result = ISL.aggregate u, probe, reducers
+    # debug '32771', JSON.stringify result
+    T.eq result, matcher
+  #.........................................................................................................
+  return null
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "(v2) query for fact" ] = ( T ) ->
+  #.........................................................................................................
+  u         = NCR.unicode_isl
+  ISL       = NCR._ISL
+  #.........................................................................................................
+  # urge ISL.find_ids u, 'tag', 'cjk'
+  # urge ISL.find_ids u, 'tag', 'assigned'
+  # urge ISL.find_ids u, 'tag', 'foobar'
+  # urge ISL.find_ids u, 'rsg', 'u-latn'
+  # urge JSON.stringify ISL.find_entries u, 'tag', 'cjk'
+  # urge JSON.stringify ISL.find_entries u, 'tag', 'assigned'
+  # urge JSON.stringify ISL.find_entries u, 'tag', 'foobar'
+  # urge JSON.stringify ISL.find_entries u, 'rsg', 'u-latn'
+  # urge JSON.stringify ISL.find_entries u, 'rsg', 'u-cjk'
   # #.........................................................................................................
-  # page_idx      = -1
-  # loop
-  #   page_idx += 1
-  #   page_id   = "page-x#{page_idx.toString 16}"
-  #   page_name = "page-#{page_idx}"
-  #   lo        = page_idx  * 0x100
-  #   hi        = lo        + 0xff
-  #   ISL.insert u, lo, hi, page_id, { name: page_name, page_idx, lo, hi, rsg: null, }
-  #   ISL.insert u, lo, hi, page_name, { name: page_name, page_idx, lo, hi, rsg: null, }
-  #   break if lo > last_cid
-  # #.........................................................................................................
-  # lo      = 0x0
-  # hi      = 0x10ffff
-  # name    = 'UCS Codepoints'
-  # rsg     = null
-  # ISL.insert u, lo, hi, name, { name, lo, hi, rsg, }
+  # T.eq ( ISL.find_ids u, 'tag', 'cjk'           ), [ '+[2]', '+[4]' ]
+  # T.eq ( ISL.find_ids u, 'tag', 'assigned'      ), [ '+[0]', '+[1]', '+[3]' ]
+  T.eq ( ISL.find_ids u, 'tag', 'foobar'        ), []
+  T.eq ( ISL.find_ids u, 'rsg', 'u-latn'        ), [ 'block:Basic Latin[0]' ]
+  T.eq ( ISL.find_ids u, 'rsg', 'u-cjk'         ), [ 'block:CJK Unified Ideographs[0]' ]
+  # T.eq ( ISL.find_entries u, 'tag', 'cjk'       ), [{"lo":37324,"hi":37324,"tag":["cjk","ideograph"],"idx":2,"id":"+[2]","name":"+","size":1},{"lo":17079,"hi":17079,"tag":["cjk","ideograph"],"idx":4,"id":"+[4]","name":"+","size":1}]
+  # T.eq ( ISL.find_entries u, 'tag', 'assigned'  ), [{"lo":113,"hi":113,"tag":["assigned"],"rsg":"u-latn","idx":0,"id":"+[0]","name":"+","size":1},{"lo":37324,"hi":37324,"tag":["assigned"],"rsg":"u-cjk","idx":1,"id":"+[1]","name":"+","size":1},{"lo":17079,"hi":17079,"tag":["assigned"],"rsg":"u-cjk-xa","idx":3,"id":"+[3]","name":"+","size":1}]
+  # T.eq ( ISL.find_entries u, 'tag', 'foobar'    ), []
+  # T.eq ( ISL.find_entries u, 'rsg', 'u-latn'    ), [{"lo":113,"hi":113,"tag":["assigned"],"rsg":"u-latn","idx":0,"id":"+[0]","name":"+","size":1}]
+  T.eq ( ISL.find_entries u, 'rsg', 'u-latn' ), [{"lo":0,"hi":127,"name":"block:Basic Latin","type":"block","block":"Basic Latin","rsg":"u-latn","comment":"(U+0..U+7f)","idx":676,"id":"block:Basic Latin[0]","size":128}]
+  T.eq ( ISL.find_entries u, 'rsg', 'u-cjk' ), [{"lo":19968,"hi":40959,"name":"block:CJK Unified Ideographs","type":"block","block":"CJK Unified Ideographs","rsg":"u-cjk","comment":"(U+4e00..U+9fff)","idx":793,"id":"block:CJK Unified Ideographs[0]","size":20992}]
   #.........................................................................................................
-  add_plane = ( isl, name, lo, hi ) ->
-    name        = "plane:#{name}"
-    ISL.insert isl, { name, lo, hi, }
+  return null
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "(v2) validates Unicode CID; does not validate non-Unicode CID" ] = ( T ) ->
   #.........................................................................................................
-  add_plane u, 'Basic Multilingual Plane (BMP)',              0x0000,   0xffff
-  add_plane u, 'Supplementary Multilingual Plane (SMP)',     0x10000,  0x1ffff
-  add_plane u, 'Supplementary Ideographic Plane (SIP)',      0x20000,  0x2ffff
-  add_plane u, 'Tertiary Ideographic Plane (TIP)',           0x30000,  0x3ffff
-  add_plane u, 'Supplementary Special-purpose Plane (SSP)',  0xe0000,  0xefffd
-  add_plane u, 'Private Use Area (PUA)',                     0xf0000,  0xffffd
-  add_plane u, 'Private Use Area (PUA)',                    0x100000, 0x10fffd
+  hex = ( x ) -> '0x' + x.toString 16
+  T.eq ( hex NCR.as_cid         '&#x0;', input: 'xncr' ),      '0x0'
+  T.eq ( hex NCR.as_cid      '&#x1234;', input: 'xncr' ),   '0x1234'
+  T.eq ( hex NCR.as_cid    '&#x10ffff;', input: 'xncr' ), '0x10ffff'
+  T.throws "expected an integer between 0x000000 and 0x10ffff, got 0x110000", -> NCR.as_cid '&#x110000;', input: 'xncr'
+  T.eq ( hex NCR.as_cid      '&foo#x0;', input: 'xncr' ),      '0x0'
+  T.eq ( hex NCR.as_cid '&foo#x10ffff;', input: 'xncr' ), '0x10ffff'
+  T.eq ( hex NCR.as_cid '&foo#x110000;', input: 'xncr' ), '0x110000'
+  T.eq ( NCR.analyze '&#x1234;',         input: 'xncr' ), {"~isa":"NCR/info","chr":"ሴ","uchr":"ሴ","csg":"u","cid":4660,"fncr":"u-1234","sfncr":"u-1234","ncr":"&#x1234;","xncr":"&#x1234;","rsg":"u"}
+  T.eq ( NCR.analyze '&mcs#x1234;',      input: 'xncr' ), {"~isa":"NCR/info","chr":"&mcs#x1234;","uchr":"ሴ","csg":"mcs","cid":4660,"fncr":"mcs-1234","sfncr":"mcs-1234","ncr":"&#x1234;","xncr":"&mcs#x1234;","rsg":"mcs"}
+  T.eq ( NCR.analyze '&mcs#x6000c388;',  input: 'xncr' ), {"~isa":"NCR/info","chr":"&mcs#x6000c388;","uchr":null,"csg":"mcs","cid":1610662792,"fncr":"mcs-6000c388","sfncr":"mcs-6000c388","ncr":"&#x6000c388;","xncr":"&mcs#x6000c388;","rsg":"mcs"}
   #.........................................................................................................
-  tex_command_by_rsgs = mkts_options[ 'tex' ][ 'tex-command-by-rsgs' ]
+  return null
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "(v2) cloak" ] = ( T ) ->
   #.........................................................................................................
-  lo          = 0x000000
-  hi          = 0x10ffff
-  tex         = tex_command_by_rsgs[ 'fallback' ]
-  name        = "style:fallback"
-  ISL.insert u, { name, lo, hi, tex, }
+  text = 'helo \\world'
+  help '(1)', rpr text
+  help '(2)', rpr text = NCR._XXX_escape_chrs                  text
+  help '(3)', rpr text = NCR._XXX_unescape_escape_chrs         text
+  help '(4)', rpr text = NCR._XXX_remove_escaping_backslashes  text
   #.........................................................................................................
-  for csg, ranges of rsg_registry[ 'names-and-ranges-by-csg' ]
-    continue unless csg in [ 'u', 'jzr', ]
-    for range in ranges
-      name        = range[ 'range-name' ]
-      rsg         = range[ 'rsg'        ]
-      lo          = range[ 'first-cid'  ]
-      hi          = range[ 'last-cid'   ]
-      is_cjk      = is_cjk_rsg rsg
-      tex         = tex_command_by_rsgs[ rsg ] ? null
-      name        = "block:#{name}"
-      if tex?
-        ISL.insert u, { name, lo, hi, rsg, is_cjk, tex, }
-      else
-        ISL.insert u, { name, lo, hi, rsg, is_cjk, }
+  return null
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "(v2) backslashes (1)" ] = ( T ) ->
   #.........................................................................................................
-  for glyph, style of mkts_options[ 'tex' ][ 'glyph-styles' ]
-    glyph       = XNCR.normalize_glyph  glyph
-    rsg         = XNCR.as_rsg           glyph
-    cid         = XNCR.as_cid           glyph
-    lo = hi     = cid
-    cid_hex     = hex cid
-    name        = "glyph-#{cid_hex}"
-    name        = "style:#{name}"
-    ISL.insert u, { name, lo, hi, rsg, style, }
+  probes_and_matchers = [
+    ["helo world",["h","e","l","o"," ","w","o","r","l","d"]]
+    ["helo \\wo\\\\rld",["h","e","l","o"," ","w","o","\\","r","l","d"]]
+    ["helo \\wo\\\\r\\ld\\!",["h","e","l","o"," ","w","o","\\","r","l","d","!"]]
+    ["x\\",["x"]]
+    ["x&jzr#xe100;x",["x","&","j","z","r","#","x","e","1","0","0",";","x"]]
+    ]
   #.........................................................................................................
-  source = """
-  # The Unicode Standard, V9.0.0, p49
-  # Figure 2-14. Allocation on the BMP
-  0000-00FF ASCII & Latin-1 Compatibility Area
-  0100-058F General Scripts Area
-  0590-08FF General Scripts Area (RTL)
-  0900-1FFF General Scripts Area
-  2000-2BFF Punctuation and Symbols Area
-  2C00-2DFF General Scripts Area
-  2E00-2E7F Supplemental Punctuation Area
-  2E80-33FF CJK Miscellaneous Area
-  3400-9FFF CJKV Unified Ideographs Area
-  A000-ABFF General Scripts Area (Asia & Africa)
-  AC00-D7FF Hangul Syllables Area
-  D800-DFFF Surrogate Codes
-  E000-F8FF Private Use Area (PUA)
-  F900-FFFF Compatibility and Specials Area
-  # The Unicode Standard, V9.0.0, p51
-  # Figure 2-15. Allocation on Plane 1
-  10000-107FF General Scripts Area
-  10800-10FFF General Scripts Area (RTL)
-  11000-11FFF General Scripts Area
-  12000-15FFF Cuneiform & Hieroglyphic Area
-  16000-16FFF General Scripts Area
-  17000-1BBFF Ideographic Scripts Area
-  1BC00-1CFFF General Scripts Area
-  1D000-1E7FF Symbols Area
-  1E800-1EFFF General Scripts Area (RTL)
-  1F000-1FFFF Symbols Area
-  """
-  for line in source.split '\n'
-    line = line.trim()
-    continue if line.startsWith '#'
-    [ _, lo, hi, name, ]  = line.match /^([0-9a-fA-F]{4,5})-([0-9a-fA-F]{4,5}) (.+)$/
-    lo                    = parseInt lo, 16
-    hi                    = parseInt hi, 16
-    name                  = "area:#{name}"
-    ISL.insert u, { name, lo, hi, }
-    # ISL.add_range u, lo, hi, { type, name, lo, hi, }
+  for [ probe, matcher, ] in probes_and_matchers
+    result = NCR.chrs_from_esc_text probe
+    help JSON.stringify [ probe, result, ]
+    T.eq matcher, result
+  return null
+
+#-----------------------------------------------------------------------------------------------------------
+@[ "(v2) backslashes (2)" ] = ( T ) ->
   #.........................................................................................................
-  # for cid in [ 0x0 .. 0x300 ]
-  #   debug ( cid.toString 16 ), find_id_text u, cid
-  for glyph in XNCR.chrs_from_text "helo äöü你好𢕒𡕴𡕨𠤇𫠠𧑴𨒡《》【】&jzr#xe100;🖹"
-    cid     = XNCR.as_cid glyph
-    cid_hex = hex cid
-    # debug glyph, cid_hex, find_id_text u, cid
-    descriptions = ISL.find_entries_with_all_points u, cid
-    urge glyph, cid_hex
-    for description in descriptions
-      [ type, _, ] = ( description[ 'name' ] ? '???/' ).split ':'
-      help ( CND.grey type + '/' ) + ( CND.steel 'interval' ) + ': ' + ( CND.yellow "#{hex description[ 'lo' ]}-#{hex description[ 'hi' ]}" )
-      for key, value of description
-        continue if key in [ 'lo', 'hi', 'id', ]
-        help ( CND.grey type + '/' ) + ( CND.steel key ) + ': ' + ( CND.yellow value )
-    # urge glyph, cid_hex, JSON.stringify ISL.find_all_ids    u, cid
-    # info glyph, cid_hex, JSON.stringify ISL.find_any_ids    u, cid
+  probes_and_matchers = [
+    ["helo world",["h","e","l","o"," ","w","o","r","l","d"]]
+    ["helo \\wo\\\\rld",["h","e","l","o"," ","w","o","\\","r","l","d"]]
+    ["helo \\wo\\\\r\\ld\\!",["h","e","l","o"," ","w","o","\\","r","l","d","!"]]
+    ["x\\",["x"]]
+    ["x&jzr#xe100;x",["x","&jzr#xe100;","x"]]
+    ["x\\&jzr#xe100;x",["x","&","j","z","r","#","x","e","1","0","0",";","x"]]
+    ]
   #.........................................................................................................
-  debug ISL.aggregate u, '《', { tex: 'list', style: 'list', }
-  #.........................................................................................................
+  for [ probe, matcher, ] in probes_and_matchers
+    result = NCR.chrs_from_esc_text probe, input: 'xncr'
+    help JSON.stringify [ probe, result, ]
+    T.eq matcher, result
   return null
 
 
@@ -623,20 +674,152 @@ hex = ( n ) -> '0x' + n.toString 16
 ############################################################################################################
 unless module.parent?
   # debug '0980', JSON.stringify ( Object.keys @ ), null, '  '
+    # "(v2) create derivatives of NCR (1)"
   include = [
-    'XXX'
+    "test # 1"
+    "test # 2"
+    "test # 3"
+    "test # 4"
+    "test # 5"
+    "test # 6"
+    "test # 7"
+    "test # 8"
+    "test # 9"
+    "test # 10"
+    "test # 11"
+    "test # 12"
+    "test # 13"
+    "test # 14"
+    "test # 15"
+    "test # 16"
+    "test # 17"
+    "test # 18"
+    "test # 19"
+    "test # 23"
+    "test # 24"
+    "test # 25"
+    "test # 26"
+    "test # 27"
+    "test # 28"
+    "test # 29"
+    "test # 30"
+    "test # 31"
+    "test # 32"
+    "test # 33"
+    "test # 34"
+    "test # 35"
+    "test # 36"
+    "test # 37"
+    "test # 38"
+    "test # 39"
+    "test # 40"
+    "test # 41"
+    "test # 42"
+    "test # 43"
+    "test # 44"
+    "test # 45"
+    "test # 46"
+    "test # 47"
+    "test # 48"
+    "test # 49"
+    "test # 50"
+    "test # 51"
+    "test # 52"
+    "test # 55"
+    "test # 56"
+    "test # 57"
+    "test # 58"
+    "test # 59"
+    "test # 60"
+    "test # 61"
+    "test # 62"
+    "test # 63"
+    "test # 64"
+    "test # 65"
+    "test # 66"
+    "test # 67"
+    "test # 68"
+    "test # 69"
+    "test # 70"
+    "test # 71"
+    "test # 72"
+    "test # 73"
+    "test # 74"
+    "test # 75"
+    "test # 76"
+    "test # 77"
+    "test # 78"
+    "test # 81"
+    "test # 82"
+    "test # 91"
+    "test # 92"
+    "test # 93"
+    "test # 94"
+    "test # 95"
+    "test # 99"
+    "test # 100"
+    "test # 101"
+    "test # 102"
+    "test # 103"
+    "test # 104"
+    "test # 105"
+    "test # 106"
+    "test # 107"
+    "test # 108"
+    "test # 109"
+    "test # 110"
+    "test # 111"
+    "test # 112"
+    "test # 113"
+    "test # 114"
+    "test # 115"
+    "test # 116"
+    "test # 117"
+    "test # 118"
+    "test # 119"
+    "test # 120"
+    "test # 121"
+    "test # 123"
+    "test # 124"
+    "test # 125"
+    "test Unicode 8 / CJK Extension E"
+    #.......................................................................................................
+    "test # 20"
+    "test # 21"
+    "test # 22"
+    "test # 22a"
+    "test # 22b"
+    "test # 53"
+    "test # 54"
+    "test # 79"
+    "test # 80"
+    "test # 83"
+    "test # 88"
+    "test # 96"
+    "test # 97"
+    "test # 98"
+    "test # 122"
+    "(v2) query for fact"
+    "(v2) validates Unicode CID; does not validate non-Unicode CID"
+    "(v2) create derivatives of NCR (2)"
+    "(v2) aggregate"
+    "(v2) cloak"
+    "(v2) backslashes (1)"
+    "(v2) backslashes (2)"
     ]
-  # @_prune()
+  @_prune()
   @_main()
+
+
+  # ( warn JSON.stringify key unless key in include ) for key in Object.keys @
 
   # XNCR = require './xncr'
   # text = 'A-&#x3004;-&jzr#xe100;-&morohashi#x56;-Z'
   # debug rpr ( XNCR.jzr_as_uchr chr for chr in XNCR.chrs_from_text text ).join ''
   # debug rpr XNCR.normalize_text text
+  # debug JSON.stringify Object.keys @
 
-
-
-
+  # @[ "(v2) create derivatives of NCR (3)" ]()
 
 
 
