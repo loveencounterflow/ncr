@@ -87,7 +87,16 @@ u-cjk-idc           cjk idl idlb                              # block: Ideograph
 ^29..29             cjk idl idlx close-bracket                # )
 ^2194..2194         cjk idl idlx                              # ↔
 ^21bb..21bb         cjk idl idlx                              # ↻
-^2248..2248         cjk idl idlx                              # ≈
+^2248..2248         cjk idl idlx                              # ≈ (deprecated)
+^3c..3c             cjk idl idlx                              # <
+^3e..3e             cjk idl idlx                              # >
+^3f..3f             cjk idl idlx                              # ?
+^2195..2195         cjk idl idlx                              # ↕
+^24e7..24e7         cjk idl idlx                              # ⓧ
+^24e8..24e8         cjk idl idlx                              # ⓨ
+^24e9..24e9         cjk idl idlx                              # ⓩ
+^3013..3013         cjk idl idlx                              # 〓
+^a7..a7             cjk idl idlx                              # §
 ^25bd..25bd         cjk idl idlx                              # ▽
 ^25cf..25cf         cjk idl idlx terminal                     # ●
 ^25f0..25f0         cjk idl idlx                              # ◰
