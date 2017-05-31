@@ -113,6 +113,7 @@ u-cjk-idc           cjk idl idlb                              # block: Ideograph
 ^2ffa..2ffa         idlx                                      # ⿺
 ^2ffb..2ffb         idlx                                      # ⿻
 
+^2205..2205   idl idlx2 nosuchformula                         # ∅ (automatically supplied empty formula)
 ^e01b..e01b   idl idlx2                                       # 
 ^e01c..e01c   idl idlx2                                       # 
 ^e01d..e01d   idl idlx2                                       # 
