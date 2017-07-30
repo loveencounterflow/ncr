@@ -56,8 +56,8 @@ extras_range_pattern = ///
 #===========================================================================================================
 # HELPERS
 #-----------------------------------------------------------------------------------------------------------
-resolve         = ( path ) -> PATH.resolve __dirname,                         '..', path
-resolve_ucd     = ( path ) -> resolve PATH.join '../../ncr-unicode-data-ucd-9.0.0', path
+resolve         = ( path ) -> PATH.resolve __dirname, '..',                         path
+resolve_ucd     = ( path ) -> resolve PATH.join '../ncr-unicode-data-ucd-9.0.0',    path
 resolve_extras  = ( path ) -> resolve PATH.join 'data',                             path
 
 #-----------------------------------------------------------------------------------------------------------
@@ -328,13 +328,14 @@ append_tag = ( S, interval, tag ) ->
   #.........................................................................................................
   intervals = []
   S         = { intervals, }
+  self      = @
   #.........................................................................................................
-  step ( resume ) =>
-    yield @read_assigned_codepoints   S, resume
-    yield @read_planes_and_areas      S, resume
-    yield @read_block_names           S, resume
-    yield @read_rsgs_and_block_names  S, resume
-    yield @read_tags                  S, resume
+  step ( resume ) ->
+    yield self.read_assigned_codepoints   S, resume
+    yield self.read_planes_and_areas      S, resume
+    yield self.read_block_names           S, resume
+    yield self.read_rsgs_and_block_names  S, resume
+    yield self.read_tags                  S, resume
     add_comments_to_intervals S
     handler null, S
   #.........................................................................................................
