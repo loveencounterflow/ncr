@@ -24,6 +24,10 @@ require 'pipedreams/lib/plugin-tsv'
 # require 'pipedreams/lib/plugin-tabulate'
 #...........................................................................................................
 { step }                  = require 'coffeenode-suspend'
+types                     = require './types'
+{ isa
+  validate
+  type_of }               = types.export()
 
 
 #===========================================================================================================
@@ -92,7 +96,7 @@ interval_from_range_match = ( S, match ) ->
 #-----------------------------------------------------------------------------------------------------------
 append_tag = ( S, interval, tag ) ->
   if ( target = interval[ 'tag' ] )?
-    if CND.isa_list target
+    if isa.list target
       target.push tag
     else
       interval[ 'tag' ] = [ target, tag, ]

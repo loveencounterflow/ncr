@@ -17,6 +17,10 @@ help                      = CND.get_logger 'help',      badge
 urge                      = CND.get_logger 'urge',      badge
 echo                      = CND.echo.bind CND
 rainbow                   = CND.rainbow.bind CND
+types                     = require './types'
+{ isa
+  validate
+  type_of }               = types.export()
 
 ###
 
@@ -106,11 +110,11 @@ esc_re = ( text ) -> text.replace /[.*+?^${}()|[\]\\]/g, "\\$&"
   unless chrs?
     chrs = [ '\x10', '\x11', '\x12', '\x13', '\x14', ]
   #.........................................................................................................
-  else if CND.isa_text chrs
+  else if isa.text chrs
     chrs = Array.from chrs
   #.........................................................................................................
-  else unless CND.isa_list chrs
-    throw new Error "expected a text or a list, got a #{CND.type_of chrs}"
+  else unless isa.list chrs
+    throw new Error "expected a text or a list, got a #{type_of chrs}"
   #.........................................................................................................
   unless ( chr_count = chrs.length ) >= 3
     throw new Error "expected at least 3 characters, got #{chr_count}"

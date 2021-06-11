@@ -20,6 +20,7 @@ echo                      = CND.echo.bind CND
 # @_input_default           = 'ncr'
 # @_input_default           = 'xncr'
 #...........................................................................................................
+Multimix                  = require 'multimix006modern'
 @cloak                    = ( require './cloak' ).new()
 @_aggregate               = null
 @_ISL                     = require 'interskiplist'
@@ -30,6 +31,11 @@ echo                      = CND.echo.bind CND
   @_ISL.add R, interval for interval in require '../data/unicode-9.0.0-intervals.json'
   @_aggregate = @_ISL.aggregate.use R
   return R
+types                     = require './types'
+{ isa
+  validate
+  type_of }               = types.export()
+
 
 #===========================================================================================================
 #
@@ -42,7 +48,7 @@ echo                      = CND.echo.bind CND
     fields:
       unicode_isl: ( values ) => @_ISL.copy @unicode_isl
   #.........................................................................................................
-  mix             = ( require 'multimix' ).mix.use reducers
+  mix             = ( require 'multimix006modern' ).mix.use reducers
   R               = mix @, { _input_default: input_default, }
   R._aggregate    = R._ISL.aggregate.use R.unicode_isl
   #.........................................................................................................
@@ -313,7 +319,7 @@ echo                      = CND.echo.bind CND
   * The CID hint may be a number or a text; if it is a number, it is understood as a CID; if it
     is a text, its interpretation is subject to the `settings[ 'input' ]` setting.
 
-  * Options must be a POD with the optional members `input` and `csg`.
+  * Options must be an object with the optional members `input` and `csg`.
 
   * `settings[ 'input' ]` is *only* observed if the CID hint is a text; it governs which kinds of character
     references are recognized in the text. `input` may be one of `plain`, `ncr`, or `xncr`; it defaults to
@@ -328,18 +334,18 @@ echo                      = CND.echo.bind CND
 
   ###
   #.........................................................................................................
-  switch type = CND.type_of settings
+  switch type = type_of settings
     when 'null', 'undefined'
       csg_of_options  = null
       input_mode      = null
-    when 'pod'
+    when 'object'
       csg_of_options  = settings[ 'csg' ]
       input_mode      = settings[ 'input' ]
     else
-      throw new Error "expected a POD as second argument, got a #{type}"
+      throw new Error "expected an object as second argument, got a #{type}"
   #.........................................................................................................
-  switch type = CND.type_of cid_hint
-    when 'number'
+  switch type = type_of cid_hint
+    when 'float'
       csg_of_cid_hint = null
       cid             = cid_hint
     when 'text'
@@ -413,14 +419,14 @@ decG                      = ( /// (?:    ([      0-9]+)      ) /// ).source
 
 # #-----------------------------------------------------------------------------------------------------------
 # @validate_is_csg = ( x ) ->
-#   CND.validate_isa_text x
+#   validate.text x
 #   throw new Error "not a valid CSG: #{rpr x}" unless ( x.match @_csg_matcher )?
 #   throw new Error "unknown CSG: #{rpr x}"     unless @_names_and_ranges_by_csg[ x ]?
 #   return null
 
 #-----------------------------------------------------------------------------------------------------------
 @validate_cid = ( csg, cid ) ->
-  CND.validate_isa_number cid
+  validate.float cid
   throw new Error "expected an integer, got #{cid}" unless cid is Math.floor cid
   throw new Error "expected a positive integer, got #{cid}" unless cid >= 0
   if ( csg is 'u' ) and not ( 0x000000 <= cid <= 0x10ffff )
@@ -428,6 +434,14 @@ decG                      = ( /// (?:    ([      0-9]+)      ) /// ).source
   return null
 
 
+# #===========================================================================================================
+# class @XXX_Ncr extends Multimix
+#   @include  @,  { overwrite: true, } # instance methods
+#   # @include  @,  { overwrite: false, } # instance methods
+#   # @extend   @,  { overwrite: false, } # class methods
 
-
-
+#   #---------------------------------------------------------------------------------------------------------
+#   constructor: ( input_default = 'plain' ) ->
+#     super()
+#     debug '^44443^', ( k for k of @ )
+#     return undefined
