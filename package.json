@@ -1,6 +1,6 @@
 {
   "name": "ncr",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A parser and converter for Unicode Characters, including (standard and extended) Numerical Character References",
   "main": "lib/main.js",
   "scripts": {
